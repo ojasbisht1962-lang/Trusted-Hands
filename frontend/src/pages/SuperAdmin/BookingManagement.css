@@ -1,0 +1,89 @@
+.booking-management {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 30px;
+}
+
+.bookings-table-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.bookings-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.bookings-table thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.bookings-table th {
+  padding: 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.bookings-table td {
+  padding: 16px;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 14px;
+}
+
+.bookings-table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.bookings-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.booking-id {
+  font-family: monospace;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.schedule-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.schedule-cell .date {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.schedule-cell .time {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.price {
+  font-weight: 700;
+  color: #10b981;
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  .booking-management {
+    padding: 15px;
+  }
+
+  .bookings-table-container {
+    overflow-x: auto;
+  }
+
+  .bookings-table {
+    min-width: 900px;
+  }
+}
