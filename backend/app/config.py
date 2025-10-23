@@ -20,9 +20,9 @@ class Settings(BaseSettings):
     gemini_api_key: str
     
     # Server
-    backend_url: str = "http://localhost:8000"
-    frontend_url: str = "http://localhost:3000"
-    allowed_origins: str = "http://localhost:3000,http://127.0.0.1:3000"
+    backend_url: str = "https://trustedhands-backend.onrender.com"
+    frontend_url: str = "https://trusted-hands.vercel.app"
+    allowed_origins: str = "https://trusted-hands.vercel.app,https://trustedhands-backend.onrender.com,http://localhost:3000"
     
     class Config:
         env_file = ".env"

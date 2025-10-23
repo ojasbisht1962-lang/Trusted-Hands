@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { toast } from 'react-toastify';
+import config from '../../config';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import './Dashboard.css';
@@ -33,13 +34,13 @@ export default function Dashboard() {
       
       // Fetch all required data
       const [usersRes, bookingsRes, amcRes] = await Promise.all([
-        fetch('http://localhost:8000/admin/users', {
+        fetch(`${config.API_BASE_URL}/admin/users`, {
           headers: { 'Authorization': `Bearer ${token}` }
         }),
-        fetch('http://localhost:8000/admin/bookings', {
+        fetch(`${config.API_BASE_URL}/admin/bookings`, {
           headers: { 'Authorization': `Bearer ${token}` }
         }),
-        fetch('http://localhost:8000/amc/all', {
+        fetch(`${config.API_BASE_URL}/amc/all`, {
           headers: { 'Authorization': `Bearer ${token}` }
         })
       ]);

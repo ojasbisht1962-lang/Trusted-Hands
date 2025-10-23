@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import config from '../../config';
 import './UserManagement.css';
 
 export default function UserManagement() {
@@ -18,7 +19,7 @@ export default function UserManagement() {
     try {
       setLoading(true);
       const token = localStorage.getItem('access_token');
-      const response = await fetch('http://localhost:8000/admin/users', {
+      const response = await fetch(`${config.API_BASE_URL}/admin/users`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 
@@ -46,7 +47,7 @@ export default function UserManagement() {
   const handleBlockUser = async (userId, isBlocked) => {
     try {
       const token = localStorage.getItem('access_token');
-      const response = await fetch(`http://localhost:8000/admin/users/${userId}/block`, {
+      const response = await fetch(`${config.API_BASE_URL}/admin/users/${userId}/block`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -72,7 +73,7 @@ export default function UserManagement() {
 
     try {
       const token = localStorage.getItem('access_token');
-      const response = await fetch(`http://localhost:8000/admin/users/${userId}`, {
+      const response = await fetch(`${config.API_BASE_URL}/admin/users/${userId}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -98,7 +99,7 @@ export default function UserManagement() {
 
     try {
       const token = localStorage.getItem('access_token');
-      const response = await fetch(`http://localhost:8000/admin/users/${userId}/tasker-type`, {
+      const response = await fetch(`${config.API_BASE_URL}/admin/users/${userId}/tasker-type`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,

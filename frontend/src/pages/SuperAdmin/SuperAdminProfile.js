@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { toast } from 'react-toastify';
+import config from '../../config';
 import './SuperAdminProfile.css';
 
 export default function SuperAdminProfile() {
@@ -35,7 +36,7 @@ export default function SuperAdminProfile() {
 
     try {
       const token = localStorage.getItem('access_token');
-      const response = await fetch('http://localhost:8000/users/profile', {
+      const response = await fetch(`${config.API_BASE_URL}/users/profile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

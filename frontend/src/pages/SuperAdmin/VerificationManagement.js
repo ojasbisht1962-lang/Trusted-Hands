@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import config from '../../config';
 import './VerificationManagement.css';
 
 export default function VerificationManagement() {
@@ -17,7 +18,7 @@ export default function VerificationManagement() {
     try {
       setLoading(true);
       const token = localStorage.getItem('access_token');
-      const response = await fetch('http://localhost:8000/admin/users', {
+      const response = await fetch(`${config.API_BASE_URL}/admin/users`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 
@@ -46,7 +47,7 @@ export default function VerificationManagement() {
   const handleVerification = async (taskerId, status) => {
     try {
       const token = localStorage.getItem('access_token');
-      const response = await fetch(`http://localhost:8000/admin/taskers/${taskerId}/verification`, {
+      const response = await fetch(`${config.API_BASE_URL}/admin/taskers/${taskerId}/verification`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import config from '../../config';
 import './PriceRangeManagement.css';
 
 export default function PriceRangeManagement() {
@@ -45,7 +46,7 @@ export default function PriceRangeManagement() {
     try {
       setLoading(true);
       const token = localStorage.getItem('access_token');
-      const response = await fetch('http://localhost:8000/admin/price-ranges', {
+      const response = await fetch(`${config.API_BASE_URL}/admin/price-ranges`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 
@@ -80,8 +81,8 @@ export default function PriceRangeManagement() {
     try {
       const token = localStorage.getItem('access_token');
       const url = editingRange 
-        ? `http://localhost:8000/admin/price-ranges/${editingRange._id}`
-        : 'http://localhost:8000/admin/price-ranges';
+        ? `${config.API_BASE_URL}/admin/price-ranges/${editingRange._id}`
+        : `${config.API_BASE_URL}/admin/price-ranges`;
       
       const response = await fetch(url, {
         method: editingRange ? 'PUT' : 'POST',
@@ -127,7 +128,7 @@ export default function PriceRangeManagement() {
 
     try {
       const token = localStorage.getItem('access_token');
-      const response = await fetch(`http://localhost:8000/admin/price-ranges/${rangeId}`, {
+      const response = await fetch(`${config.API_BASE_URL}/admin/price-ranges/${rangeId}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
