@@ -11,10 +11,6 @@ export default function TaskerDetails() {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchTaskerDetails();
-  }, [taskerId]);
-
   const fetchTaskerDetails = async () => {
     try {
       setLoading(true);
@@ -33,6 +29,11 @@ export default function TaskerDetails() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchTaskerDetails();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [taskerId]);
 
   const handleChatWithTasker = async () => {
     try {
