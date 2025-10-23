@@ -330,3 +330,4 @@ This is a private project. Contact the team for contribution guidelines.
 ---
 
 **Built with ❤️ using FastAPI and React**
+
