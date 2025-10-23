@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import api from '../../services/api';
@@ -11,7 +11,7 @@ export default function TaskerDetails() {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const fetchTaskerDetails = async () => {
+  const fetchTaskerDetails = useCallback(async () => {
     try {
       setLoading(true);
       
@@ -28,12 +28,11 @@ export default function TaskerDetails() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [taskerId]);
 
   useEffect(() => {
     fetchTaskerDetails();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [taskerId]);
+  }, [fetchTaskerDetails]);
 
   const handleChatWithTasker = async () => {
     try {
