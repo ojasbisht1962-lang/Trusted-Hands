@@ -1,5 +1,5 @@
 from pydantic_settings import BaseSettings
-from typing import List
+from typing import List, Optional
 
 class Settings(BaseSettings):
     # MongoDB
@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     # Google OAuth
     google_client_id: str
     google_client_secret: str
-    google_redirect_uri: str
+    google_redirect_uri: Optional[str] = None  # Optional - used by frontend
     
     # Gemini API
     gemini_api_key: str
