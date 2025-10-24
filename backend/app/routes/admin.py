@@ -473,9 +473,12 @@ async def get_all_bookings(
         booking["booking_time"] = booking.get("time_slot")
         booking["scheduled_time"] = booking.get("time_slot")
         
-        # Ensure status is properly formatted (handle enum values)
-        if "status" in booking:
-            # If status is stored as enum, convert to string value
+        # Ensure status is preserved - MongoDB should store it as string already
+        # But explicitly ensure it's a string value in case it's stored differently
+        if "status" not in booking or booking["status"] is None:
+            booking["status"] = "pending"  # Default fallback
+        else:
+            # Convert to string and ensure lowercase
             booking["status"] = str(booking["status"]).lower()
     
     total = await bookings_collection.count_documents(query)
