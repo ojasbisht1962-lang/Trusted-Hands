@@ -30,8 +30,16 @@ class UpdateBookingStatusRequest(BaseModel):
     status: BookingStatus
 
 class RateBookingRequest(BaseModel):
-    rating: float
+    rating: float = Field(..., ge=1, le=5)  # Rating must be between 1 and 5
     review: Optional[str] = None
+    
+    class Config:
+        json_schema_extra = {
+            "example": {
+                "rating": 4.5,
+                "review": "Great service!"
+            }
+        }
 
 @router.post("/")
 async def create_booking(
@@ -183,6 +191,14 @@ async def get_my_bookings(
         booking["scheduled_time"] = booking.get("time_slot")
         booking["location"] = booking.get("address")
         booking["notes"] = booking.get("additional_notes", "")
+        
+        # Add rating info - for customers, use customer_rating
+        if current_user["role"] == "customer":
+            booking["rating"] = booking.get("customer_rating")
+            booking["review"] = booking.get("customer_review")
+        elif current_user["role"] == "tasker":
+            booking["rating"] = booking.get("tasker_rating")
+            booking["review"] = booking.get("tasker_review")
     
     return bookings
 
@@ -284,82 +300,109 @@ async def rate_booking(
     current_user: dict = Depends(get_current_user)
 ):
     """Rate a completed booking"""
-    bookings_collection = await get_collection("bookings")
-    
     try:
-        booking = await bookings_collection.find_one({"_id": ObjectId(booking_id)})
-    except:
-        raise HTTPException(status_code=400, detail="Invalid booking ID")
-    
-    if not booking:
-        raise HTTPException(status_code=404, detail="Booking not found")
-    
-    if booking["status"] != BookingStatus.COMPLETED.value:
-        raise HTTPException(status_code=400, detail="Can only rate completed bookings")
-    
-    # Check authorization and determine rating field
-    if current_user["role"] == "customer" and booking["customer_id"] == str(current_user["_id"]):
-        rating_field = "customer_rating"
-        review_field = "customer_review"
-        rated_user_id = booking["tasker_id"]
-    elif current_user["role"] == "tasker" and booking["tasker_id"] == str(current_user["_id"]):
-        rating_field = "tasker_rating"
-        review_field = "tasker_review"
-        rated_user_id = booking["customer_id"]
-    else:
-        raise HTTPException(status_code=403, detail="Not authorized to rate this booking")
-    
-    # Update booking with rating
-    update_data = {
-        rating_field: rating_data.rating,
-        review_field: rating_data.review,
-        "updated_at": datetime.utcnow()
-    }
-    
-    await bookings_collection.update_one(
-        {"_id": ObjectId(booking_id)},
-        {"$set": update_data}
-    )
-    
-    # Update user's average rating
-    users_collection = await get_collection("users")
-    
-    # Get all ratings for the user
-    if current_user["role"] == "customer":
-        all_bookings = bookings_collection.find({
-            "tasker_id": rated_user_id,
-            "customer_rating": {"$exists": True}
-        })
-    else:
-        all_bookings = bookings_collection.find({
-            "customer_id": rated_user_id,
-            "tasker_rating": {"$exists": True}
-        })
-    
-    ratings = []
-    async for b in all_bookings:
-        if current_user["role"] == "customer" and b.get("customer_rating"):
-            ratings.append(b["customer_rating"])
-        elif current_user["role"] == "tasker" and b.get("tasker_rating"):
-            ratings.append(b["tasker_rating"])
-    
-    if ratings:
-        avg_rating = sum(ratings) / len(ratings)
-        await users_collection.update_one(
-            {"_id": ObjectId(rated_user_id)},
-            {"$set": {"rating": round(avg_rating, 2)}}
+        logger.info(f"Rating booking {booking_id} by user {current_user['_id']} with rating {rating_data.rating}")
+        
+        bookings_collection = await get_collection("bookings")
+        
+        try:
+            booking = await bookings_collection.find_one({"_id": ObjectId(booking_id)})
+        except Exception as e:
+            logger.error(f"Invalid booking ID: {booking_id}, Error: {e}")
+            raise HTTPException(status_code=400, detail="Invalid booking ID")
+        
+        if not booking:
+            raise HTTPException(status_code=404, detail="Booking not found")
+        
+        if booking["status"] != BookingStatus.COMPLETED.value:
+            raise HTTPException(status_code=400, detail="Can only rate completed bookings")
+        
+        # Check authorization and determine rating field
+        if current_user["role"] == "customer" and booking["customer_id"] == str(current_user["_id"]):
+            # Check if already rated
+            if booking.get("customer_rating"):
+                raise HTTPException(status_code=400, detail="You have already rated this booking")
+            
+            rating_field = "customer_rating"
+            review_field = "customer_review"
+            rated_user_id = booking["tasker_id"]
+        elif current_user["role"] == "tasker" and booking["tasker_id"] == str(current_user["_id"]):
+            # Check if already rated
+            if booking.get("tasker_rating"):
+                raise HTTPException(status_code=400, detail="You have already rated this booking")
+            
+            rating_field = "tasker_rating"
+            review_field = "tasker_review"
+            rated_user_id = booking["customer_id"]
+        else:
+            raise HTTPException(status_code=403, detail="Not authorized to rate this booking")
+        
+        # Update booking with rating
+        update_data = {
+            rating_field: rating_data.rating,
+            review_field: rating_data.review,
+            "updated_at": datetime.utcnow()
+        }
+        
+        await bookings_collection.update_one(
+            {"_id": ObjectId(booking_id)},
+            {"$set": update_data}
         )
-    
-    # Create notification
-    await create_notification(
-        user_id=rated_user_id,
-        notification_type=NotificationType.REVIEW_RECEIVED,
-        title="New Review Received",
-        message=f"You received a {rating_data.rating}-star rating",
-        link=f"/bookings/{booking_id}"
-    )
-    
-    updated_booking = await bookings_collection.find_one({"_id": ObjectId(booking_id)})
-    updated_booking["_id"] = str(updated_booking["_id"])
-    
-    return updated_booking
+        
+        logger.info(f"Updated booking {booking_id} with {rating_field}={rating_data.rating}")
+        
+        # Update user's average rating
+        users_collection = await get_collection("users")
+        
+        # Get all ratings for the user
+        if current_user["role"] == "customer":
+            all_bookings = bookings_collection.find({
+                "tasker_id": rated_user_id,
+                "customer_rating": {"$exists": True}
+            })
+        else:
+            all_bookings = bookings_collection.find({
+                "customer_id": rated_user_id,
+                "tasker_rating": {"$exists": True}
+            })
+        
+        ratings = []
+        async for b in all_bookings:
+            if current_user["role"] == "customer" and b.get("customer_rating"):
+                ratings.append(b["customer_rating"])
+            elif current_user["role"] == "tasker" and b.get("tasker_rating"):
+                ratings.append(b["tasker_rating"])
+        
+        if ratings:
+            avg_rating = sum(ratings) / len(ratings)
+            await users_collection.update_one(
+                {"_id": ObjectId(rated_user_id)},
+                {"$set": {"rating": round(avg_rating, 2)}}
+            )
+            logger.info(f"Updated user {rated_user_id} average rating to {round(avg_rating, 2)}")
+        
+        # Create notification
+        await create_notification(
+            user_id=rated_user_id,
+            notification_type=NotificationType.REVIEW_RECEIVED,
+            title="New Review Received",
+            message=f"You received a {rating_data.rating}-star rating",
+            link=f"/bookings/{booking_id}"
+        )
+        
+        updated_booking = await bookings_collection.find_one({"_id": ObjectId(booking_id)})
+        updated_booking["_id"] = str(updated_booking["_id"])
+        
+        # Add the simplified rating field for frontend
+        if current_user["role"] == "customer":
+            updated_booking["rating"] = updated_booking.get("customer_rating")
+            updated_booking["review"] = updated_booking.get("customer_review")
+        
+        logger.info(f"Rating completed successfully for booking {booking_id}")
+        return updated_booking
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Failed to rate booking {booking_id}: {str(e)}", exc_info=True)
+        raise HTTPException(status_code=500, detail=f"Failed to rate booking: {str(e)}")
