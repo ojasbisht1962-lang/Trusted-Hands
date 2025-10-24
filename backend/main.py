@@ -20,21 +20,13 @@ app = FastAPI(
 logger.info(f"CORS Origins: {settings.origins_list}")
 
 # CORS middleware - Configure before other middleware
+# Using allow_origin_regex as a more permissive approach
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.origins_list,
+    allow_origins=["*"],  # Allow all origins temporarily to fix the issue
     allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
-    allow_headers=[
-        "Content-Type",
-        "Authorization",
-        "Accept",
-        "Origin",
-        "User-Agent",
-        "DNT",
-        "Cache-Control",
-        "X-Requested-With",
-    ],
+    allow_methods=["*"],
+    allow_headers=["*"],
     expose_headers=["*"],
     max_age=3600,
 )

@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     
     # JWT
     secret_key: str
-    algorithm: str = "HS256"
+    jwt_algorithm: str = "HS256"  # Renamed to avoid conflicts
     access_token_expire_minutes: int = 30
     
     # Google OAuth
