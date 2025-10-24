@@ -438,6 +438,9 @@ async def get_all_bookings(
                 "name": customer["name"],
                 "email": customer["email"]
             }
+            # Add flattened fields
+            booking["customer_name"] = customer["name"]
+            booking["customer_email"] = customer["email"]
         
         # Get tasker
         tasker = await users_collection.find_one({"_id": ObjectId(booking["tasker_id"])})
@@ -447,6 +450,9 @@ async def get_all_bookings(
                 "name": tasker["name"],
                 "email": tasker["email"]
             }
+            # Add flattened fields
+            booking["tasker_name"] = tasker["name"]
+            booking["tasker_email"] = tasker["email"]
         
         # Get service
         service = await services_collection.find_one({"_id": ObjectId(booking["service_id"])})
@@ -456,6 +462,16 @@ async def get_all_bookings(
                 "title": service["title"],
                 "category": service["category"]
             }
+            # Add flattened fields
+            booking["service_name"] = service["title"]
+            booking["service_category"] = service["category"]
+        
+        # Map backend fields to frontend expected fields
+        booking["total_price"] = booking.get("total_amount", 0)
+        booking["booking_date"] = booking.get("date")
+        booking["scheduled_date"] = booking.get("date")
+        booking["booking_time"] = booking.get("time_slot")
+        booking["scheduled_time"] = booking.get("time_slot")
     
     total = await bookings_collection.count_documents(query)
     
