@@ -72,19 +72,22 @@ export default function BookingPage() {
       
       const booking = {
         service_id: serviceId,
-        tasker_id: service.tasker_id,
+        tasker_id: service.tasker_id || service.tasker?._id,
         scheduled_date: bookingData.scheduled_date,
         scheduled_time: bookingData.scheduled_time,
         location: bookingData.location,
-        notes: bookingData.notes,
-        total_price: service.price
+        notes: bookingData.notes || '',
+        total_price: parseFloat(service.price)
       };
 
+      console.log('Submitting booking:', booking);
       await bookingService.createBooking(booking);
       
       toast.success('Booking request sent successfully! The tasker will be notified.');
       navigate('/customer/bookings');
     } catch (error) {
+      console.error('Booking error:', error);
+      console.error('Error response:', error.response?.data);
       toast.error(error.response?.data?.detail || 'Failed to create booking');
     } finally {
       setSubmitting(false);
