@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import config from '../../config';
 import './AMCManagement.css';
 
 export default function AMCManagement() {
@@ -24,7 +25,7 @@ export default function AMCManagement() {
       setLoading(true);
       const token = localStorage.getItem('access_token');
       
-      const response = await fetch('http://localhost:8000/amc/all', {
+      const response = await fetch(`${config.API_BASE_URL}/amc/all`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 
@@ -54,7 +55,7 @@ export default function AMCManagement() {
   const handleUpdateStatus = async (amcId, status) => {
     try {
       const token = localStorage.getItem('access_token');
-      const response = await fetch(`http://localhost:8000/amc/${amcId}/status`, {
+      const response = await fetch(`${config.API_BASE_URL}/amc/${amcId}/status`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -82,7 +83,7 @@ export default function AMCManagement() {
 
     try {
       const token = localStorage.getItem('access_token');
-      const response = await fetch(`http://localhost:8000/amc/${selectedAMC._id}/status`, {
+      const response = await fetch(`${config.API_BASE_URL}/amc/${selectedAMC._id}/status`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
