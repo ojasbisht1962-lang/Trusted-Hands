@@ -151,11 +151,17 @@ async def get_my_bookings(
             booking["service_name"] = service["title"]
             booking["service_category"] = service["category"]
         
-        # Map backend fields to frontend expected fields
+        # Map backend fields to frontend expected fields (both old and new naming)
         booking["total_price"] = booking.get("total_amount", 0)
         booking["booking_date"] = booking.get("date")
         booking["booking_time"] = booking.get("time_slot")
         booking["description"] = booking.get("additional_notes", "")
+        
+        # Also add the fields with original naming for compatibility
+        booking["scheduled_date"] = booking.get("date")
+        booking["scheduled_time"] = booking.get("time_slot")
+        booking["location"] = booking.get("address")
+        booking["notes"] = booking.get("additional_notes", "")
     
     return bookings
 
