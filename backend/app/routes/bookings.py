@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException, Depends, Query
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, validator
 from typing import Optional
 from datetime import datetime
 from app.middleware.auth import get_current_user, require_customer, require_tasker
@@ -8,6 +8,9 @@ from app.models.booking import Booking, BookingStatus
 from app.services.notification_service import create_notification
 from app.models.notification import NotificationType
 from bson import ObjectId
+import logging
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/bookings", tags=["Bookings"])
 
@@ -17,8 +20,11 @@ class CreateBookingRequest(BaseModel):
     scheduled_date: str
     scheduled_time: str
     location: str
-    notes: Optional[str] = None
+    notes: Optional[str] = ""
     total_price: float
+    
+    class Config:
+        str_strip_whitespace = True
 
 class UpdateBookingStatusRequest(BaseModel):
     status: BookingStatus
@@ -33,57 +39,72 @@ async def create_booking(
     current_user: dict = Depends(require_customer)
 ):
     """Create a new booking"""
-    services_collection = await get_collection("services")
-    
     try:
-        service = await services_collection.find_one({"_id": ObjectId(booking_data.service_id)})
-    except:
-        raise HTTPException(status_code=400, detail="Invalid service ID")
-    
-    if not service:
-        raise HTTPException(status_code=404, detail="Service not found")
-    
-    if not service.get("is_active", False):
-        raise HTTPException(status_code=400, detail="Service is not available")
-    
-    bookings_collection = await get_collection("bookings")
-    
-    # Parse the date string to datetime
-    try:
-        scheduled_datetime = datetime.fromisoformat(booking_data.scheduled_date.replace('Z', '+00:00'))
-    except:
-        # If it's just a date string, combine with a default time
-        scheduled_datetime = datetime.strptime(booking_data.scheduled_date, "%Y-%m-%d")
-    
-    new_booking = Booking(
-        customer_id=str(current_user["_id"]),
-        tasker_id=booking_data.tasker_id,
-        service_id=booking_data.service_id,
-        address=booking_data.location,
-        time_slot=booking_data.scheduled_time,
-        date=scheduled_datetime,
-        additional_notes=booking_data.notes,
-        total_amount=booking_data.total_price,
-        status=BookingStatus.PENDING,
-        created_at=datetime.utcnow(),
-        updated_at=datetime.utcnow()
-    )
-    
-    result = await bookings_collection.insert_one(new_booking.dict(by_alias=True, exclude={"id"}))
-    
-    # Create notification for tasker
-    await create_notification(
-        user_id=booking_data.tasker_id,
-        notification_type=NotificationType.BOOKING_REQUEST,
-        title="New Booking Request",
-        message=f"You have a new booking request from {current_user['name']}",
-        link=f"/tasker/bookings/{result.inserted_id}"
-    )
-    
-    created_booking = await bookings_collection.find_one({"_id": result.inserted_id})
-    created_booking["_id"] = str(created_booking["_id"])
-    
-    return created_booking
+        logger.info(f"Creating booking with data: {booking_data.dict()}")
+        
+        services_collection = await get_collection("services")
+        
+        try:
+            service = await services_collection.find_one({"_id": ObjectId(booking_data.service_id)})
+        except Exception as e:
+            logger.error(f"Invalid service ID: {booking_data.service_id}, Error: {e}")
+            raise HTTPException(status_code=400, detail="Invalid service ID")
+        
+        if not service:
+            raise HTTPException(status_code=404, detail="Service not found")
+        
+        if not service.get("is_active", False):
+            raise HTTPException(status_code=400, detail="Service is not available")
+        
+        bookings_collection = await get_collection("bookings")
+        
+        # Parse the date string to datetime
+        try:
+            scheduled_datetime = datetime.fromisoformat(booking_data.scheduled_date.replace('Z', '+00:00'))
+        except:
+            # If it's just a date string, combine with a default time
+            try:
+                scheduled_datetime = datetime.strptime(booking_data.scheduled_date, "%Y-%m-%d")
+            except Exception as e:
+                logger.error(f"Failed to parse date: {booking_data.scheduled_date}, Error: {e}")
+                raise HTTPException(status_code=400, detail=f"Invalid date format: {booking_data.scheduled_date}")
+        
+        new_booking = Booking(
+            customer_id=str(current_user["_id"]),
+            tasker_id=booking_data.tasker_id,
+            service_id=booking_data.service_id,
+            address=booking_data.location,
+            time_slot=booking_data.scheduled_time,
+            date=scheduled_datetime,
+            additional_notes=booking_data.notes or "",
+            total_amount=booking_data.total_price,
+            status=BookingStatus.PENDING,
+            created_at=datetime.utcnow(),
+            updated_at=datetime.utcnow()
+        )
+        
+        result = await bookings_collection.insert_one(new_booking.dict(by_alias=True, exclude={"id"}))
+        
+        # Create notification for tasker
+        await create_notification(
+            user_id=booking_data.tasker_id,
+            notification_type=NotificationType.BOOKING_REQUEST,
+            title="New Booking Request",
+            message=f"You have a new booking request from {current_user['name']}",
+            link=f"/tasker/bookings/{result.inserted_id}"
+        )
+        
+        created_booking = await bookings_collection.find_one({"_id": result.inserted_id})
+        created_booking["_id"] = str(created_booking["_id"])
+        
+        logger.info(f"Booking created successfully: {created_booking['_id']}")
+        return created_booking
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Failed to create booking: {str(e)}", exc_info=True)
+        raise HTTPException(status_code=500, detail=f"Failed to create booking: {str(e)}")
 
 @router.get("/my-bookings")
 async def get_my_bookings(
