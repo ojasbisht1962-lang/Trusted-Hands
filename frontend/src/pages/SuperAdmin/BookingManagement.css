@@ -4,6 +4,84 @@
   padding: 30px;
 }
 
+.page-header {
+  max-width: 1400px;
+  margin: 0 auto 30px;
+}
+
+.page-header h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+}
+
+.page-header p {
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.btn-back {
+  background: white;
+  border: 2px solid #667eea;
+  color: #667eea;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.btn-back:hover {
+  background: #667eea;
+  color: white;
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap;
+}
+
+.filter-tabs button {
+  padding: 10px 20px;
+  border: 2px solid #e5e7eb;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  color: #6b7280;
+}
+
+.filter-tabs button:hover {
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.filter-tabs button.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: #667eea;
+  color: white;
+}
+
+.loading {
+  text-align: center;
+  padding: 50px;
+  font-size: 18px;
+  color: #6b7280;
+}
+
+.no-data {
+  text-align: center;
+  padding: 50px;
+  color: #6b7280;
+}
+
 .bookings-table-container {
   max-width: 1400px;
   margin: 0 auto;
@@ -72,6 +150,17 @@
   font-weight: 700;
   color: #10b981;
   font-size: 15px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  white-space: nowrap;
 }
 
 @media (max-width: 768px) {
