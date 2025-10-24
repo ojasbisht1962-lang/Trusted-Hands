@@ -156,7 +156,17 @@ export default function BookingManagement() {
                   {booking.status ? (
                     <span 
                       className="status-badge" 
-                      style={{ backgroundColor: getStatusColor(booking.status) }}
+                      style={{ 
+                        backgroundColor: getStatusColor(booking.status),
+                        display: 'inline-block',
+                        padding: '6px 12px',
+                        borderRadius: '20px',
+                        fontSize: '12px',
+                        fontWeight: '600',
+                        color: 'white',
+                        textAlign: 'center',
+                        whiteSpace: 'nowrap'
+                      }}
                     >
                       {getStatusIcon(booking.status)} {booking.status.replace('_', ' ').toUpperCase()}
                     </span>
