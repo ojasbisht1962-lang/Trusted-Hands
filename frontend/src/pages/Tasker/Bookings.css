@@ -162,63 +162,79 @@
 
 .booking-actions {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
+  padding-top: 16px;
+  border-top: 2px solid #f0f0f0;
+  margin-top: 16px;
 }
 
 .btn-action {
-  padding: 10px 20px;
+  padding: 12px 24px;
   border: none;
-  border-radius: 10px;
-  font-weight: 600;
+  border-radius: 12px;
+  font-weight: 700;
   font-size: 14px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 150px;
+  justify-content: center;
 }
 
 .btn-action:hover {
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-action:active {
+  transform: translateY(0);
 }
 
 .btn-action.accept {
-  background: #4caf50;
+  background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
 }
 
 .btn-action.accept:hover {
-  background: #45a049;
+  background: linear-gradient(135deg, #45a049 0%, #388e3c 100%);
 }
 
 .btn-action.reject {
-  background: #f44336;
+  background: linear-gradient(135deg, #f44336 0%, #da190b 100%);
 }
 
 .btn-action.reject:hover {
-  background: #da190b;
+  background: linear-gradient(135deg, #da190b 0%, #c62828 100%);
 }
 
 .btn-action.start {
-  background: #ff9800;
+  background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
 }
 
 .btn-action.start:hover {
-  background: #f57c00;
+  background: linear-gradient(135deg, #f57c00 0%, #e65100 100%);
 }
 
 .btn-action.complete {
-  background: #4caf50;
+  background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+  font-size: 15px;
 }
 
 .btn-action.complete:hover {
-  background: #45a049;
+  background: linear-gradient(135deg, #45a049 0%, #388e3c 100%);
 }
 
 .btn-action.details {
-  background: #2196f3;
+  background: linear-gradient(135deg, #2196f3 0%, #0b7dda 100%);
 }
 
 .btn-action.details:hover {
-  background: #0b7dda;
+  background: linear-gradient(135deg, #0b7dda 0%, #01579b 100%);
 }
 
 /* Empty State */
@@ -421,6 +437,7 @@
 
   .booking-title-row {
     flex-direction: column;
+    align-items: flex-start;
   }
 
   .booking-details-grid {
@@ -430,10 +447,14 @@
 
   .booking-actions {
     flex-direction: column;
+    gap: 10px;
   }
 
   .btn-action {
     width: 100%;
+    min-width: auto;
+    padding: 14px 20px;
+    font-size: 15px;
   }
 
   .modal-content {
@@ -449,6 +470,7 @@
   .detail-row {
     flex-direction: column;
     gap: 6px;
+    align-items: flex-start;
   }
 
   .detail-row .value {
