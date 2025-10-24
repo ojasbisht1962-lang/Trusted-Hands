@@ -3,6 +3,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.config import settings
 from app.database import connect_to_mongo, close_mongo_connection
 from app.routes import auth, users, services, bookings, chat, notifications, amc, admin
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # Create FastAPI app
 app = FastAPI(
@@ -11,13 +16,25 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# CORS middleware
+# Log CORS configuration
+logger.info(f"CORS Origins: {settings.origins_list}")
+
+# CORS middleware - Configure before other middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.origins_list,
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
-    allow_headers=["*"],
+    allow_headers=[
+        "Content-Type",
+        "Authorization",
+        "Accept",
+        "Origin",
+        "User-Agent",
+        "DNT",
+        "Cache-Control",
+        "X-Requested-With",
+    ],
     expose_headers=["*"],
     max_age=3600,
 )
@@ -49,13 +66,18 @@ async def root():
     return {
         "message": "Welcome to TrustedHands API",
         "version": "1.0.0",
-        "docs": "/docs"
+        "docs": "/docs",
+        "cors_origins": settings.origins_list
     }
 
 # Health check endpoint
 @app.get("/health")
 async def health_check():
-    return {"status": "healthy"}
+    return {
+        "status": "healthy",
+        "cors_configured": True,
+        "allowed_origins": settings.origins_list
+    }
 
 if __name__ == "__main__":
     import uvicorn

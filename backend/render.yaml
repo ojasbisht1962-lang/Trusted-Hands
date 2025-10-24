@@ -19,4 +19,8 @@ services:
       - key: GEMINI_API_KEY
         sync: false
       - key: ALLOWED_ORIGINS
-        value: https://your-frontend-url.vercel.app,https://your-frontend-url.netlify.app
+        value: https://trusted-hands.vercel.app,https://trustedhands-backend.onrender.com,http://localhost:3000
+      - key: BACKEND_URL
+        value: https://trustedhands-backend.onrender.com
+      - key: FRONTEND_URL
+        value: https://trusted-hands.vercel.app
