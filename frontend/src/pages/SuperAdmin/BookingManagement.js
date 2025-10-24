@@ -34,6 +34,13 @@ export default function BookingManagement() {
       
       const data = await response.json();
       const bookingsArray = Array.isArray(data) ? data : (data.bookings || []);
+      
+      // Debug: Log the first booking to see what fields are present
+      if (bookingsArray.length > 0) {
+        console.log('First booking data:', bookingsArray[0]);
+        console.log('Status field:', bookingsArray[0].status);
+      }
+      
       setBookings(bookingsArray);
     } catch (error) {
       console.error('Error fetching bookings:', error);
