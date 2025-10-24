@@ -472,6 +472,11 @@ async def get_all_bookings(
         booking["scheduled_date"] = booking.get("date")
         booking["booking_time"] = booking.get("time_slot")
         booking["scheduled_time"] = booking.get("time_slot")
+        
+        # Ensure status is properly formatted (handle enum values)
+        if "status" in booking:
+            # If status is stored as enum, convert to string value
+            booking["status"] = str(booking["status"]).lower()
     
     total = await bookings_collection.count_documents(query)
     
