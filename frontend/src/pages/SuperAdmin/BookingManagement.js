@@ -153,12 +153,16 @@ export default function BookingManagement() {
                   <span className="price">₹{booking.total_price?.toLocaleString() || 0}</span>
                 </td>
                 <td>
-                  <span 
-                    className="status-badge" 
-                    style={{ backgroundColor: getStatusColor(booking.status) }}
-                  >
-                    {getStatusIcon(booking.status)} {booking.status?.replace('_', ' ').toUpperCase()}
-                  </span>
+                  {booking.status ? (
+                    <span 
+                      className="status-badge" 
+                      style={{ backgroundColor: getStatusColor(booking.status) }}
+                    >
+                      {getStatusIcon(booking.status)} {booking.status.replace('_', ' ').toUpperCase()}
+                    </span>
+                  ) : (
+                    <span style={{ color: '#6b7280' }}>N/A</span>
+                  )}
                 </td>
                 <td>{new Date(booking.created_at).toLocaleDateString()}</td>
               </tr>
