@@ -122,6 +122,9 @@ async def get_my_bookings(
                 "email": customer["email"],
                 "phone": customer.get("phone")
             }
+            # Add flattened fields for frontend compatibility
+            booking["customer_name"] = customer["name"]
+            booking["customer_phone"] = customer.get("phone")
         
         # Get tasker details
         tasker = await users_collection.find_one({"_id": ObjectId(booking["tasker_id"])})
@@ -132,6 +135,9 @@ async def get_my_bookings(
                 "phone": tasker.get("phone"),
                 "rating": tasker.get("rating", 0.0)
             }
+            # Add flattened fields for frontend compatibility
+            booking["tasker_name"] = tasker["name"]
+            booking["tasker_phone"] = tasker.get("phone")
         
         # Get service details
         service = await services_collection.find_one({"_id": ObjectId(booking["service_id"])})
@@ -141,6 +147,15 @@ async def get_my_bookings(
                 "title": service["title"],
                 "category": service["category"]
             }
+            # Add flattened fields for frontend compatibility
+            booking["service_name"] = service["title"]
+            booking["service_category"] = service["category"]
+        
+        # Map backend fields to frontend expected fields
+        booking["total_price"] = booking.get("total_amount", 0)
+        booking["booking_date"] = booking.get("date")
+        booking["booking_time"] = booking.get("time_slot")
+        booking["description"] = booking.get("additional_notes", "")
     
     return bookings
 
