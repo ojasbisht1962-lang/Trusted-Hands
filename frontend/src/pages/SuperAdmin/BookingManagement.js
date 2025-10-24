@@ -153,26 +153,28 @@ export default function BookingManagement() {
                   <span className="price">₹{booking.total_price?.toLocaleString() || 0}</span>
                 </td>
                 <td>
-                  {booking.status ? (
-                    <span 
-                      className="status-badge" 
-                      style={{ 
-                        backgroundColor: getStatusColor(booking.status),
-                        display: 'inline-block',
-                        padding: '6px 12px',
-                        borderRadius: '20px',
-                        fontSize: '12px',
-                        fontWeight: '600',
-                        color: 'white',
-                        textAlign: 'center',
-                        whiteSpace: 'nowrap'
-                      }}
-                    >
-                      {getStatusIcon(booking.status)} {booking.status.replace('_', ' ').toUpperCase()}
-                    </span>
-                  ) : (
-                    <span style={{ color: '#6b7280' }}>N/A</span>
-                  )}
+                  <div style={{ border: '2px solid red', padding: '5px', backgroundColor: 'yellow' }}>
+                    {booking.status ? (
+                      <span 
+                        className="status-badge" 
+                        style={{ 
+                          backgroundColor: getStatusColor(booking.status),
+                          display: 'inline-block',
+                          padding: '6px 12px',
+                          borderRadius: '20px',
+                          fontSize: '12px',
+                          fontWeight: '600',
+                          color: 'white',
+                          textAlign: 'center',
+                          whiteSpace: 'nowrap'
+                        }}
+                      >
+                        {getStatusIcon(booking.status)} {booking.status.replace('_', ' ').toUpperCase()}
+                      </span>
+                    ) : (
+                      <span style={{ color: 'red', fontWeight: 'bold' }}>NO STATUS</span>
+                    )}
+                  </div>
                 </td>
                 <td>{new Date(booking.created_at).toLocaleDateString()}</td>
               </tr>
