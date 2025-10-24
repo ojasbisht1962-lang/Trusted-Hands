@@ -13,10 +13,12 @@ router = APIRouter(prefix="/bookings", tags=["Bookings"])
 
 class CreateBookingRequest(BaseModel):
     service_id: str
-    address: str
-    time_slot: str
-    date: datetime
-    additional_notes: Optional[str] = None
+    tasker_id: str
+    scheduled_date: str
+    scheduled_time: str
+    location: str
+    notes: Optional[str] = None
+    total_price: float
 
 class UpdateBookingStatusRequest(BaseModel):
     status: BookingStatus
@@ -46,15 +48,22 @@ async def create_booking(
     
     bookings_collection = await get_collection("bookings")
     
+    # Parse the date string to datetime
+    try:
+        scheduled_datetime = datetime.fromisoformat(booking_data.scheduled_date.replace('Z', '+00:00'))
+    except:
+        # If it's just a date string, combine with a default time
+        scheduled_datetime = datetime.strptime(booking_data.scheduled_date, "%Y-%m-%d")
+    
     new_booking = Booking(
         customer_id=str(current_user["_id"]),
-        tasker_id=service["tasker_id"],
+        tasker_id=booking_data.tasker_id,
         service_id=booking_data.service_id,
-        address=booking_data.address,
-        time_slot=booking_data.time_slot,
-        date=booking_data.date,
-        additional_notes=booking_data.additional_notes,
-        total_amount=service["price"],
+        address=booking_data.location,
+        time_slot=booking_data.scheduled_time,
+        date=scheduled_datetime,
+        additional_notes=booking_data.notes,
+        total_amount=booking_data.total_price,
         status=BookingStatus.PENDING,
         created_at=datetime.utcnow(),
         updated_at=datetime.utcnow()
@@ -64,7 +73,7 @@ async def create_booking(
     
     # Create notification for tasker
     await create_notification(
-        user_id=service["tasker_id"],
+        user_id=booking_data.tasker_id,
         notification_type=NotificationType.BOOKING_REQUEST,
         title="New Booking Request",
         message=f"You have a new booking request from {current_user['name']}",
