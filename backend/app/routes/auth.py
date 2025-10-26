@@ -69,8 +69,13 @@ async def google_login(request: GoogleLoginRequest):
         else:
             # Initialize roles array if it doesn't exist (for backward compatibility)
             if "roles" not in existing_user or not existing_user.get("roles"):
-                # First time migration: set roles to array containing current role
-                initial_roles = [current_role] if current_role else []
+                # First time migration: create roles array with both old role and new role
+                initial_roles = []
+                if current_role:
+                    initial_roles.append(current_role)
+                if requested_role not in initial_roles:
+                    initial_roles.append(requested_role)
+                
                 update_operations = {
                     "$set": {
                         "updated_at": datetime.utcnow(),
@@ -78,8 +83,7 @@ async def google_login(request: GoogleLoginRequest):
                         "profile_picture": google_user_info.get("profile_picture", ""),
                         "role": requested_role,
                         "roles": initial_roles
-                    },
-                    "$addToSet": {"roles": requested_role}
+                    }
                 }
             else:
                 # Normal flow: add new role using $addToSet (prevents duplicates)

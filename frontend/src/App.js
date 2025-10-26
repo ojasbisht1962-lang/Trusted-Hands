@@ -1,11 +1,12 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import config from './config';
 import './styles/App.css';
+import LoadingScreen from './components/LoadingScreen';
 
 // Common Pages
 import Login from './pages/Common/Login';
@@ -43,6 +44,24 @@ import PriceRangeManagement from './pages/SuperAdmin/PriceRangeManagement';
 import AMCManagement from './pages/SuperAdmin/AMCManagement';
 import BookingManagement from './pages/SuperAdmin/BookingManagement';
 
+// Page Transition Wrapper
+const PageTransition = ({ children }) => {
+  const location = useLocation();
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  useEffect(() => {
+    setIsTransitioning(true);
+    const timer = setTimeout(() => setIsTransitioning(false), 300);
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
+
+  return (
+    <div className={`page-transition ${isTransitioning ? 'page-transition-enter' : ''}`}>
+      {children}
+    </div>
+  );
+};
+
 // Protected Route Component
 const ProtectedRoute = ({ children, allowedRoles }) => {
   const { user, isAuthenticated, loading } = useAuth();
@@ -55,16 +74,7 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
   });
 
   if (loading) {
-    return (
-      <div style={{ 
-        display: 'flex', 
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        height: '100vh' 
-      }}>
-        <div className="spinner"></div>
-      </div>
-    );
+    return <LoadingScreen message="🔐 Authenticating..." />;
   }
 
   if (!isAuthenticated) {
@@ -77,7 +87,7 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
     return <Navigate to="/" replace />;
   }
 
-  return children;
+  return <PageTransition>{children}</PageTransition>;
 };
 
 function AppRoutes() {

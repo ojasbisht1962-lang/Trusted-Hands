@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { authService } from '../services/apiService';
+import LoadingScreen from '../components/LoadingScreen';
 
 const AuthContext = createContext(null);
 
@@ -19,7 +20,9 @@ export const AuthProvider = ({ children }) => {
       console.log('AuthProvider - Loaded user:', storedUser);
       console.log('AuthProvider - Profile picture:', storedUser?.profile_picture);
     }
-    setLoading(false);
+    
+    // Simulate a brief loading period for smooth transition
+    setTimeout(() => setLoading(false), 800);
   }, []);
 
   const login = (token, userData) => {
@@ -71,6 +74,10 @@ export const AuthProvider = ({ children }) => {
     hasMultipleRoles: user?.roles?.length > 1,
     availableRoles: user?.roles || [],
   };
+
+  if (loading) {
+    return <LoadingScreen message="🚀 Initializing TrustedHands..." />;
+  }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

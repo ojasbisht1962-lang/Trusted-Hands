@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { serviceService } from '../../services/apiService';
 import { toast } from 'react-toastify';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 import './Services.css';
 
 export default function Services() {
@@ -142,11 +144,13 @@ export default function Services() {
   });
 
   return (
-    <div className="services-browse-container">
-      <div className="services-header">
-        <h1>🔍 Browse Services</h1>
-        <p>Find the perfect service for your needs</p>
-      </div>
+    <>
+      <Navbar />
+      <div className="services-browse-container">
+        <div className="services-header">
+          <h1>🔍 Browse Services</h1>
+          <p>Find the perfect service for your needs</p>
+        </div>
 
       {/* Filters Section */}
       <div className="filters-section">
@@ -308,6 +312,8 @@ export default function Services() {
           ))}
         </div>
       )}
-    </div>
+      </div>
+      <Footer />
+    </>
   );
 }
