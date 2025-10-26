@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import config from '../../config';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 import './VerificationManagement.css';
 
 export default function VerificationManagement() {
@@ -82,16 +84,22 @@ export default function VerificationManagement() {
       not_applied: '#6b7280'
     };
     return colors[status] || '#6b7280';
-  };
-
   if (loading) {
     return (
-      <div className="verification-management">
-        <div className="loading">Loading taskers...</div>
-      </div>
+      <>
+        <Navbar />
+        <div className="verification-management">
+          <div className="loading">Loading taskers...</div>
+        </div>
+        <Footer />
+      </>
     );
   }
 
+  return (
+    <>
+      <Navbar />
+      <div className="verification-management">
   return (
     <div className="verification-management">
       <div className="page-header">
@@ -189,10 +197,12 @@ export default function VerificationManagement() {
             )}
           </div>
         ))}
-      </div>
-
-      {filteredTaskers.length === 0 && (
-        <div className="no-data">
+      )}
+    </div>
+    <Footer />
+    </>
+  );
+}       <div className="no-data">
           <p>No taskers found</p>
         </div>
       )}

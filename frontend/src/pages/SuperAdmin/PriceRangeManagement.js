@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import config from '../../config';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 import './PriceRangeManagement.css';
 
 export default function PriceRangeManagement() {
@@ -158,16 +160,22 @@ export default function PriceRangeManagement() {
     if (category) return category.label;
     // Fallback: capitalize and format the raw value
     return value ? value.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : 'Unknown';
-  };
-
   if (loading) {
     return (
-      <div className="price-management">
-        <div className="loading">Loading price ranges...</div>
-      </div>
+      <>
+        <Navbar />
+        <div className="price-management">
+          <div className="loading">Loading price ranges...</div>
+        </div>
+        <Footer />
+      </>
     );
   }
 
+  return (
+    <>
+      <Navbar />
+      <div className="price-management">
   return (
     <div className="price-management">
       <div className="page-header">
@@ -292,10 +300,12 @@ export default function PriceRangeManagement() {
                   Cancel
                 </button>
                 <button type="submit" className="btn-submit">
-                  {editingRange ? 'Update' : 'Add'} Price Range
-                </button>
-              </div>
-            </form>
+      )}
+    </div>
+    <Footer />
+    </>
+  );
+}           </form>
           </div>
         </div>
       )}

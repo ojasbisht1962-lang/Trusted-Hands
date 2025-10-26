@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import config from '../../config';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 import './UserManagement.css';
 
 export default function UserManagement() {
@@ -187,25 +189,31 @@ export default function UserManagement() {
         ))}
       </div>
     );
-  };
-
   if (loading) {
     return (
-      <div className="user-management">
-        <div className="loading">Loading users...</div>
-      </div>
+      <>
+        <Navbar />
+        <div className="user-management">
+          <div className="loading">Loading users...</div>
+        </div>
+        <Footer />
+      </>
     );
   }
 
   return (
-    <div className="user-management">
-      <div className="page-header">
-        <button className="btn-back" onClick={() => navigate('/admin/dashboard')}>
-          ← Back to Dashboard
-        </button>
-        <h1>👥 User Management</h1>
-        <p>Manage all users in the system</p>
-      </div>
+    <>
+      <Navbar />
+      <div className="user-management">
+        <div className="page-header">
+          <button className="btn-back" onClick={() => navigate('/admin/dashboard')}>
+            ← Back to Dashboard
+          </button>
+          <h1>👥 User Management</h1>
+          <p>Manage all users in the system</p>
+        </div>
+
+        <div className="controls">
 
       <div className="controls">
         <div className="filter-tabs">
@@ -323,11 +331,13 @@ export default function UserManagement() {
               </tr>
             ))}
           </tbody>
-        </table>
-
-        {filteredUsers.length === 0 && (
-          <div className="no-data">
-            <p>No users found</p>
+        )}
+      </div>
+    </div>
+    <Footer />
+    </>
+  );
+}           <p>No users found</p>
           </div>
         )}
       </div>

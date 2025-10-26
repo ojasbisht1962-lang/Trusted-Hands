@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import config from '../../config';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 import './AMCManagement.css';
 
 export default function AMCManagement() {
@@ -132,16 +134,22 @@ export default function AMCManagement() {
       cancelled: '#9ca3af'
     };
     return colors[status] || '#6b7280';
-  };
-
   if (loading) {
     return (
-      <div className="amc-management">
-        <div className="loading">Loading AMC requests...</div>
-      </div>
+      <>
+        <Navbar />
+        <div className="amc-management">
+          <div className="loading">Loading AMC requests...</div>
+        </div>
+        <Footer />
+      </>
     );
   }
 
+  return (
+    <>
+      <Navbar />
+      <div className="amc-management">
   return (
     <div className="amc-management">
       <div className="page-header">
@@ -310,10 +318,12 @@ export default function AMCManagement() {
               <button className="btn-cancel" onClick={() => setShowModal(false)}>
                 Cancel
               </button>
-              <button className="btn-submit" onClick={handleSendQuote}>
-                Send Quote
-              </button>
-            </div>
+      )}
+    </div>
+    <Footer />
+    </>
+  );
+}           </div>
           </div>
         </div>
       )}

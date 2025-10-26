@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { serviceService } from '../../services/apiService';
 import { toast } from 'react-toastify';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 import './MyServices.css';
 
 export default function MyServices() {
@@ -145,14 +147,20 @@ export default function MyServices() {
 
   if (loading) {
     return (
-      <div className="services-container">
-        <div className="loading">Loading services...</div>
-      </div>
+      <>
+        <Navbar />
+        <div className="my-services-container">
+          <div className="loading">Loading services...</div>
+        </div>
+        <Footer />
+      </>
     );
   }
 
   return (
-    <div className="services-container">
+    <>
+      <Navbar />
+      <div className="my-services-container">
       <div className="services-header">
         <div>
           <h1>🛠️ My Services</h1>
@@ -338,5 +346,7 @@ export default function MyServices() {
         </div>
       )}
     </div>
+    <Footer />
+    </>
   );
 }

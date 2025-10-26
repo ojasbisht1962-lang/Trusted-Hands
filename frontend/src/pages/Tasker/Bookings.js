@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { bookingService } from '../../services/apiService';
 import { toast } from 'react-toastify';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 import './Bookings.css';
 
 export default function Bookings() {
@@ -79,18 +81,24 @@ export default function Bookings() {
 
   if (loading) {
     return (
-      <div className="bookings-container">
-        <div className="loading">Loading bookings...</div>
-      </div>
+      <>
+        <Navbar />
+        <div className="bookings-container">
+          <div className="loading">Loading bookings...</div>
+        </div>
+        <Footer />
+      </>
     );
   }
 
   return (
-    <div className="bookings-container">
-      <div className="bookings-header">
-        <div>
-          <h1>📋 My Bookings</h1>
-          <p>Manage all your service bookings</p>
+    <>
+      <Navbar />
+      <div className="bookings-container">
+        <div className="bookings-header">
+          <div>
+            <h1>📋 My Bookings</h1>
+            <p>Manage all your service bookings</p>
         </div>
       </div>
 
@@ -306,12 +314,14 @@ export default function Bookings() {
                   <span className="label">Booked on:</span>
                   <span className="value">{new Date(selectedBooking.created_at).toLocaleString()}</span>
                 </div>
-                <div className="detail-row">
-                  <span className="label">Last updated:</span>
-                  <span className="value">{new Date(selectedBooking.updated_at).toLocaleString()}</span>
-                </div>
-              </div>
-            </div>
+          </div>
+        </div>
+      )}
+    </div>
+    <Footer />
+    </>
+  );
+}           </div>
           </div>
         </div>
       )}

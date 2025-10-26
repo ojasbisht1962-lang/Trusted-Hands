@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { serviceService } from '../../services/apiService';
 import { toast } from 'react-toastify';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 import './ServiceDetails.css';
 
 export default function ServiceDetails() {
@@ -56,32 +58,42 @@ export default function ServiceDetails() {
       other: '🔧'
     };
     return icons[categoryValue] || '🏠';
-  };
-
   if (loading) {
     return (
-      <div className="service-details-container">
-        <div className="loading-state">
-          <div className="spinner"></div>
-          <p>Loading service details...</p>
+      <>
+        <Navbar />
+        <div className="service-details-container">
+          <div className="loading-state">
+            <div className="spinner"></div>
+            <p>Loading service details...</p>
+          </div>
         </div>
-      </div>
+        <Footer />
+      </>
     );
   }
 
   if (!service) {
     return (
-      <div className="service-details-container">
-        <div className="empty-state">
-          <h2>Service Not Found</h2>
-          <button className="btn-primary" onClick={() => navigate('/customer/services')}>
-            Back to Services
-          </button>
+      <>
+        <Navbar />
+        <div className="service-details-container">
+          <div className="empty-state">
+            <h2>Service Not Found</h2>
+            <button className="btn-primary" onClick={() => navigate('/customer/services')}>
+              Back to Services
+            </button>
+          </div>
         </div>
-      </div>
+        <Footer />
+      </>
     );
   }
 
+  return (
+    <>
+      <Navbar />
+      <div className="service-details-container">
   return (
     <div className="service-details-container">
       <button className="btn-back" onClick={() => navigate('/customer/services')}>
@@ -161,14 +173,16 @@ export default function ServiceDetails() {
                   <div className="stat-item">
                     <span className="stat-icon">💼</span>
                     <span className="stat-value">{service.tasker?.total_jobs || 0}</span>
-                    <span className="stat-label">Jobs</span>
-                  </div>
-                </div>
-                {service.tasker?.bio && (
-                  <p className="tasker-bio">{service.tasker.bio}</p>
-                )}
-              </div>
-            </div>
+              Book This Service
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <Footer />
+    </>
+  );
+}           </div>
 
             <button className="btn-book-now-large" onClick={handleBookNow}>
               Book This Service

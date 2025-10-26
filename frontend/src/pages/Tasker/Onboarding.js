@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { userService } from '../../services/apiService';
 import { toast } from 'react-toastify';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 import './Onboarding.css';
 
 const LANGUAGES = [
@@ -388,7 +390,9 @@ export default function Onboarding() {
   );
 
   return (
-    <div className="onboarding-container">
+    <>
+      <Navbar />
+      <div className="onboarding-container">
       <div className="onboarding-card">
         <div className="onboarding-header">
           <h1>Complete Your Tasker Profile</h1>
@@ -441,5 +445,7 @@ export default function Onboarding() {
         </form>
       </div>
     </div>
+    <Footer />
+    </>
   );
 }

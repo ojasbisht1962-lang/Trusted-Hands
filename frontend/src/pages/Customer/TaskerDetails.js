@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import api from '../../services/api';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 import './TaskerDetails.css';
 
 export default function TaskerDetails() {
@@ -61,27 +63,37 @@ export default function TaskerDetails() {
 
   if (loading) {
     return (
-      <div className="tasker-details-container">
-        <div className="loading">Loading tasker details...</div>
-      </div>
+      <>
+        <Navbar />
+        <div className="tasker-details-container">
+          <div className="loading">Loading tasker details...</div>
+        </div>
+        <Footer />
+      </>
     );
   }
 
   if (!tasker) {
     return (
-      <div className="tasker-details-container">
-        <div className="error-state">
-          <h2>Tasker Not Found</h2>
-          <button onClick={() => navigate('/customer/taskers')}>
-            Back to Taskers
-          </button>
+      <>
+        <Navbar />
+        <div className="tasker-details-container">
+          <div className="error-state">
+            <h2>Tasker Not Found</h2>
+            <button onClick={() => navigate('/customer/taskers')}>
+              Back to Taskers
+            </button>
+          </div>
         </div>
-      </div>
+        <Footer />
+      </>
     );
   }
 
   return (
-    <div className="tasker-details-container">
+    <>
+      <Navbar />
+      <div className="tasker-details-container">
       {/* Header */}
       <div className="tasker-header">
         <button className="btn-back" onClick={() => navigate(-1)}>
@@ -242,5 +254,7 @@ export default function TaskerDetails() {
         )}
       </div>
     </div>
+    <Footer />
+    </>
   );
 }

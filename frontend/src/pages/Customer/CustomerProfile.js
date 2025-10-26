@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { toast } from 'react-toastify';
 import config from '../../config';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 import './CustomerProfile.css';
 
 export default function CustomerProfile() {
@@ -73,8 +75,10 @@ export default function CustomerProfile() {
     } finally {
       setLoading(false);
     }
-  };
-
+  return (
+    <>
+      <Navbar />
+      <div className="customer-profile">
   return (
     <div className="customer-profile">
       <div className="profile-header">
@@ -202,11 +206,13 @@ export default function CustomerProfile() {
                   <p className="stat-label">Account Type</p>
                   <p className="stat-value">Google Account</p>
                 </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
+    <Footer />
+    </>
+  );
+}   </div>
   );
 }

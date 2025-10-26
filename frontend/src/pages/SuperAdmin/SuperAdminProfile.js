@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { toast } from 'react-toastify';
 import config from '../../config';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 import './SuperAdminProfile.css';
 
 export default function SuperAdminProfile() {
@@ -68,10 +70,12 @@ export default function SuperAdminProfile() {
       console.error('Error updating profile:', error);
       toast.error(error.message || 'Failed to update profile');
     } finally {
-      setLoading(false);
-    }
   };
 
+  return (
+    <>
+      <Navbar />
+      <div className="superadmin-profile">
   return (
     <div className="superadmin-profile">
       <div className="profile-header">
@@ -188,8 +192,10 @@ export default function SuperAdminProfile() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
     </div>
+    <Footer />
+    </>
+  );
+}   </div>
   );
 }

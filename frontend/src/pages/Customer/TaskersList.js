@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { userService } from '../../services/apiService';
 import { toast } from 'react-toastify';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 import './TaskersList.css';
 
 export default function TaskersList() {
@@ -58,21 +60,27 @@ export default function TaskersList() {
 
   if (loading) {
     return (
-      <div className="taskers-list-container">
-        <div className="loading">Loading taskers...</div>
-      </div>
+      <>
+        <Navbar />
+        <div className="taskers-list-container">
+          <div className="loading">Loading taskers...</div>
+        </div>
+        <Footer />
+      </>
     );
   }
 
   return (
-    <div className="taskers-list-container">
-      <div className="taskers-header">
-        <h1>👥 Find Taskers</h1>
-        <p>Browse verified professionals and helpers</p>
-      </div>
+    <>
+      <Navbar />
+      <div className="taskers-list-container">
+        <div className="taskers-header">
+          <h1>👥 Find Taskers</h1>
+          <p>Browse verified professionals and helpers</p>
+        </div>
 
-      {/* Filters */}
-      <div className="filters-section">
+        {/* Filters */}
+        <div className="filters-section">
         <div className="filters-row">
           <div className="filter-group">
             <label>👤 Tasker Type</label>
@@ -182,5 +190,7 @@ export default function TaskersList() {
         </div>
       )}
     </div>
+    <Footer />
+    </>
   );
 }

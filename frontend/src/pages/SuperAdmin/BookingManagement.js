@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import config from '../../config';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 import './BookingManagement.css';
 
 export default function BookingManagement() {
@@ -75,16 +77,22 @@ export default function BookingManagement() {
       cancelled: '❌'
     };
     return icons[status] || '📋';
-  };
-
   if (loading) {
     return (
-      <div className="booking-management">
-        <div className="loading">Loading bookings...</div>
-      </div>
+      <>
+        <Navbar />
+        <div className="booking-management">
+          <div className="loading">Loading bookings...</div>
+        </div>
+        <Footer />
+      </>
     );
   }
 
+  return (
+    <>
+      <Navbar />
+      <div className="booking-management">
   return (
     <div className="booking-management">
       <div className="page-header">
@@ -169,11 +177,13 @@ export default function BookingManagement() {
               </tr>
             ))}
           </tbody>
-        </table>
-
-        {filteredBookings.length === 0 && (
-          <div className="no-data">
-            <p>No bookings found</p>
+        )}
+      </div>
+    </div>
+    <Footer />
+    </>
+  );
+}           <p>No bookings found</p>
           </div>
         )}
       </div>
