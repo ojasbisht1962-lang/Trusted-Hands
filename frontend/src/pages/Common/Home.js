@@ -47,8 +47,6 @@ const Home = () => {
                 <Link to="/login" className="btn btn-nav">Login</Link>
               </>
             )}
-          </div>
-        </div>
       </nav>
 
       {/* Hero Section */}
@@ -164,6 +162,7 @@ const Home = () => {
               <h4>Contact</h4>
               <p>Email: support@trustedhands.com</p>
               <p>Phone: +1 (555) 123-4567</p>
+              <p>Address: Punjab Engineering College, Sector-12, Chandigarh</p>
             </div>
           </div>
           <div className="footer-bottom">
