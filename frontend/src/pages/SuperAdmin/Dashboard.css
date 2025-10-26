@@ -136,7 +136,7 @@
 
 .quick-actions-table thead {
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: white;
 }
 
 .quick-actions-table thead th {
@@ -146,6 +146,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  color: white;
 }
 
 .quick-actions-table tbody tr {

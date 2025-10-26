@@ -98,7 +98,7 @@
 
 .bookings-table thead {
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: white;
 }
 
 .bookings-table th {
@@ -108,6 +108,7 @@
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  color: white;
 }
 
 .bookings-table td {
