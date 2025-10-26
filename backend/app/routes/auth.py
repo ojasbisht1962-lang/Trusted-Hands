@@ -51,35 +51,52 @@ async def google_login(request: GoogleLoginRequest):
                 detail="Your account has been blocked. Please contact support."
             )
         
-        # Update profile data
-        update_data = {
-            "updated_at": datetime.utcnow(),
-            "name": google_user_info["name"],
-            "profile_picture": google_user_info.get("profile_picture", "")
-        }
-        
         current_role = existing_user.get("role")
         requested_role = request.role.value
-        current_roles = existing_user.get("roles", [current_role] if current_role else [])
         
         # Handle role management
         if current_role == UserRole.SUPERADMIN.value:
             # SuperAdmin role is locked - cannot change or add other roles
-            update_data["role"] = UserRole.SUPERADMIN.value
-            update_data["roles"] = [UserRole.SUPERADMIN.value]
+            update_operations = {
+                "$set": {
+                    "updated_at": datetime.utcnow(),
+                    "name": google_user_info["name"],
+                    "profile_picture": google_user_info.get("profile_picture", ""),
+                    "role": UserRole.SUPERADMIN.value,
+                    "roles": [UserRole.SUPERADMIN.value]
+                }
+            }
         else:
-            # Add requested role to roles list if not already present
-            if requested_role not in current_roles:
-                current_roles.append(requested_role)
-            
-            # Set current active role to requested role
-            update_data["role"] = requested_role
-            update_data["roles"] = current_roles
+            # Initialize roles array if it doesn't exist (for backward compatibility)
+            if "roles" not in existing_user or not existing_user.get("roles"):
+                # First time migration: set roles to array containing current role
+                initial_roles = [current_role] if current_role else []
+                update_operations = {
+                    "$set": {
+                        "updated_at": datetime.utcnow(),
+                        "name": google_user_info["name"],
+                        "profile_picture": google_user_info.get("profile_picture", ""),
+                        "role": requested_role,
+                        "roles": initial_roles
+                    },
+                    "$addToSet": {"roles": requested_role}
+                }
+            else:
+                # Normal flow: add new role using $addToSet (prevents duplicates)
+                update_operations = {
+                    "$set": {
+                        "updated_at": datetime.utcnow(),
+                        "name": google_user_info["name"],
+                        "profile_picture": google_user_info.get("profile_picture", ""),
+                        "role": requested_role
+                    },
+                    "$addToSet": {"roles": requested_role}
+                }
         
         # Update user
         await users_collection.update_one(
             {"_id": existing_user["_id"]},
-            {"$set": update_data}
+            update_operations
         )
         
         # Set user_id and fetch updated user_data
