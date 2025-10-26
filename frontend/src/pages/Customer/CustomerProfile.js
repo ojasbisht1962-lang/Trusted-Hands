@@ -75,144 +75,144 @@ export default function CustomerProfile() {
     } finally {
       setLoading(false);
     }
+  };
+
   return (
     <>
       <Navbar />
       <div className="customer-profile">
-  return (
-    <div className="customer-profile">
-      <div className="profile-header">
-        <h1>👤 My Profile</h1>
-        <p>Manage your account information</p>
-      </div>
+        <div className="profile-header">
+          <h1>👤 My Profile</h1>
+          <p>Manage your account information</p>
+        </div>
 
-      <div className="profile-content">
-        <div className="profile-main-card">
-          <div className="profile-avatar-section">
-            <div className="profile-pic-container">
-              {user?.profile_picture && user.profile_picture !== '' ? (
-                <img 
-                  src={user.profile_picture} 
-                  alt={user.name} 
-                  className="profile-pic"
-                  referrerPolicy="no-referrer"
-                  crossOrigin="anonymous"
-                  onError={(e) => {
-                    console.log('Profile image failed to load:', user.profile_picture);
-                    e.target.style.display = 'none';
-                    e.target.nextElementSibling.style.display = 'flex';
-                  }}
+        <div className="profile-content">
+          <div className="profile-main-card">
+            <div className="profile-avatar-section">
+              <div className="profile-pic-container">
+                {user?.profile_picture && user.profile_picture !== '' ? (
+                  <img 
+                    src={user.profile_picture} 
+                    alt={user.name} 
+                    className="profile-pic"
+                    referrerPolicy="no-referrer"
+                    crossOrigin="anonymous"
+                    onError={(e) => {
+                      console.log('Profile image failed to load:', user.profile_picture);
+                      e.target.style.display = 'none';
+                      e.target.nextElementSibling.style.display = 'flex';
+                    }}
+                  />
+                ) : null}
+                <div 
+                  className="profile-pic-placeholder"
+                  style={{ display: user?.profile_picture && user.profile_picture !== '' ? 'none' : 'flex' }}
+                >
+                  {user?.name?.charAt(0)?.toUpperCase() || 'U'}
+                </div>
+              </div>
+              <div className="profile-info">
+                <h2>{user?.name}</h2>
+                <p className="profile-role">Customer</p>
+                <p className="profile-email">{user?.email}</p>
+              </div>
+            </div>
+
+            <div className="divider"></div>
+
+            <form onSubmit={handleSubmit} className="profile-form">
+              <div className="form-group">
+                <label htmlFor="name">Full Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  placeholder="Enter your full name"
                 />
-              ) : null}
-              <div 
-                className="profile-pic-placeholder"
-                style={{ display: user?.profile_picture && user.profile_picture !== '' ? 'none' : 'flex' }}
-              >
-                {user?.name?.charAt(0)?.toUpperCase() || 'U'}
               </div>
-            </div>
-            <div className="profile-info">
-              <h2>{user?.name}</h2>
-              <p className="profile-role">Customer</p>
-              <p className="profile-email">{user?.email}</p>
-            </div>
+
+              <div className="form-group">
+                <label htmlFor="email">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  disabled
+                  className="disabled-input"
+                />
+                <small className="form-hint">Email cannot be changed</small>
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="phone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="Enter your phone number"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="address">Address</label>
+                <textarea
+                  id="address"
+                  name="address"
+                  value={formData.address}
+                  onChange={handleChange}
+                  rows="3"
+                  placeholder="Enter your address"
+                />
+              </div>
+
+              <button 
+                type="submit" 
+                className="save-btn"
+                disabled={loading}
+              >
+                {loading ? '💾 Saving...' : '💾 Save Changes'}
+              </button>
+            </form>
           </div>
 
-          <div className="divider"></div>
+          <div className="profile-sidebar">
+            <div className="profile-stats-card">
+              <h3>Account Statistics</h3>
+              <div className="stats-list">
+                <div className="stat-item">
+                  <div className="stat-icon">📅</div>
+                  <div className="stat-details">
+                    <p className="stat-label">Member Since</p>
+                    <p className="stat-value">
+                      {user?.created_at 
+                        ? new Date(user.created_at).toLocaleDateString('en-US', { 
+                            month: 'short', 
+                            year: 'numeric' 
+                          })
+                        : 'N/A'}
+                    </p>
+                  </div>
+                </div>
 
-          <form onSubmit={handleSubmit} className="profile-form">
-            <div className="form-group">
-              <label htmlFor="name">Full Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                placeholder="Enter your full name"
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="email">Email Address</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                disabled
-                className="disabled-input"
-              />
-              <small className="form-hint">Email cannot be changed</small>
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="phone">Phone Number</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="Enter your phone number"
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="address">Address</label>
-              <textarea
-                id="address"
-                name="address"
-                value={formData.address}
-                onChange={handleChange}
-                rows="3"
-                placeholder="Enter your address"
-              />
-            </div>
-
-            <button 
-              type="submit" 
-              className="save-btn"
-              disabled={loading}
-            >
-              {loading ? '💾 Saving...' : '💾 Save Changes'}
-            </button>
-          </form>
-        </div>
-
-        <div className="profile-sidebar">
-          <div className="profile-stats-card">
-            <h3>Account Statistics</h3>
-            <div className="stats-list">
-              <div className="stat-item">
-                <div className="stat-icon">📅</div>
-                <div className="stat-details">
-                  <p className="stat-label">Member Since</p>
-                  <p className="stat-value">
-                    {user?.created_at 
-                      ? new Date(user.created_at).toLocaleDateString('en-US', { 
-                          month: 'short', 
-                          year: 'numeric' 
-                        })
-                      : 'N/A'}
-                  </p>
+                <div className="stat-item">
+                  <div className="stat-icon">🔒</div>
+                  <div className="stat-details">
+                    <p className="stat-label">Account Type</p>
+                    <p className="stat-value">Google Account</p>
+                  </div>
                 </div>
               </div>
-
-              <div className="stat-item">
-                <div className="stat-icon">🔒</div>
-                <div className="stat-details">
-                  <p className="stat-label">Account Type</p>
-                  <p className="stat-value">Google Account</p>
-                </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <Footer />
+      <Footer />
     </>
-  );
-}   </div>
   );
 }
