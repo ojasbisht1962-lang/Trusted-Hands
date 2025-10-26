@@ -119,7 +119,7 @@ async def complete_tasker_profile(
     # Validate referral code if professional work is requested
     if details.work_as_professional and details.referral_code:
         referrer = await users_collection.find_one({
-            "role": UserRole.TASKER.value,
+            "$or": [{"roles": UserRole.TASKER.value}, {"role": UserRole.TASKER.value}],
             "professional_badge": True,
             "referral_code": details.referral_code
         })
@@ -190,8 +190,12 @@ async def get_taskers(
     try:
         users_collection = await get_collection("users")
         
+        # Query for users who have tasker in their roles array OR have role=tasker
         query = {
-            "role": UserRole.TASKER.value,
+            "$or": [
+                {"roles": UserRole.TASKER.value},  # Multi-role users
+                {"role": UserRole.TASKER.value}    # Single-role users (backwards compat)
+            ],
             "is_blocked": {"$ne": True}
         }
         
@@ -216,7 +220,7 @@ async def get_taskers(
         return taskers
     except Exception as e:
         print(f"Error in get_taskers: {str(e)}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=400, detail=str(e))
 
 @router.get("/taskers/{tasker_id}")
 async def get_tasker_details(tasker_id: str):
@@ -226,7 +230,7 @@ async def get_tasker_details(tasker_id: str):
     try:
         tasker = await users_collection.find_one({
             "_id": ObjectId(tasker_id),
-            "role": UserRole.TASKER.value
+            "$or": [{"roles": UserRole.TASKER.value}, {"role": UserRole.TASKER.value}]
         })
     except:
         raise HTTPException(status_code=400, detail="Invalid tasker ID")

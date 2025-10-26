@@ -37,19 +37,24 @@ async def get_admin_stats(current_user: dict = Depends(require_superadmin)):
     services_collection = await get_collection("services")
     amc_collection = await get_collection("amc")
     
-    total_customers = await users_collection.count_documents({"role": UserRole.CUSTOMER.value})
-    total_taskers = await users_collection.count_documents({"role": UserRole.TASKER.value})
+    # Multi-role compatible queries - check both roles array and role field
+    total_customers = await users_collection.count_documents({
+        "$or": [{"roles": UserRole.CUSTOMER.value}, {"role": UserRole.CUSTOMER.value}]
+    })
+    total_taskers = await users_collection.count_documents({
+        "$or": [{"roles": UserRole.TASKER.value}, {"role": UserRole.TASKER.value}]
+    })
     total_professionals = await users_collection.count_documents({
-        "role": UserRole.TASKER.value,
+        "$or": [{"roles": UserRole.TASKER.value}, {"role": UserRole.TASKER.value}],
         "professional_badge": True
     })
     total_helpers = await users_collection.count_documents({
-        "role": UserRole.TASKER.value,
+        "$or": [{"roles": UserRole.TASKER.value}, {"role": UserRole.TASKER.value}],
         "tasker_type": "helper"
     })
     
     pending_verifications = await users_collection.count_documents({
-        "role": UserRole.TASKER.value,
+        "$or": [{"roles": UserRole.TASKER.value}, {"role": UserRole.TASKER.value}],
         "verification_status": VerificationStatus.PENDING.value
     })
     
@@ -126,7 +131,7 @@ async def get_pending_verifications(
     users_collection = await get_collection("users")
     
     cursor = users_collection.find({
-        "role": UserRole.TASKER.value,
+        "$or": [{"roles": UserRole.TASKER.value}, {"role": UserRole.TASKER.value}],
         "verification_status": VerificationStatus.PENDING.value
     }).sort("created_at", 1)
     
@@ -149,7 +154,7 @@ async def update_verification_status(
     try:
         tasker = await users_collection.find_one({
             "_id": ObjectId(tasker_id),
-            "role": UserRole.TASKER.value
+            "$or": [{"roles": UserRole.TASKER.value}, {"role": UserRole.TASKER.value}]
         })
     except:
         raise HTTPException(status_code=400, detail="Invalid tasker ID")
