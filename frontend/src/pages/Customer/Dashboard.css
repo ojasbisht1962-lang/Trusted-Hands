@@ -106,7 +106,7 @@
 
 .stat-icon.spent {
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: white;
 }
 
 .stat-details h3 {

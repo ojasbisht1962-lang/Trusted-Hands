@@ -6,7 +6,7 @@
 
 .back-button {
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: white;
   border: none;
   padding: 12px 24px;
   border-radius: 8px;
@@ -166,7 +166,7 @@
 
 .faq-footer p {
   font-size: 1.4rem;
-  color: #f97316;
+  color: white;
   margin-bottom: 20px;
   font-weight: 600;
 }
