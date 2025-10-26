@@ -22,7 +22,7 @@ const LoadingScreen = ({ message }) => {
       setCurrentMessage((prev) => (prev + 1) % loadingMessages.length);
     }, 2000);
     return () => clearInterval(interval);
-  }, []);
+  }, [loadingMessages.length]);
 
   return (
     <div className="loading-screen">
