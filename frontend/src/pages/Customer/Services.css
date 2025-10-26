@@ -22,7 +22,7 @@
 
 /* Filters Section */
 .filters-section {
-  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
   border-radius: 16px;
   padding: 24px;
   margin-bottom: 32px;
@@ -75,7 +75,7 @@
 
 .btn-clear-filters {
   padding: 10px 20px;
-  background: linear-gradient(135deg, #bfdbfe 0%, #e5e7eb 100%);
+  background: linear-gradient(135deg, #fbbf24 0%, #fde68a 100%);
   color: #555;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
@@ -118,7 +118,7 @@
 .empty-state {
   text-align: center;
   padding: 60px 20px;
-  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
   border-radius: 16px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
@@ -147,7 +147,7 @@
 }
 
 .service-browse-card {
-  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -190,7 +190,7 @@
 
 .category-badge {
   padding: 4px 12px;
-  background: linear-gradient(135deg, #c7d2fe 0%, #e0e7ff 100%);
+  background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 100%);
   color: #555;
   border-radius: 20px;
   font-size: 12px;
@@ -230,7 +230,7 @@
   gap: 12px;
   align-items: center;
   padding: 12px;
-  background: linear-gradient(135deg, #e0e7ff 0%, #f5f5f5 100%);
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
   border-radius: 8px;
   margin-bottom: 16px;
 }
@@ -325,7 +325,7 @@
 
 .btn-view-details {
   padding: 12px;
-  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
   color: #667eea;
   border: 2px solid #667eea;
   border-radius: 8px;

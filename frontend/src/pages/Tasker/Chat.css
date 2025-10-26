@@ -1,13 +1,13 @@
 .tasker-chat-page {
   display: flex;
   height: calc(100vh - 70px);
-  background: linear-gradient(135deg, #e0e7ff 0%, #f9fafb 100%);
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
 }
 
 /* Conversations Sidebar */
 .conversations-sidebar {
   width: 350px;
-  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
   border-right: 1px solid #e0e0e0;
   display: flex;
   flex-direction: column;
@@ -161,7 +161,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
 }
 
 .no-chat-selected {
@@ -193,7 +193,7 @@
 .chat-header {
   padding: 16px 24px;
   border-bottom: 1px solid #e0e0e0;
-  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
 }
 
 .chat-header-info {
@@ -281,7 +281,7 @@
 }
 
 .message.received .message-content {
-  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
   color: #1a1a1a;
   border: 1px solid #e0e0e0;
   border-bottom-left-radius: 4px;
@@ -313,7 +313,7 @@
 /* Message Input */
 .message-input-container {
   padding: 16px 24px;
-  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
   border-top: 1px solid #e0e0e0;
   display: flex;
   gap: 12px;

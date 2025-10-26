@@ -8,7 +8,7 @@
 }
 
 .onboarding-card {
-  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
   border-radius: 24px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   max-width: 800px;
@@ -214,7 +214,7 @@
   padding: 10px 20px;
   border: 2px solid #e0e0e0;
   border-radius: 24px;
-  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
   color: #555;
   font-size: 14px;
   font-weight: 500;
@@ -344,7 +344,7 @@
 }
 
 .btn-secondary {
-  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
   color: #667eea;
   border: 2px solid #667eea;
 }

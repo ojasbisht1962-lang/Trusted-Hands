@@ -1,6 +1,6 @@
 .tasker-details-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #e0e7ff 0%, #f9fafb 100%);
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
   padding: 24px;
   max-width: 1200px;
   margin: 0 auto;
@@ -12,7 +12,7 @@
 
 .btn-back {
   padding: 10px 20px;
-  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
   border: 2px solid #e0e0e0;
   border-radius: 8px;
   font-weight: 600;
@@ -29,7 +29,7 @@
 
 /* Profile Card */
 .tasker-profile-card {
-  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
   border-radius: 20px;
   padding: 32px;
   margin-bottom: 24px;
@@ -173,7 +173,7 @@
 }
 
 .details-card {
-  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -209,7 +209,7 @@
 }
 
 .language-chip {
-  background: linear-gradient(135deg, #c7d2fe 0%, #e0e7ff 100%);
+  background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 100%);
   color: #333;
   padding: 8px 16px;
   border-radius: 16px;
@@ -254,7 +254,7 @@
 }
 
 .service-card {
-  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
   border-radius: 16px;
   padding: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -316,7 +316,7 @@
 }
 
 .service-category {
-  background: linear-gradient(135deg, #c7d2fe 0%, #e0e7ff 100%);
+  background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 100%);
   color: #666;
   padding: 6px 12px;
   border-radius: 12px;
