@@ -160,6 +160,8 @@ export default function PriceRangeManagement() {
     if (category) return category.label;
     // Fallback: capitalize and format the raw value
     return value ? value.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : 'Unknown';
+  };
+
   if (loading) {
     return (
       <>
@@ -176,22 +178,20 @@ export default function PriceRangeManagement() {
     <>
       <Navbar />
       <div className="price-management">
-  return (
-    <div className="price-management">
-      <div className="page-header">
-        <button className="btn-back" onClick={() => navigate('/admin/dashboard')}>
-          ← Back to Dashboard
-        </button>
-        <div className="header-content">
-          <div>
-            <h1>💰 Price Range Management</h1>
-            <p>Set recommended price ranges for each service category</p>
-          </div>
-          <button className="btn-add" onClick={() => setShowModal(true)}>
-            + Add Price Range
+        <div className="page-header">
+          <button className="btn-back" onClick={() => navigate('/admin/dashboard')}>
+            ← Back to Dashboard
           </button>
+          <div className="header-content">
+            <div>
+              <h1>💰 Price Range Management</h1>
+              <p>Set recommended price ranges for each service category</p>
+            </div>
+            <button className="btn-add" onClick={() => setShowModal(true)}>
+              + Add Price Range
+            </button>
+          </div>
         </div>
-      </div>
 
       <div className="price-grid">
         {priceRanges.map(range => (
@@ -300,15 +300,15 @@ export default function PriceRangeManagement() {
                   Cancel
                 </button>
                 <button type="submit" className="btn-submit">
-      )}
-    </div>
-    <Footer />
-    </>
-  );
-}           </form>
+                  {editingRange ? 'Update Range' : 'Add Range'}
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}
-    </div>
+      </div>
+      <Footer />
+    </>
   );
 }

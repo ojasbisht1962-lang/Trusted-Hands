@@ -189,6 +189,8 @@ export default function UserManagement() {
         ))}
       </div>
     );
+  };
+
   if (loading) {
     return (
       <>
@@ -214,46 +216,45 @@ export default function UserManagement() {
         </div>
 
         <div className="controls">
+          <div className="filter-tabs">
+            <button
+              className={filter === 'all' ? 'active' : ''}
+              onClick={() => setFilter('all')}
+            >
+              All Users ({users.length})
+            </button>
+            <button
+              className={filter === 'customer' ? 'active' : ''}
+              onClick={() => setFilter('customer')}
+            >
+              👤 Customers ({users.filter(u => (u.roles || [u.role]).includes('customer')).length})
+            </button>
+            <button
+              className={filter === 'tasker' ? 'active' : ''}
+              onClick={() => setFilter('tasker')}
+            >
+              🔧 Taskers ({users.filter(u => (u.roles || [u.role]).includes('tasker')).length})
+            </button>
+            <button
+              className={filter === 'superadmin' ? 'active' : ''}
+              onClick={() => setFilter('superadmin')}
+            >
+              🛡️ Admins ({users.filter(u => (u.roles || [u.role]).includes('superadmin')).length})
+            </button>
+          </div>
 
-      <div className="controls">
-        <div className="filter-tabs">
-          <button
-            className={filter === 'all' ? 'active' : ''}
-            onClick={() => setFilter('all')}
-          >
-            All Users ({users.length})
-          </button>
-          <button
-            className={filter === 'customer' ? 'active' : ''}
-            onClick={() => setFilter('customer')}
-          >
-            👤 Customers ({users.filter(u => (u.roles || [u.role]).includes('customer')).length})
-          </button>
-          <button
-            className={filter === 'tasker' ? 'active' : ''}
-            onClick={() => setFilter('tasker')}
-          >
-            🔧 Taskers ({users.filter(u => (u.roles || [u.role]).includes('tasker')).length})
-          </button>
-          <button
-            className={filter === 'superadmin' ? 'active' : ''}
-            onClick={() => setFilter('superadmin')}
-          >
-            🛡️ Admins ({users.filter(u => (u.roles || [u.role]).includes('superadmin')).length})
-          </button>
+          <div className="search-box">
+            <input
+              type="text"
+              placeholder="Search by name or email..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
         </div>
-
-        <div className="search-box">
-          <input
-            type="text"
-            placeholder="Search by name or email..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </div>
-      </div>
 
       <div className="users-table-container">
+        {filteredUsers.length > 0 ? (
         <table className="users-table">
           <thead>
             <tr>
@@ -331,16 +332,15 @@ export default function UserManagement() {
               </tr>
             ))}
           </tbody>
+        </table>
+        ) : (
+          <div className="empty-state">
+            <p>No users found</p>
+          </div>
         )}
       </div>
     </div>
     <Footer />
     </>
-  );
-}           <p>No users found</p>
-          </div>
-        )}
-      </div>
-    </div>
   );
 }

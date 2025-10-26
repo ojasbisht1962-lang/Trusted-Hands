@@ -70,29 +70,30 @@ export default function SuperAdminProfile() {
       console.error('Error updating profile:', error);
       toast.error(error.message || 'Failed to update profile');
     } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <>
       <Navbar />
       <div className="superadmin-profile">
-  return (
-    <div className="superadmin-profile">
-      <div className="profile-header">
-        <h1>🛡️ Admin Profile</h1>
-        <p>Manage your administrator account</p>
-      </div>
+        <div className="profile-header">
+          <h1>🛡️ Admin Profile</h1>
+          <p>Manage your administrator account</p>
+        </div>
 
-      <div className="profile-content">
-        <div className="profile-card">
-          <div className="profile-avatar-section">
-            {user?.profile_picture ? (
-              <img src={user.profile_picture} alt={user.name} className="profile-pic" />
-            ) : (
-              <div className="profile-pic-placeholder admin">
-                {user?.name?.charAt(0)?.toUpperCase() || 'A'}
-              </div>
-            )}
+        <div className="profile-content">
+          <div className="profile-card">
+            <div className="profile-avatar-section">
+              {user?.profile_picture ? (
+                <img src={user.profile_picture} alt={user.name} className="profile-pic" />
+              ) : (
+                <div className="profile-pic-placeholder admin">
+                  {user?.name?.charAt(0)?.toUpperCase() || 'A'}
+                </div>
+              )}
+            </div>
             <div className="profile-info">
               <h2>{user?.name}</h2>
               <p className="profile-role admin">SuperAdmin</p>
@@ -192,10 +193,9 @@ export default function SuperAdminProfile() {
               </div>
             </div>
           </div>
-    </div>
-    <Footer />
+        </div>
+      </div>
+      <Footer />
     </>
-  );
-}   </div>
   );
 }

@@ -84,6 +84,8 @@ export default function VerificationManagement() {
       not_applied: '#6b7280'
     };
     return colors[status] || '#6b7280';
+  };
+
   if (loading) {
     return (
       <>
@@ -100,23 +102,21 @@ export default function VerificationManagement() {
     <>
       <Navbar />
       <div className="verification-management">
-  return (
-    <div className="verification-management">
-      <div className="page-header">
-        <button className="btn-back" onClick={() => navigate('/admin/dashboard')}>
-          ← Back to Dashboard
-        </button>
-        <h1>✓ Verification Management</h1>
-        <p>Review and verify tasker applications</p>
-      </div>
+        <div className="page-header">
+          <button className="btn-back" onClick={() => navigate('/admin/dashboard')}>
+            ← Back to Dashboard
+          </button>
+          <h1>✓ Verification Management</h1>
+          <p>Review and verify tasker applications</p>
+        </div>
 
-      <div className="filter-tabs">
-        <button className={filter === 'all' ? 'active' : ''} onClick={() => setFilter('all')}>
-          All Taskers ({taskers.length})
-        </button>
-        <button className={filter === 'pending' ? 'active' : ''} onClick={() => setFilter('pending')}>
-          ⏳ Pending ({taskers.filter(t => t.verification_status === 'pending').length})
-        </button>
+        <div className="filter-tabs">
+          <button className={filter === 'all' ? 'active' : ''} onClick={() => setFilter('all')}>
+            All Taskers ({taskers.length})
+          </button>
+          <button className={filter === 'pending' ? 'active' : ''} onClick={() => setFilter('pending')}>
+            ⏳ Pending ({taskers.filter(t => t.verification_status === 'pending').length})
+          </button>
         <button className={filter === 'approved' ? 'active' : ''} onClick={() => setFilter('approved')}>
           ✓ Verified ({taskers.filter(t => t.verification_status === 'approved').length})
         </button>
@@ -125,6 +125,7 @@ export default function VerificationManagement() {
         </button>
       </div>
 
+      {filteredTaskers.length > 0 ? (
       <div className="taskers-grid">
         {filteredTaskers.map(tasker => (
           <div key={tasker._id} className="tasker-card">
@@ -197,15 +198,14 @@ export default function VerificationManagement() {
             )}
           </div>
         ))}
-      )}
-    </div>
-    <Footer />
-    </>
-  );
-}       <div className="no-data">
+      </div>
+      ) : (
+        <div className="no-data">
           <p>No taskers found</p>
         </div>
       )}
-    </div>
+      </div>
+      <Footer />
+    </>
   );
 }

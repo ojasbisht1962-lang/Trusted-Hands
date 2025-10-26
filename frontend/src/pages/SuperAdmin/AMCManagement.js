@@ -134,6 +134,8 @@ export default function AMCManagement() {
       cancelled: '#9ca3af'
     };
     return colors[status] || '#6b7280';
+  };
+
   if (loading) {
     return (
       <>
@@ -150,23 +152,21 @@ export default function AMCManagement() {
     <>
       <Navbar />
       <div className="amc-management">
-  return (
-    <div className="amc-management">
-      <div className="page-header">
-        <button className="btn-back" onClick={() => navigate('/admin/dashboard')}>
-          ← Back to Dashboard
-        </button>
-        <h1>📋 AMC Management</h1>
-        <p>Manage Annual Maintenance Contract requests</p>
-      </div>
+        <div className="page-header">
+          <button className="btn-back" onClick={() => navigate('/admin/dashboard')}>
+            ← Back to Dashboard
+          </button>
+          <h1>📋 AMC Management</h1>
+          <p>Manage Annual Maintenance Contract requests</p>
+        </div>
 
-      <div className="filter-tabs">
-        <button className={filter === 'all' ? 'active' : ''} onClick={() => setFilter('all')}>
-          All ({amcRequests.length})
-        </button>
-        <button className={filter === 'pending' ? 'active' : ''} onClick={() => setFilter('pending')}>
-          ⏳ Pending ({amcRequests.filter(a => a.status === 'pending').length})
-        </button>
+        <div className="filter-tabs">
+          <button className={filter === 'all' ? 'active' : ''} onClick={() => setFilter('all')}>
+            All ({amcRequests.length})
+          </button>
+          <button className={filter === 'pending' ? 'active' : ''} onClick={() => setFilter('pending')}>
+            ⏳ Pending ({amcRequests.filter(a => a.status === 'pending').length})
+          </button>
         <button className={filter === 'approved' ? 'active' : ''} onClick={() => setFilter('approved')}>
           ✓ Approved ({amcRequests.filter(a => a.status === 'approved').length})
         </button>
@@ -318,15 +318,15 @@ export default function AMCManagement() {
               <button className="btn-cancel" onClick={() => setShowModal(false)}>
                 Cancel
               </button>
-      )}
-    </div>
-    <Footer />
-    </>
-  );
-}           </div>
+              <button className="btn-submit" onClick={handleSendQuote}>
+                Send Quote
+              </button>
+            </div>
           </div>
         </div>
       )}
-    </div>
+      </div>
+      <Footer />
+    </>
   );
 }

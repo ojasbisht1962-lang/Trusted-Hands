@@ -77,6 +77,8 @@ export default function BookingManagement() {
       cancelled: '❌'
     };
     return icons[status] || '📋';
+  };
+
   if (loading) {
     return (
       <>
@@ -93,23 +95,21 @@ export default function BookingManagement() {
     <>
       <Navbar />
       <div className="booking-management">
-  return (
-    <div className="booking-management">
-      <div className="page-header">
-        <button className="btn-back" onClick={() => navigate('/admin/dashboard')}>
-          ← Back to Dashboard
-        </button>
-        <h1>📅 Booking Management</h1>
-        <p>View and manage all bookings</p>
-      </div>
+        <div className="page-header">
+          <button className="btn-back" onClick={() => navigate('/admin/dashboard')}>
+            ← Back to Dashboard
+          </button>
+          <h1>📅 Booking Management</h1>
+          <p>View and manage all bookings</p>
+        </div>
 
-      <div className="filter-tabs">
-        <button className={filter === 'all' ? 'active' : ''} onClick={() => setFilter('all')}>
-          All ({bookings.length})
-        </button>
-        <button className={filter === 'pending' ? 'active' : ''} onClick={() => setFilter('pending')}>
-          ⏳ Pending ({bookings.filter(b => b.status === 'pending').length})
-        </button>
+        <div className="filter-tabs">
+          <button className={filter === 'all' ? 'active' : ''} onClick={() => setFilter('all')}>
+            All ({bookings.length})
+          </button>
+          <button className={filter === 'pending' ? 'active' : ''} onClick={() => setFilter('pending')}>
+            ⏳ Pending ({bookings.filter(b => b.status === 'pending').length})
+          </button>
         <button className={filter === 'accepted' ? 'active' : ''} onClick={() => setFilter('accepted')}>
           ✓ Accepted ({bookings.filter(b => b.status === 'accepted').length})
         </button>
@@ -125,6 +125,7 @@ export default function BookingManagement() {
       </div>
 
       <div className="bookings-table-container">
+        {filteredBookings.length > 0 ? (
         <table className="bookings-table">
           <thead>
             <tr>
@@ -177,16 +178,15 @@ export default function BookingManagement() {
               </tr>
             ))}
           </tbody>
-        )}
-      </div>
-    </div>
-    <Footer />
-    </>
-  );
-}           <p>No bookings found</p>
+        </table>
+        ) : (
+          <div className="empty-state">
+            <p>No bookings found</p>
           </div>
         )}
       </div>
-    </div>
+      </div>
+      <Footer />
+    </>
   );
 }
