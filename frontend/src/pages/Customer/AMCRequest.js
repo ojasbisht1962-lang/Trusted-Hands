@@ -169,12 +169,6 @@ export default function AMCRequest() {
             <h1>📝 AMC Requests</h1>
             <p>Manage your Annual Maintenance Contracts</p>
           </div>
-          <button 
-            className="btn-create-amc"
-            onClick={() => setShowCreateModal(true)}
-          >
-            + Create New AMC
-          </button>
         </div>
 
         {amcRequests.length === 0 ? (

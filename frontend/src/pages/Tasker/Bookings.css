@@ -347,7 +347,7 @@
 
 .detail-section h3 {
   font-size: 18px;
-  color: #ffffff;
+  color: #1a1a1a;
   margin-bottom: 16px;
   font-weight: 700;
   display: flex;
@@ -392,7 +392,7 @@
   border-radius: 16px;
   font-size: 11px;
   font-weight: 700;
-  color: #ffffff;
+  color: #ffffff !important;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   max-width: none;

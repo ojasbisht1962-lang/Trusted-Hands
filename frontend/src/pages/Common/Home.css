@@ -75,12 +75,13 @@
 
 .btn-nav {
   background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
-  color: #ffffff;
+  color: #dc2626;
   padding: 10px 24px;
   border-radius: 10px;
   font-weight: 700;
   text-decoration: none;
   transition: all 0.3s ease;
+  border: 2px solid rgba(220, 38, 38, 0.2);
 }
 
 .btn-nav:hover {

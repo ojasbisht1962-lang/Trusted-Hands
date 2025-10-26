@@ -40,13 +40,14 @@
 }
 
 .filter-tabs button:hover {
-  border-color: #ffffff;
-  color: #ffffff;
+  border-color: #dc2626;
+  color: #dc2626;
+  background: linear-gradient(135deg, #fff 0%, #ffedd5 100%);
 }
 
 .filter-tabs button.active {
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  border-color: #ffffff;
+  border-color: #dc2626;
   color: #ffffff;
 }
 
@@ -132,8 +133,9 @@
 }
 
 .detail-row .value.price {
-  color: #ffffff;
+  color: #dc2626;
   font-size: 18px;
+  font-weight: 700;
 }
 
 .booking-actions {
@@ -340,7 +342,6 @@
   font-weight: 600;
   text-transform: uppercase;
 }
-
 .detail-item .value {
   color: #1a1a1a;
   font-weight: 600;
@@ -348,9 +349,11 @@
 }
 
 .detail-item .value.price {
-  color: #ffffff;
+  color: #dc2626;
   font-size: 20px;
+  font-weight: 700;
 }
+
 
 .notes-section,
 .rating-section {
@@ -473,7 +476,7 @@
   flex: 1;
   padding: 14px 24px;
   background: #10b981;
-  color: #ffffff;
+  color: #ffffff !important;
   border: none;
   border-radius: 8px;
   font-weight: 600;

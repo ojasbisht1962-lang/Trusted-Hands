@@ -121,14 +121,22 @@
 }
 
 .service-category-badge {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+  background: linear-gradient(135deg, #dc2626 0%, #ea580c 50%, #f97316 100%);
   color: #ffffff;
-  padding: 6px 14px;
+  padding: 8px 16px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.service-category-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(249, 115, 22, 0.4);
 }
 
 .status-badge {
@@ -201,57 +209,56 @@
 .service-actions {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 2px solid rgba(0, 0, 0, 0.08);
 }
 
 .service-actions button {
-  padding: 10px;
+  padding: 12px 16px;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 14px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .btn-edit {
-  background: #2196f3;
+  background: linear-gradient(135deg, #2196f3 0%, #0b7dda 100%);
   color: #ffffff;
 }
-
 .btn-edit:hover {
-  background: #0b7dda;
+  background: linear-gradient(135deg, #0b7dda 0%, #01579b 100%);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
 }
-
 .btn-toggle {
   color: #ffffff;
 }
-
 .btn-toggle.deactivate {
-  background: #ff9800;
+  background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
 }
-
 .btn-toggle.deactivate:hover {
-  background: #f57c00;
+  background: linear-gradient(135deg, #f57c00 0%, #e65100 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.4);
 }
-
 .btn-toggle.activate {
-  background: #4caf50;
+  background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
 }
-
 .btn-toggle.activate:hover {
-  background: #45a049;
+  background: linear-gradient(135deg, #45a049 0%, #388e3c 100%);
 }
-
 .btn-delete {
-  background: #f44336;
+  background: linear-gradient(135deg, #f44336 0%, #da190b 100%);
   color: #ffffff;
 }
-
 .btn-delete:hover {
-  background: #da190b;
+  background: linear-gradient(135deg, #da190b 0%, #c62828 100%);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.4);
 }
 
 /* Modal */

@@ -455,3 +455,27 @@ html {
     font-size: 14px;
   }
 }
+
+/* Global Back to Dashboard Button */
+.btn-back-dashboard {
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  border: 2px solid #dc2626;
+  color: #dc2626;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.btn-back-dashboard:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #f97316 100%);
+  color: #ffffff;
+  transform: translateX(-5px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}

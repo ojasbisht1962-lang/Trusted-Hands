@@ -54,7 +54,7 @@
 
 .header-actions .btn-primary {
   background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
-  color: #ffffff;
+  color: #dc2626;
 }
 
 .header-actions .btn-primary:hover {
@@ -188,7 +188,7 @@
 .section-header button {
   background: none;
   border: none;
-  color: #ffffff;
+  color: #dc2626;
   font-weight: 600;
   cursor: pointer;
   font-size: 14px;

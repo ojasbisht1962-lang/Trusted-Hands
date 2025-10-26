@@ -7,14 +7,16 @@
   background: linear-gradient(135deg, #fff5f5 0%, #ffe8e0 100%);
   border-radius: 20px;
   padding: 40px;
+  animation: fadeIn 0.3s ease-in;
 }
-
 .loading-spinner-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
+  animation: slideUp 0.5s ease-out;
 }
+
 
 .rocket-wrapper {
   position: relative;
@@ -32,49 +34,8 @@
 
 .rocket-body {
   font-size: 80px;
-  filter: drop-shadow(0 4px 12px rgba(220, 38, 38, 0.4));
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
   transform: rotate(-45deg);
-  animation: rocketTilt 2s ease-in-out infinite;
-}
-
-.rocket-flames {
-  position: absolute;
-  bottom: -15px;
-  right: -15px;
-  display: flex;
-  flex-direction: column;
-  gap: -10px;
-  transform: rotate(-45deg);
-}
-
-.flame {
-  font-size: 45px;
-  display: block;
-  filter: drop-shadow(0 0 20px rgba(255, 165, 0, 0.9)) brightness(1.3);
-}
-
-.flame-1 {
-  animation: flameFlicker1 0.25s ease-in-out infinite;
-  transform-origin: top center;
-  z-index: 3;
-}
-
-.flame-2 {
-  animation: flameFlicker2 0.3s ease-in-out infinite;
-  transform-origin: top center;
-  margin-top: -30px;
-  margin-left: 8px;
-  font-size: 42px;
-  z-index: 2;
-}
-
-.flame-3 {
-  animation: flameFlicker3 0.28s ease-in-out infinite;
-  transform-origin: top center;
-  margin-top: -28px;
-  margin-left: -8px;
-  font-size: 42px;
-  z-index: 2;
 }
 
 .loading-text {
@@ -84,12 +45,9 @@
 .loading-text h2 {
   font-size: 28px;
   font-weight: 700;
-  background: linear-gradient(135deg, #dc2626 0%, #ea580c 50%, #f97316 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #ffffff;
   margin: 0 0 10px 0;
-  animation: fadeInOut 2s ease-in-out infinite;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .loading-dots {
@@ -101,7 +59,7 @@
 .loading-dots span {
   font-size: 40px;
   font-weight: bold;
-  color: #f97316;
+  color: #ffffff;
   animation: blink 1.4s infinite;
 }
 
@@ -120,92 +78,36 @@
 /* Rocket Flight Animation */
 @keyframes rocketFly {
   0%, 100% {
-    transform: translate(0, 0) scale(1);
+    transform: translate(0, 0);
   }
   25% {
-    transform: translate(20px, -20px) scale(1.05);
+    transform: translate(20px, -20px);
   }
   50% {
-    transform: translate(0, -35px) scale(1.1);
+    transform: translate(0, -35px);
   }
   75% {
-    transform: translate(-20px, -20px) scale(1.05);
+    transform: translate(-20px, -20px);
   }
 }
 
-@keyframes rocketTilt {
-  0%, 100% {
-    transform: rotate(-45deg);
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  50% {
-    transform: rotate(-42deg);
+  to {
+    opacity: 1;
   }
 }
 
-/* Dominant Flame Animations */
-@keyframes flameFlicker1 {
-  0%, 100% {
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
     opacity: 1;
-    transform: scaleY(1.3) scaleX(1);
-  }
-  25% {
-    opacity: 0.9;
-    transform: scaleY(1.7) scaleX(0.95);
-  }
-  50% {
-    opacity: 1;
-    transform: scaleY(1.5) scaleX(0.9);
-  }
-  75% {
-    opacity: 0.95;
-    transform: scaleY(1.8) scaleX(0.92);
-  }
-}
-
-@keyframes flameFlicker2 {
-  0%, 100% {
-    opacity: 0.95;
-    transform: scaleY(1.4) scaleX(1.05);
-  }
-  25% {
-    opacity: 1;
-    transform: scaleY(1.8) scaleX(0.9);
-  }
-  50% {
-    opacity: 0.9;
-    transform: scaleY(1.6) scaleX(0.95);
-  }
-  75% {
-    opacity: 1;
-    transform: scaleY(1.9) scaleX(0.88);
-  }
-}
-
-@keyframes flameFlicker3 {
-  0%, 100% {
-    opacity: 0.9;
-    transform: scaleY(1.35) scaleX(1.02);
-  }
-  25% {
-    opacity: 1;
-    transform: scaleY(1.75) scaleX(0.92);
-  }
-  50% {
-    opacity: 0.95;
-    transform: scaleY(1.55) scaleX(0.97);
-  }
-  75% {
-    opacity: 1;
-    transform: scaleY(1.85) scaleX(0.9);
-  }
-}
-
-@keyframes fadeInOut {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.7;
+    transform: translateY(0);
   }
 }
 
@@ -232,16 +134,6 @@
 
   .rocket-body {
     font-size: 65px;
-  }
-
-  .flame {
-    font-size: 36px;
-  }
-
-  .flame-2,
-  .flame-3 {
-    font-size: 34px;
-    margin-top: -24px;
   }
 
   .loading-text h2 {
