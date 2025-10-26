@@ -46,12 +46,9 @@
 .home-logo-text {
   font-size: 24px;
   font-weight: 800;
-  background: linear-gradient(135deg, #f97316 0%, #dc2626 50%, #ea580c 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: white;
   letter-spacing: -0.5px;
-  text-shadow: 0 2px 10px rgba(251, 191, 36, 0.3);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .home-nav-links {
@@ -61,7 +58,7 @@
 }
 
 .nav-link {
-  color: #f97316;
+  color: rgba(255, 255, 255, 0.95);
   text-decoration: none;
   font-size: 16px;
   font-weight: 600;
@@ -95,7 +92,7 @@
 .hero {
   background: linear-gradient(135deg, #dc2626 0%, #ea580c 100%);
   padding: 120px 0 80px;
-  color: #f97316;
+  color: white;
   text-align: center;
 }
 
@@ -113,11 +110,11 @@
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 30%, #fbbf24 60%, #f97316 100%);
+  background: linear-gradient(135deg, #fff 0%, #ffedd5 30%, #fff 60%, #ffedd5 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 2px 10px rgba(251, 191, 36, 0.4));
+  filter: drop-shadow(0 2px 10px rgba(255, 255, 255, 0.4));
 }
 
 .hero-subtitle {
