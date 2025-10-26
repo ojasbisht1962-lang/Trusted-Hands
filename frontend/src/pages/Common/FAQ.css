@@ -6,7 +6,7 @@
 
 .back-button {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: #f59e0b;
   border: none;
   padding: 12px 24px;
   border-radius: 8px;
@@ -127,7 +127,7 @@
 
 .faq-item.active .faq-toggle {
   background: #667eea;
-  color: white;
+  color: #f59e0b;
   transform: rotate(45deg);
 }
 
@@ -166,13 +166,13 @@
 
 .faq-footer p {
   font-size: 1.4rem;
-  color: white;
+  color: #f59e0b;
   margin-bottom: 20px;
   font-weight: 600;
 }
 
 .contact-button {
-  background: white;
+  background: #f8fafc;
   color: #667eea;
   border: none;
   padding: 14px 40px;

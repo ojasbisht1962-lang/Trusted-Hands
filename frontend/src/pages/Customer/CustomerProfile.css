@@ -39,7 +39,7 @@
 }
 
 .profile-main-card {
-  background: white;
+  background: #f8fafc;
   border-radius: 16px;
   padding: 40px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
@@ -74,7 +74,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #f59e0b;
   font-size: 40px;
   font-weight: 700;
   border: 4px solid #f3f4f6;
@@ -103,7 +103,7 @@
   display: inline-block;
   padding: 6px 14px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: #f59e0b;
   border-radius: 12px;
   font-size: 13px;
   font-weight: 600;
@@ -177,7 +177,7 @@
   grid-column: span 2;
   padding: 16px 32px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: #f59e0b;
   border: none;
   border-radius: 12px;
   font-size: 16px;
@@ -205,7 +205,7 @@
 }
 
 .profile-stats-card {
-  background: white;
+  background: #f8fafc;
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
@@ -241,7 +241,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: white;
+  background: #f8fafc;
   border-radius: 10px;
   flex-shrink: 0;
 }

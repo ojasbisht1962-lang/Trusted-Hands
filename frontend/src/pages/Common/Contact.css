@@ -6,7 +6,7 @@
 
 .back-button {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: #f59e0b;
   border: none;
   padding: 12px 24px;
   border-radius: 8px;
@@ -155,7 +155,7 @@
 
 .submit-button {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: #f59e0b;
   border: none;
   padding: 14px 32px;
   border-radius: 8px;
@@ -184,7 +184,7 @@
   width: 80px;
   height: 80px;
   background: #22c55e;
-  color: white;
+  color: #f59e0b;
   border-radius: 50%;
   display: flex;
   align-items: center;

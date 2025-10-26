@@ -13,7 +13,7 @@
 }
 
 .amc-card {
-  background: white;
+  background: #f8fafc;
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
@@ -50,7 +50,7 @@
 .status-badge {
   padding: 6px 12px;
   border-radius: 20px;
-  color: white;
+  color: #f59e0b;
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
@@ -128,7 +128,7 @@
 
 .btn-approve {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  color: white;
+  color: #f59e0b;
 }
 
 .btn-approve:hover {
@@ -138,7 +138,7 @@
 
 .btn-reject {
   background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-  color: white;
+  color: #f59e0b;
 }
 
 .btn-reject:hover {
@@ -148,7 +148,7 @@
 
 .btn-activate {
   background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-  color: white;
+  color: #f59e0b;
 }
 
 .btn-activate:hover {
@@ -180,7 +180,7 @@
 }
 
 .modal-content {
-  background: white;
+  background: #f8fafc;
   border-radius: 20px;
   max-width: 500px;
   width: 100%;
@@ -280,7 +280,7 @@
 
 .btn-submit {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: #f59e0b;
 }
 
 .btn-submit:hover {

@@ -28,7 +28,7 @@
 .btn-add-service {
   padding: 14px 28px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: #f59e0b;
   border: none;
   border-radius: 12px;
   font-weight: 600;
@@ -47,7 +47,7 @@
 .empty-state {
   text-align: center;
   padding: 100px 20px;
-  background: white;
+  background: #f8fafc;
   border-radius: 24px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
@@ -73,7 +73,7 @@
 .btn-primary {
   padding: 14px 32px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: #f59e0b;
   border: none;
   border-radius: 12px;
   font-weight: 600;
@@ -95,7 +95,7 @@
 }
 
 .service-card {
-  background: white;
+  background: #f8fafc;
   border-radius: 20px;
   padding: 24px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -216,7 +216,7 @@
 
 .btn-edit {
   background: #2196f3;
-  color: white;
+  color: #f59e0b;
 }
 
 .btn-edit:hover {
@@ -225,7 +225,7 @@
 }
 
 .btn-toggle {
-  color: white;
+  color: #f59e0b;
 }
 
 .btn-toggle.deactivate {
@@ -246,7 +246,7 @@
 
 .btn-delete {
   background: #f44336;
-  color: white;
+  color: #f59e0b;
 }
 
 .btn-delete:hover {
@@ -270,7 +270,7 @@
 }
 
 .modal-content {
-  background: white;
+  background: #f8fafc;
   border-radius: 24px;
   width: 100%;
   max-width: 600px;
@@ -418,7 +418,7 @@
 
 .btn-submit {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: #f59e0b;
   border: none;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }

@@ -37,7 +37,7 @@
 .btn-browse-services {
   padding: 12px 24px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: #f59e0b;
   border: none;
   border-radius: 12px;
   font-weight: 600;
@@ -62,7 +62,7 @@
 }
 
 .stat-card {
-  background: white;
+  background: #f8fafc;
   border-radius: 16px;
   padding: 24px;
   display: flex;
@@ -91,22 +91,22 @@
 
 .stat-icon.active {
   background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-  color: white;
+  color: #f59e0b;
 }
 
 .stat-icon.pending {
   background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-  color: white;
+  color: #f59e0b;
 }
 
 .stat-icon.completed {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  color: white;
+  color: #f59e0b;
 }
 
 .stat-icon.spent {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: #f59e0b;
 }
 
 .stat-details h3 {
@@ -131,7 +131,7 @@
 }
 
 .dashboard-section {
-  background: white;
+  background: #f8fafc;
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
@@ -177,7 +177,7 @@
   margin-top: 16px;
   padding: 10px 20px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: #f59e0b;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -307,7 +307,7 @@
 
 /* Quick Actions Section */
 .quick-actions-section {
-  background: white;
+  background: #f8fafc;
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);

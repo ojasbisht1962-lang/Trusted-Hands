@@ -10,7 +10,7 @@
 /* Header */
 .admin-header {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: #f59e0b;
   padding: 30px 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
@@ -42,7 +42,7 @@
 .btn-logout {
   background: rgba(255, 255, 255, 0.2);
   border: 2px solid white;
-  color: white;
+  color: #f59e0b;
   padding: 12px 24px;
   border-radius: 12px;
   font-size: 16px;
@@ -52,7 +52,7 @@
 }
 
 .btn-logout:hover {
-  background: white;
+  background: #f8fafc;
   color: #667eea;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -69,7 +69,7 @@
 }
 
 .stat-card {
-  background: white;
+  background: #f8fafc;
   padding: 24px;
   border-radius: 16px;
   display: flex;
@@ -123,7 +123,7 @@
 
 /* Quick Actions */
 .quick-actions-table-container {
-  background: white;
+  background: #f8fafc;
   border-radius: 16px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   overflow: hidden;
@@ -136,7 +136,7 @@
 
 .quick-actions-table thead {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: #f59e0b;
 }
 
 .quick-actions-table thead th {
@@ -222,7 +222,7 @@
 }
 
 .action-btn {
-  background: white;
+  background: #f8fafc;
   border: 2px solid;
   padding: 10px 24px;
   border-radius: 10px;
@@ -250,7 +250,7 @@
 }
 
 .action-card {
-  background: white;
+  background: #f8fafc;
   padding: 24px;
   border-radius: 16px;
   text-align: center;
@@ -287,7 +287,7 @@
   top: 12px;
   right: 12px;
   background: #ef4444;
-  color: white;
+  color: #f59e0b;
   font-size: 12px;
   font-weight: 700;
   padding: 4px 8px;
@@ -316,7 +316,7 @@
 
 /* Activities */
 .activities-container {
-  background: white;
+  background: #f8fafc;
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);

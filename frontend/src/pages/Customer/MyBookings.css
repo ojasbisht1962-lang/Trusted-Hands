@@ -30,7 +30,7 @@
 
 .filter-tabs button {
   padding: 10px 20px;
-  background: white;
+  background: #f8fafc;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
   font-weight: 600;
@@ -47,7 +47,7 @@
 .filter-tabs button.active {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-color: #667eea;
-  color: white;
+  color: #f59e0b;
 }
 
 /* Bookings Grid */
@@ -58,7 +58,7 @@
 }
 
 .booking-card {
-  background: white;
+  background: #f8fafc;
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -82,7 +82,7 @@
   border-radius: 20px;
   font-size: 12px;
   font-weight: 700;
-  color: white;
+  color: #f59e0b;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -146,7 +146,7 @@
   flex: 1;
   padding: 12px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: #f59e0b;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -164,7 +164,7 @@
   flex: 1;
   padding: 12px;
   background: #10b981;
-  color: white;
+  color: #f59e0b;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -183,7 +183,7 @@
   flex: 1;
   padding: 12px;
   background: #ef4444;
-  color: white;
+  color: #f59e0b;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -200,7 +200,7 @@
   flex: 1;
   padding: 12px;
   background: #f59e0b;
-  color: white;
+  color: #f59e0b;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -216,7 +216,7 @@
 .empty-state {
   text-align: center;
   padding: 60px 20px;
-  background: white;
+  background: #f8fafc;
   border-radius: 16px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
@@ -252,7 +252,7 @@
 }
 
 .modal-content {
-  background: white;
+  background: #f8fafc;
   border-radius: 20px;
   max-width: 600px;
   width: 100%;
@@ -301,7 +301,7 @@
   border-radius: 24px;
   font-size: 14px;
   font-weight: 700;
-  color: white;
+  color: #f59e0b;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -456,7 +456,7 @@
   flex: 1;
   padding: 12px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: #f59e0b;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -473,7 +473,7 @@
   flex: 1;
   padding: 14px 24px;
   background: #10b981;
-  color: white;
+  color: #f59e0b;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -492,7 +492,7 @@
   flex: 1;
   padding: 14px 24px;
   background: #ef4444;
-  color: white;
+  color: #f59e0b;
   border: none;
   border-radius: 8px;
   font-weight: 600;

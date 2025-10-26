@@ -12,7 +12,7 @@
 
 .btn-back {
   padding: 10px 20px;
-  background: white;
+  background: #f8fafc;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
   font-weight: 600;
@@ -23,13 +23,13 @@
 
 .btn-back:hover {
   background: #667eea;
-  color: white;
+  color: #f59e0b;
   border-color: #667eea;
 }
 
 /* Profile Card */
 .tasker-profile-card {
-  background: white;
+  background: #f8fafc;
   border-radius: 20px;
   padding: 32px;
   margin-bottom: 24px;
@@ -61,7 +61,7 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: #f59e0b;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,7 +90,7 @@
 
 .badge-professional {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  color: white;
+  color: #f59e0b;
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 13px;
@@ -99,7 +99,7 @@
 
 .badge-helper {
   background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-  color: white;
+  color: #f59e0b;
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 13px;
@@ -146,7 +146,7 @@
   flex: 1;
   padding: 14px 24px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: #f59e0b;
   border: none;
   border-radius: 12px;
   font-weight: 600;
@@ -173,7 +173,7 @@
 }
 
 .details-card {
-  background: white;
+  background: #f8fafc;
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -254,7 +254,7 @@
 }
 
 .service-card {
-  background: white;
+  background: #f8fafc;
   border-radius: 16px;
   padding: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -284,7 +284,7 @@
 
 .status-active {
   background: #10b981;
-  color: white;
+  color: #f59e0b;
   padding: 4px 10px;
   border-radius: 12px;
   font-size: 11px;
@@ -293,7 +293,7 @@
 
 .status-inactive {
   background: #6b7280;
-  color: white;
+  color: #f59e0b;
   padding: 4px 10px;
   border-radius: 12px;
   font-size: 11px;
@@ -356,7 +356,7 @@
 .error-state button {
   padding: 12px 24px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: #f59e0b;
   border: none;
   border-radius: 8px;
   font-weight: 600;

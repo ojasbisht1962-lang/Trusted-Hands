@@ -25,7 +25,7 @@
 }
 
 .welcome-section h1 {
-  color: white;
+  color: #f59e0b;
   font-size: 32px;
   margin-bottom: 8px;
   font-weight: 700;
@@ -53,7 +53,7 @@
 }
 
 .header-actions .btn-primary {
-  background: white;
+  background: #f8fafc;
   color: #667eea;
 }
 
@@ -64,7 +64,7 @@
 
 .header-actions .btn-secondary {
   background: rgba(255, 255, 255, 0.2);
-  color: white;
+  color: #f59e0b;
   border: 2px solid white;
 }
 
@@ -81,7 +81,7 @@
 }
 
 .stat-card {
-  background: white;
+  background: #f8fafc;
   border-radius: 20px;
   padding: 24px;
   display: flex;
@@ -141,7 +141,7 @@
 
 .badge {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: #f59e0b;
   padding: 4px 12px;
   border-radius: 12px;
   font-size: 11px;
@@ -164,7 +164,7 @@
 }
 
 .dashboard-section {
-  background: white;
+  background: #f8fafc;
   border-radius: 20px;
   padding: 24px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -253,7 +253,7 @@
   right: 16px;
   padding: 6px 12px;
   border-radius: 20px;
-  color: white;
+  color: #f59e0b;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -328,7 +328,7 @@
 
 .btn-accept {
   background: #4caf50;
-  color: white;
+  color: #f59e0b;
 }
 
 .btn-accept:hover {
@@ -338,7 +338,7 @@
 
 .btn-reject {
   background: #f44336;
-  color: white;
+  color: #f59e0b;
 }
 
 .btn-reject:hover {
@@ -348,7 +348,7 @@
 
 .btn-view {
   background: #2196f3;
-  color: white;
+  color: #f59e0b;
 }
 
 .btn-view:hover {
@@ -358,7 +358,7 @@
 
 .btn-chat {
   background: #667eea;
-  color: white;
+  color: #f59e0b;
 }
 
 .btn-chat:hover {
@@ -387,7 +387,7 @@
   margin-top: 20px;
   padding: 12px 24px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: #f59e0b;
   border: none;
   border-radius: 12px;
   font-weight: 600;
@@ -506,7 +506,7 @@
 
 /* Quick Actions */
 .quick-actions {
-  background: white;
+  background: #f8fafc;
   border-radius: 20px;
   padding: 24px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);

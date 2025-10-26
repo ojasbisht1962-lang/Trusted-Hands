@@ -7,7 +7,7 @@
 .terms-container {
   max-width: 900px;
   margin: 0 auto;
-  background: white;
+  background: #f8fafc;
   padding: 50px;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -15,7 +15,7 @@
 
 .btn-back {
   background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-  color: white;
+  color: #f59e0b;
   border: none;
   padding: 10px 20px;
   border-radius: 8px;
