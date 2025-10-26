@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import config from '../../config';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import LoadingSpinner from '../../components/LoadingSpinner';
 import './BookingManagement.css';
 
 export default function BookingManagement() {
@@ -83,9 +84,7 @@ export default function BookingManagement() {
     return (
       <>
         <Navbar />
-        <div className="booking-management">
-          <div className="loading">Loading bookings...</div>
-        </div>
+        <LoadingSpinner message="Firing Up The Engines" />
         <Footer />
       </>
     );

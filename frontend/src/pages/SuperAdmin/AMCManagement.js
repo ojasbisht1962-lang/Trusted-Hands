@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import config from '../../config';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import LoadingSpinner from '../../components/LoadingSpinner';
 import './AMCManagement.css';
 
 export default function AMCManagement() {
@@ -140,9 +141,7 @@ export default function AMCManagement() {
     return (
       <>
         <Navbar />
-        <div className="amc-management">
-          <div className="loading">Loading AMC requests...</div>
-        </div>
+        <LoadingSpinner message="Firing Up The Engines" />
         <Footer />
       </>
     );

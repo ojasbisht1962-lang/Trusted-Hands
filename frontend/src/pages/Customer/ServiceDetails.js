@@ -4,6 +4,7 @@ import { serviceService } from '../../services/apiService';
 import { toast } from 'react-toastify';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import LoadingSpinner from '../../components/LoadingSpinner';
 import './ServiceDetails.css';
 
 export default function ServiceDetails() {
@@ -64,12 +65,7 @@ export default function ServiceDetails() {
     return (
       <>
         <Navbar />
-        <div className="service-details-container">
-          <div className="loading-state">
-            <div className="spinner"></div>
-            <p>Loading service details...</p>
-          </div>
-        </div>
+        <LoadingSpinner message="Firing Up The Engines" />
         <Footer />
       </>
     );

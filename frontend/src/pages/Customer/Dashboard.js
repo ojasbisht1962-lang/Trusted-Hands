@@ -5,6 +5,7 @@ import { bookingService, serviceService } from '../../services/apiService';
 import { toast } from 'react-toastify';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import LoadingSpinner from '../../components/LoadingSpinner';
 import './Dashboard.css';
 
 export default function Dashboard() {
@@ -88,9 +89,11 @@ export default function Dashboard() {
 
   if (loading) {
     return (
-      <div className="dashboard-container">
-        <div className="loading">Loading dashboard...</div>
-      </div>
+      <>
+        <Navbar />
+        <LoadingSpinner message="Firing Up The Engines" />
+        <Footer />
+      </>
     );
   }
 

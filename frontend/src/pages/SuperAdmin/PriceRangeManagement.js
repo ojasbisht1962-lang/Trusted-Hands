@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import config from '../../config';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import LoadingSpinner from '../../components/LoadingSpinner';
 import './PriceRangeManagement.css';
 
 export default function PriceRangeManagement() {
@@ -161,14 +162,11 @@ export default function PriceRangeManagement() {
     // Fallback: capitalize and format the raw value
     return value ? value.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : 'Unknown';
   };
-
   if (loading) {
     return (
       <>
         <Navbar />
-        <div className="price-management">
-          <div className="loading">Loading price ranges...</div>
-        </div>
+        <LoadingSpinner message="Firing Up The Engines" />
         <Footer />
       </>
     );

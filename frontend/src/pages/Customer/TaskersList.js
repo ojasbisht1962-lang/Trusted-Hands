@@ -4,6 +4,7 @@ import { userService } from '../../services/apiService';
 import { toast } from 'react-toastify';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import LoadingSpinner from '../../components/LoadingSpinner';
 import './TaskersList.css';
 
 export default function TaskersList() {
@@ -62,9 +63,7 @@ export default function TaskersList() {
     return (
       <>
         <Navbar />
-        <div className="taskers-list-container">
-          <div className="loading">Loading taskers...</div>
-        </div>
+        <LoadingSpinner message="Firing Up The Engines" />
         <Footer />
       </>
     );

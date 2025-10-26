@@ -3,6 +3,7 @@ import { amcService } from '../../services/apiService';
 import { toast } from 'react-toastify';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import LoadingSpinner from '../../components/LoadingSpinner';
 import './AMCRequest.css';
 
 export default function AMCRequest() {
@@ -153,9 +154,7 @@ export default function AMCRequest() {
     return (
       <>
         <Navbar />
-        <div className="amc-container">
-          <div className="loading">Loading AMC requests...</div>
-        </div>
+        <LoadingSpinner message="Firing Up The Engines" />
         <Footer />
       </>
     );

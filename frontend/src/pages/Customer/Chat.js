@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import api from '../../services/api';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import LoadingSpinner from '../../components/LoadingSpinner';
 import './Chat.css';
 
 export default function Chat() {
@@ -106,9 +107,7 @@ export default function Chat() {
     return (
       <>
         <Navbar />
-        <div className="chat-page-container">
-          <div className="loading">Loading chats...</div>
-        </div>
+        <LoadingSpinner message="Firing Up The Engines" />
         <Footer />
       </>
     );

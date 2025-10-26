@@ -3,6 +3,7 @@ import { serviceService } from '../../services/apiService';
 import { toast } from 'react-toastify';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import LoadingSpinner from '../../components/LoadingSpinner';
 import './MyServices.css';
 
 export default function MyServices() {
@@ -149,9 +150,7 @@ export default function MyServices() {
     return (
       <>
         <Navbar />
-        <div className="my-services-container">
-          <div className="loading">Loading services...</div>
-        </div>
+        <LoadingSpinner message="Firing Up The Engines" />
         <Footer />
       </>
     );

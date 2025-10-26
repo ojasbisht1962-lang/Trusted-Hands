@@ -4,6 +4,7 @@ import { serviceService, bookingService } from '../../services/apiService';
 import { toast } from 'react-toastify';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import LoadingSpinner from '../../components/LoadingSpinner';
 import './BookingPage.css';
 
 export default function BookingPage() {
@@ -113,9 +114,7 @@ export default function BookingPage() {
     return (
       <>
         <Navbar />
-        <div className="booking-page-container">
-          <div className="loading">Loading service details...</div>
-        </div>
+        <LoadingSpinner message="Firing Up The Engines" />
         <Footer />
       </>
     );

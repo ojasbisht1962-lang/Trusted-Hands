@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import config from '../../config';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import LoadingSpinner from '../../components/LoadingSpinner';
 import './UserManagement.css';
 
 export default function UserManagement() {
@@ -190,14 +191,11 @@ export default function UserManagement() {
       </div>
     );
   };
-
   if (loading) {
     return (
       <>
         <Navbar />
-        <div className="user-management">
-          <div className="loading">Loading users...</div>
-        </div>
+        <LoadingSpinner message="Firing Up The Engines" />
         <Footer />
       </>
     );

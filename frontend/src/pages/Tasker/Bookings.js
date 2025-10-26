@@ -3,6 +3,7 @@ import { bookingService } from '../../services/apiService';
 import { toast } from 'react-toastify';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import LoadingSpinner from '../../components/LoadingSpinner';
 import './Bookings.css';
 
 export default function Bookings() {
@@ -83,9 +84,7 @@ export default function Bookings() {
     return (
       <>
         <Navbar />
-        <div className="bookings-container">
-          <div className="loading">Loading bookings...</div>
-        </div>
+        <LoadingSpinner message="Firing Up The Engines" />
         <Footer />
       </>
     );
@@ -314,17 +313,13 @@ export default function Bookings() {
                   <span className="label">Booked on:</span>
                   <span className="value">{new Date(selectedBooking.created_at).toLocaleString()}</span>
                 </div>
+              </div>
+            </div>
           </div>
         </div>
       )}
-    </div>
-    <Footer />
+      </div>
+      <Footer />
     </>
-  );
-}           </div>
-          </div>
-        </div>
-      )}
-    </div>
   );
 }

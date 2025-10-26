@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import api from '../../services/api';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import LoadingSpinner from '../../components/LoadingSpinner';
 import './TaskerDetails.css';
 
 export default function TaskerDetails() {
@@ -65,9 +66,7 @@ export default function TaskerDetails() {
     return (
       <>
         <Navbar />
-        <div className="tasker-details-container">
-          <div className="loading">Loading tasker details...</div>
-        </div>
+        <LoadingSpinner message="Firing Up The Engines" />
         <Footer />
       </>
     );
