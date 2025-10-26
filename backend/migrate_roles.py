@@ -3,11 +3,15 @@ Migration script to add 'roles' array field to existing users
 This will convert the single 'role' field to a 'roles' array for backward compatibility
 """
 import asyncio
-from app.database import get_collection
+from motor.motor_asyncio import AsyncIOMotorClient
+from app.config import settings
 
 async def migrate_user_roles():
     """Add roles array to all users who don't have it"""
-    users_collection = await get_collection("users")
+    # Initialize database connection
+    client = AsyncIOMotorClient(settings.mongodb_url)
+    db = client[settings.database_name]
+    users_collection = db.users
     
     # Find all users without a roles field or with empty roles
     users_without_roles = await users_collection.find({
@@ -52,6 +56,9 @@ async def migrate_user_roles():
         role = user.get("role")
         roles = user.get("roles", [])
         print(f"  {email}: role={role}, roles={roles}")
+    
+    # Close the connection
+    client.close()
 
 if __name__ == "__main__":
     asyncio.run(migrate_user_roles())

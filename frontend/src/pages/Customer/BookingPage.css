@@ -37,7 +37,7 @@
 
 .service-info-card h2 {
   font-size: 24px;
-  color: white;
+  color: #1a1a1a;
   margin-bottom: 12px;
   font-weight: 700;
   text-align: center;
@@ -73,7 +73,7 @@
 }
 
 .meta-item .value {
-  color: white;
+  color: #1a1a1a;
   font-weight: 600;
   font-size: 14px;
 }
@@ -125,7 +125,7 @@
 
 .tasker-details h4 {
   font-size: 16px;
-  color: white;
+  color: #1a1a1a;
   margin-bottom: 4px;
   font-weight: 700;
 }
@@ -155,7 +155,7 @@
 
 .booking-form-card h2 {
   font-size: 28px;
-  color: white;
+  color: #1a1a1a;
   margin-bottom: 8px;
   font-weight: 700;
 }
@@ -232,7 +232,7 @@
   padding-top: 16px;
   margin-top: 8px;
   font-weight: 700;
-  color: white;
+  color: #1a1a1a;
   font-size: 18px;
 }
 

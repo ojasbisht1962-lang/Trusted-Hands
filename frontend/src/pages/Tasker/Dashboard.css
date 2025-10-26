@@ -114,7 +114,7 @@
 .stat-value {
   font-size: 32px;
   font-weight: 700;
-  color: white;
+  color: #1a1a1a;
   margin: 0;
 }
 
@@ -181,7 +181,7 @@
 
 .section-header h2 {
   font-size: 20px;
-  color: white;
+  color: #1a1a1a;
   font-weight: 700;
 }
 
@@ -269,7 +269,7 @@
 
 .booking-header h4 {
   font-size: 18px;
-  color: white;
+  color: #1a1a1a;
   margin-bottom: 6px;
   font-weight: 600;
 }
@@ -425,7 +425,7 @@
 
 .service-info h4 {
   font-size: 16px;
-  color: white;
+  color: #1a1a1a;
   margin-bottom: 4px;
 }
 
@@ -514,7 +514,7 @@
 
 .quick-actions h2 {
   font-size: 20px;
-  color: white;
+  color: #1a1a1a;
   margin-bottom: 20px;
   font-weight: 700;
 }

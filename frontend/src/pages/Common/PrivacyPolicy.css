@@ -39,7 +39,7 @@
 }
 
 .last-updated {
-  color: white;
+  color: #1a1a1a;
   font-size: 15px;
   margin-bottom: 40px;
   font-style: italic;
@@ -59,7 +59,7 @@
 }
 
 .policy-section p {
-  color: white;
+  color: #1a1a1a;
   font-size: 16px;
   line-height: 1.8;
   margin-bottom: 16px;
@@ -71,7 +71,7 @@
 }
 
 .policy-section ul li {
-  color: white;
+  color: #1a1a1a;
   font-size: 16px;
   line-height: 1.8;
   margin-bottom: 12px;

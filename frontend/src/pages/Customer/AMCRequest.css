@@ -13,7 +13,7 @@
 
 .amc-header h1 {
   font-size: 32px;
-  color: white;
+  color: #1a1a1a;
   margin-bottom: 8px;
   font-weight: 700;
 }
@@ -87,7 +87,7 @@
 
 .amc-card h3 {
   font-size: 20px;
-  color: white;
+  color: #1a1a1a;
   margin-bottom: 16px;
   font-weight: 700;
 }
@@ -117,7 +117,7 @@
 }
 
 .detail-row .value {
-  color: white;
+  color: #1a1a1a;
   font-weight: 600;
   font-size: 14px;
 }
@@ -137,7 +137,7 @@
 .amc-notes strong {
   display: block;
   margin-bottom: 6px;
-  color: white;
+  color: #1a1a1a;
   font-size: 14px;
 }
 
@@ -229,7 +229,7 @@
 
 .modal-header h2 {
   font-size: 24px;
-  color: white;
+  color: #1a1a1a;
   font-weight: 700;
 }
 
@@ -261,7 +261,7 @@
 .form-section h3 {
   font-size: 16px;
   font-weight: 600;
-  color: white;
+  color: #1a1a1a;
   margin-bottom: 15px;
   padding-bottom: 8px;
   border-bottom: 2px solid #f3f4f6;

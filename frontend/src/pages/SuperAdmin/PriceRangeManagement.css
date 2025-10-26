@@ -119,19 +119,19 @@
 
 .price-separator {
   font-size: 20px;
-  color: white;
+  color: #1a1a1a;
 }
 
 .price-description {
   font-size: 13px;
-  color: white;
+  color: #1a1a1a;
   line-height: 1.6;
   margin: 0 0 12px 0;
 }
 
 .price-footer {
   font-size: 12px;
-  color: white;
+  color: #1a1a1a;
   text-align: center;
   padding-top: 12px;
   border-top: 1px solid #f3f4f6;

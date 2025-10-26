@@ -35,7 +35,7 @@
 
 .onboarding-header h1 {
   font-size: 32px;
-  color: white;
+  color: #1a1a1a;
   margin-bottom: 20px;
   font-weight: 700;
 }
@@ -77,7 +77,7 @@
 
 .onboarding-step h2 {
   font-size: 28px;
-  color: white;
+  color: #1a1a1a;
   margin-bottom: 8px;
   font-weight: 700;
 }
@@ -169,7 +169,7 @@
 .type-card h3 {
   font-size: 22px;
   margin-bottom: 8px;
-  color: white;
+  color: #1a1a1a;
 }
 
 .type-card p {

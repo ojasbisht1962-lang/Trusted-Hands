@@ -83,7 +83,7 @@
 
 .name-section h1 {
   font-size: 32px;
-  color: white;
+  color: #1a1a1a;
   margin: 0;
   font-weight: 700;
 }
@@ -167,7 +167,7 @@
 
 .details-section h2 {
   font-size: 22px;
-  color: white;
+  color: #1a1a1a;
   margin-bottom: 12px;
   font-weight: 700;
 }
@@ -242,7 +242,7 @@
 }
 
 .contact-value {
-  color: white;
+  color: #1a1a1a;
   font-weight: 500;
 }
 
@@ -276,7 +276,7 @@
 
 .service-header h3 {
   font-size: 18px;
-  color: white;
+  color: #1a1a1a;
   margin: 0;
   font-weight: 600;
   flex: 1;

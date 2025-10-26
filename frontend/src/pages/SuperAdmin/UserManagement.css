@@ -30,7 +30,7 @@
 
 .page-header h1 {
   font-size: 32px;
-  color: white;
+  color: #1a1a1a;
   margin: 0 0 8px 0;
   font-weight: 700;
 }
@@ -55,7 +55,7 @@
   border: 2px solid #e0e0e0;
   border-radius: 8px;
   background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
-  color: white;
+  color: #1a1a1a;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -90,7 +90,7 @@
 .filter-tabs button {
   background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border: 2px solid #e5e7eb;
-  color: white;
+  color: #1a1a1a;
   padding: 10px 20px;
   border-radius: 10px;
   font-size: 14px;
@@ -160,7 +160,7 @@
   padding: 16px;
   border-bottom: 1px solid #f3f4f6;
   font-size: 14px;
-  color: white;
+  color: #1a1a1a;
 }
 
 .users-table tbody tr {
@@ -175,11 +175,11 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  color: white;
+  color: #1a1a1a;
 }
 
 .user-cell span {
-  color: white;
+  color: #1a1a1a;
   font-weight: 500;
 }
 
@@ -317,7 +317,7 @@
 .no-data {
   text-align: center;
   padding: 60px 20px;
-  color: white;
+  color: #1a1a1a;
 }
 
 .loading {

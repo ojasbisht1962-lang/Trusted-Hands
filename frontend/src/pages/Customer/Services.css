@@ -10,7 +10,7 @@
 
 .services-header h1 {
   font-size: 32px;
-  color: white;
+  color: #1a1a1a;
   margin-bottom: 8px;
   font-weight: 700;
 }
@@ -208,7 +208,7 @@
 
 .service-content h3 {
   font-size: 20px;
-  color: white;
+  color: #1a1a1a;
   margin-bottom: 8px;
   font-weight: 700;
 }

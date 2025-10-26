@@ -15,7 +15,7 @@
 
 .services-header h1 {
   font-size: 32px;
-  color: white;
+  color: #1a1a1a;
   margin-bottom: 8px;
   font-weight: 700;
 }
@@ -59,7 +59,7 @@
 
 .empty-state h2 {
   font-size: 28px;
-  color: white;
+  color: #1a1a1a;
   margin-bottom: 12px;
   font-weight: 700;
 }
@@ -150,7 +150,7 @@
 
 .service-card h3 {
   font-size: 22px;
-  color: white;
+  color: #1a1a1a;
   margin-bottom: 12px;
   font-weight: 700;
 }
@@ -301,7 +301,7 @@
 
 .modal-header h2 {
   font-size: 24px;
-  color: white;
+  color: #1a1a1a;
   font-weight: 700;
 }
 
