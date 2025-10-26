@@ -1,3 +1,25 @@
+from fastapi import status
+# Delete user endpoint
+@router.delete("/users/{user_id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_user(
+    user_id: str,
+    current_user: dict = Depends(require_superadmin)
+):
+    """Delete a user by ID (superadmin only)"""
+    users_collection = await get_collection("users")
+    try:
+        user = await users_collection.find_one({"_id": ObjectId(user_id)})
+    except:
+        raise HTTPException(status_code=400, detail="Invalid user ID")
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    if user["role"] == UserRole.SUPERADMIN.value:
+        raise HTTPException(status_code=403, detail="Cannot delete superadmin")
+    result = await users_collection.delete_one({"_id": ObjectId(user_id)})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="User not found or already deleted")
+    # Optionally: delete related data (bookings, notifications, etc.)
+    return
 from fastapi import APIRouter, HTTPException, Depends, Query
 from pydantic import BaseModel
 from typing import Optional, List
