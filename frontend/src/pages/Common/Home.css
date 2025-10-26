@@ -173,7 +173,7 @@
   font-size: 40px;
   font-weight: 700;
   margin-bottom: 50px;
-  color: #1f2937;
+  color: white;
 }
 
 .services-grid {
@@ -190,7 +190,7 @@
   border-radius: 16px;
   text-align: center;
   text-decoration: none;
-  color: #1f2937;
+  color: white;
   transition: all 0.3s ease;
   border: 2px solid #e5e7eb;
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
@@ -211,7 +211,7 @@
 .service-card h3 {
   font-size: 20px;
   font-weight: 600;
-  color: #1f2937;
+  color: white;
   margin: 0;
 }
 
@@ -266,7 +266,7 @@
 }
 
 .feature-card p {
-  color: #4b5563;
+  color: white;
   font-size: 16px;
   line-height: 1.6;
   margin: 0;

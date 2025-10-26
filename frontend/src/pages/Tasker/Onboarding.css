@@ -35,7 +35,7 @@
 
 .onboarding-header h1 {
   font-size: 32px;
-  color: #1a1a1a;
+  color: white;
   margin-bottom: 20px;
   font-weight: 700;
 }
@@ -77,7 +77,7 @@
 
 .onboarding-step h2 {
   font-size: 28px;
-  color: #1a1a1a;
+  color: white;
   margin-bottom: 8px;
   font-weight: 700;
 }
@@ -147,7 +147,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: center;
-  background: #f8f9fa;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
 }
 
 .type-card:hover {
@@ -169,7 +169,7 @@
 .type-card h3 {
   font-size: 22px;
   margin-bottom: 8px;
-  color: #1a1a1a;
+  color: white;
 }
 
 .type-card p {
@@ -242,7 +242,7 @@
   align-items: center;
   gap: 12px;
   padding: 16px;
-  background: #f8f9fa;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
   border-radius: 12px;
   border: 2px solid #e0e0e0;
 }
@@ -350,7 +350,7 @@
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background: #f8f9fa;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
   transform: translateY(-2px);
 }
 

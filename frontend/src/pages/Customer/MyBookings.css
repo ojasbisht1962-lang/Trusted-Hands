@@ -10,7 +10,7 @@
 
 .bookings-header h1 {
   font-size: 32px;
-  color: #1a1a1a;
+  color: white;
   margin-bottom: 8px;
   font-weight: 700;
 }
@@ -96,7 +96,7 @@
 
 .booking-card h3 {
   font-size: 20px;
-  color: #1a1a1a;
+  color: white;
   margin-bottom: 16px;
   font-weight: 700;
 }
@@ -126,7 +126,7 @@
 }
 
 .detail-row .value {
-  color: #1a1a1a;
+  color: white;
   font-weight: 600;
   font-size: 14px;
 }
@@ -271,7 +271,7 @@
 
 .modal-header h2 {
   font-size: 24px;
-  color: #1a1a1a;
+  color: white;
   font-weight: 700;
 }
 
@@ -310,7 +310,7 @@
 
 .modal-body h3 {
   font-size: 22px;
-  color: #1a1a1a;
+  color: white;
   margin-bottom: 8px;
   font-weight: 700;
 }
@@ -342,7 +342,7 @@
 }
 
 .detail-item .value {
-  color: #1a1a1a;
+  color: white;
   font-weight: 600;
   font-size: 16px;
 }
@@ -364,7 +364,7 @@
 .rating-section strong {
   display: block;
   margin-bottom: 8px;
-  color: #1a1a1a;
+  color: white;
 }
 
 .rating-display {
@@ -379,7 +379,7 @@
 
 .rating-form h3 {
   font-size: 20px;
-  color: #1a1a1a;
+  color: white;
   margin-bottom: 24px;
   font-weight: 700;
 }

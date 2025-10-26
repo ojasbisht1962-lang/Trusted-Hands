@@ -10,7 +10,7 @@
 
 .bookings-header h1 {
   font-size: 32px;
-  color: #1a1a1a;
+  color: white;
   margin-bottom: 8px;
   font-weight: 700;
 }
@@ -121,7 +121,7 @@
 
 .booking-title-row h3 {
   font-size: 22px;
-  color: #1a1a1a;
+  color: white;
   font-weight: 700;
 }
 
@@ -151,7 +151,7 @@
 }
 
 .booking-description {
-  background: #f8f9fa;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
   padding: 12px;
   border-radius: 10px;
   color: #666;
@@ -253,7 +253,7 @@
 
 .empty-state h2 {
   font-size: 28px;
-  color: #1a1a1a;
+  color: white;
   margin-bottom: 12px;
   font-weight: 700;
   text-transform: capitalize;
@@ -311,7 +311,7 @@
 
 .modal-header h2 {
   font-size: 24px;
-  color: #1a1a1a;
+  color: white;
   font-weight: 700;
 }
 

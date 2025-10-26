@@ -37,7 +37,7 @@
 
 .about-container h1 {
   font-size: 3rem;
-  color: #1f2937;
+  color: white;
   margin-bottom: 20px;
   text-align: center;
   font-weight: 800;
@@ -49,7 +49,7 @@
 
 .about-section h2 {
   font-size: 2rem;
-  color: #1f2937;
+  color: white;
   margin-bottom: 20px;
   padding-left: 20px;
   border-left: 5px solid #667eea;
@@ -59,7 +59,7 @@
 .about-section p {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #4b5563;
+  color: white;
   margin-bottom: 20px;
 }
 
@@ -93,7 +93,7 @@
 }
 
 .feature-card p {
-  color: #6b7280;
+  color: white;
   font-size: 1rem;
   line-height: 1.6;
   margin: 0;
@@ -111,7 +111,7 @@
 .values-list li {
   padding: 20px 24px;
   font-size: 1.05rem;
-  color: #1f2937;
+  color: white;
   border-bottom: 1px solid #e5e7eb;
   line-height: 1.7;
   transition: background-color 0.2s;

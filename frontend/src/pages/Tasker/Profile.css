@@ -17,7 +17,7 @@
 
 .profile-header h1 {
   font-size: 32px;
-  color: #1a1a1a;
+  color: white;
   margin-bottom: 8px;
   font-weight: 700;
 }
@@ -119,7 +119,7 @@
 
 .badge.rating {
   background: #ffc107;
-  color: #1a1a1a;
+  color: white;
 }
 
 .referral-section {
@@ -196,7 +196,7 @@
 
 .stat-card h3 {
   font-size: 28px;
-  color: #1a1a1a;
+  color: white;
   margin-bottom: 4px;
   font-weight: 700;
 }
@@ -226,7 +226,7 @@
 
 .info-section h3 {
   font-size: 20px;
-  color: #1a1a1a;
+  color: white;
   font-weight: 700;
   margin-bottom: 24px;
 }
@@ -494,7 +494,7 @@
 
 .upgrade-info h4 {
   font-size: 18px;
-  color: #1a1a1a;
+  color: white;
   margin-bottom: 8px;
   font-weight: 700;
 }
@@ -564,7 +564,7 @@
 
 .modal-header h2 {
   font-size: 24px;
-  color: #1a1a1a;
+  color: white;
   margin: 0;
   font-weight: 700;
 }
@@ -609,7 +609,7 @@
 
 .benefits-list h4 {
   font-size: 16px;
-  color: #1a1a1a;
+  color: white;
   margin-bottom: 12px;
   font-weight: 700;
 }

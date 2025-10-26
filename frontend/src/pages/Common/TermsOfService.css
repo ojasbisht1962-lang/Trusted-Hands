@@ -39,7 +39,7 @@
 }
 
 .last-updated {
-  color: #6b7280;
+  color: white;
   font-size: 15px;
   margin-bottom: 40px;
   font-style: italic;
@@ -66,7 +66,7 @@
 }
 
 .terms-section p {
-  color: #374151;
+  color: white;
   font-size: 16px;
   line-height: 1.8;
   margin-bottom: 16px;
@@ -78,7 +78,7 @@
 }
 
 .terms-section ul li {
-  color: #374151;
+  color: white;
   font-size: 16px;
   line-height: 1.8;
   margin-bottom: 12px;

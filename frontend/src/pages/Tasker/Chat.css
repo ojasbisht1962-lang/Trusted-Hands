@@ -20,7 +20,7 @@
 
 .sidebar-header h2 {
   font-size: 24px;
-  color: #1a1a1a;
+  color: white;
   margin: 0 0 4px 0;
   font-weight: 700;
 }
@@ -48,7 +48,7 @@
 }
 
 .conversation-item:hover {
-  background: #f8f9fa;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
 }
 
 .conversation-item.active {
@@ -96,7 +96,7 @@
 
 .conversation-info h4 {
   font-size: 15px;
-  color: #1a1a1a;
+  color: white;
   margin: 0;
   font-weight: 600;
   white-space: nowrap;
@@ -218,7 +218,7 @@
 
 .chat-header-info h3 {
   font-size: 18px;
-  color: #1a1a1a;
+  color: white;
   margin: 0 0 4px 0;
   font-weight: 600;
 }
@@ -233,7 +233,7 @@
 .messages-container {
   flex: 1;
   overflow-y: auto;
-  background: #f8f9fa;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
   padding: 20px;
 }
 
@@ -282,7 +282,7 @@
 
 .message.received .message-content {
   background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-  color: #1a1a1a;
+  color: white;
   border: 1px solid #e0e0e0;
   border-bottom-left-radius: 4px;
 }

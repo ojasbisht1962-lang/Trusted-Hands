@@ -20,12 +20,12 @@
 .profile-header h1 {
   font-size: 32px;
   font-weight: 700;
-  color: #1f2937;
+  color: white;
   margin-bottom: 8px;
 }
 
 .profile-header p {
-  color: #6b7280;
+  color: white;
   font-size: 16px;
 }
 
@@ -95,7 +95,7 @@
 .profile-info h2 {
   font-size: 28px;
   font-weight: 700;
-  color: #1f2937;
+  color: white;
   margin: 0 0 12px 0;
 }
 
@@ -113,7 +113,7 @@
 }
 
 .profile-email {
-  color: #6b7280;
+  color: white;
   font-size: 15px;
   margin: 0;
   display: flex;
@@ -140,7 +140,7 @@
 
 .form-group label {
   font-weight: 600;
-  color: #374151;
+  color: white;
   font-size: 14px;
 }
 
@@ -163,13 +163,13 @@
 
 .disabled-input {
   background: linear-gradient(135deg, #fde68a 0%, #fcd34d 100%);
-  color: #9ca3af;
+  color: white;
   cursor: not-allowed;
 }
 
 .form-hint {
   font-size: 12px;
-  color: #9ca3af;
+  color: white;
   font-style: italic;
 }
 
@@ -214,7 +214,7 @@
 .profile-stats-card h3 {
   font-size: 18px;
   font-weight: 700;
-  color: #1f2937;
+  color: white;
   margin: 0 0 20px 0;
 }
 
@@ -252,7 +252,7 @@
 
 .stat-label {
   font-size: 12px;
-  color: #6b7280;
+  color: white;
   margin: 0 0 6px 0;
   font-weight: 500;
   text-transform: uppercase;
@@ -262,7 +262,7 @@
 .stat-value {
   font-size: 15px;
   font-weight: 700;
-  color: #1f2937;
+  color: white;
   margin: 0;
 }
 

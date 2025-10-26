@@ -62,7 +62,7 @@
 .tasker-info h3 {
   font-size: 18px;
   font-weight: 700;
-  color: #1a1a1a;
+  color: white;
   margin: 0 0 4px 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -71,7 +71,7 @@
 
 .tasker-info p {
   font-size: 13px;
-  color: #6b7280;
+  color: white;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -93,13 +93,13 @@
 }
 
 .detail-row .label {
-  color: #6b7280;
+  color: white;
   font-weight: 500;
   flex-shrink: 0;
 }
 
 .detail-row .value {
-  color: #1a1a1a;
+  color: white;
   font-weight: 600;
   text-align: right;
   word-break: break-word;

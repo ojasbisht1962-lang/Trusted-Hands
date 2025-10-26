@@ -12,11 +12,11 @@
 .page-header h1 {
   font-size: 32px;
   margin-bottom: 8px;
-  color: #1a1a1a;
+  color: white;
 }
 
 .page-header p {
-  color: #6b7280;
+  color: white;
   font-size: 16px;
 }
 
@@ -55,7 +55,7 @@
   cursor: pointer;
   font-weight: 500;
   transition: all 0.3s ease;
-  color: #6b7280;
+  color: white;
 }
 
 .filter-tabs button:hover {
@@ -73,13 +73,13 @@
   text-align: center;
   padding: 50px;
   font-size: 18px;
-  color: #6b7280;
+  color: white;
 }
 
 .no-data {
   text-align: center;
   padding: 50px;
-  color: #6b7280;
+  color: white;
 }
 
 .bookings-table-container {
@@ -138,12 +138,12 @@
 
 .schedule-cell .date {
   font-weight: 600;
-  color: #1a1a1a;
+  color: white;
 }
 
 .schedule-cell .time {
   font-size: 12px;
-  color: #6b7280;
+  color: white;
 }
 
 .price {
