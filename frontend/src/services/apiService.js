@@ -6,6 +6,11 @@ export const authService = {
     return response.data;
   },
 
+  switchRole: async (role) => {
+    const response = await api.post(`/auth/switch-role?role=${role}`);
+    return response.data;
+  },
+
   logout: () => {
     localStorage.removeItem('access_token');
     localStorage.removeItem('user');

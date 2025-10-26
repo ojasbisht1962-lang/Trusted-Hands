@@ -122,7 +122,16 @@ export default function UserManagement() {
   };
 
   const filteredUsers = users.filter(user => {
-    const matchesFilter = filter === 'all' || user.role === filter;
+    // Check if user matches the filter
+    let matchesFilter = false;
+    if (filter === 'all') {
+      matchesFilter = true;
+    } else {
+      // Check both current role and available roles
+      const userRoles = user.roles || [user.role];
+      matchesFilter = userRoles.includes(filter);
+    }
+    
     const matchesSearch = user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          user.email.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesFilter && matchesSearch;
@@ -144,6 +153,40 @@ export default function UserManagement() {
       superadmin: '🛡️'
     };
     return badges[role] || '👤';
+  };
+
+  const renderUserRoles = (user) => {
+    const roles = user.roles || [user.role];
+    const uniqueRoles = [...new Set(roles)]; // Remove duplicates
+    
+    if (uniqueRoles.length === 1) {
+      // Single role - show as before
+      return (
+        <span 
+          className="role-badge" 
+          style={{ backgroundColor: getRoleColor(uniqueRoles[0]) }}
+        >
+          {getRoleBadge(uniqueRoles[0])} {uniqueRoles[0]}
+        </span>
+      );
+    }
+    
+    // Multiple roles - show all with primary indicator
+    return (
+      <div className="multi-role-container">
+        {uniqueRoles.map((role, index) => (
+          <span
+            key={role}
+            className={`role-badge ${role === user.role ? 'primary-role' : 'secondary-role'}`}
+            style={{ backgroundColor: getRoleColor(role) }}
+            title={role === user.role ? 'Current Active Role' : 'Available Role'}
+          >
+            {getRoleBadge(role)} {role}
+            {role === user.role && <span className="primary-indicator">★</span>}
+          </span>
+        ))}
+      </div>
+    );
   };
 
   if (loading) {
@@ -176,19 +219,19 @@ export default function UserManagement() {
             className={filter === 'customer' ? 'active' : ''}
             onClick={() => setFilter('customer')}
           >
-            👤 Customers ({users.filter(u => u.role === 'customer').length})
+            👤 Customers ({users.filter(u => (u.roles || [u.role]).includes('customer')).length})
           </button>
           <button
             className={filter === 'tasker' ? 'active' : ''}
             onClick={() => setFilter('tasker')}
           >
-            🔧 Taskers ({users.filter(u => u.role === 'tasker').length})
+            🔧 Taskers ({users.filter(u => (u.roles || [u.role]).includes('tasker')).length})
           </button>
           <button
             className={filter === 'superadmin' ? 'active' : ''}
             onClick={() => setFilter('superadmin')}
           >
-            🛡️ Admins ({users.filter(u => u.role === 'superadmin').length})
+            🛡️ Admins ({users.filter(u => (u.roles || [u.role]).includes('superadmin')).length})
           </button>
         </div>
 
@@ -208,7 +251,7 @@ export default function UserManagement() {
             <tr>
               <th>User</th>
               <th>Email</th>
-              <th>Role</th>
+              <th>Roles</th>
               <th>Tasker Type</th>
               <th>Phone</th>
               <th>Status</th>
@@ -236,12 +279,7 @@ export default function UserManagement() {
                 </td>
                 <td>{user.email}</td>
                 <td>
-                  <span 
-                    className="role-badge" 
-                    style={{ backgroundColor: getRoleColor(user.role) }}
-                  >
-                    {getRoleBadge(user.role)} {user.role}
-                  </span>
+                  {renderUserRoles(user)}
                 </td>
                 <td>
                   {user.role === 'tasker' ? (

@@ -4,6 +4,7 @@ from app.services.google_auth import verify_google_token
 from app.database import get_collection
 from app.models.user import User, UserRole
 from app.utils.auth import create_access_token
+from app.middleware.auth import get_current_user
 from datetime import datetime, timedelta
 from bson import ObjectId
 
@@ -50,8 +51,7 @@ async def google_login(request: GoogleLoginRequest):
                 detail="Your account has been blocked. Please contact support."
             )
         
-        # Allow role update if user is trying to become a tasker
-        # Keep superadmin role fixed, but allow customer <-> tasker switching
+        # Update profile data
         update_data = {
             "updated_at": datetime.utcnow(),
             "name": google_user_info["name"],
@@ -60,12 +60,21 @@ async def google_login(request: GoogleLoginRequest):
         
         current_role = existing_user.get("role")
         requested_role = request.role.value
+        current_roles = existing_user.get("roles", [current_role] if current_role else [])
         
-        # Allow role changes except for superadmin (which should remain fixed)
-        if current_role != UserRole.SUPERADMIN.value:
-            # Allow customer to become tasker or vice versa
-            if requested_role in [UserRole.CUSTOMER.value, UserRole.TASKER.value]:
-                update_data["role"] = requested_role
+        # Handle role management
+        if current_role == UserRole.SUPERADMIN.value:
+            # SuperAdmin role is locked - cannot change or add other roles
+            update_data["role"] = UserRole.SUPERADMIN.value
+            update_data["roles"] = [UserRole.SUPERADMIN.value]
+        else:
+            # Add requested role to roles list if not already present
+            if requested_role not in current_roles:
+                current_roles.append(requested_role)
+            
+            # Set current active role to requested role
+            update_data["role"] = requested_role
+            update_data["roles"] = current_roles
         
         # Update user
         await users_collection.update_one(
@@ -84,6 +93,7 @@ async def google_login(request: GoogleLoginRequest):
             name=google_user_info["name"],
             profile_picture=google_user_info.get("profile_picture", ""),
             role=request.role,
+            roles=[request.role.value],  # Initialize with selected role
             created_at=datetime.utcnow(),
             updated_at=datetime.utcnow()
         )
@@ -116,3 +126,63 @@ async def refresh_token(current_user: dict = Depends(lambda: None)):
     # This would typically use a refresh token
     # For now, just create a new access token
     pass
+
+@router.post("/switch-role")
+async def switch_role(role: UserRole, current_user: dict = Depends(get_current_user)):
+    """Switch between user's available roles without re-logging in"""
+    
+    users_collection = await get_collection("users")
+    user = await users_collection.find_one({"_id": ObjectId(current_user["_id"])})
+    
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    # Check if user is blocked
+    if user.get("is_blocked", False):
+        raise HTTPException(
+            status_code=403,
+            detail="Your account has been blocked."
+        )
+    
+    # Get user's available roles
+    available_roles = user.get("roles", [user.get("role")])
+    
+    # Check if requested role is available
+    if role.value not in available_roles:
+        raise HTTPException(
+            status_code=403,
+            detail=f"You don't have access to {role.value} role. Please login as {role.value} first."
+        )
+    
+    # SuperAdmin cannot switch roles
+    if user.get("role") == UserRole.SUPERADMIN.value:
+        raise HTTPException(
+            status_code=403,
+            detail="SuperAdmin role cannot be switched."
+        )
+    
+    # Update current active role
+    await users_collection.update_one(
+        {"_id": ObjectId(current_user["_id"])},
+        {"$set": {
+            "role": role.value,
+            "updated_at": datetime.utcnow()
+        }}
+    )
+    
+    # Fetch updated user
+    updated_user = await users_collection.find_one({"_id": ObjectId(current_user["_id"])})
+    updated_user["_id"] = str(updated_user["_id"])
+    
+    # Create new token with updated role
+    access_token = create_access_token(
+        data={"sub": str(current_user["_id"]), "role": role.value},
+        expires_delta=timedelta(minutes=30)
+    )
+    
+    return {
+        "access_token": access_token,
+        "token_type": "bearer",
+        "user": updated_user,
+        "message": f"Switched to {role.value} role successfully"
+    }

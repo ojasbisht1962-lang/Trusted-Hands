@@ -41,6 +41,21 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem('user', JSON.stringify(userData));
   };
 
+  const switchRole = async (newRole) => {
+    try {
+      const response = await authService.switchRole(newRole);
+      if (response.access_token) {
+        authService.setAuth(response.access_token, response.user);
+        setToken(response.access_token);
+        setUser(response.user);
+        return response;
+      }
+    } catch (error) {
+      console.error('Role switch failed:', error);
+      throw error;
+    }
+  };
+
   const value = {
     user,
     token,
@@ -48,10 +63,13 @@ export const AuthProvider = ({ children }) => {
     login,
     logout,
     updateUser,
+    switchRole,
     isAuthenticated: !!token,
     isCustomer: user?.role === 'customer',
     isTasker: user?.role === 'tasker',
     isSuperAdmin: user?.role === 'superadmin',
+    hasMultipleRoles: user?.roles?.length > 1,
+    availableRoles: user?.roles || [],
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

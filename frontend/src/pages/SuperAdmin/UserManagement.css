@@ -211,6 +211,44 @@
   font-size: 12px;
   font-weight: 600;
   text-transform: capitalize;
+  position: relative;
+}
+
+/* Multi-role container */
+.multi-role-container {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.multi-role-container .role-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  font-size: 11px;
+}
+
+/* Primary role (currently active) */
+.role-badge.primary-role {
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  font-weight: 700;
+}
+
+/* Secondary role (available but not active) */
+.role-badge.secondary-role {
+  opacity: 0.8;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Primary indicator (star) */
+.primary-indicator {
+  font-size: 10px;
+  margin-left: 2px;
+  color: #ffd700;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
 .status-badge {

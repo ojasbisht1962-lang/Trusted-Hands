@@ -51,7 +51,8 @@ class User(BaseModel):
     email: EmailStr
     name: str
     profile_picture: Optional[str] = None
-    role: UserRole
+    role: UserRole  # Primary/current role for compatibility
+    roles: Optional[List[UserRole]] = []  # All roles user has access to
     
     # Common fields
     phone: Optional[str] = None

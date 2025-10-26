@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import UserProfileMenu from './UserProfileMenu';
+import RoleSwitcher from './RoleSwitcher';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -79,6 +80,7 @@ export default function Navbar() {
 
         {/* User Profile Menu */}
         <div className="navbar-profile">
+          <RoleSwitcher />
           <UserProfileMenu />
         </div>
       </div>
