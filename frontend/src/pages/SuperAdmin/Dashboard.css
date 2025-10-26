@@ -10,7 +10,7 @@
 /* Header */
 .admin-header {
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: white;
   padding: 30px 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
