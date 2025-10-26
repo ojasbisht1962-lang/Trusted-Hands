@@ -1,6 +1,6 @@
 .my-bookings-container {
   min-height: 100vh;
-  background: #f5f7fa;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f9fafb 100%);
   padding: 24px;
 }
 
@@ -30,7 +30,7 @@
 
 .filter-tabs button {
   padding: 10px 20px;
-  background: #f8fafc;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
   border: 2px solid #e0e0e0;
   border-radius: 8px;
   font-weight: 600;
@@ -58,7 +58,7 @@
 }
 
 .booking-card {
-  background: #f8fafc;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -216,7 +216,7 @@
 .empty-state {
   text-align: center;
   padding: 60px 20px;
-  background: #f8fafc;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
   border-radius: 16px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
@@ -252,7 +252,7 @@
 }
 
 .modal-content {
-  background: #f8fafc;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
   border-radius: 20px;
   max-width: 600px;
   width: 100%;
@@ -279,7 +279,7 @@
   width: 40px;
   height: 40px;
   border: none;
-  background: #f0f0f0;
+  background: linear-gradient(135deg, #c7d2fe 0%, #e0e7ff 100%);
   border-radius: 50%;
   font-size: 24px;
   cursor: pointer;
@@ -356,7 +356,7 @@
 .rating-section {
   margin-top: 24px;
   padding: 16px;
-  background: #f9fafb;
+  background: linear-gradient(135deg, #dbeafe 0%, #e5e7eb 100%);
   border-radius: 12px;
 }
 

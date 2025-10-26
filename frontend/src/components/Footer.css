@@ -1,6 +1,6 @@
 .app-footer {
   background: #111827;
-  color: #f59e0b;
+  color: white;
   margin-top: auto;
   width: 100%;
 }
@@ -53,7 +53,7 @@
 }
 
 .footer-section p {
-  color: #f59e0b;
+  color: white;
   font-size: 16px;
   line-height: 1.8;
   margin: 8px 0;
@@ -68,7 +68,7 @@
 }
 
 .footer-links li {
-  color: #f59e0b;
+  color: white;
   font-size: 16px;
   padding: 10px 0;
   cursor: pointer;

@@ -52,7 +52,7 @@
 }
 
 .btn-logout:hover {
-  background: #f8fafc;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
   color: #667eea;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -69,7 +69,7 @@
 }
 
 .stat-card {
-  background: #f8fafc;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
   padding: 24px;
   border-radius: 16px;
   display: flex;
@@ -123,7 +123,7 @@
 
 /* Quick Actions */
 .quick-actions-table-container {
-  background: #f8fafc;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
   border-radius: 16px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   overflow: hidden;
@@ -154,7 +154,7 @@
 }
 
 .quick-actions-table tbody tr:hover {
-  background: #f9fafb;
+  background: linear-gradient(135deg, #dbeafe 0%, #e5e7eb 100%);
 }
 
 .quick-actions-table tbody tr:last-child {
@@ -222,7 +222,7 @@
 }
 
 .action-btn {
-  background: #f8fafc;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
   border: 2px solid;
   padding: 10px 24px;
   border-radius: 10px;
@@ -250,7 +250,7 @@
 }
 
 .action-card {
-  background: #f8fafc;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
   padding: 24px;
   border-radius: 16px;
   text-align: center;
@@ -316,7 +316,7 @@
 
 /* Activities */
 .activities-container {
-  background: #f8fafc;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
@@ -339,13 +339,13 @@
   align-items: flex-start;
   gap: 16px;
   padding: 16px;
-  background: #f9fafb;
+  background: linear-gradient(135deg, #dbeafe 0%, #e5e7eb 100%);
   border-radius: 12px;
   transition: all 0.3s ease;
 }
 
 .activity-item:hover {
-  background: #f3f4f6;
+  background: linear-gradient(135deg, #bfdbfe 0%, #d1d5db 100%);
   transform: translateX(5px);
 }
 
