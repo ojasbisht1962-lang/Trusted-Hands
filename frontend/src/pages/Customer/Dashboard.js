@@ -267,11 +267,11 @@ export default function Dashboard() {
 
           <button 
             className="quick-action-card"
-            onClick={() => navigate('/customer/taskers')}
+            onClick={() => navigate('/customer/chat')}
           >
-            <div className="action-icon">👥</div>
-            <h3>Find Taskers</h3>
-            <p>Browse verified professionals</p>
+            <div className="action-icon">💬</div>
+            <h3>Messages</h3>
+            <p>Chat with taskers</p>
           </button>
 
           <button 

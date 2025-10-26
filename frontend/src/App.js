@@ -21,8 +21,6 @@ import CustomerDashboard from './pages/Customer/Dashboard';
 import CustomerProfile from './pages/Customer/CustomerProfile';
 import Services from './pages/Customer/Services';
 import ServiceDetails from './pages/Customer/ServiceDetails';
-import TaskersList from './pages/Customer/TaskersList';
-import TaskerDetails from './pages/Customer/TaskerDetails';
 import BookingPage from './pages/Customer/BookingPage';
 import MyBookings from './pages/Customer/MyBookings';
 import Chat from './pages/Customer/Chat';
@@ -117,22 +115,6 @@ function AppRoutes() {
           element={
             <ProtectedRoute allowedRoles={['customer']}>
               <ServiceDetails />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/customer/taskers"
-          element={
-            <ProtectedRoute allowedRoles={['customer']}>
-              <TaskersList />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/customer/taskers/:taskerId"
-          element={
-            <ProtectedRoute allowedRoles={['customer']}>
-              <TaskerDetails />
             </ProtectedRoute>
           }
         />
