@@ -10,6 +10,11 @@ export default function Navbar() {
   const location = useLocation();
   const { user } = useAuth();
 
+  // Don't render authenticated navbar if user is not logged in
+  if (!user) {
+    return null;
+  }
+
   const getNavigationTabs = () => {
     if (!user) return [];
 

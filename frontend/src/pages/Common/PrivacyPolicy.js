@@ -1,19 +1,23 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import PublicNavbar from '../../components/PublicNavbar';
+import Footer from '../../components/Footer';
 import './PrivacyPolicy.css';
 
 export default function PrivacyPolicy() {
   const navigate = useNavigate();
 
   return (
-    <div className="privacy-policy-page">
-      <div className="policy-container">
-        <button className="btn-back" onClick={() => navigate(-1)}>
-          ← Back
-        </button>
+    <>
+      <PublicNavbar />
+      <div className="privacy-policy-page">
+        <div className="policy-container">
+          <button className="btn-back" onClick={() => navigate(-1)}>
+            ← Back
+          </button>
 
-        <h1>Privacy Policy</h1>
-        <p className="last-updated">Last Updated: October 23, 2025</p>
+          <h1>Privacy Policy</h1>
+          <p className="last-updated">Last Updated: October 23, 2025</p>
 
         <section className="policy-section">
           <h2>1. Introduction</h2>
@@ -132,5 +136,7 @@ export default function PrivacyPolicy() {
         </section>
       </div>
     </div>
+    <Footer />
+    </>
   );
 }

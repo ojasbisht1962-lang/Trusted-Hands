@@ -1,18 +1,22 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import PublicNavbar from '../../components/PublicNavbar';
+import Footer from '../../components/Footer';
 import './About.css';
 
 export default function About() {
   const navigate = useNavigate();
 
   return (
-    <div className="about-page">
-      <button className="back-button" onClick={() => navigate(-1)}>
-        ← Back
-      </button>
+    <>
+      <PublicNavbar />
+      <div className="about-page">
+        <button className="back-button" onClick={() => navigate(-1)}>
+          ← Back
+        </button>
 
-      <div className="about-container">
-        <h1>About TrustedHands</h1>
+        <div className="about-container">
+          <h1>About TrustedHands</h1>
         
         <section className="about-section">
           <h2>Who We Are</h2>
@@ -82,5 +86,7 @@ export default function About() {
         </section>
       </div>
     </div>
+    <Footer />
+    </>
   );
 }

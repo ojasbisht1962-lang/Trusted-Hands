@@ -1,19 +1,23 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import PublicNavbar from '../../components/PublicNavbar';
+import Footer from '../../components/Footer';
 import './TermsOfService.css';
 
 export default function TermsOfService() {
   const navigate = useNavigate();
 
   return (
-    <div className="terms-of-service-page">
-      <div className="terms-container">
-        <button className="btn-back" onClick={() => navigate(-1)}>
-          ← Back
-        </button>
+    <>
+      <PublicNavbar />
+      <div className="terms-of-service-page">
+        <div className="terms-container">
+          <button className="btn-back" onClick={() => navigate(-1)}>
+            ← Back
+          </button>
 
-        <h1>Terms of Service</h1>
-        <p className="last-updated">Last Updated: October 23, 2025</p>
+          <h1>Terms of Service</h1>
+          <p className="last-updated">Last Updated: October 23, 2025</p>
 
         <section className="terms-section">
           <h2>1. Agreement to Terms</h2>
@@ -181,5 +185,7 @@ export default function TermsOfService() {
         </section>
       </div>
     </div>
+    <Footer />
+    </>
   );
 }

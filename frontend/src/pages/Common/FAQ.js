@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import PublicNavbar from '../../components/PublicNavbar';
+import Footer from '../../components/Footer';
 import './FAQ.css';
 
 export default function FAQ() {
@@ -73,14 +75,16 @@ export default function FAQ() {
   };
 
   return (
-    <div className="faq-page">
-      <button className="back-button" onClick={() => navigate(-1)}>
-        ← Back
-      </button>
+    <>
+      <PublicNavbar />
+      <div className="faq-page">
+        <button className="back-button" onClick={() => navigate(-1)}>
+          ← Back
+        </button>
 
-      <div className="faq-container">
-        <h1>Frequently Asked Questions</h1>
-        <p className="faq-subtitle">Find answers to common questions about TrustedHands</p>
+        <div className="faq-container">
+          <h1>Frequently Asked Questions</h1>
+          <p className="faq-subtitle">Find answers to common questions about TrustedHands</p>
 
         {faqData.map((section, sectionIndex) => (
           <div key={sectionIndex} className="faq-category">
@@ -123,5 +127,7 @@ export default function FAQ() {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 }

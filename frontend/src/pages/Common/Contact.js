@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import PublicNavbar from '../../components/PublicNavbar';
+import Footer from '../../components/Footer';
 import './Contact.css';
 
 export default function Contact() {
@@ -31,14 +33,16 @@ export default function Contact() {
   };
 
   return (
-    <div className="contact-page">
-      <button className="back-button" onClick={() => navigate(-1)}>
-        ← Back
-      </button>
+    <>
+      <PublicNavbar />
+      <div className="contact-page">
+        <button className="back-button" onClick={() => navigate(-1)}>
+          ← Back
+        </button>
 
-      <div className="contact-container">
-        <h1>Contact Us</h1>
-        <p className="contact-subtitle">We'd love to hear from you!</p>
+        <div className="contact-container">
+          <h1>Contact Us</h1>
+          <p className="contact-subtitle">We'd love to hear from you!</p>
 
         <div className="contact-content">
           <div className="contact-info">
@@ -138,5 +142,7 @@ export default function Contact() {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 }
