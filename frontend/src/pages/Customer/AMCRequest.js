@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { amcService } from '../../services/apiService';
 import { toast } from 'react-toastify';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 import './AMCRequest.css';
 
 export default function AMCRequest() {
@@ -149,21 +151,27 @@ export default function AMCRequest() {
 
   if (loading) {
     return (
-      <div className="amc-container">
-        <div className="loading">Loading AMC requests...</div>
-      </div>
+      <>
+        <Navbar />
+        <div className="amc-container">
+          <div className="loading">Loading AMC requests...</div>
+        </div>
+        <Footer />
+      </>
     );
   }
 
   return (
-    <div className="amc-container">
-      <div className="amc-header">
-        <div>
-          <h1>📝 AMC Requests</h1>
-          <p>Manage your Annual Maintenance Contracts</p>
-        </div>
-        <button 
-          className="btn-create-amc"
+    <>
+      <Navbar />
+      <div className="amc-container">
+        <div className="amc-header">
+          <div>
+            <h1>📝 AMC Requests</h1>
+            <p>Manage your Annual Maintenance Contracts</p>
+          </div>
+          <button 
+            className="btn-create-amc">
           onClick={() => setShowCreateModal(true)}
         >
           + Create New AMC
@@ -496,5 +504,7 @@ export default function AMCRequest() {
         </div>
       )}
     </div>
+    <Footer />
+    </>
   );
 }

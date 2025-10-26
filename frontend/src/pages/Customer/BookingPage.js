@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { serviceService, bookingService } from '../../services/apiService';
 import { toast } from 'react-toastify';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 import './BookingPage.css';
 
 export default function BookingPage() {
@@ -109,25 +111,35 @@ export default function BookingPage() {
 
   if (loading) {
     return (
-      <div className="booking-page-container">
-        <div className="loading">Loading service details...</div>
-      </div>
+      <>
+        <Navbar />
+        <div className="booking-page-container">
+          <div className="loading">Loading service details...</div>
+        </div>
+        <Footer />
+      </>
     );
   }
 
   if (!service) {
     return (
-      <div className="booking-page-container">
-        <div className="error-state">Service not found</div>
-      </div>
+      <>
+        <Navbar />
+        <div className="booking-page-container">
+          <div className="error-state">Service not found</div>
+        </div>
+        <Footer />
+      </>
     );
   }
 
   return (
-    <div className="booking-page-container">
-      <div className="booking-content">
-        {/* Service Info Card */}
-        <div className="service-info-card">
+    <>
+      <Navbar />
+      <div className="booking-page-container">
+        <div className="booking-content">
+          {/* Service Info Card */}
+          <div className="service-info-card">
           <div className="service-icon-large">
             {service.service_type === 'technical' ? '🔧' : '🏠'}
           </div>
@@ -283,5 +295,7 @@ export default function BookingPage() {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 }

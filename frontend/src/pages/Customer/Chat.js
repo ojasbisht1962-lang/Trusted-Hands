@@ -3,6 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { toast } from 'react-toastify';
 import api from '../../services/api';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 import './Chat.css';
 
 export default function Chat() {
@@ -102,16 +104,22 @@ export default function Chat() {
 
   if (loading) {
     return (
-      <div className="chat-page-container">
-        <div className="loading">Loading chats...</div>
-      </div>
+      <>
+        <Navbar />
+        <div className="chat-page-container">
+          <div className="loading">Loading chats...</div>
+        </div>
+        <Footer />
+      </>
     );
   }
 
   return (
-    <div className="chat-page-container">
-      {/* Conversations Sidebar */}
-      <div className="conversations-sidebar">
+    <>
+      <Navbar />
+      <div className="chat-page-container">
+        {/* Conversations Sidebar */}
+        <div className="conversations-sidebar">
         <div className="sidebar-header">
           <h2>💬 Messages</h2>
         </div>
@@ -233,5 +241,7 @@ export default function Chat() {
         )}
       </div>
     </div>
+    <Footer />
+    </>
   );
 }

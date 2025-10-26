@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { bookingService } from '../../services/apiService';
 import { toast } from 'react-toastify';
 import api from '../../services/api';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 import './MyBookings.css';
 
 export default function MyBookings() {
@@ -124,15 +126,21 @@ export default function MyBookings() {
 
   if (loading) {
     return (
-      <div className="my-bookings-container">
-        <div className="loading">Loading bookings...</div>
-      </div>
+      <>
+        <Navbar />
+        <div className="my-bookings-container">
+          <div className="loading">Loading bookings...</div>
+        </div>
+        <Footer />
+      </>
     );
   }
 
   return (
-    <div className="my-bookings-container">
-      <div className="bookings-header">
+    <>
+      <Navbar />
+      <div className="my-bookings-container">
+        <div className="bookings-header">
         <h1>📋 My Bookings</h1>
         <p>Track and manage your service bookings</p>
       </div>
@@ -395,5 +403,7 @@ export default function MyBookings() {
         </div>
       )}
     </div>
+    <Footer />
+    </>
   );
 }
