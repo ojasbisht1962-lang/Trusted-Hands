@@ -1,4 +1,5 @@
 import React from 'react';
+import BharosaChatbot from '../../components/BharosaChatbot';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import './Home.css';
@@ -47,6 +48,8 @@ const Home = () => {
                 <Link to="/login" className="btn btn-nav">Login</Link>
               </>
             )}
+          </div>
+        </div>
       </nav>
 
       {/* Hero Section */}
@@ -170,6 +173,7 @@ const Home = () => {
           </div>
         </div>
       </footer>
+      <BharosaChatbot />
     </div>
   );
 };
