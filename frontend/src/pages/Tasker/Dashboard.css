@@ -1,6 +1,6 @@
 .tasker-dashboard {
   min-height: 100vh;
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
   padding: 0;
   margin: 0;
   display: flex;
@@ -9,7 +9,7 @@
 
 /* Header */
 .dashboard-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
   border-radius: 0;
   padding: 40px;
   margin-bottom: 30px;
@@ -25,7 +25,7 @@
 }
 
 .welcome-section h1 {
-  color: #f59e0b;
+  color: #f97316;
   font-size: 32px;
   margin-bottom: 8px;
   font-weight: 700;
@@ -53,8 +53,8 @@
 }
 
 .header-actions .btn-primary {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-  color: #667eea;
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  color: #f97316;
 }
 
 .header-actions .btn-primary:hover {
@@ -64,7 +64,7 @@
 
 .header-actions .btn-secondary {
   background: rgba(255, 255, 255, 0.2);
-  color: #f59e0b;
+  color: #f97316;
   border: 2px solid white;
 }
 
@@ -81,7 +81,7 @@
 }
 
 .stat-card {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 20px;
   padding: 24px;
   display: flex;
@@ -140,8 +140,8 @@
 }
 
 .badge {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
   padding: 4px 12px;
   border-radius: 12px;
   font-size: 11px;
@@ -164,7 +164,7 @@
 }
 
 .dashboard-section {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 20px;
   padding: 24px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -188,7 +188,7 @@
 .section-header button {
   background: none;
   border: none;
-  color: #667eea;
+  color: #f97316;
   font-weight: 600;
   cursor: pointer;
   font-size: 14px;
@@ -196,7 +196,7 @@
 }
 
 .section-header button:hover {
-  color: #764ba2;
+  color: #dc2626;
   transform: translateX(5px);
 }
 
@@ -234,7 +234,7 @@
 }
 
 .booking-card:hover {
-  border-color: #667eea;
+  border-color: #f97316;
   transform: translateX(5px);
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.15);
 }
@@ -253,7 +253,7 @@
   right: 16px;
   padding: 6px 12px;
   border-radius: 20px;
-  color: #f59e0b;
+  color: #f97316;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -328,7 +328,7 @@
 
 .btn-accept {
   background: #4caf50;
-  color: #f59e0b;
+  color: #f97316;
 }
 
 .btn-accept:hover {
@@ -338,7 +338,7 @@
 
 .btn-reject {
   background: #f44336;
-  color: #f59e0b;
+  color: #f97316;
 }
 
 .btn-reject:hover {
@@ -348,7 +348,7 @@
 
 .btn-view {
   background: #2196f3;
-  color: #f59e0b;
+  color: #f97316;
 }
 
 .btn-view:hover {
@@ -358,7 +358,7 @@
 
 .btn-chat {
   background: #667eea;
-  color: #f59e0b;
+  color: #f97316;
 }
 
 .btn-chat:hover {
@@ -386,8 +386,8 @@
 .btn-primary-small {
   margin-top: 20px;
   padding: 12px 24px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
   border: none;
   border-radius: 12px;
   font-weight: 600;
@@ -412,14 +412,14 @@
   justify-content: space-between;
   align-items: center;
   padding: 16px;
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 12px;
   border: 2px solid #e0e0e0;
   transition: all 0.2s ease;
 }
 
 .service-mini-card:hover {
-  border-color: #667eea;
+  border-color: #f97316;
   transform: translateX(5px);
 }
 
@@ -476,14 +476,14 @@
   display: flex;
   gap: 16px;
   padding: 16px;
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 12px;
   border-left: 4px solid #667eea;
   transition: all 0.2s ease;
 }
 
 .activity-item:hover {
-  background: linear-gradient(135deg, #fde68a 0%, #fcd34d 100%);
+  background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
   transform: translateX(5px);
 }
 
@@ -506,7 +506,7 @@
 
 /* Quick Actions */
 .quick-actions {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 20px;
   padding: 24px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -540,7 +540,7 @@
 
 .action-card:hover {
   transform: translateY(-5px);
-  border-color: #667eea;
+  border-color: #f97316;
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
   box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
 }

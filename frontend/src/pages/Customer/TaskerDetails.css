@@ -1,6 +1,6 @@
 .tasker-details-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
   padding: 24px;
   max-width: 1200px;
   margin: 0 auto;
@@ -12,24 +12,24 @@
 
 .btn-back {
   padding: 10px 20px;
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border: 2px solid #e0e0e0;
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  color: #667eea;
+  color: #f97316;
 }
 
 .btn-back:hover {
   background: #667eea;
-  color: #f59e0b;
-  border-color: #667eea;
+  color: #f97316;
+  border-color: #f97316;
 }
 
 /* Profile Card */
 .tasker-profile-card {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 20px;
   padding: 32px;
   margin-bottom: 24px;
@@ -60,8 +60,8 @@
 .avatar-placeholder {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,7 +90,7 @@
 
 .badge-professional {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  color: #f59e0b;
+  color: #f97316;
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 13px;
@@ -98,8 +98,8 @@
 }
 
 .badge-helper {
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  color: #f97316;
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 13px;
@@ -127,7 +127,7 @@
 .stat-value {
   font-size: 24px;
   font-weight: 700;
-  color: #667eea;
+  color: #f97316;
 }
 
 .stat-label {
@@ -145,8 +145,8 @@
 .btn-chat {
   flex: 1;
   padding: 14px 24px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
   border: none;
   border-radius: 12px;
   font-weight: 600;
@@ -173,7 +173,7 @@
 }
 
 .details-card {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -195,7 +195,7 @@
 .skill-chip {
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
   border: 2px solid #667eea;
-  color: #667eea;
+  color: #f97316;
   padding: 10px 16px;
   border-radius: 20px;
   font-weight: 600;
@@ -254,7 +254,7 @@
 }
 
 .service-card {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 16px;
   padding: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -284,7 +284,7 @@
 
 .status-active {
   background: #10b981;
-  color: #f59e0b;
+  color: #f97316;
   padding: 4px 10px;
   border-radius: 12px;
   font-size: 11px;
@@ -293,7 +293,7 @@
 
 .status-inactive {
   background: #6b7280;
-  color: #f59e0b;
+  color: #f97316;
   padding: 4px 10px;
   border-radius: 12px;
   font-size: 11px;
@@ -326,7 +326,7 @@
 }
 
 .service-price {
-  color: #667eea;
+  color: #f97316;
   font-weight: 700;
   font-size: 18px;
 }
@@ -355,8 +355,8 @@
 
 .error-state button {
   padding: 12px 24px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
   border: none;
   border-radius: 8px;
   font-weight: 600;

@@ -13,7 +13,7 @@
 }
 
 .tasker-card {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
@@ -45,8 +45,8 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -123,7 +123,7 @@
 
 .btn-verify {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  color: #f59e0b;
+  color: #f97316;
 }
 
 .btn-verify:hover {
@@ -133,7 +133,7 @@
 
 .btn-reject {
   background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-  color: #f59e0b;
+  color: #f97316;
 }
 
 .btn-reject:hover {

@@ -5,9 +5,9 @@
 }
 
 .btn-back {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border: 2px solid #667eea;
-  color: #667eea;
+  color: #f97316;
   padding: 10px 20px;
   border-radius: 10px;
   font-size: 14px;
@@ -19,14 +19,14 @@
 
 .btn-back:hover {
   background: #667eea;
-  color: #f59e0b;
+  color: #f97316;
   transform: translateX(-5px);
 }
 
 .service-details-card {
   max-width: 1200px;
   margin: 0 auto;
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 20px;
   padding: 40px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
@@ -43,7 +43,7 @@
 
 .service-icon-large {
   font-size: 80px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
   width: 120px;
   height: 120px;
   border-radius: 20px;
@@ -82,8 +82,8 @@
 
 .professional-badge {
   padding: 8px 16px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
   border-radius: 20px;
   font-size: 14px;
   font-weight: 600;
@@ -121,7 +121,7 @@
 .price-amount {
   font-size: 36px;
   font-weight: 700;
-  color: #667eea;
+  color: #f97316;
 }
 
 .price-unit {
@@ -145,7 +145,7 @@
 }
 
 .tasker-card {
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
   border-radius: 16px;
   padding: 24px;
   margin-bottom: 20px;
@@ -179,8 +179,8 @@
 .avatar-placeholder-large {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -239,8 +239,8 @@
 .btn-book-now-large {
   width: 100%;
   padding: 16px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
   border: none;
   border-radius: 12px;
   font-size: 16px;

@@ -7,15 +7,15 @@
 .policy-container {
   max-width: 900px;
   margin: 0 auto;
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   padding: 50px;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .btn-back {
-  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #dc2626 0%, #ea580c 100%);
+  color: #f97316;
   border: none;
   padding: 10px 20px;
   border-radius: 8px;
@@ -34,7 +34,7 @@
 .policy-container h1 {
   font-size: 42px;
   font-weight: 800;
-  color: #1e3a8a;
+  color: #dc2626;
   margin-bottom: 10px;
 }
 
@@ -78,7 +78,7 @@
 }
 
 .policy-section strong {
-  color: #1e3a8a;
+  color: #dc2626;
   font-weight: 600;
 }
 

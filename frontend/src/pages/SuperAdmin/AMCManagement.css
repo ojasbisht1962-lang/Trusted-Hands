@@ -13,7 +13,7 @@
 }
 
 .amc-card {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
@@ -50,7 +50,7 @@
 .status-badge {
   padding: 6px 12px;
   border-radius: 20px;
-  color: #f59e0b;
+  color: #f97316;
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
@@ -89,7 +89,7 @@
 }
 
 .amc-description {
-  background: linear-gradient(135deg, #fde68a 0%, #fcd34d 100%);
+  background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
   padding: 12px;
   border-radius: 8px;
   margin-bottom: 16px;
@@ -128,7 +128,7 @@
 
 .btn-approve {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  color: #f59e0b;
+  color: #f97316;
 }
 
 .btn-approve:hover {
@@ -138,7 +138,7 @@
 
 .btn-reject {
   background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-  color: #f59e0b;
+  color: #f97316;
 }
 
 .btn-reject:hover {
@@ -147,8 +147,8 @@
 }
 
 .btn-activate {
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  color: #f97316;
 }
 
 .btn-activate:hover {
@@ -180,7 +180,7 @@
 }
 
 .modal-content {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 20px;
   max-width: 500px;
   width: 100%;
@@ -205,7 +205,7 @@
   width: 36px;
   height: 36px;
   border: none;
-  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
   border-radius: 50%;
   font-size: 20px;
   cursor: pointer;
@@ -248,7 +248,7 @@
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #f97316;
 }
 
 .modal-footer {
@@ -270,7 +270,7 @@
 }
 
 .btn-cancel {
-  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
   color: white;
 }
 
@@ -279,8 +279,8 @@
 }
 
 .btn-submit {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
 }
 
 .btn-submit:hover {

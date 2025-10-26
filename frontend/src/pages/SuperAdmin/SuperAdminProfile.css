@@ -39,7 +39,7 @@
 }
 
 .profile-card {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 16px;
   padding: 30px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
@@ -63,11 +63,11 @@
 }
 
 .profile-pic-placeholder {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #f59e0b;
+  color: #f97316;
   font-size: 32px;
   font-weight: 700;
 }
@@ -86,8 +86,8 @@
 .profile-role {
   display: inline-block;
   padding: 4px 12px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
   border-radius: 12px;
   font-size: 12px;
   font-weight: 600;
@@ -142,7 +142,7 @@
 }
 
 .disabled-input {
-  background: linear-gradient(135deg, #fde68a 0%, #fcd34d 100%);
+  background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
   color: white;
   cursor: not-allowed;
 }
@@ -156,7 +156,7 @@
 .save-btn {
   padding: 14px 32px;
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  color: #f59e0b;
+  color: #f97316;
   border: none;
   border-radius: 12px;
   font-size: 16px;
@@ -177,7 +177,7 @@
 }
 
 .profile-stats-card {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 16px;
   padding: 30px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
@@ -202,7 +202,7 @@
   align-items: flex-start;
   gap: 12px;
   padding: 12px;
-  background: linear-gradient(135deg, #fde68a 0%, #fcd34d 100%);
+  background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
   border-radius: 10px;
   border-left: 3px solid #f093fb;
 }
@@ -214,7 +214,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 10px;
   flex-shrink: 0;
 }

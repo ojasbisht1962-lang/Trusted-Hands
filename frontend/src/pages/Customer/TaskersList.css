@@ -1,6 +1,6 @@
 .taskers-list-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
   padding: 24px;
 }
 
@@ -22,7 +22,7 @@
 
 /* Filters Section */
 .filters-section {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 16px;
   padding: 24px;
   margin-bottom: 32px;
@@ -60,7 +60,7 @@
 .filter-group input:focus,
 .filter-group select:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #f97316;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
@@ -79,7 +79,7 @@
 }
 
 .tasker-card {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -109,8 +109,8 @@
 .tasker-avatar-large .avatar-placeholder {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -138,8 +138,8 @@
 }
 
 .type-badge.professional {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
 }
 
 .type-badge.helper {
@@ -150,7 +150,7 @@
 .verified-badge {
   padding: 6px 12px;
   background: #10b981;
-  color: #f59e0b;
+  color: #f97316;
   border-radius: 16px;
   font-size: 12px;
   font-weight: 600;
@@ -212,8 +212,8 @@
 }
 
 .skill-tag.more {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
 }
 
 .languages {
@@ -237,8 +237,8 @@
 .btn-view-profile {
   width: 100%;
   padding: 12px 24px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
   border: none;
   border-radius: 12px;
   font-weight: 600;
@@ -256,7 +256,7 @@
 .empty-state {
   text-align: center;
   padding: 60px 20px;
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 16px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }

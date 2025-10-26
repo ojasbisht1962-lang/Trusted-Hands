@@ -5,8 +5,8 @@
 }
 
 .back-button {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
   border: none;
   padding: 12px 24px;
   border-radius: 8px;
@@ -82,11 +82,11 @@
 .feature-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
-  border-color: #667eea;
+  border-color: #f97316;
 }
 
 .feature-card h3 {
-  color: #667eea;
+  color: #f97316;
   font-size: 1.3rem;
   margin-bottom: 12px;
   font-weight: 700;
@@ -126,7 +126,7 @@
 }
 
 .values-list li strong {
-  color: #667eea;
+  color: #f97316;
   font-weight: 700;
   font-size: 1.1rem;
 }

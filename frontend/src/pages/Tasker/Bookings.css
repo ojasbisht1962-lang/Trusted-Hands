@@ -1,6 +1,6 @@
 .bookings-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
   padding: 24px;
 }
 
@@ -44,7 +44,7 @@
 
 .tab {
   padding: 12px 24px;
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border: 2px solid #e0e0e0;
   border-radius: 12px;
   font-weight: 600;
@@ -56,13 +56,13 @@
 }
 
 .tab:hover {
-  border-color: #667eea;
-  color: #667eea;
+  border-color: #f97316;
+  color: #f97316;
 }
 
 .tab.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
   border-color: transparent;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
@@ -75,7 +75,7 @@
 }
 
 .booking-item {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 20px;
   padding: 24px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -86,7 +86,7 @@
 .booking-item:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-  border-color: #667eea;
+  border-color: #f97316;
 }
 
 .booking-main {
@@ -151,7 +151,7 @@
 }
 
 .booking-description {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   padding: 12px;
   border-radius: 10px;
   color: #666;
@@ -177,7 +177,7 @@
   font-size: 14px;
   cursor: pointer;
   transition: all 0.3s ease;
-  color: #f59e0b;
+  color: #f97316;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -241,7 +241,7 @@
 .empty-state {
   text-align: center;
   padding: 100px 20px;
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 24px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
@@ -280,7 +280,7 @@
 }
 
 .modal-content {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 24px;
   width: 100%;
   max-width: 700px;
@@ -347,7 +347,7 @@
 
 .detail-section h3 {
   font-size: 18px;
-  color: #667eea;
+  color: #f97316;
   margin-bottom: 16px;
   font-weight: 700;
   display: flex;
@@ -392,7 +392,7 @@
   border-radius: 16px;
   font-size: 11px;
   font-weight: 700;
-  color: #f59e0b;
+  color: #f97316;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   max-width: none;

@@ -1,6 +1,6 @@
 .services-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
   padding: 24px;
 }
 
@@ -27,8 +27,8 @@
 
 .btn-add-service {
   padding: 14px 28px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
   border: none;
   border-radius: 12px;
   font-weight: 600;
@@ -47,7 +47,7 @@
 .empty-state {
   text-align: center;
   padding: 100px 20px;
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 24px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
@@ -72,8 +72,8 @@
 
 .btn-primary {
   padding: 14px 32px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
   border: none;
   border-radius: 12px;
   font-weight: 600;
@@ -95,7 +95,7 @@
 }
 
 .service-card {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 20px;
   padding: 24px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -106,7 +106,7 @@
 .service-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-  border-color: #667eea;
+  border-color: #f97316;
 }
 
 .service-card.inactive {
@@ -122,7 +122,7 @@
 
 .service-category-badge {
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
-  color: #667eea;
+  color: #f97316;
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 12px;
@@ -164,7 +164,7 @@
 }
 
 .service-details {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 20px;
@@ -216,7 +216,7 @@
 
 .btn-edit {
   background: #2196f3;
-  color: #f59e0b;
+  color: #f97316;
 }
 
 .btn-edit:hover {
@@ -225,7 +225,7 @@
 }
 
 .btn-toggle {
-  color: #f59e0b;
+  color: #f97316;
 }
 
 .btn-toggle.deactivate {
@@ -246,7 +246,7 @@
 
 .btn-delete {
   background: #f44336;
-  color: #f59e0b;
+  color: #f97316;
 }
 
 .btn-delete:hover {
@@ -270,7 +270,7 @@
 }
 
 .modal-content {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 24px;
   width: 100%;
   max-width: 600px;
@@ -355,7 +355,7 @@
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #f97316;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
@@ -406,7 +406,7 @@
 }
 
 .btn-cancel {
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
   color: #666;
   border: 2px solid #e0e0e0;
 }
@@ -417,8 +417,8 @@
 }
 
 .btn-submit {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
   border: none;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }

@@ -1,6 +1,6 @@
 .profile-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
   padding: 24px;
   position: relative;
 }
@@ -37,7 +37,7 @@
 
 /* Profile Card */
 .profile-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
   border-radius: 24px;
   padding: 40px;
   display: flex;
@@ -65,18 +65,18 @@
 .avatar-placeholder {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 48px;
   font-weight: 700;
-  color: #667eea;
+  color: #f97316;
 }
 
 .profile-info {
   flex: 1;
-  color: #f59e0b;
+  color: #f97316;
 }
 
 .profile-info h2 {
@@ -109,12 +109,12 @@
 
 .badge.role {
   background: rgba(255, 255, 255, 0.3);
-  color: #f59e0b;
+  color: #f97316;
 }
 
 .badge.verified {
   background: #4caf50;
-  color: #f59e0b;
+  color: #f97316;
 }
 
 .badge.rating {
@@ -154,8 +154,8 @@
 
 .referral-code button {
   padding: 8px 16px;
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-  color: #667eea;
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  color: #f97316;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -181,7 +181,7 @@
 }
 
 .stat-card {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 16px;
   padding: 24px;
   display: flex;
@@ -196,7 +196,7 @@
 
 .stat-card h3 {
   font-size: 28px;
-  color: white;
+  color: #1e293b;
   margin-bottom: 4px;
   font-weight: 700;
 }
@@ -209,7 +209,7 @@
 
 /* Info Sections */
 .info-section {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 20px;
   padding: 32px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -233,8 +233,8 @@
 
 .btn-edit {
   padding: 10px 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
   border: none;
   border-radius: 10px;
   font-weight: 600;
@@ -283,7 +283,7 @@
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #f97316;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
@@ -299,7 +299,7 @@
 
 .tag {
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-  color: #667eea;
+  color: #f97316;
   padding: 8px 16px;
   border-radius: 20px;
   font-size: 13px;
@@ -335,7 +335,7 @@
 }
 
 .status-badge.not_applied {
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
   color: #666;
 }
 
@@ -358,7 +358,7 @@
 }
 
 .btn-cancel {
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
   color: #666;
   border: 2px solid #e0e0e0;
 }
@@ -369,8 +369,8 @@
 }
 
 .btn-save {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
   border: none;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
@@ -450,7 +450,7 @@
   padding: 12px 16px;
   border: 2px solid #e0e0e0;
   border-radius: 12px;
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   color: #666;
   font-size: 14px;
   font-weight: 600;
@@ -461,16 +461,16 @@
 
 .language-chip:hover,
 .skill-chip:hover {
-  border-color: #667eea;
+  border-color: #f97316;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
 }
 
 .language-chip.selected,
 .skill-chip.selected {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
-  border-color: #667eea;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
+  border-color: #f97316;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
 
@@ -508,7 +508,7 @@
 .btn-upgrade {
   padding: 12px 24px;
   background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
-  color: #f59e0b;
+  color: #f97316;
   border: none;
   border-radius: 12px;
   font-weight: 700;
@@ -540,7 +540,7 @@
 }
 
 .modal-content {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 24px;
   max-width: 600px;
   width: 100%;
@@ -557,7 +557,7 @@
   align-items: center;
   position: sticky;
   top: 0;
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   z-index: 1;
   border-radius: 24px 24px 0 0;
 }
@@ -574,7 +574,7 @@
   height: 36px;
   border-radius: 50%;
   border: none;
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
   color: #666;
   font-size: 24px;
   cursor: pointer;
@@ -659,7 +659,7 @@
   gap: 12px;
   position: sticky;
   bottom: 0;
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 0 0 24px 24px;
 }
 
@@ -674,8 +674,8 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
   border: none;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }

@@ -1,6 +1,6 @@
 .booking-page-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
   padding: 24px;
 }
 
@@ -14,7 +14,7 @@
 
 /* Service Info Card */
 .service-info-card {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -26,7 +26,7 @@
 .service-icon-large {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -79,7 +79,7 @@
 }
 
 .meta-item .value.price {
-  color: #667eea;
+  color: #f97316;
   font-size: 20px;
 }
 
@@ -89,7 +89,7 @@
   gap: 12px;
   align-items: center;
   padding: 16px;
-  background: linear-gradient(135deg, #fde68a 0%, #fcd34d 100%);
+  background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
   border-radius: 12px;
 }
 
@@ -110,8 +110,8 @@
 .avatar-placeholder {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -138,8 +138,8 @@
 
 .verified-badge {
   padding: 4px 8px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
   border-radius: 12px;
   font-size: 11px;
   font-weight: 600;
@@ -147,7 +147,7 @@
 
 /* Booking Form Card */
 .booking-form-card {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 16px;
   padding: 32px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -194,7 +194,7 @@
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #f97316;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
@@ -212,7 +212,7 @@
 
 /* Price Summary */
 .price-summary {
-  background: linear-gradient(135deg, #fde68a 0%, #fcd34d 100%);
+  background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
   border-radius: 12px;
   padding: 20px;
   margin-bottom: 24px;
@@ -237,7 +237,7 @@
 }
 
 .summary-row .amount {
-  color: #667eea;
+  color: #f97316;
   font-weight: 700;
   font-size: 20px;
 }
@@ -259,7 +259,7 @@
 
 .btn-cancel {
   padding: 14px 24px;
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   color: #666;
   border: 2px solid #e0e0e0;
   border-radius: 12px;
@@ -276,8 +276,8 @@
 
 .btn-confirm-booking {
   padding: 14px 24px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
   border: none;
   border-radius: 12px;
   font-weight: 600;

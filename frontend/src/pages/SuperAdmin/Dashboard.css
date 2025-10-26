@@ -9,8 +9,8 @@
 
 /* Header */
 .admin-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
   padding: 30px 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
@@ -42,7 +42,7 @@
 .btn-logout {
   background: rgba(255, 255, 255, 0.2);
   border: 2px solid white;
-  color: #f59e0b;
+  color: #f97316;
   padding: 12px 24px;
   border-radius: 12px;
   font-size: 16px;
@@ -52,8 +52,8 @@
 }
 
 .btn-logout:hover {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-  color: #667eea;
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  color: #f97316;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
@@ -69,7 +69,7 @@
 }
 
 .stat-card {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   padding: 24px;
   border-radius: 16px;
   display: flex;
@@ -123,7 +123,7 @@
 
 /* Quick Actions */
 .quick-actions-table-container {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 16px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   overflow: hidden;
@@ -135,8 +135,8 @@
 }
 
 .quick-actions-table thead {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #f59e0b;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #f97316;
 }
 
 .quick-actions-table thead th {
@@ -154,7 +154,7 @@
 }
 
 .quick-actions-table tbody tr:hover {
-  background: linear-gradient(135deg, #fde68a 0%, #fcd34d 100%);
+  background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
 }
 
 .quick-actions-table tbody tr:last-child {
@@ -207,7 +207,7 @@
 
 .status-badge.pending {
   background: #fef3c7;
-  color: #d97706;
+  color: #dc2626;
   border: 2px solid #fbbf24;
 }
 
@@ -222,7 +222,7 @@
 }
 
 .action-btn {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border: 2px solid;
   padding: 10px 24px;
   border-radius: 10px;
@@ -237,7 +237,7 @@
 .action-btn:hover {
   transform: translateX(5px);
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
   color: white !important;
   border-color: transparent;
 }
@@ -250,7 +250,7 @@
 }
 
 .action-card {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   padding: 24px;
   border-radius: 16px;
   text-align: center;
@@ -287,7 +287,7 @@
   top: 12px;
   right: 12px;
   background: #ef4444;
-  color: #f59e0b;
+  color: #f97316;
   font-size: 12px;
   font-weight: 700;
   padding: 4px 8px;
@@ -316,7 +316,7 @@
 
 /* Activities */
 .activities-container {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
@@ -339,13 +339,13 @@
   align-items: flex-start;
   gap: 16px;
   padding: 16px;
-  background: linear-gradient(135deg, #fde68a 0%, #fcd34d 100%);
+  background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
   border-radius: 12px;
   transition: all 0.3s ease;
 }
 
 .activity-item:hover {
-  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
   transform: translateX(5px);
 }
 
