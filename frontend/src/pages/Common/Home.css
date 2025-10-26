@@ -273,7 +273,7 @@
 .cta-section {
   padding: 80px 20px;
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: white;
   text-align: center;
 }
 
@@ -292,7 +292,7 @@
 /* Footer */
 .footer {
   background: #111827;
-  color: #f97316;
+  color: rgba(255, 255, 255, 0.9);
   padding: 60px 0 0;
 }
 
@@ -347,7 +347,7 @@
 }
 
 .footer .footer-section p {
-  color: #f97316;
+  color: rgba(255, 255, 255, 0.9);
   font-size: 16px;
   line-height: 1.8;
   margin: 8px 0;
@@ -365,7 +365,7 @@
 }
 
 .footer .footer-section ul li a {
-  color: #f97316;
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
@@ -387,7 +387,7 @@
 }
 
 .footer .footer-bottom p {
-  color: #f97316;
+  color: rgba(255, 255, 255, 0.7);
   font-size: 15px;
   margin: 0;
   opacity: 0.85;
