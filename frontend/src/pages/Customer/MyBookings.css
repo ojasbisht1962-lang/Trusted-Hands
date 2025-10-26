@@ -40,14 +40,14 @@
 }
 
 .filter-tabs button:hover {
-  border-color: #f97316;
-  color: #f97316;
+  border-color: #ffffff;
+  color: #ffffff;
 }
 
 .filter-tabs button.active {
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  border-color: #f97316;
-  color: #f97316;
+  border-color: #ffffff;
+  color: #ffffff;
 }
 
 /* Bookings Grid */
@@ -82,7 +82,7 @@
   border-radius: 20px;
   font-size: 12px;
   font-weight: 700;
-  color: #f97316;
+  color: #ffffff;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -132,7 +132,7 @@
 }
 
 .detail-row .value.price {
-  color: #f97316;
+  color: #ffffff;
   font-size: 18px;
 }
 
@@ -146,7 +146,7 @@
   flex: 1;
   padding: 12px;
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -164,7 +164,7 @@
   flex: 1;
   padding: 12px;
   background: #10b981;
-  color: #f97316;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -183,7 +183,7 @@
   flex: 1;
   padding: 12px;
   background: #ef4444;
-  color: #f97316;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -200,7 +200,7 @@
   flex: 1;
   padding: 12px;
   background: #f97316;
-  color: #f97316;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -301,7 +301,7 @@
   border-radius: 24px;
   font-size: 14px;
   font-weight: 700;
-  color: #f97316;
+  color: #ffffff;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -348,7 +348,7 @@
 }
 
 .detail-item .value.price {
-  color: #f97316;
+  color: #ffffff;
   font-size: 20px;
 }
 
@@ -441,7 +441,7 @@
 
 .form-group textarea:focus {
   outline: none;
-  border-color: #f97316;
+  border-color: #ffffff;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
@@ -456,7 +456,7 @@
   flex: 1;
   padding: 12px;
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -473,7 +473,7 @@
   flex: 1;
   padding: 14px 24px;
   background: #10b981;
-  color: #f97316;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -492,7 +492,7 @@
   flex: 1;
   padding: 14px 24px;
   background: #ef4444;
-  color: #f97316;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   font-weight: 600;

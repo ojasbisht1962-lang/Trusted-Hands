@@ -60,7 +60,7 @@
 .filter-group input:focus,
 .filter-group select:focus {
   outline: none;
-  border-color: #f97316;
+  border-color: #ffffff;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
@@ -200,7 +200,7 @@
 .professional-badge {
   padding: 4px 12px;
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   border-radius: 20px;
   font-size: 12px;
   font-weight: 600;
@@ -254,7 +254,7 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -282,7 +282,7 @@
 }
 
 .rating {
-  color: #f97316;
+  color: #ffffff;
   font-weight: 600;
 }
 
@@ -304,7 +304,7 @@
 .price {
   font-size: 28px;
   font-weight: 700;
-  color: #f97316;
+  color: #ffffff;
 }
 
 .price-unit {
@@ -327,7 +327,7 @@
 .btn-view-details {
   padding: 12px;
   background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
-  color: #f97316;
+  color: #ffffff;
   border: 2px solid #667eea;
   border-radius: 8px;
   font-weight: 600;
@@ -343,7 +343,7 @@
 .btn-book-now {
   padding: 12px;
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -359,7 +359,7 @@
 .btn-primary {
   padding: 12px 24px;
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   font-weight: 600;

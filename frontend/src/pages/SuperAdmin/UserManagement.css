@@ -12,7 +12,7 @@
 .btn-back {
   background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border: 2px solid #667eea;
-  color: #f97316;
+  color: #ffffff;
   padding: 10px 20px;
   border-radius: 10px;
   font-size: 14px;
@@ -24,7 +24,7 @@
 
 .btn-back:hover {
   background: #667eea;
-  color: #f97316;
+  color: #ffffff;
   transform: translateX(-5px);
 }
 
@@ -64,13 +64,13 @@
 }
 
 .tasker-type-select:hover {
-  border-color: #f97316;
+  border-color: #ffffff;
   box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
 }
 
 .tasker-type-select:focus {
   outline: none;
-  border-color: #f97316;
+  border-color: #ffffff;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
@@ -100,13 +100,13 @@
 }
 
 .filter-tabs button:hover {
-  border-color: #f97316;
-  color: #f97316;
+  border-color: #ffffff;
+  color: #ffffff;
 }
 
 .filter-tabs button.active {
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  border-color: #f97316;
+  border-color: #ffffff;
   color: white;
 }
 
@@ -125,7 +125,7 @@
 
 .search-box input:focus {
   outline: none;
-  border-color: #f97316;
+  border-color: #ffffff;
 }
 
 .users-table-container {
@@ -196,7 +196,7 @@
   height: 40px;
   border-radius: 50%;
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -208,7 +208,7 @@
   display: inline-block;
   padding: 6px 12px;
   border-radius: 20px;
-  color: #f97316;
+  color: #ffffff;
   font-size: 12px;
   font-weight: 600;
   text-transform: capitalize;
@@ -325,7 +325,7 @@
   text-align: center;
   padding: 60px 20px;
   font-size: 18px;
-  color: #f97316;
+  color: #ffffff;
 }
 
 @media (max-width: 768px) {

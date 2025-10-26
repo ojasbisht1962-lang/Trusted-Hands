@@ -23,7 +23,7 @@
 .btn-back {
   background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border: 2px solid #667eea;
-  color: #f97316;
+  color: #ffffff;
   padding: 10px 20px;
   border-radius: 8px;
   cursor: pointer;
@@ -34,7 +34,7 @@
 
 .btn-back:hover {
   background: #667eea;
-  color: #f97316;
+  color: #ffffff;
 }
 
 .filter-tabs {
@@ -59,14 +59,14 @@
 }
 
 .filter-tabs button:hover {
-  border-color: #f97316;
-  color: #f97316;
+  border-color: #ffffff;
+  color: #ffffff;
 }
 
 .filter-tabs button.active {
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  border-color: #f97316;
-  color: #f97316;
+  border-color: #ffffff;
+  color: #ffffff;
 }
 
 .loading {
@@ -128,7 +128,7 @@
 .booking-id {
   font-family: monospace;
   font-weight: 700;
-  color: #f97316;
+  color: #ffffff;
 }
 
 .schedule-cell {
@@ -159,7 +159,7 @@
   border-radius: 20px;
   font-size: 12px;
   font-weight: 600;
-  color: #f97316;
+  color: #ffffff;
   text-align: center;
   white-space: nowrap;
 }

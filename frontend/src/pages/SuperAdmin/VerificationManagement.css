@@ -46,7 +46,7 @@
   height: 60px;
   border-radius: 50%;
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -123,7 +123,7 @@
 
 .btn-verify {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  color: #f97316;
+  color: #ffffff;
 }
 
 .btn-verify:hover {
@@ -133,7 +133,7 @@
 
 .btn-reject {
   background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
 }
 
 .btn-reject:hover {

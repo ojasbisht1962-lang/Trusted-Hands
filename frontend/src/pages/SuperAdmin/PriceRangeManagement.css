@@ -13,7 +13,7 @@
 
 .btn-add {
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   border: none;
   padding: 12px 24px;
   border-radius: 12px;
@@ -114,7 +114,7 @@
 .price-min, .price-max {
   font-size: 24px;
   font-weight: 700;
-  color: #f97316;
+  color: #ffffff;
 }
 
 .price-separator {

@@ -45,7 +45,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #f97316;
+  color: #ffffff;
   font-weight: 700;
   font-size: 15px;
 }
@@ -95,7 +95,7 @@
 .dropdown-header {
   padding: 20px;
   background: linear-gradient(135deg, #dc2626 0%, #ea580c 100%);
-  color: #f97316;
+  color: #ffffff;
   display: flex;
   gap: 15px;
   align-items: center;

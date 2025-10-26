@@ -60,7 +60,7 @@
 .filter-group input:focus,
 .filter-group select:focus {
   outline: none;
-  border-color: #f97316;
+  border-color: #ffffff;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
@@ -110,7 +110,7 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,7 +139,7 @@
 
 .type-badge.professional {
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
 }
 
 .type-badge.helper {
@@ -150,7 +150,7 @@
 .verified-badge {
   padding: 6px 12px;
   background: #10b981;
-  color: #f97316;
+  color: #ffffff;
   border-radius: 16px;
   font-size: 12px;
   font-weight: 600;
@@ -213,7 +213,7 @@
 
 .skill-tag.more {
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
 }
 
 .languages {
@@ -238,7 +238,7 @@
   width: 100%;
   padding: 12px 24px;
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   border: none;
   border-radius: 12px;
   font-weight: 600;

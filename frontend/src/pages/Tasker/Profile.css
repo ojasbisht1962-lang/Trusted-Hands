@@ -71,12 +71,12 @@
   justify-content: center;
   font-size: 48px;
   font-weight: 700;
-  color: #f97316;
+  color: #ffffff;
 }
 
 .profile-info {
   flex: 1;
-  color: #f97316;
+  color: #ffffff;
 }
 
 .profile-info h2 {
@@ -109,12 +109,12 @@
 
 .badge.role {
   background: rgba(255, 255, 255, 0.3);
-  color: #f97316;
+  color: #ffffff;
 }
 
 .badge.verified {
   background: #4caf50;
-  color: #f97316;
+  color: #ffffff;
 }
 
 .badge.rating {
@@ -155,7 +155,7 @@
 .referral-code button {
   padding: 8px 16px;
   background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
-  color: #f97316;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -283,7 +283,7 @@
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #f97316;
+  border-color: #ffffff;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
@@ -299,7 +299,7 @@
 
 .tag {
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-  color: #f97316;
+  color: #ffffff;
   padding: 8px 16px;
   border-radius: 20px;
   font-size: 13px;
@@ -370,7 +370,7 @@
 
 .btn-save {
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   border: none;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
@@ -461,7 +461,7 @@
 
 .language-chip:hover,
 .skill-chip:hover {
-  border-color: #f97316;
+  border-color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
 }
@@ -470,7 +470,7 @@
 .skill-chip.selected {
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
   color: white;
-  border-color: #f97316;
+  border-color: #ffffff;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
 
@@ -508,7 +508,7 @@
 .btn-upgrade {
   padding: 12px 24px;
   background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
-  color: #f97316;
+  color: #ffffff;
   border: none;
   border-radius: 12px;
   font-weight: 700;
@@ -675,7 +675,7 @@
 
 .btn-primary {
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   border: none;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }

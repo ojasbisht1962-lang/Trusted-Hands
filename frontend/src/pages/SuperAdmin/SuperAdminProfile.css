@@ -67,7 +67,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #f97316;
+  color: #ffffff;
   font-size: 32px;
   font-weight: 700;
 }
@@ -87,7 +87,7 @@
   display: inline-block;
   padding: 4px 12px;
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   border-radius: 12px;
   font-size: 12px;
   font-weight: 600;
@@ -156,7 +156,7 @@
 .save-btn {
   padding: 14px 32px;
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  color: #f97316;
+  color: #ffffff;
   border: none;
   border-radius: 12px;
   font-size: 16px;

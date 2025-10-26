@@ -50,7 +50,7 @@
 .status-badge {
   padding: 6px 12px;
   border-radius: 20px;
-  color: #f97316;
+  color: #ffffff;
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
@@ -128,7 +128,7 @@
 
 .btn-approve {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  color: #f97316;
+  color: #ffffff;
 }
 
 .btn-approve:hover {
@@ -138,7 +138,7 @@
 
 .btn-reject {
   background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
 }
 
 .btn-reject:hover {
@@ -148,7 +148,7 @@
 
 .btn-activate {
   background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-  color: #f97316;
+  color: #ffffff;
 }
 
 .btn-activate:hover {
@@ -248,7 +248,7 @@
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #f97316;
+  border-color: #ffffff;
 }
 
 .modal-footer {
@@ -280,7 +280,7 @@
 
 .btn-submit {
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
 }
 
 .btn-submit:hover {

@@ -68,7 +68,7 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -118,7 +118,7 @@
   top: 16px;
   right: 20px;
   background: #667eea;
-  color: #f97316;
+  color: #ffffff;
   border-radius: 12px;
   padding: 2px 8px;
   font-size: 11px;
@@ -270,7 +270,7 @@
 
 .message.sent .message-content {
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   border-bottom-right-radius: 4px;
 }
 
@@ -324,7 +324,7 @@
 }
 
 .message-input-container input:focus {
-  border-color: #f97316;
+  border-color: #ffffff;
 }
 
 .message-input-container button {
@@ -332,7 +332,7 @@
   height: 44px;
   border-radius: 50%;
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   border: none;
   font-size: 18px;
   cursor: pointer;

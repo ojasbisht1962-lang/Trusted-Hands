@@ -76,13 +76,13 @@
 }
 
 .faq-item:hover {
-  border-color: #f97316;
+  border-color: #ffffff;
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
   transform: translateY(-2px);
 }
 
 .faq-item.active {
-  border-color: #f97316;
+  border-color: #ffffff;
   box-shadow: 0 4px 16px rgba(102, 126, 234, 0.2);
 }
 
@@ -112,7 +112,7 @@
 
 .faq-toggle {
   font-size: 1.5rem;
-  color: #f97316;
+  color: #ffffff;
   font-weight: 400;
   width: 28px;
   height: 28px;
@@ -127,7 +127,7 @@
 
 .faq-item.active .faq-toggle {
   background: #667eea;
-  color: #f97316;
+  color: #ffffff;
   transform: rotate(45deg);
 }
 
@@ -173,7 +173,7 @@
 
 .contact-button {
   background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
-  color: #f97316;
+  color: #ffffff;
   border: none;
   padding: 14px 40px;
   border-radius: 8px;

@@ -25,7 +25,7 @@
 }
 
 .welcome-section h1 {
-  color: #f97316;
+  color: #ffffff;
   font-size: 32px;
   margin-bottom: 8px;
   font-weight: 700;
@@ -54,7 +54,7 @@
 
 .header-actions .btn-primary {
   background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
-  color: #f97316;
+  color: #ffffff;
 }
 
 .header-actions .btn-primary:hover {
@@ -64,7 +64,7 @@
 
 .header-actions .btn-secondary {
   background: rgba(255, 255, 255, 0.2);
-  color: #f97316;
+  color: #ffffff;
   border: 2px solid white;
 }
 
@@ -141,7 +141,7 @@
 
 .badge {
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   padding: 4px 12px;
   border-radius: 12px;
   font-size: 11px;
@@ -188,7 +188,7 @@
 .section-header button {
   background: none;
   border: none;
-  color: #f97316;
+  color: #ffffff;
   font-weight: 600;
   cursor: pointer;
   font-size: 14px;
@@ -234,7 +234,7 @@
 }
 
 .booking-card:hover {
-  border-color: #f97316;
+  border-color: #ffffff;
   transform: translateX(5px);
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.15);
 }
@@ -253,7 +253,7 @@
   right: 16px;
   padding: 6px 12px;
   border-radius: 20px;
-  color: #f97316;
+  color: #ffffff;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -328,7 +328,7 @@
 
 .btn-accept {
   background: #4caf50;
-  color: #f97316;
+  color: #ffffff;
 }
 
 .btn-accept:hover {
@@ -338,7 +338,7 @@
 
 .btn-reject {
   background: #f44336;
-  color: #f97316;
+  color: #ffffff;
 }
 
 .btn-reject:hover {
@@ -348,7 +348,7 @@
 
 .btn-view {
   background: #2196f3;
-  color: #f97316;
+  color: #ffffff;
 }
 
 .btn-view:hover {
@@ -358,7 +358,7 @@
 
 .btn-chat {
   background: #667eea;
-  color: #f97316;
+  color: #ffffff;
 }
 
 .btn-chat:hover {
@@ -387,7 +387,7 @@
   margin-top: 20px;
   padding: 12px 24px;
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   border: none;
   border-radius: 12px;
   font-weight: 600;
@@ -419,7 +419,7 @@
 }
 
 .service-mini-card:hover {
-  border-color: #f97316;
+  border-color: #ffffff;
   transform: translateX(5px);
 }
 
@@ -540,7 +540,7 @@
 
 .action-card:hover {
   transform: translateY(-5px);
-  border-color: #f97316;
+  border-color: #ffffff;
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
   box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
 }

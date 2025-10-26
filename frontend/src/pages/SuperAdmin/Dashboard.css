@@ -42,7 +42,7 @@
 .btn-logout {
   background: rgba(255, 255, 255, 0.2);
   border: 2px solid white;
-  color: #f97316;
+  color: #ffffff;
   padding: 12px 24px;
   border-radius: 12px;
   font-size: 16px;
@@ -53,7 +53,7 @@
 
 .btn-logout:hover {
   background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
-  color: #f97316;
+  color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
@@ -288,7 +288,7 @@
   top: 12px;
   right: 12px;
   background: #ef4444;
-  color: #f97316;
+  color: #ffffff;
   font-size: 12px;
   font-weight: 700;
   padding: 4px 8px;

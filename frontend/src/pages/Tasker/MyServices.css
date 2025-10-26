@@ -28,7 +28,7 @@
 .btn-add-service {
   padding: 14px 28px;
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   border: none;
   border-radius: 12px;
   font-weight: 600;
@@ -73,7 +73,7 @@
 .btn-primary {
   padding: 14px 32px;
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   border: none;
   border-radius: 12px;
   font-weight: 600;
@@ -106,7 +106,7 @@
 .service-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-  border-color: #f97316;
+  border-color: #ffffff;
 }
 
 .service-card.inactive {
@@ -122,7 +122,7 @@
 
 .service-category-badge {
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
-  color: #f97316;
+  color: #ffffff;
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 12px;
@@ -216,7 +216,7 @@
 
 .btn-edit {
   background: #2196f3;
-  color: #f97316;
+  color: #ffffff;
 }
 
 .btn-edit:hover {
@@ -225,7 +225,7 @@
 }
 
 .btn-toggle {
-  color: #f97316;
+  color: #ffffff;
 }
 
 .btn-toggle.deactivate {
@@ -246,7 +246,7 @@
 
 .btn-delete {
   background: #f44336;
-  color: #f97316;
+  color: #ffffff;
 }
 
 .btn-delete:hover {
@@ -355,7 +355,7 @@
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #f97316;
+  border-color: #ffffff;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
@@ -418,7 +418,7 @@
 
 .btn-submit {
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   border: none;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }

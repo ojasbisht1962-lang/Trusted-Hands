@@ -56,13 +56,13 @@
 }
 
 .tab:hover {
-  border-color: #f97316;
-  color: #f97316;
+  border-color: #ffffff;
+  color: #ffffff;
 }
 
 .tab.active {
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   border-color: transparent;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
@@ -86,7 +86,7 @@
 .booking-item:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-  border-color: #f97316;
+  border-color: #ffffff;
 }
 
 .booking-main {
@@ -177,7 +177,7 @@
   font-size: 14px;
   cursor: pointer;
   transition: all 0.3s ease;
-  color: #f97316;
+  color: #ffffff;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -347,7 +347,7 @@
 
 .detail-section h3 {
   font-size: 18px;
-  color: #f97316;
+  color: #ffffff;
   margin-bottom: 16px;
   font-weight: 700;
   display: flex;
@@ -392,7 +392,7 @@
   border-radius: 16px;
   font-size: 11px;
   font-weight: 700;
-  color: #f97316;
+  color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   max-width: none;

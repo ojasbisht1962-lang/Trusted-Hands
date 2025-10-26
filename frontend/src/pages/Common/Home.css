@@ -75,7 +75,7 @@
 
 .btn-nav {
   background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
-  color: #f97316;
+  color: #ffffff;
   padding: 10px 24px;
   border-radius: 10px;
   font-weight: 700;
@@ -132,7 +132,7 @@
 }
 
 .hero-buttons .btn-primary {
-  background-color: #f97316;
+  background-color: #ffffff;
   color: white;
   font-weight: 600;
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
@@ -148,14 +148,14 @@
 .hero-buttons .btn-outline {
   background-color: transparent;
   border: 2px solid #ffffff;
-  color: #f97316;
+  color: #ffffff;
   font-weight: 600;
 }
 
 .hero-buttons .btn-outline:hover {
   background-color: rgba(255, 255, 255, 0.2);
-  color: #f97316;
-  border-color: #f97316;
+  color: #ffffff;
+  border-color: #ffffff;
   transform: translateY(-2px);
 }
 
@@ -196,7 +196,7 @@
 .service-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 32px rgba(102, 126, 234, 0.25);
-  border-color: #f97316;
+  border-color: #ffffff;
 }
 
 .service-icon {
@@ -237,7 +237,7 @@
 
 .feature-card:hover {
   transform: translateY(-4px);
-  border-color: #f97316;
+  border-color: #ffffff;
   box-shadow: 0 8px 24px rgba(102, 126, 234, 0.15);
 }
 
@@ -245,7 +245,7 @@
   width: 80px;
   height: 80px;
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -259,7 +259,7 @@
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 12px;
-  color: #f97316;
+  color: #ffffff;
 }
 
 .feature-card p {
@@ -336,14 +336,14 @@
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 16px;
-  color: #f97316;
+  color: #ffffff;
 }
 
 .footer .footer-section h4 {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 16px;
-  color: #f97316;
+  color: #ffffff;
 }
 
 .footer .footer-section p {

@@ -116,7 +116,7 @@
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #f97316;
+  border-color: #ffffff;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
@@ -156,7 +156,7 @@
 }
 
 .type-card.selected {
-  border-color: #f97316;
+  border-color: #ffffff;
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
   box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
 }
@@ -196,7 +196,7 @@
   content: '✓';
   position: absolute;
   left: 0;
-  color: #f97316;
+  color: #ffffff;
   font-weight: bold;
 }
 
@@ -224,14 +224,14 @@
 
 .skill-chip:hover,
 .language-chip:hover {
-  border-color: #f97316;
+  border-color: #ffffff;
   transform: translateY(-2px);
 }
 
 .skill-chip.selected,
 .language-chip.selected {
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   border-color: transparent;
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
@@ -276,7 +276,7 @@
 }
 
 .info-box h4 {
-  color: #f97316;
+  color: #ffffff;
   margin-bottom: 12px;
   font-size: 18px;
   display: flex;
@@ -301,7 +301,7 @@
   content: '→';
   position: absolute;
   left: 0;
-  color: #f97316;
+  color: #ffffff;
   font-weight: bold;
   font-size: 18px;
 }
@@ -329,7 +329,7 @@
 
 .btn-primary {
   background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-  color: #f97316;
+  color: #ffffff;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
 
@@ -345,7 +345,7 @@
 
 .btn-secondary {
   background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
-  color: #f97316;
+  color: #ffffff;
   border: 2px solid #667eea;
 }
 
