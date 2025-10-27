@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import LoadingSpinner from '../../components/LoadingSpinner';
+import LoadingScreen from '../../components/LoadingScreen';
 import './MyServices.css';
 
 export default function MyServices() {
@@ -150,7 +151,7 @@ export default function MyServices() {
     return (
       <>
         <Navbar />
-        <LoadingSpinner message="Firing Up The Engines" />
+        <LoadingScreen message="Firing Up The Engines" />
         <Footer />
       </>
     );

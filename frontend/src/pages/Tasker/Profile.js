@@ -20,7 +20,7 @@ export default function Profile() {
   const [loading, setLoading] = useState(false);
   const [editing, setEditing] = useState(false);
   const [editingSkills, setEditingSkills] = useState(false);
-  const [showUpgradeModal, setShowUpgradeModal] = useState(false);
+import LoadingScreen from '../../components/LoadingScreen';
   
   const [formData, setFormData] = useState({
     name: '',

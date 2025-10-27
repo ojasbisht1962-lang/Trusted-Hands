@@ -114,7 +114,7 @@ export default function BookingPage() {
     return (
       <>
         <Navbar />
-        <LoadingSpinner message="Firing Up The Engines" />
+        <LoadingScreen />
         <Footer />
       </>
     );

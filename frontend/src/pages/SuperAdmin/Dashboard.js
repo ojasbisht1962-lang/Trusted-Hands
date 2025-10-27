@@ -167,7 +167,7 @@ export default function Dashboard() {
     return (
       <>
         <Navbar />
-        <LoadingSpinner message="Firing Up The Engines" />
+        <LoadingScreen />
         <Footer />
       </>
     );
