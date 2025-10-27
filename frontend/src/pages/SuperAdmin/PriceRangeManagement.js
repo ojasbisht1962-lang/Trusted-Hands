@@ -21,24 +21,24 @@ export default function PriceRangeManagement() {
   });
 
   const categories = [
-    { label: 'Electrician', value: 'electrician' },
-    { label: 'Plumber', value: 'plumber' },
-    { label: 'Carpenter', value: 'carpenter' },
-    { label: 'AC Servicing', value: 'ac_servicing' },
-    { label: 'RO Servicing', value: 'ro_servicing' },
-    { label: 'Appliance Repair', value: 'appliance_repair' },
-    { label: 'Painting', value: 'painting' },
-    { label: 'Pest Control', value: 'pest_control' },
-    { label: 'Car Washing', value: 'car_washing' },
-    { label: 'Bathroom Cleaning', value: 'bathroom_cleaning' },
-    { label: 'Home Cleaning', value: 'home_cleaning' },
-    { label: 'Assignment Writing', value: 'assignment_writing' },
-    { label: 'Project Making', value: 'project_making' },
-    { label: 'Tutoring', value: 'tutoring' },
-    { label: 'Pet Care', value: 'pet_care' },
-    { label: 'Gardening', value: 'gardening' },
-    { label: 'Delivery', value: 'delivery' },
-    { label: 'Other', value: 'other' }
+  { label: 'Cleaning', value: 'Cleaning' },
+  { label: 'Plumbing', value: 'Plumbing' },
+  { label: 'Electrical', value: 'Electrical' },
+  { label: 'AC Servicing', value: 'AC Servicing' },
+  { label: 'RO Servicing', value: 'RO Servicing' },
+  { label: 'Appliance Repair', value: 'Appliance Repair' },
+  { label: 'Painting', value: 'Painting' },
+  { label: 'Pest Control', value: 'Pest Control' },
+  { label: 'Car Washing', value: 'Car Washing' },
+  { label: 'Bathroom Cleaning', value: 'Bathroom Cleaning' },
+  { label: 'Home Cleaning', value: 'Home Cleaning' },
+  { label: 'Assignment Writing', value: 'Assignment Writing' },
+  { label: 'Project Making', value: 'Project Making' },
+  { label: 'Tutoring', value: 'Tutoring' },
+  { label: 'Pet Care', value: 'Pet Care' },
+  { label: 'Gardening', value: 'Gardening' },
+  { label: 'Delivery', value: 'Delivery' },
+  { label: 'Other', value: 'Other' }
   ];
 
   useEffect(() => {
@@ -90,18 +90,24 @@ export default function PriceRangeManagement() {
     try {
       const token = localStorage.getItem('access_token');
       const url = `${config.API_BASE_URL}/admin/price-ranges`;
+      const payload = {
+        service_category: formData.category,
+        min_price: parseFloat(formData.min_price),
+        max_price: parseFloat(formData.max_price)
+        // recommended_price: can be added if you want to support it
+      };
+      console.log('PriceRange POST payload:', payload);
+      if (!payload.service_category || payload.service_category.trim() === '') {
+        toast.error('Please select a valid service category.');
+        return;
+      }
       const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-          category: formData.category,
-          min_price: parseFloat(formData.min_price),
-          max_price: parseFloat(formData.max_price)
-          // recommended_price: can be added if you want to support it
-        })
+        body: JSON.stringify(payload)
       });
 
       if (!response.ok) throw new Error('Failed to save price range');
