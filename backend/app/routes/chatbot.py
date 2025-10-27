@@ -5,7 +5,7 @@ import httpx
 
 router = APIRouter()
 
-GEMINI_API_KEY = os.environ.get('AIzaSyA-6Aq8AUQfxpgHUKqq2J-w4iBiO0tMkAM')
+GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
 GEMINI_API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key={GEMINI_API_KEY}"
 
 @router.post("/api/chatbot")
