@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import authService from '../services/apiService';
+import { authService } from '../services/apiService';
 import LoadingScreen from '../components/LoadingScreen';
 
 const AuthContext = createContext(null);
