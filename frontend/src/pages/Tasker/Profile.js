@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import LoadingScreen from '../../components/LoadingScreen';
 import { useAuth } from '../../context/AuthContext';
 import { userService } from '../../services/apiService';
 import { toast } from 'react-toastify';
