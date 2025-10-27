@@ -125,7 +125,7 @@ export default function PriceRangeManagement() {
   const handleEdit = (range) => {
     setEditingRange(range);
     setFormData({
-      category: range.category,
+      category: range.service_category || range.category,
       min_price: range.min_price.toString(),
       max_price: range.max_price.toString(),
       description: range.description || ''
