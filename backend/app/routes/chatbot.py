@@ -37,6 +37,8 @@ async def chatbot_proxy(request: ChatbotRequest):
         # If Gemini returns an error, return JSON, not raw response
         if res.status_code != 200:
             return JSONResponse({'error': res.text, 'status_code': res.status_code}, status_code=res.status_code)
-        return Response(content=res.text, status_code=res.status_code, headers=dict(res.headers))
+        response_headers = dict(res.headers)
+        response_headers.pop("content-encoding", None)
+        return Response(content=res.text, status_code=res.status_code, headers=response_headers)
     except Exception as e:
         return JSONResponse({'error': str(e)}, status_code=500)
