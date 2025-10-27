@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Depends, Query
+from fastapi import APIRouter, HTTPException, Depends, Query, Request
 from pydantic import BaseModel
 from typing import Optional, List
 from app.middleware.auth import require_superadmin
@@ -356,68 +356,71 @@ async def get_price_ranges(current_user: dict = Depends(require_superadmin)):
     
     return price_ranges
 
+from fastapi import Request
+
 @router.post("/price-ranges")
 async def create_price_range(
-    price_range_data: PriceRangeRequest,
+    request: Request,
     current_user: dict = Depends(require_superadmin)
 ):
-    """Create or update price range for a service category"""
+    """Create or update price range for a service category (capitalized)"""
     price_ranges_collection = await get_collection("price_ranges")
-    
-    if price_range_data.min_price >= price_range_data.max_price:
+    data = await request.json()
+    service_category = data.get("service_category")
+    min_price = data.get("min_price")
+    max_price = data.get("max_price")
+    recommended_price = data.get("recommended_price")
+
+    if not service_category or min_price is None or max_price is None:
+        raise HTTPException(status_code=422, detail="Missing required fields")
+    if min_price >= max_price:
         raise HTTPException(status_code=400, detail="Min price must be less than max price")
-    
+
     # Check if price range already exists
     existing = await price_ranges_collection.find_one({
-        "category": price_range_data.category.value
+        "service_category": service_category
     })
-    
+
     if existing:
         # Update existing
-        result = await price_ranges_collection.update_one(
+        await price_ranges_collection.update_one(
             {"_id": existing["_id"]},
             {"$set": {
-                "min_price": price_range_data.min_price,
-                "max_price": price_range_data.max_price,
-                "recommended_price": price_range_data.recommended_price,
+                "min_price": min_price,
+                "max_price": max_price,
+                "recommended_price": recommended_price,
                 "updated_at": datetime.utcnow()
             }}
         )
         price_range_id = str(existing["_id"])
     else:
         # Create new
-        new_price_range = PriceRange(
-            category=price_range_data.category,
-            min_price=price_range_data.min_price,
-            max_price=price_range_data.max_price,
-            recommended_price=price_range_data.recommended_price,
-            created_at=datetime.utcnow(),
-            updated_at=datetime.utcnow()
-        )
-        
-        result = await price_ranges_collection.insert_one(
-            new_price_range.dict(by_alias=True, exclude={"id"})
-        )
-        price_range_id = str(result.inserted_id)
+        new_price_range = {
+            "service_category": service_category,
+            "min_price": min_price,
+            "max_price": max_price,
+            "recommended_price": recommended_price,
+            "created_at": datetime.utcnow(),
+            "updated_at": datetime.utcnow()
+        }
+    result = await price_ranges_collection.insert_one(new_price_range)
+    price_range_id = str(result.inserted_id)
     
     price_range = await price_ranges_collection.find_one({"_id": ObjectId(price_range_id)})
     price_range["_id"] = str(price_range["_id"])
     
     return price_range
 
-@router.delete("/price-ranges/{category}")
+@router.delete("/price-ranges/{service_category}")
 async def delete_price_range(
-    category: ServiceCategory,
+    service_category: str,
     current_user: dict = Depends(require_superadmin)
 ):
-    """Delete price range for a category"""
+    """Delete price range for a service_category (capitalized)"""
     price_ranges_collection = await get_collection("price_ranges")
-    
-    result = await price_ranges_collection.delete_one({"category": category.value})
-    
+    result = await price_ranges_collection.delete_one({"service_category": service_category})
     if result.deleted_count == 0:
         raise HTTPException(status_code=404, detail="Price range not found")
-    
     return {"message": "Price range deleted successfully"}
 
 @router.get("/bookings")
