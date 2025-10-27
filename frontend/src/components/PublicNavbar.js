@@ -1,3 +1,6 @@
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import { Link } from 'react-router-dom';
 export default function PublicNavbar() {
   const navigate = useNavigate();
   const { isAuthenticated, user } = useAuth();
