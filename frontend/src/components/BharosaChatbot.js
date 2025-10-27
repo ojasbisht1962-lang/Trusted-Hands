@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-const GEMINI_API_KEY = "AIzaSyA-6Aq8AUQfxpgHUKqq2J-w4iBiO0tMkAM";
-const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + GEMINI_API_KEY;
+const BACKEND_CHATBOT_URL = "/api/chatbot";
 
 const initialPrompt = `
 You are Bharosa, a friendly chatbot for TrustedHands (https://trusted-hands.vercel.app), a trusted marketplace for freelance and gig services. 
@@ -27,14 +26,24 @@ export default function BharosaChatbot() {
     const newMessages = [...messages, { role: "user", parts: [{ text }] }];
     setMessages(newMessages);
 
-    const res = await fetch(GEMINI_API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ contents: newMessages })
-    });
-    const data = await res.json();
-    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't get a response.";
-    setMessages([...newMessages, { role: "model", parts: [{ text: reply }] }]);
+    try {
+      const res = await fetch(BACKEND_CHATBOT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ contents: newMessages })
+      });
+      if (!res.ok) {
+        let errorMsg = "Sorry, Bharosa couldn't connect to the backend chatbot API (" + res.status + "). Please check your backend deployment.";
+        setMessages([...newMessages, { role: "model", parts: [{ text: errorMsg }] }]);
+        setLoading(false);
+        return;
+      }
+      const data = await res.json();
+      const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't get a response.";
+      setMessages([...newMessages, { role: "model", parts: [{ text: reply }] }]);
+    } catch (err) {
+      setMessages([...newMessages, { role: "model", parts: [{ text: "Sorry, Bharosa couldn't connect. Please check your internet connection and API key." }] }]);
+    }
     setLoading(false);
   };
 

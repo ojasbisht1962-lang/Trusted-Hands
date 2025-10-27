@@ -16,7 +16,7 @@ GOOGLE_CLIENT_ID=123456789-abcdefghijklmnop.apps.googleusercontent.com
 GOOGLE_CLIENT_SECRET=GOCSPX-AbCdEfGhIjKlMnOpQrStUvWx
 
 # Gemini AI
-GEMINI_API_KEY=AIzaSyAbCdEfGhIjKlMnOpQrStUvWxYz
+GEMINI_API_KEY=AIzaSyA-6Aq8AUQfxpgHUKqq2J-w4iBiO0tMkAM
 
 # CORS - Update with your Vercel URL
 ALLOWED_ORIGINS=https://your-app-name.vercel.app,https://your-backend-name.onrender.com
@@ -41,7 +41,7 @@ REACT_APP_API_BASE_URL=https://your-backend-name.onrender.com
 REACT_APP_GOOGLE_CLIENT_ID=123456789-abcdefghijklmnop.apps.googleusercontent.com
 
 # Gemini AI - Same key as backend
-REACT_APP_GEMINI_API_KEY=AIzaSyAbCdEfGhIjKlMnOpQrStUvWxYz
+REACT_APP_GEMINI_API_KEY=AIzaSyA-6Aq8AUQfxpgHUKqq2J-w4iBiO0tMkAM
 ```
 
 ---
