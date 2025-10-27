@@ -10,6 +10,21 @@ import LoadingScreen from '../../components/LoadingScreen';
 import './Dashboard.css';
 
 export default function Dashboard() {
+  const navigate = useNavigate();
+  const { user } = useAuth();
+  const [loading, setLoading] = useState(true);
+  const [stats, setStats] = useState({
+    totalUsers: 0,
+    totalTaskers: 0,
+    totalCustomers: 0,
+    totalBookings: 0,
+    pendingVerifications: 0,
+    activeAMCs: 0,
+    totalRevenue: 0,
+    pendingAMCs: 0
+  });
+  const [recentActivities, setRecentActivities] = useState([]);
+
   const quickActions = [
     {
       title: 'User Management',
@@ -49,20 +64,6 @@ export default function Dashboard() {
       path: '/admin/price-ranges'
     }
   ];
-  const navigate = useNavigate();
-  const { user } = useAuth();
-  const [loading, setLoading] = useState(true);
-  const [stats, setStats] = useState({
-    totalUsers: 0,
-    totalTaskers: 0,
-    totalCustomers: 0,
-    totalBookings: 0,
-    pendingVerifications: 0,
-    activeAMCs: 0,
-    totalRevenue: 0,
-    pendingAMCs: 0
-  });
-  const [recentActivities, setRecentActivities] = useState([]);
 
   useEffect(() => {
     fetchDashboardData();
