@@ -1,19 +1,30 @@
-from fastapi import APIRouter, Request
+from fastapi import APIRouter
+from pydantic import BaseModel
+from typing import List
 from fastapi.responses import JSONResponse, Response
 import os
 import httpx
 
 router = APIRouter()
 
+
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
 GEMINI_API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key={GEMINI_API_KEY}"
 
+# Define Pydantic models for request body
+class ChatbotContentPart(BaseModel):
+    text: str
+
+class ChatbotContent(BaseModel):
+    role: str
+    parts: List[ChatbotContentPart]
+
+class ChatbotRequest(BaseModel):
+    contents: List[ChatbotContent]
+
 @router.post("/api/chatbot")
-async def chatbot_proxy(request: Request):
-    try:
-        data = await request.json()
-    except Exception:
-        return JSONResponse({'error': 'Invalid or missing JSON body'}, status_code=400)
+async def chatbot_proxy(request: ChatbotRequest):
+    data = request.dict()
     if not data or 'contents' not in data:
         return JSONResponse({'error': 'Missing contents'}, status_code=400)
     try:
