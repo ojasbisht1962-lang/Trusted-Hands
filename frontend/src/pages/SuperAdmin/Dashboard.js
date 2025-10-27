@@ -10,119 +10,6 @@ import LoadingScreen from '../../components/LoadingScreen';
 import './Dashboard.css';
 
 export default function Dashboard() {
-  const navigate = useNavigate();
-  const { user } = useAuth();
-  const [loading, setLoading] = useState(true);
-  const [stats, setStats] = useState({
-    totalUsers: 0,
-    totalTaskers: 0,
-    totalCustomers: 0,
-    totalBookings: 0,
-    pendingVerifications: 0,
-    activeAMCs: 0,
-    totalRevenue: 0,
-    pendingAMCs: 0
-  });
-  const [recentActivities, setRecentActivities] = useState([]);
-
-  useEffect(() => {
-    fetchDashboardData();
-  }, []);
-
-  const fetchDashboardData = async () => {
-    try {
-      setLoading(true);
-      const token = localStorage.getItem('access_token');
-      
-      // Fetch all required data
-      const [usersRes, bookingsRes, amcRes] = await Promise.all([
-        fetch(`${config.API_BASE_URL}/admin/users`, {
-          headers: { 'Authorization': `Bearer ${token}` }
-        }),
-        fetch(`${config.API_BASE_URL}/admin/bookings`, {
-          headers: { 'Authorization': `Bearer ${token}` }
-        }),
-        fetch(`${config.API_BASE_URL}/amc/all`, {
-          headers: { 'Authorization': `Bearer ${token}` }
-        })
-      ]);
-
-      // Check for unauthorized responses
-      if (!usersRes.ok || !bookingsRes.ok || !amcRes.ok) {
-        if (usersRes.status === 401 || bookingsRes.status === 401 || amcRes.status === 401) {
-          localStorage.removeItem('access_token');
-          localStorage.removeItem('user');
-          window.location.href = '/login';
-          return (
-            <>
-              <Navbar />
-              <LoadingScreen />
-              <Footer />
-            </>
-          );
-
-      // Extract bookings array (might be wrapped in object)
-      const bookings = Array.isArray(bookingsData) ? bookingsData : (bookingsData.bookings || []);
-
-      // Calculate stats
-      const usersArray = Array.isArray(users) ? users : (users.users || []);
-      const taskers = usersArray.filter(u => u.role === 'tasker');
-      const customers = usersArray.filter(u => u.role === 'customer');
-      const pendingVerifications = taskers.filter(t => t.verification_status === 'pending').length;
-      const amcsArray = Array.isArray(amcs) ? amcs : [];
-      const activeAMCs = amcsArray.filter(a => a.status === 'active').length;
-      const pendingAMCs = amcsArray.filter(a => a.status === 'pending').length;
-      
-      // Calculate total revenue
-      const completedBookings = bookings.filter(b => b.status === 'completed');
-      const totalRevenue = completedBookings.reduce((sum, b) => sum + (b.total_price || 0), 0);
-
-      setStats({
-        totalUsers: usersArray.length,
-        totalTaskers: taskers.length,
-        totalCustomers: customers.length,
-        totalBookings: bookings.length,
-        pendingVerifications,
-        activeAMCs,
-        totalRevenue,
-        pendingAMCs
-      });
-
-      // Create recent activities
-      const activities = [];
-      
-      // Recent bookings
-      bookings.slice(0, 3).forEach(booking => {
-        activities.push({
-          type: 'booking',
-          message: `New booking created - ${booking.service_name || 'Service'}`,
-          time: booking.created_at,
-          icon: '📅'
-        });
-      });
-
-      // Recent AMCs
-      amcs.slice(0, 2).forEach(amc => {
-        activities.push({
-          type: 'amc',
-          message: `AMC request from ${amc.company_name}`,
-          time: amc.created_at,
-          icon: '📝'
-        });
-      });
-
-      // Sort by time
-      activities.sort((a, b) => new Date(b.time) - new Date(a.time));
-      setRecentActivities(activities.slice(0, 5));
-
-    } catch (error) {
-      console.error('Error fetching dashboard data:', error);
-      toast.error('Failed to load dashboard data');
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const quickActions = [
     {
       title: 'User Management',
@@ -162,6 +49,112 @@ export default function Dashboard() {
       path: '/admin/price-ranges'
     }
   ];
+  const navigate = useNavigate();
+  const { user } = useAuth();
+  const [loading, setLoading] = useState(true);
+  const [stats, setStats] = useState({
+    totalUsers: 0,
+    totalTaskers: 0,
+    totalCustomers: 0,
+    totalBookings: 0,
+    pendingVerifications: 0,
+    activeAMCs: 0,
+    totalRevenue: 0,
+    pendingAMCs: 0
+  });
+  const [recentActivities, setRecentActivities] = useState([]);
+
+  useEffect(() => {
+    fetchDashboardData();
+  }, []);
+
+  const fetchDashboardData = async () => {
+    try {
+      setLoading(true);
+      const token = localStorage.getItem('access_token');
+      
+      // Fetch all required data
+      const [usersRes, bookingsRes, amcRes] = await Promise.all([
+        fetch(`${config.API_BASE_URL}/admin/users`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        }),
+        fetch(`${config.API_BASE_URL}/admin/bookings`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        }),
+        fetch(`${config.API_BASE_URL}/amc/all`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        })
+      ]);
+
+        if (!usersRes.ok || !bookingsRes.ok || !amcRes.ok) {
+          if (usersRes.status === 401 || bookingsRes.status === 401 || amcRes.status === 401) {
+            localStorage.removeItem('access_token');
+            localStorage.removeItem('user');
+            window.location.href = '/login';
+            return;
+          }
+          throw new Error('Failed to fetch dashboard data');
+        }
+
+        // Extract bookings array (might be wrapped in object)
+        const users = await usersRes.json();
+        const bookingsData = await bookingsRes.json();
+        const amcs = await amcRes.json();
+        const bookings = Array.isArray(bookingsData) ? bookingsData : (bookingsData.bookings || []);
+
+        // Calculate stats
+        const usersArray = Array.isArray(users) ? users : (users.users || []);
+        const taskers = usersArray.filter(u => u.role === 'tasker');
+        const customers = usersArray.filter(u => u.role === 'customer');
+        const pendingVerifications = taskers.filter(t => t.verification_status === 'pending').length;
+        const amcsArray = Array.isArray(amcs) ? amcs : [];
+        const activeAMCs = amcsArray.filter(a => a.status === 'active').length;
+        const pendingAMCs = amcsArray.filter(a => a.status === 'pending').length;
+        // Calculate total revenue
+        const completedBookings = bookings.filter(b => b.status === 'completed');
+        const totalRevenue = completedBookings.reduce((sum, b) => sum + (b.total_price || 0), 0);
+
+        setStats({
+          totalUsers: usersArray.length,
+          totalTaskers: taskers.length,
+          totalCustomers: customers.length,
+          totalBookings: bookings.length,
+          pendingVerifications,
+          activeAMCs,
+          totalRevenue,
+          pendingAMCs
+        });
+
+        // Create recent activities
+        const activities = [];
+        // Recent bookings
+        bookings.slice(0, 3).forEach(booking => {
+          activities.push({
+            type: 'booking',
+            message: `New booking created - ${booking.service_name || 'Service'}`,
+            time: booking.created_at,
+            icon: '📅'
+          });
+        });
+        // Recent AMCs
+        amcsArray.slice(0, 2).forEach(amc => {
+          activities.push({
+            type: 'amc',
+            message: `AMC request from ${amc.company_name}`,
+            time: amc.created_at,
+            icon: '📝'
+          });
+        });
+        // Sort by time
+        activities.sort((a, b) => new Date(b.time) - new Date(a.time));
+        setRecentActivities(activities.slice(0, 5));
+      } catch (error) {
+        console.error('Error fetching dashboard data:', error);
+        toast.error('Failed to load dashboard data');
+      } finally {
+        setLoading(false);
+      }
+    };
 
   if (loading) {
     return (
