@@ -1,3 +1,4 @@
+import traceback
 from fastapi import APIRouter
 from pydantic import BaseModel
 from typing import List
@@ -43,4 +44,5 @@ async def chatbot_proxy(request: ChatbotRequest):
         return Response(content=res.text, status_code=res.status_code, headers=response_headers)
     except Exception as e:
         print("Backend exception:", str(e))
+        traceback.print_exc()
         return JSONResponse({'error': str(e)}, status_code=500)
