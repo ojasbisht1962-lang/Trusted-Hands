@@ -21,6 +21,7 @@ export default function Profile() {
   const [loading, setLoading] = useState(false);
   const [editing, setEditing] = useState(false);
   const [editingSkills, setEditingSkills] = useState(false);
+  const [showUpgradeModal, setShowUpgradeModal] = useState(false);
 // ...existing code...
   
   const [formData, setFormData] = useState({

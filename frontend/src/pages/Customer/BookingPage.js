@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import LoadingSpinner from '../../components/LoadingSpinner';
+import LoadingScreen from '../../components/LoadingScreen';
 import './BookingPage.css';
 
 export default function BookingPage() {
@@ -114,8 +115,7 @@ export default function BookingPage() {
     return (
       <>
         <Navbar />
-import LoadingScreen from '../../components/LoadingScreen';
-  <LoadingScreen />
+        <LoadingScreen />
         <Footer />
       </>
     );

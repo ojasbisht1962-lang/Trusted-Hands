@@ -6,6 +6,7 @@ import config from '../../config';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import LoadingSpinner from '../../components/LoadingSpinner';
+import LoadingScreen from '../../components/LoadingScreen';
 import './Dashboard.css';
 
 export default function Dashboard() {
@@ -52,14 +53,13 @@ export default function Dashboard() {
           localStorage.removeItem('access_token');
           localStorage.removeItem('user');
           window.location.href = '/login';
-          return;
-        }
-        throw new Error('Failed to fetch dashboard data');
-      }
-
-      const users = await usersRes.json();
-      const bookingsData = await bookingsRes.json();
-      const amcs = await amcRes.json();
+          return (
+            <>
+              <Navbar />
+              <LoadingScreen />
+              <Footer />
+            </>
+          );
 
       // Extract bookings array (might be wrapped in object)
       const bookings = Array.isArray(bookingsData) ? bookingsData : (bookingsData.bookings || []);
@@ -166,8 +166,7 @@ export default function Dashboard() {
   if (loading) {
     return (
       <>
-        <Navbar />
-import LoadingScreen from '../../components/LoadingScreen';
+  <Navbar />
   <LoadingScreen />
         <Footer />
       </>
