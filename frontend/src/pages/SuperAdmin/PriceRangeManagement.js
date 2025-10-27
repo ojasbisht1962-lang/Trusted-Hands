@@ -76,8 +76,14 @@ export default function PriceRangeManagement() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (parseFloat(formData.min_price) >= parseFloat(formData.max_price)) {
-      toast.error('Maximum price must be greater than minimum price');
+    const minPrice = parseFloat(formData.min_price);
+    const maxPrice = parseFloat(formData.max_price);
+    if (
+      isNaN(minPrice) || isNaN(maxPrice) ||
+      minPrice < 0 || maxPrice < 0 ||
+      minPrice >= maxPrice
+    ) {
+      toast.error('Please enter valid prices. Minimum price must be less than maximum price and both must be positive numbers.');
       return;
     }
 
