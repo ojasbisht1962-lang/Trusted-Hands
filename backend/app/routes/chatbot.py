@@ -29,7 +29,7 @@ async def chatbot_proxy(request: ChatbotRequest):
     if not data or 'contents' not in data:
         return JSONResponse({'error': 'Missing contents'}, status_code=400)
     try:
-        async with httpx.AsyncClient() as client:
+        async with httpx.AsyncClient(timeout=30.0) as client:
             res = await client.post(
                 GEMINI_API_URL,
                 headers={"Content-Type": "application/json"},
