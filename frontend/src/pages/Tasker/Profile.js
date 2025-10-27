@@ -20,6 +20,8 @@ export default function Profile() {
   const [loading, setLoading] = useState(false);
   const [editing, setEditing] = useState(false);
   const [editingSkills, setEditingSkills] = useState(false);
+// ...existing code...
+// ...existing code...
 import LoadingScreen from '../../components/LoadingScreen';
   
   const [formData, setFormData] = useState({

@@ -167,7 +167,8 @@ export default function Dashboard() {
     return (
       <>
         <Navbar />
-        <LoadingScreen />
+import LoadingScreen from '../../components/LoadingScreen';
+  <LoadingScreen />
         <Footer />
       </>
     );

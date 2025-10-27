@@ -114,7 +114,8 @@ export default function BookingPage() {
     return (
       <>
         <Navbar />
-        <LoadingScreen />
+import LoadingScreen from '../../components/LoadingScreen';
+  <LoadingScreen />
         <Footer />
       </>
     );
