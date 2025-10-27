@@ -1,5 +1,8 @@
 from fastapi import HTTPException
 from bson import ObjectId
+router = APIRouter(prefix="/admin", tags=["Admin"])
+# ...existing code...
+
 # Delete user route for admin
 @router.delete("/users/{user_id}")
 async def delete_user(user_id: str, current_user: dict = Depends(require_superadmin)):
