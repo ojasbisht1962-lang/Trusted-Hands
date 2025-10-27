@@ -1,16 +1,15 @@
-
-from fastapi import APIRouter, HTTPException, Depends, Query
+from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel
 from typing import Optional, List
 from app.middleware.auth import require_superadmin
 from app.database import get_collection
 from app.models.user import UserRole, VerificationStatus
 from app.models.service import ServiceCategory, PriceRange
-from app.services.notification_service import create_notification
 from app.models.notification import NotificationType
+from app.services.notification_service import create_notification
+import secrets
 from datetime import datetime
 from bson import ObjectId
-import secrets
 
 router = APIRouter(prefix="/admin", tags=["Admin"])
 

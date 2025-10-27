@@ -83,12 +83,9 @@ export default function PriceRangeManagement() {
 
     try {
       const token = localStorage.getItem('access_token');
-      const url = editingRange 
-        ? `${config.API_BASE_URL}/admin/price-ranges/${editingRange._id}`
-        : `${config.API_BASE_URL}/admin/price-ranges`;
-      
+      const url = `${config.API_BASE_URL}/admin/price-ranges`;
       const response = await fetch(url, {
-        method: editingRange ? 'PUT' : 'POST',
+        method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'

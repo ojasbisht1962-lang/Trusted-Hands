@@ -1,16 +1,15 @@
-from fastapi import APIRouter, HTTPException, Depends, Query
-from pydantic import BaseModel, Field, validator
+from fastapi import APIRouter, HTTPException, Depends
+from pydantic import BaseModel, Field
 from typing import Optional
 from datetime import datetime
 from app.middleware.auth import get_current_user, require_customer, require_tasker
 from app.database import get_collection
 from app.models.booking import Booking, BookingStatus
-from app.services.notification_service import create_notification
 from app.models.notification import NotificationType
-from bson import ObjectId
+from app.services.notification_service import create_notification
 import logging
-
 logger = logging.getLogger(__name__)
+from bson import ObjectId
 
 router = APIRouter(prefix="/bookings", tags=["Bookings"])
 

@@ -233,7 +233,7 @@ export default function Chat() {
                 disabled={sending}
               />
               <button type="submit" disabled={sending || !newMessage.trim()}>
-                {sending ? '⏳' : '📤'}
+                {sending ? <span className="sending-spinner"></span> : '📤'}
               </button>
             </form>
           </>

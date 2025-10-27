@@ -63,8 +63,7 @@ export default function Contact() {
             <div className="info-card">
               <div className="info-icon">📍</div>
               <h3>Address</h3>
-              <p>123 Service Street</p>
-              <p>Tech City, TC 12345</p>
+              <p>Punjab Engineering College, Sector-12, Chandigarh</p>
             </div>
 
             <div className="info-card">

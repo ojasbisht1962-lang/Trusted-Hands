@@ -38,7 +38,7 @@ const LoadingScreen = ({ message }) => {
         
         <div className="loading-text-container">
           <h2 className="loading-title">TrustedHands</h2>
-          <p className="loading-message">
+            <p className="loading-message orange-gradient-text">
             {message || loadingMessages[currentMessage]}
           </p>
         </div>

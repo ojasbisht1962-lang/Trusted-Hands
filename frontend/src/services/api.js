@@ -3,26 +3,18 @@ import config from '../config';
 
 const api = axios.create({
   baseURL: config.API_BASE_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
+  headers: { 'Content-Type': 'application/json' },
 });
 
-// Request interceptor to add token
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('access_token');
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
+    if (token) config.headers.Authorization = `Bearer ${token}`;
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
-// Response interceptor to handle errors
 api.interceptors.response.use(
   (response) => response,
   (error) => {

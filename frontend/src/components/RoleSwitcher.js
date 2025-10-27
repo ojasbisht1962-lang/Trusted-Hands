@@ -1,39 +1,21 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import { toast } from 'react-toastify';
-import './RoleSwitcher.css';
-
 export default function RoleSwitcher() {
   const { user, switchRole, hasMultipleRoles, availableRoles } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const [switching, setSwitching] = useState(false);
   const navigate = useNavigate();
-
-  if (!hasMultipleRoles) {
-    return null; // Don't show if user only has one role
-  }
-
+  if (!hasMultipleRoles) return null;
   const handleRoleSwitch = async (newRole) => {
     if (newRole === user.role) {
       setIsOpen(false);
       return;
     }
-
     setSwitching(true);
     try {
       await switchRole(newRole);
       toast.success(`Switched to ${newRole} mode successfully!`);
-      
-      // Navigate to the appropriate dashboard
-      if (newRole === 'customer') {
-        navigate('/customer/dashboard');
-      } else if (newRole === 'tasker') {
-        navigate('/tasker/dashboard');
-      } else if (newRole === 'superadmin') {
-        navigate('/superadmin/dashboard');
-      }
-      
+      if (newRole === 'customer') navigate('/customer/dashboard');
+      else if (newRole === 'tasker') navigate('/tasker/dashboard');
+      else if (newRole === 'superadmin') navigate('/superadmin/dashboard');
       setIsOpen(false);
     } catch (error) {
       toast.error(error.response?.data?.detail || 'Failed to switch role');
@@ -41,33 +23,18 @@ export default function RoleSwitcher() {
       setSwitching(false);
     }
   };
-
   const getRoleIcon = (role) => {
-    switch (role) {
-      case 'customer':
-        return '🛒';
-      case 'tasker':
-        return '🔧';
-      case 'superadmin':
-        return '👑';
-      default:
-        return '👤';
-    }
+    if (role === 'customer') return '🛒';
+    if (role === 'tasker') return '🔧';
+    if (role === 'superadmin') return '👑';
+    return '👤';
   };
-
   const getRoleLabel = (role) => {
-    switch (role) {
-      case 'customer':
-        return 'Customer Mode';
-      case 'tasker':
-        return 'Tasker Mode';
-      case 'superadmin':
-        return 'Admin Mode';
-      default:
-        return role;
-    }
+    if (role === 'customer') return 'Customer Mode';
+    if (role === 'tasker') return 'Tasker Mode';
+    if (role === 'superadmin') return 'Admin Mode';
+    return role;
   };
-
   return (
     <div className="role-switcher">
       <button
@@ -88,7 +55,6 @@ export default function RoleSwitcher() {
           <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
         </svg>
       </button>
-
       {isOpen && (
         <div className="role-switcher-dropdown">
           <div className="role-switcher-header">
@@ -122,7 +88,6 @@ export default function RoleSwitcher() {
           ))}
         </div>
       )}
-
       {isOpen && (
         <div className="role-switcher-overlay" onClick={() => setIsOpen(false)} />
       )}

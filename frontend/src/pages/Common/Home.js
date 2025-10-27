@@ -8,14 +8,14 @@ const Home = () => {
   const { isAuthenticated, user } = useAuth();
 
   const services = [
-    { icon: '⚡', name: 'Electrician', category: 'electrician' },
-    { icon: '🔧', name: 'Plumber', category: 'plumber' },
-    { icon: '🪛', name: 'Carpenter', category: 'carpenter' },
-    { icon: '❄️', name: 'AC Servicing', category: 'ac_servicing' },
-    { icon: '💧', name: 'RO Servicing', category: 'ro_servicing' },
-    { icon: '🧹', name: 'Home Cleaning', category: 'home_cleaning' },
-    { icon: '🚗', name: 'Car Washing', category: 'car_washing' },
-    { icon: '📝', name: 'Assignment Writing', category: 'assignment_writing' },
+  { icon: '⚡', name: 'Electrician', category: 'electrician' },
+  { icon: '🔧', name: 'Plumber', category: 'plumber' },
+  { icon: '🪛', name: 'Carpenter', category: 'carpenter' },
+  { icon: '❄️', name: 'AC Servicing', category: 'ac_servicing' },
+  { icon: '💧', name: 'RO Servicing', category: 'ro_servicing' },
+  { icon: '🧹', name: 'Home Cleaning', category: 'home_cleaning' },
+  { icon: '🚗', name: 'Car Washing', category: 'car_washing' },
+  { icon: '📝', name: 'Assignment Writing', category: 'assignment_writing' },
   ];
 
   const getDashboardLink = () => {
@@ -173,7 +173,7 @@ const Home = () => {
           </div>
         </div>
       </footer>
-      <BharosaChatbot />
+  {/* BharosaChatbot is rendered globally in App.js */}
     </div>
   );
 };

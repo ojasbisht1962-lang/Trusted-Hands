@@ -115,8 +115,8 @@ const Login = () => {
         <div className="login-footer">
           <p>
             By continuing, you agree to our{' '}
-            <a href="/terms">Terms of Service</a> and{' '}
-            <a href="/privacy">Privacy Policy</a>
+            <a href="https://trusted-hands.vercel.app/terms-of-service" target="_blank" rel="noopener noreferrer">Terms of Service</a> and{' '}
+            <a href="https://trusted-hands.vercel.app/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
           </p>
         </div>
       </div>

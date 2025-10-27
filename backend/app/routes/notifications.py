@@ -1,29 +1,14 @@
 from fastapi import APIRouter, HTTPException, Depends
 from app.middleware.auth import get_current_user
 from app.database import get_collection
-from app.services.notification_service import (
-    get_user_notifications,
-    mark_notification_as_read,
-    mark_all_as_read
-)
+from app.services.notification_service import get_user_notifications, mark_notification_as_read, mark_all_as_read
 from bson import ObjectId
 
 router = APIRouter(prefix="/notifications", tags=["Notifications"])
 
 @router.get("/")
-async def get_notifications(
-    unread_only: bool = False,
-    limit: int = 50,
-    current_user: dict = Depends(get_current_user)
-):
-    """Get notifications for current user"""
-    notifications = await get_user_notifications(
-        user_id=str(current_user["_id"]),
-        unread_only=unread_only,
-        limit=limit
-    )
-    
-    return notifications
+async def get_notifications(unread_only: bool = False, limit: int = 50, current_user: dict = Depends(get_current_user)):
+    return await get_user_notifications(user_id=str(current_user["_id"]), unread_only=unread_only, limit=limit)
 
 @router.get("/unread-count")
 async def get_unread_count(current_user: dict = Depends(get_current_user)):

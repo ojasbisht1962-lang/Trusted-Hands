@@ -3,12 +3,11 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'r
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { AuthProvider, useAuth } from './context/AuthContext';
+import { AuthProvider } from './context/AuthContext';
 import config from './config';
 import './styles/App.css';
 import LoadingScreen from './components/LoadingScreen';
-
-// Common Pages
+import BharosaChatbot from './components/BharosaChatbot';
 import Login from './pages/Common/Login';
 import Home from './pages/Common/Home';
 import About from './pages/Common/About';
@@ -16,8 +15,6 @@ import FAQ from './pages/Common/FAQ';
 import Contact from './pages/Common/Contact';
 import PrivacyPolicy from './pages/Common/PrivacyPolicy';
 import TermsOfService from './pages/Common/TermsOfService';
-
-// Customer Pages
 import CustomerDashboard from './pages/Customer/Dashboard';
 import CustomerProfile from './pages/Customer/CustomerProfile';
 import Services from './pages/Customer/Services';
@@ -26,16 +23,12 @@ import BookingPage from './pages/Customer/BookingPage';
 import MyBookings from './pages/Customer/MyBookings';
 import Chat from './pages/Customer/Chat';
 import AMCRequest from './pages/Customer/AMCRequest';
-
-// Tasker Pages
 import TaskerDashboard from './pages/Tasker/Dashboard';
 import TaskerProfile from './pages/Tasker/Profile';
 import TaskerOnboarding from './pages/Tasker/Onboarding';
 import MyServices from './pages/Tasker/MyServices';
 import TaskerBookings from './pages/Tasker/Bookings';
 import TaskerChat from './pages/Tasker/Chat';
-
-// SuperAdmin Pages
 import AdminDashboard from './pages/SuperAdmin/Dashboard';
 import SuperAdminProfile from './pages/SuperAdmin/SuperAdminProfile';
 import UserManagement from './pages/SuperAdmin/UserManagement';
@@ -44,17 +37,14 @@ import PriceRangeManagement from './pages/SuperAdmin/PriceRangeManagement';
 import AMCManagement from './pages/SuperAdmin/AMCManagement';
 import BookingManagement from './pages/SuperAdmin/BookingManagement';
 
-// Page Transition Wrapper
 const PageTransition = ({ children }) => {
   const location = useLocation();
   const [isTransitioning, setIsTransitioning] = useState(false);
-
   useEffect(() => {
     setIsTransitioning(true);
     const timer = setTimeout(() => setIsTransitioning(false), 300);
     return () => clearTimeout(timer);
   }, [location.pathname]);
-
   return (
     <div className={`page-transition ${isTransitioning ? 'page-transition-enter' : ''}`}>
       {children}
@@ -318,6 +308,7 @@ function App() {
           pauseOnHover
           theme="light"
         />
+        <BharosaChatbot />
       </AuthProvider>
     </GoogleOAuthProvider>
   );

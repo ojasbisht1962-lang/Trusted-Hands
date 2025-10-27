@@ -4,8 +4,8 @@ from typing import List
 from app.middleware.auth import get_current_user
 from app.database import get_collection
 from app.models.chat import Chat, Message
-from app.services.notification_service import create_notification
 from app.models.notification import NotificationType
+from app.services.notification_service import create_notification
 from datetime import datetime
 from bson import ObjectId
 

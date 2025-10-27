@@ -6,9 +6,7 @@ export default function LoadingSpinner({ message = "Loading..." }) {
     <div className="loading-spinner-container">
       <div className="loading-spinner-content">
         <div className="rocket-wrapper">
-          <div className="rocket">
-            <div className="rocket-body">🚀</div>
-          </div>
+          <div className="rocket-body">🚀</div>
         </div>
         <div className="loading-text">
           <h2>{message}</h2>

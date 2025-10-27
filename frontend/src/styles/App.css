@@ -73,6 +73,9 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow: visible !important;
+  position: relative;
+  z-index: 1;
 }
 
 body {

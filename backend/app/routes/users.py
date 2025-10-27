@@ -1,14 +1,14 @@
-from fastapi import APIRouter, HTTPException, Depends, Query
-from pydantic import BaseModel, EmailStr
+from fastapi import APIRouter, HTTPException, Depends
+from pydantic import BaseModel
 from typing import Optional, List
 from app.middleware.auth import get_current_user, require_tasker, require_superadmin
 from app.database import get_collection
 from app.models.user import User, UserRole, TaskerType, VerificationStatus
-from app.services.notification_service import create_notification
 from app.models.notification import NotificationType
+from app.services.notification_service import create_notification
+import secrets
 from datetime import datetime
 from bson import ObjectId
-import secrets
 
 router = APIRouter(prefix="/users", tags=["Users"])
 
@@ -38,26 +38,20 @@ class TaskerDetailsRequest(BaseModel):
 
 @router.get("/me")
 async def get_current_user_profile(current_user: dict = Depends(get_current_user)):
-    """Get current user profile"""
     current_user["_id"] = str(current_user["_id"])
     return current_user
 
 @router.get("/{user_id}")
 async def get_user_by_id(user_id: str):
-    """Get any user by ID"""
     users_collection = await get_collection("users")
-    
     try:
         user = await users_collection.find_one({"_id": ObjectId(user_id)})
     except:
         raise HTTPException(status_code=400, detail="Invalid user ID")
-    
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
-    
     if user.get("is_blocked", False):
         raise HTTPException(status_code=403, detail="This user is not available")
-    
     user["_id"] = str(user["_id"])
     
     # Remove sensitive information

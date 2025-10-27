@@ -82,7 +82,7 @@ export default function About() {
           <h2>Contact Us</h2>
           <p><strong>Email:</strong> support@trustedhands.com</p>
           <p><strong>Phone:</strong> +1 (555) 123-4567</p>
-          <p><strong>Address:</strong> 123 Service Street, Business City, ST 12345</p>
+          <p><strong>Address:</strong> Punjab Engineering College, Sector-12, Chandigarh</p>
         </section>
       </div>
     </div>
