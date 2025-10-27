@@ -42,8 +42,16 @@ export default function Navbar() {
   const navigationTabs = getNavigationTabs();
   const isActive = (path) => location.pathname === path;
   return (
-    <nav className="navbar">
-      <div className="navbar-content">
+    <nav className="app-navbar">
+      <div className="navbar-container">
+        <div className="navbar-brand" onClick={() => navigate('/')}> 
+          <div className="brand-logo">
+            <span className="logo-icon">
+              <img src="/logo.png" alt="TrustedHands" />
+            </span>
+            <span className="logo-text">TrustedHands</span>
+          </div>
+        </div>
         <div className="navbar-tabs">
           {navigationTabs.map((tab, index) => (
             <button
