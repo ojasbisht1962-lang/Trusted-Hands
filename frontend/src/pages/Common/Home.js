@@ -1,5 +1,4 @@
 import React from 'react';
-import BharosaChatbot from '../../components/BharosaChatbot';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import './Home.css';
