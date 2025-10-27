@@ -1,3 +1,7 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import { toast } from 'react-toastify';
 export default function RoleSwitcher() {
   const { user, switchRole, hasMultipleRoles, availableRoles } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
