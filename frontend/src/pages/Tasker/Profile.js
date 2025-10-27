@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import LoadingScreen from '../../components/LoadingScreen';
 import { useAuth } from '../../context/AuthContext';
 import { userService } from '../../services/apiService';
 import { toast } from 'react-toastify';
@@ -21,8 +22,6 @@ export default function Profile() {
   const [editing, setEditing] = useState(false);
   const [editingSkills, setEditingSkills] = useState(false);
 // ...existing code...
-// ...existing code...
-import LoadingScreen from '../../components/LoadingScreen';
   
   const [formData, setFormData] = useState({
     name: '',
