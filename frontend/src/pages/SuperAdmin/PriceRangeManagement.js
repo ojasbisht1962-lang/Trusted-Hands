@@ -93,8 +93,8 @@ export default function PriceRangeManagement() {
         body: JSON.stringify({
           category: formData.category,
           min_price: parseFloat(formData.min_price),
-          max_price: parseFloat(formData.max_price),
-          description: formData.description
+          max_price: parseFloat(formData.max_price)
+          // recommended_price: can be added if you want to support it
         })
       });
 
