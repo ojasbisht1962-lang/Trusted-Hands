@@ -1,3 +1,7 @@
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import RoleSwitcher from './RoleSwitcher';
+import UserProfileMenu from './UserProfileMenu';
 export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
