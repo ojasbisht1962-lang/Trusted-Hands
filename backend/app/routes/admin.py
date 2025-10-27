@@ -1,16 +1,4 @@
-from fastapi import HTTPException
-from bson import ObjectId
-router = APIRouter(prefix="/admin", tags=["Admin"])
-# ...existing code...
 
-# Delete user route for admin
-@router.delete("/users/{user_id}")
-async def delete_user(user_id: str, current_user: dict = Depends(require_superadmin)):
-    users_collection = await get_collection("users")
-    result = await users_collection.delete_one({"_id": ObjectId(user_id)})
-    if result.deleted_count == 0:
-        raise HTTPException(status_code=404, detail="User not found")
-    return {"message": "User deleted successfully"}
 from fastapi import APIRouter, HTTPException, Depends, Query
 from pydantic import BaseModel
 from typing import Optional, List
@@ -25,6 +13,15 @@ from bson import ObjectId
 import secrets
 
 router = APIRouter(prefix="/admin", tags=["Admin"])
+
+# Delete user route for admin
+@router.delete("/users/{user_id}")
+async def delete_user(user_id: str, current_user: dict = Depends(require_superadmin)):
+    users_collection = await get_collection("users")
+    result = await users_collection.delete_one({"_id": ObjectId(user_id)})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="User not found")
+    return {"message": "User deleted successfully"}
 
 class UpdateVerificationRequest(BaseModel):
     status: VerificationStatus

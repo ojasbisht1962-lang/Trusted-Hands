@@ -135,6 +135,8 @@ app.include_router(chat.router)
 app.include_router(notifications.router)
 app.include_router(amc.router)
 app.include_router(admin.router)
+from app.routes.chatbot import router as chatbot_router
+app.include_router(chatbot_router)
 
 # Root endpoint
 @app.get("/")
