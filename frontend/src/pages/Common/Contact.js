@@ -42,13 +42,13 @@ export default function Contact() {
             <div className="info-card">
               <div className="info-icon">📧</div>
               <h3>Email</h3>
-              <p>support@trustedhands.com</p>
+              <p>caretrustedhands@gmail.com</p>
               <p className="info-note">We'll respond within 24 hours</p>
             </div>
             <div className="info-card">
               <div className="info-icon">📞</div>
               <h3>Phone</h3>
-              <p>+1 (555) 123-4567</p>
+              <p>+91 (555) 123-4567</p>
               <p className="info-note">Available 24/7</p>
             </div>
             <div className="info-card">
