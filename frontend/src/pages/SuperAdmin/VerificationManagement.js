@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import config from '../../config';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import LoadingSpinner from '../../components/LoadingSpinner';
+import LoadingScreen from '../../components/LoadingScreen';
 import './VerificationManagement.css';
 
 export default function VerificationManagement() {
@@ -91,7 +91,7 @@ export default function VerificationManagement() {
     return (
       <>
         <Navbar />
-        <LoadingSpinner message="Firing Up The Engines" />
+  <LoadingScreen message="Firing Up The Engines" />
         <Footer />
       </>
     );

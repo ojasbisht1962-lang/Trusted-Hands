@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import config from '../../config';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import LoadingSpinner from '../../components/LoadingSpinner';
+import LoadingScreen from '../../components/LoadingScreen';
 import './UserManagement.css';
 
 export default function UserManagement() {
@@ -200,7 +200,7 @@ export default function UserManagement() {
     return (
       <>
         <Navbar />
-        <LoadingSpinner message="Firing Up The Engines" />
+  <LoadingScreen message="Firing Up The Engines" />
         <Footer />
       </>
     );
