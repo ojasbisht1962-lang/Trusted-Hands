@@ -50,18 +50,23 @@ export default function UserManagement() {
   const handleBlockUser = async (userId, isBlocked) => {
     try {
       const token = localStorage.getItem('access_token');
-      const response = await fetch(`${config.API_BASE_URL}/admin/users/${userId}/block`, {
-        method: 'PUT',
+      let endpoint = `${config.API_BASE_URL}/admin/users/${userId}/block`;
+      let method = 'PUT';
+      let body = JSON.stringify({ reason: isBlocked ? 'Unblock by admin' : 'Blocked by admin' });
+      if (isBlocked) {
+        endpoint = `${config.API_BASE_URL}/admin/users/${userId}/unblock`;
+        body = undefined;
+      }
+      const response = await fetch(endpoint, {
+        method,
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ is_blocked: !isBlocked })
+        ...(body ? { body } : {})
       });
-
       if (!response.ok) throw new Error('Failed to update user status');
-
-      toast.success(`User ${!isBlocked ? 'blocked' : 'unblocked'} successfully`);
+      toast.success(`User ${isBlocked ? 'unblocked' : 'blocked'} successfully`);
       fetchUsers();
     } catch (error) {
       console.error('Error updating user:', error);
