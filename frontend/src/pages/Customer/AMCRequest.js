@@ -3,7 +3,7 @@ import { amcService } from '../../services/apiService';
 import { toast } from 'react-toastify';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import LoadingSpinner from '../../components/LoadingScreen';
+import LoadingScreen from '../../components/LoadingScreen';
 import './AMCRequest.css';
 
 export default function AMCRequest() {
