@@ -3,7 +3,7 @@ import { bookingService } from '../../services/apiService';
 import { toast } from 'react-toastify';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import LoadingSpinner from '../../components/LoadingSpinner';
+import LoadingScreen from '../../components/LoadingScreen';
 import './Bookings.css';
 
 export default function Bookings() {
@@ -84,7 +84,7 @@ export default function Bookings() {
     return (
       <>
         <Navbar />
-        <LoadingSpinner message="Firing Up The Engines" />
+  <LoadingScreen message="Firing Up The Engines" />
         <Footer />
       </>
     );

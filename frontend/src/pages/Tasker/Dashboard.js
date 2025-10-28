@@ -5,7 +5,7 @@ import { bookingService, serviceService } from '../../services/apiService';
 import { toast } from 'react-toastify';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import LoadingSpinner from '../../components/LoadingSpinner';
+import LoadingScreen from '../../components/LoadingScreen';
 import './Dashboard.css';
 
 export default function Dashboard() {
@@ -146,7 +146,7 @@ export default function Dashboard() {
     return (
       <>
         <Navbar />
-        <LoadingSpinner message="Firing Up The Engines" />
+  <LoadingScreen message="Firing Up The Engines" />
         <Footer />
       </>
     );
