@@ -14,7 +14,6 @@ export default function About() {
           ← Back
         </button>
         <div className="about-container">
-          <h1>About TrustedHands</h1>
         
         <section className="about-section">
           <h2>Who We Are</h2>

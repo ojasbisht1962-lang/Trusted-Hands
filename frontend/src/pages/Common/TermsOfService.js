@@ -9,20 +9,17 @@ export default function TermsOfService() {
 
   return (
     <>
-      <PublicNavbar />
       <div className="terms-of-service-page">
         <div className="terms-container">
           <button className="btn-back" onClick={() => navigate(-1)}>
             ← Back
           </button>
-
-          <h1>Terms of Service</h1>
-          <p className="last-updated">Last Updated: October 23, 2025</p>
-
-        <section className="terms-section">
-          <h2>1. Agreement to Terms</h2>
-          <p>
-            By accessing or using TrustedHands ("the Platform"), you agree to be bound by these Terms of Service 
+    <>
+      <div className="terms-of-service-page">
+        <div className="terms-container">
+          <button className="btn-back" onClick={() => navigate(-1)}>
+            ← Back
+          </button>
             and all applicable laws and regulations. If you do not agree with any of these terms, you are 
             prohibited from using or accessing this platform.
           </p>

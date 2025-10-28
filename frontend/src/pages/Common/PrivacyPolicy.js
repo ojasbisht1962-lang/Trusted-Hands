@@ -14,14 +14,12 @@ export default function PrivacyPolicy() {
           <button className="btn-back" onClick={() => navigate(-1)}>
             ← Back
           </button>
-
-          <h1>Privacy Policy</h1>
-          <p className="last-updated">Last Updated: October 23, 2025</p>
-
-        <section className="policy-section">
-          <h2>1. Introduction</h2>
-          <p>
-            Welcome to TrustedHands. We respect your privacy and are committed to protecting your personal data. 
+    <>
+      <div className="privacy-policy-page">
+        <div className="policy-container">
+          <button className="btn-back" onClick={() => navigate(-1)}>
+            ← Back
+          </button>
             This privacy policy will inform you about how we look after your personal data when you visit our 
             platform and tell you about your privacy rights and how the law protects you.
           </p>

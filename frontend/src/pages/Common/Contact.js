@@ -38,14 +38,12 @@ export default function Contact() {
         <button className="back-button" onClick={() => navigate(-1)}>
           ← Back
         </button>
-
+    <>
+      <div className="contact-page">
+        <button className="back-button" onClick={() => navigate(-1)}>
+          ← Back
+        </button>
         <div className="contact-container">
-          <h1>Contact Us</h1>
-          <p className="contact-subtitle">We'd love to hear from you!</p>
-
-        <div className="contact-content">
-          <div className="contact-info">
-            <div className="info-card">
               <div className="info-icon">📧</div>
               <h3>Email</h3>
               <p>support@trustedhands.com</p>

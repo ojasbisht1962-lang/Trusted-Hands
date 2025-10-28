@@ -13,10 +13,6 @@ export default function FAQ() {
       category: "General",
       questions: [
         {
-          question: "What is TrustedHands?",
-          answer: "TrustedHands is a trusted marketplace connecting customers with verified service providers for various home and professional services."
-        },
-        {
           question: "How do I sign up?",
           answer: "Click the Login button, select your role (Customer or Tasker), and sign in with your Google account. It's quick and secure!"
         },
@@ -75,15 +71,13 @@ export default function FAQ() {
   };
 
   return (
-    <>
-      <PublicNavbar />
+    <>            
       <div className="faq-page">
         <button className="back-button" onClick={() => navigate(-1)}>
           ← Back
         </button>
 
         <div className="faq-container">
-          <h1>Frequently Asked Questions</h1>
           <p className="faq-subtitle">Find answers to common questions about TrustedHands</p>
 
         {faqData.map((section, sectionIndex) => (
