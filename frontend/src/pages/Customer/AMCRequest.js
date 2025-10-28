@@ -164,119 +164,120 @@ export default function AMCRequest() {
     <>
       <Navbar />
       <div className="amc-container">
-        <div className="amc-header">
+        <div className="amc-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
             <h1>📝 AMC Requests</h1>
             <p>Manage your Annual Maintenance Contracts</p>
           </div>
-        </div>
-
-        {amcRequests.length === 0 ? (
-        <div className="empty-state">
-          <div className="empty-icon">📄</div>
-          <h2>No AMC Requests</h2>
-          <p>Create your first Annual Maintenance Contract request</p>
           <button 
             className="btn-primary"
+            style={{ padding: '10px 20px', fontSize: '16px', borderRadius: '8px', fontWeight: 'bold' }}
             onClick={() => setShowCreateModal(true)}
           >
             + Create AMC Request
           </button>
         </div>
-      ) : (
-        <div className="amc-grid">
-          {amcRequests.map(amc => (
-            <div key={amc._id} className="amc-card">
-              <div className="amc-header-badge">
-                <div 
-                  className="status-badge" 
-                  style={{ backgroundColor: getStatusColor(amc.status) }}
-                >
-                  {getStatusIcon(amc.status)} {amc.status.toUpperCase()}
+
+        {amcRequests.length === 0 ? (
+          <div className="empty-state">
+            <div className="empty-icon">📄</div>
+            <h2>No AMC Requests</h2>
+            <p>Create your first Annual Maintenance Contract request</p>
+          </div>
+        ) : (
+          <div className="amc-grid">
+            {amcRequests.map(amc => (
+              <div key={amc._id} className="amc-card">
+                <div className="amc-header-badge">
+                  <div 
+                    className="status-badge" 
+                    style={{ backgroundColor: getStatusColor(amc.status) }}
+                  >
+                    {getStatusIcon(amc.status)} {amc.status.toUpperCase()}
+                  </div>
+                  <span className="amc-id">#{amc._id.slice(-6)}</span>
                 </div>
-                <span className="amc-id">#{amc._id.slice(-6)}</span>
-              </div>
 
-              <h3>{amc.company_name || 'AMC Request'}</h3>
-              {amc.service_types && amc.service_types.length > 0 && (
-                <p style={{fontSize: '14px', color: '#6b7280', marginTop: '5px'}}>
-                  {amc.service_types.join(', ')}
-                </p>
-              )}
+                <h3>{amc.company_name || 'AMC Request'}</h3>
+                {amc.service_types && amc.service_types.length > 0 && (
+                  <p style={{fontSize: '14px', color: '#6b7280', marginTop: '5px'}}>
+                    {amc.service_types.join(', ')}
+                  </p>
+                )}
 
-              <div className="amc-details">
-                {amc.contact_person && (
+                <div className="amc-details">
+                  {amc.contact_person && (
+                    <div className="detail-row">
+                      <span className="label">� Contact:</span>
+                      <span className="value">{amc.contact_person}</span>
+                    </div>
+                  )}
+                  {amc.contact_email && (
+                    <div className="detail-row">
+                      <span className="label">📧 Email:</span>
+                      <span className="value">{amc.contact_email}</span>
+                    </div>
+                  )}
+                  {amc.contact_phone && (
+                    <div className="detail-row">
+                      <span className="label">📞 Phone:</span>
+                      <span className="value">{amc.contact_phone}</span>
+                    </div>
+                  )}
+                  {amc.address && (
+                    <div className="detail-row">
+                      <span className="label">📍 Address:</span>
+                      <span className="value">{amc.address}</span>
+                    </div>
+                  )}
                   <div className="detail-row">
-                    <span className="label">� Contact:</span>
-                    <span className="value">{amc.contact_person}</span>
+                    <span className="label">⏱️ Duration:</span>
+                    <span className="value">{amc.duration_months} months</span>
                   </div>
-                )}
-                {amc.contact_email && (
-                  <div className="detail-row">
-                    <span className="label">📧 Email:</span>
-                    <span className="value">{amc.contact_email}</span>
-                  </div>
-                )}
-                {amc.contact_phone && (
-                  <div className="detail-row">
-                    <span className="label">📞 Phone:</span>
-                    <span className="value">{amc.contact_phone}</span>
-                  </div>
-                )}
-                {amc.address && (
-                  <div className="detail-row">
-                    <span className="label">📍 Address:</span>
-                    <span className="value">{amc.address}</span>
-                  </div>
-                )}
-                <div className="detail-row">
-                  <span className="label">⏱️ Duration:</span>
-                  <span className="value">{amc.duration_months} months</span>
+                  {amc.frequency && (
+                    <div className="detail-row">
+                      <span className="label">🔄 Frequency:</span>
+                      <span className="value">{amc.frequency}</span>
+                    </div>
+                  )}
+                  {amc.start_date && (
+                    <div className="detail-row">
+                      <span className="label">📅 Start Date:</span>
+                      <span className="value">
+                        {new Date(amc.start_date).toLocaleDateString()}
+                      </span>
+                    </div>
+                  )}
+                  {amc.end_date && (
+                    <div className="detail-row">
+                      <span className="label">📅 End Date:</span>
+                      <span className="value">
+                        {new Date(amc.end_date).toLocaleDateString()}
+                      </span>
+                    </div>
+                  )}
+                  {amc.quoted_price && (
+                    <div className="detail-row">
+                      <span className="label">💰 Quoted Price:</span>
+                      <span className="value price">₹{amc.quoted_price}</span>
+                    </div>
+                  )}
                 </div>
-                {amc.frequency && (
-                  <div className="detail-row">
-                    <span className="label">🔄 Frequency:</span>
-                    <span className="value">{amc.frequency}</span>
-                  </div>
-                )}
-                {amc.start_date && (
-                  <div className="detail-row">
-                    <span className="label">📅 Start Date:</span>
-                    <span className="value">
-                      {new Date(amc.start_date).toLocaleDateString()}
-                    </span>
-                  </div>
-                )}
-                {amc.end_date && (
-                  <div className="detail-row">
-                    <span className="label">📅 End Date:</span>
-                    <span className="value">
-                      {new Date(amc.end_date).toLocaleDateString()}
-                    </span>
-                  </div>
-                )}
-                {amc.quoted_price && (
-                  <div className="detail-row">
-                    <span className="label">💰 Quoted Price:</span>
-                    <span className="value price">₹{amc.quoted_price}</span>
-                  </div>
-                )}
-              </div>
 
-              {amc.description && (
-                <div className="amc-notes">
-                  <strong>Description:</strong>
-                  <p>{amc.description}</p>
+                {amc.description && (
+                  <div className="amc-notes">
+                    <strong>Description:</strong>
+                    <p>{amc.description}</p>
+                  </div>
+                )}
+
+                <div className="amc-timestamp">
+                  Created: {new Date(amc.created_at).toLocaleDateString()}
                 </div>
-              )}
-
-              <div className="amc-timestamp">
-                Created: {new Date(amc.created_at).toLocaleDateString()}
               </div>
-            </div>
-          ))}
-        </div>
-      )}
+            ))}
+          </div>
+        )}
 
       {/* Create AMC Modal */}
       {showCreateModal && (
