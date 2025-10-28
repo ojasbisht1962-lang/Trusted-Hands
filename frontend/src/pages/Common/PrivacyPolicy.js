@@ -6,6 +6,16 @@ import LoadingScreen from '../../components/LoadingScreen';
 
 export default function PrivacyPolicy() {
   const navigate = useNavigate();
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <LoadingScreen message="Loading Privacy Policy..." />;
+  }
 
   return (
     <>
