@@ -27,6 +27,7 @@ export default function Footer() {
           <h4>Contact</h4>
           <p>Email: caretrustedhands@gmail.com</p>
           <p>Phone: +91-555-123-4567</p>
+          <p>Address: Punjab Engineering College, Sector-12, Chandigarh</p>
         </div>
       </div>
 
