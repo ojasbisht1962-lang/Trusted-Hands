@@ -25,8 +25,8 @@ export default function Footer() {
 
         <div className="footer-section">
           <h4>Contact</h4>
-          <p>Email: support@trustedhands.com</p>
-          <p>Phone: +1 (555) 123-4567</p>
+          <p>Email: caretrustedhands@gmail.com</p>
+          <p>Phone: +91 (555) 123-4567</p>
         </div>
       </div>
 
