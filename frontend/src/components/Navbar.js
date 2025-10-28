@@ -20,14 +20,13 @@ export default function Navbar() {
 
     switch (user.role) {
       case 'customer':
-        return [
-          { label: 'Dashboard', path: '/customer/dashboard', icon: '🏠' },
-          { label: 'Services', path: '/customer/services', icon: '🔧' },
-          { label: 'Taskers', path: '/customer/taskers', icon: '👥' },
-          { label: 'My Bookings', path: '/customer/bookings', icon: '📅' },
-          { label: 'AMC', path: '/customer/amc', icon: '📋' },
-          { label: 'Chat', path: '/customer/chat', icon: '💬' }
-        ];
+          return [
+            { label: 'Dashboard', path: '/customer/dashboard', icon: '🏠' },
+            { label: 'Services', path: '/customer/services', icon: '🔧' },
+            { label: 'My Bookings', path: '/customer/bookings', icon: '📅' },
+            { label: 'AMC', path: '/customer/amc', icon: '📋' },
+            { label: 'Chat', path: '/customer/chat', icon: '💬' }
+          ];
       
       case 'tasker':
         return [
