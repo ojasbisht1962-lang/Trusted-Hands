@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import api from '../../services/api';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import LoadingSpinner from '../../components/LoadingSpinner';
+import LoadingScreen from '../../components/LoadingScreen';
 import './MyBookings.css';
 
 export default function MyBookings() {
@@ -129,7 +129,7 @@ export default function MyBookings() {
     return (
       <>
         <Navbar />
-        <LoadingSpinner message="Firing Up The Engines" />
+  <LoadingScreen message="Firing Up The Engines" />
         <Footer />
       </>
     );
