@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import config from '../../config';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../../components/Footer';
 import './Contact.css';
@@ -20,15 +21,21 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    console.log('Contact form submitted:', formData);
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
+    try {
+      const res = await fetch(`${config.API_BASE_URL}/contact-message`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      if (!res.ok) throw new Error('Failed to send message');
+      setSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 3000);
+      setTimeout(() => setSubmitted(false), 3000);
+    } catch (err) {
+      alert('Failed to send message. Please try again later.');
+    }
   };
 
   return (

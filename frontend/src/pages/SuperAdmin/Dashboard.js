@@ -62,6 +62,13 @@ export default function Dashboard() {
       icon: '💰',
       color: '#06b6d4',
       path: '/admin/price-ranges'
+    },
+    {
+      title: 'Contact Messages',
+      description: 'View messages from contact form',
+      icon: '✉️',
+      color: '#ea580c',
+      path: '/admin/contact-messages'
     }
   ];
 

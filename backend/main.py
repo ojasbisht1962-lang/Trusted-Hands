@@ -126,6 +126,7 @@ async def shutdown_db_client():
     """Close MongoDB connection on shutdown"""
     await close_mongo_connection()
 
+
 # Include routers
 app.include_router(auth.router)
 app.include_router(users.router)
@@ -137,6 +138,8 @@ app.include_router(amc.router)
 app.include_router(admin.router)
 from app.routes.chatbot import router as chatbot_router
 app.include_router(chatbot_router)
+from app.routes.contact_message import router as contact_message_router
+app.include_router(contact_message_router)
 
 # Root endpoint
 @app.get("/")
