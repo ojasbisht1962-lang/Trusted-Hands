@@ -71,21 +71,23 @@ async def update_current_user_profile(
     update_data = {k: v for k, v in profile_data.dict().items() if v is not None}
     update_data["updated_at"] = datetime.utcnow()
     
-    # If upgrading to professional, set verification status to pending
-    if profile_data.tasker_type == "professional" and current_user.get("tasker_type") == "helper":
-        update_data["verification_status"] = VerificationStatus.PENDING.value
-        
-        # Generate referral code if upgrading to professional
-        if not current_user.get("referral_code"):
-            update_data["referral_code"] = f"TH{secrets.token_hex(4).upper()}"
-        
-        # Create notification for admin
-        await create_notification(
-            user_id=str(current_user["_id"]),
-            notification_type=NotificationType.VERIFICATION_APPROVED,
-            title="Professional Upgrade Request",
-            message="Your request to upgrade to professional status has been submitted for review."
-        )
+    # Always set tasker_type to 'helper' unless 'professional' is requested
+    if profile_data.tasker_type == "professional":
+        if current_user.get("tasker_type") != "professional":
+            update_data["tasker_type"] = "professional"
+            update_data["verification_status"] = VerificationStatus.PENDING.value
+            if not current_user.get("referral_code"):
+                update_data["referral_code"] = f"TH{secrets.token_hex(4).upper()}"
+            await create_notification(
+                user_id=str(current_user["_id"]),
+                notification_type=NotificationType.VERIFICATION_APPROVED,
+                title="Professional Upgrade Request",
+                message="Your request to upgrade to professional status has been submitted for review."
+            )
+    else:
+        if current_user.get("tasker_type") != "helper":
+            update_data["tasker_type"] = "helper"
+            update_data["verification_status"] = VerificationStatus.NOT_APPLIED.value
     
     result = await users_collection.update_one(
         {"_id": ObjectId(current_user["_id"])},
