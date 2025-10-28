@@ -149,8 +149,8 @@ export default function TermsOfService() {
               If you have any questions about these Terms of Service, please contact us at:
             </p>
             <p>
-              <strong>Email:</strong> support@trustedhands.com<br />
-              <strong>Phone:</strong> +1 (555) 123-4567
+              <strong>Email:</strong> caretrustedhands@gmail.com<br />
+              <strong>Phone:</strong> +91 (555) 123-4567
             </p>
           </section>
         </div>

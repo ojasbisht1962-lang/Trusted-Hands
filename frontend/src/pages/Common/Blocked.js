@@ -7,7 +7,7 @@ const Blocked = () => (
       <h1>🚫 Your account has been blocked</h1>
       <p>Please contact customer care for assistance.</p>
       <div className="blocked-contact">
-        <span>Email: <a href="mailto:support@trustedhands.com">support@trustedhands.com</a></span>
+  <span>Email: <a href="mailto:caretrustedhands@gmail.com">caretrustedhands@gmail.com</a></span>
         <span>Phone: <a href="tel:+911234567890">+91 12345 67890</a></span>
       </div>
     </div>

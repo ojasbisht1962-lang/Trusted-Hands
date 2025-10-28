@@ -304,7 +304,7 @@ Vercel automatically redeploys!
 
 - **Vercel Documentation**: [vercel.com/docs](https://vercel.com/docs)
 - **Vercel Community**: [github.com/vercel/vercel/discussions](https://github.com/vercel/vercel/discussions)
-- **TrustedHands Support**: support@trustedhands.com
+- **TrustedHands Support**: caretrustedhands@gmail.com
 
 ---
 

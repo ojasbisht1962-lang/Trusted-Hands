@@ -30,8 +30,8 @@ export default function PrivacyPolicy() {
               If you have any questions about this privacy policy or our privacy practices, please contact us at:
             </p>
             <p>
-              <strong>Email:</strong> support@trustedhands.com<br />
-              <strong>Phone:</strong> +1 (555) 123-4567
+              <strong>Email:</strong> caretrustedhands@gmail.com<br />
+              <strong>Phone:</strong> +91 (555) 123-4567
             </p>
           </section>
         </div>
