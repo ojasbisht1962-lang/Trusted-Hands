@@ -37,6 +37,7 @@ import VerificationManagement from './pages/SuperAdmin/VerificationManagement';
 import PriceRangeManagement from './pages/SuperAdmin/PriceRangeManagement';
 import AMCManagement from './pages/SuperAdmin/AMCManagement';
 import BookingManagement from './pages/SuperAdmin/BookingManagement';
+import ContactMessages from './pages/SuperAdmin/ContactMessages';
 
 const PageTransition = ({ children }) => {
   const location = useLocation();
@@ -273,6 +274,14 @@ function AppRoutes() {
           element={
             <ProtectedRoute allowedRoles={['superadmin']}>
               <AMCManagement />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/contact-messages"
+          element={
+            <ProtectedRoute allowedRoles={['superadmin']}>
+              <ContactMessages />
             </ProtectedRoute>
           }
         />
