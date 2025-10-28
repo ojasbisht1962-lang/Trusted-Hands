@@ -344,9 +344,9 @@
 }
 
 .btn-secondary {
-  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
-  color: #ffffff;
-  border: 2px solid #667eea;
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+  color: #fff;
+  border: none;
 }
 
 .btn-secondary:hover:not(:disabled) {
