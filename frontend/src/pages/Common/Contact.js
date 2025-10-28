@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// ...existing code...
 import Footer from '../../components/Footer';
 import './Contact.css';
 
@@ -38,31 +37,25 @@ export default function Contact() {
         <button className="back-button" onClick={() => navigate(-1)}>
           ← Back
         </button>
-    <>
-      <div className="contact-page">
-        <button className="back-button" onClick={() => navigate(-1)}>
-          ← Back
-        </button>
         <div className="contact-container">
+          <div className="contact-content">
+            <div className="info-card">
               <div className="info-icon">📧</div>
               <h3>Email</h3>
               <p>support@trustedhands.com</p>
               <p className="info-note">We'll respond within 24 hours</p>
             </div>
-
             <div className="info-card">
               <div className="info-icon">📞</div>
               <h3>Phone</h3>
               <p>+1 (555) 123-4567</p>
               <p className="info-note">Available 24/7</p>
             </div>
-
             <div className="info-card">
               <div className="info-icon">📍</div>
               <h3>Address</h3>
               <p>Punjab Engineering College, Sector-12, Chandigarh</p>
             </div>
-
             <div className="info-card">
               <div className="info-icon">🕐</div>
               <h3>Business Hours</h3>
@@ -70,7 +63,6 @@ export default function Contact() {
               <p>Weekend: 10am - 4pm</p>
             </div>
           </div>
-
           <div className="contact-form-section">
             <h2>Send us a Message</h2>
             {submitted ? (
@@ -92,7 +84,6 @@ export default function Contact() {
                     placeholder="Your full name"
                   />
                 </div>
-
                 <div className="form-group">
                   <label>Email *</label>
                   <input
@@ -104,7 +95,6 @@ export default function Contact() {
                     placeholder="your.email@example.com"
                   />
                 </div>
-
                 <div className="form-group">
                   <label>Subject *</label>
                   <input
@@ -116,7 +106,6 @@ export default function Contact() {
                     placeholder="How can we help?"
                   />
                 </div>
-
                 <div className="form-group">
                   <label>Message *</label>
                   <textarea
@@ -128,7 +117,6 @@ export default function Contact() {
                     placeholder="Tell us more about your inquiry..."
                   />
                 </div>
-
                 <button type="submit" className="submit-button">
                   Send Message
                 </button>
@@ -137,8 +125,7 @@ export default function Contact() {
           </div>
         </div>
       </div>
-    </div>
-    <Footer />
+      <Footer />
     </>
   );
 }
