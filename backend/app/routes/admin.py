@@ -418,14 +418,18 @@ async def create_price_range(
         price_range["_id"] = str(price_range["_id"])
         return price_range
 
-@router.delete("/price-ranges/{service_category}")
+@router.delete("/price-ranges/{id}")
 async def delete_price_range(
-    service_category: str,
+    id: str,
     current_user: dict = Depends(require_superadmin)
 ):
-    """Delete price range for a service_category (capitalized)"""
+    """Delete price range by _id (ObjectId)"""
     price_ranges_collection = await get_collection("price_ranges")
-    result = await price_ranges_collection.delete_one({"service_category": service_category})
+    try:
+        obj_id = ObjectId(id)
+    except Exception:
+        raise HTTPException(status_code=400, detail="Invalid price range id")
+    result = await price_ranges_collection.delete_one({"_id": obj_id})
     if result.deleted_count == 0:
         raise HTTPException(status_code=404, detail="Price range not found")
     return {"message": "Price range deleted successfully"}
