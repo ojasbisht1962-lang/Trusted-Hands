@@ -399,7 +399,9 @@ async def create_price_range(
                 "updated_at": datetime.utcnow()
             }}
         )
-        price_range_id = str(existing["_id"])
+        price_range = await price_ranges_collection.find_one({"_id": existing["_id"]})
+        price_range["_id"] = str(price_range["_id"])
+        return price_range
     else:
         # Create new
         new_price_range = {
@@ -410,13 +412,11 @@ async def create_price_range(
             "created_at": datetime.utcnow(),
             "updated_at": datetime.utcnow()
         }
-    result = await price_ranges_collection.insert_one(new_price_range)
-    price_range_id = str(result.inserted_id)
-    
-    price_range = await price_ranges_collection.find_one({"_id": ObjectId(price_range_id)})
-    price_range["_id"] = str(price_range["_id"])
-    
-    return price_range
+        result = await price_ranges_collection.insert_one(new_price_range)
+        price_range_id = str(result.inserted_id)
+        price_range = await price_ranges_collection.find_one({"_id": ObjectId(price_range_id)})
+        price_range["_id"] = str(price_range["_id"])
+        return price_range
 
 @router.delete("/price-ranges/{service_category}")
 async def delete_price_range(
