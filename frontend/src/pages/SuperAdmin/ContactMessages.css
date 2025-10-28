@@ -1,0 +1,52 @@
+.contact-messages-page {
+  min-height: 100vh;
+  background: #fff7ed;
+  padding: 40px 0;
+}
+
+.contact-messages-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 32px;
+}
+
+.contact-messages-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+}
+
+.contact-messages-table th,
+.contact-messages-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #f3f4f6;
+  text-align: left;
+}
+
+.contact-messages-table th {
+  background: #f97316;
+  color: #fff;
+  font-weight: 700;
+}
+
+.contact-messages-table tr:nth-child(even) {
+  background: #fff7ed;
+}
+
+.contact-messages-table tr:hover {
+  background: #ffe4b5;
+}
+
+@media (max-width: 700px) {
+  .contact-messages-container {
+    padding: 12px;
+  }
+  .contact-messages-table th,
+  .contact-messages-table td {
+    padding: 8px 4px;
+    font-size: 14px;
+  }
+}
