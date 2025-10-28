@@ -154,7 +154,8 @@ const Home = () => {
               <h4>Quick Links</h4>
               <ul>
                 <li><Link to="/about">About Us</Link></li>
-                <li><Link to="/faq">FAQ</Link></li>
+                <li><Link to="/faq">FAQs</Link></li>
+                <li><Link to="/contact">Contact Us</Link></li>
                 <li><Link to="/login">Login</Link></li>
                 <li><Link to="/privacy-policy">Privacy Policy</Link></li>
                 <li><Link to="/terms-of-service">Terms of Service</Link></li>

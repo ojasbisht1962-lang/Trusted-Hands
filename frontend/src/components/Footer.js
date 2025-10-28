@@ -16,8 +16,8 @@ export default function Footer() {
           <h4>Quick Links</h4>
           <ul className="footer-links">
             <li onClick={() => navigate('/about')}>About Us</li>
-            <li onClick={() => navigate('/faq')}>FAQ</li>
-            <li onClick={() => navigate('/contact')}>Contact</li>
+            <li onClick={() => navigate('/faq')}>FAQs</li>
+            <li onClick={() => navigate('/contact')}>Contact Us</li>
             <li onClick={() => navigate('/privacy-policy')}>Privacy Policy</li>
             <li onClick={() => navigate('/terms-of-service')}>Terms of Service</li>
           </ul>
