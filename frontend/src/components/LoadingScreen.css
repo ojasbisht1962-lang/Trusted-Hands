@@ -237,7 +237,7 @@
 }
 
   .orange-gradient-text {
-    background: linear-gradient(90deg, #f97316 0%, #dc2626 100%);
+    background: linear-gradient(90deg, #fffffff7 0%, #ffffff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
