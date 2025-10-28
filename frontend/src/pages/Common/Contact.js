@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import PublicNavbar from '../../components/PublicNavbar';
+// ...existing code...
 import Footer from '../../components/Footer';
 import './Contact.css';
 
@@ -34,7 +34,6 @@ export default function Contact() {
 
   return (
     <>
-      <PublicNavbar />
       <div className="contact-page">
         <button className="back-button" onClick={() => navigate(-1)}>
           ← Back

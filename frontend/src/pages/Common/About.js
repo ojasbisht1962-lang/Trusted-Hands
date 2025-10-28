@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import PublicNavbar from '../../components/PublicNavbar';
+// ...existing code...
 import Footer from '../../components/Footer';
 import './About.css';
 
@@ -9,12 +9,10 @@ export default function About() {
 
   return (
     <>
-      <PublicNavbar />
       <div className="about-page">
         <button className="back-button" onClick={() => navigate(-1)}>
           ← Back
         </button>
-
         <div className="about-container">
           <h1>About TrustedHands</h1>
         

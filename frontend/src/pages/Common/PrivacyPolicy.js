@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import PublicNavbar from '../../components/PublicNavbar';
+// ...existing code...
 import Footer from '../../components/Footer';
 import './PrivacyPolicy.css';
 
@@ -9,7 +9,6 @@ export default function PrivacyPolicy() {
 
   return (
     <>
-      <PublicNavbar />
       <div className="privacy-policy-page">
         <div className="policy-container">
           <button className="btn-back" onClick={() => navigate(-1)}>
