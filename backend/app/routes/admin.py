@@ -371,10 +371,17 @@ async def create_price_range(
     max_price = data.get("max_price")
     recommended_price = data.get("recommended_price")
 
-    if not service_category or min_price is None or max_price is None:
-        raise HTTPException(status_code=422, detail="Missing required fields")
-    if min_price >= max_price:
-        raise HTTPException(status_code=400, detail="Min price must be less than max price")
+    errors = []
+    if not service_category:
+        errors.append({"loc": ["service_category"], "msg": "field required", "type": "value_error.missing"})
+    if min_price is None:
+        errors.append({"loc": ["min_price"], "msg": "field required", "type": "value_error.missing"})
+    if max_price is None:
+        errors.append({"loc": ["max_price"], "msg": "field required", "type": "value_error.missing"})
+    if min_price is not None and max_price is not None and min_price >= max_price:
+        errors.append({"loc": ["min_price", "max_price"], "msg": "min_price must be less than max_price", "type": "value_error"})
+    if errors:
+        raise HTTPException(status_code=422, detail=errors)
 
     # Check if price range already exists
     existing = await price_ranges_collection.find_one({
