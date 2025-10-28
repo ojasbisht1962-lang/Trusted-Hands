@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, status, Request
-from backend.app.models.contact_message import ContactMessage
-from backend.app.database import get_db
+from app.models.contact_message import ContactMessage
+from app.database import get_db
 from datetime import datetime
 
 router = APIRouter()
