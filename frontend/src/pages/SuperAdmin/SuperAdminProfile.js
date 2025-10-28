@@ -38,7 +38,7 @@ export default function SuperAdminProfile() {
 
     try {
       const token = localStorage.getItem('access_token');
-      const response = await fetch(`${config.API_BASE_URL}/users/profile`, {
+  const response = await fetch(`${config.API_BASE_URL}/users/me`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
