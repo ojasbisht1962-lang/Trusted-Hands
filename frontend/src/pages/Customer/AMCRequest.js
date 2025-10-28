@@ -148,7 +148,7 @@ export default function AMCRequest() {
     return (
       <>
         <Navbar />
-        <LoadingScreen />
+        <LoadingScreen message="Loading AMC Requests..." />
         <Footer />
       </>
     );
@@ -157,7 +157,144 @@ export default function AMCRequest() {
   return (
     <>
       <Navbar />
-      {/* ...existing code... */}
+      <div className="amc-request-page">
+        <div className="amc-header">
+          <h2>My AMC Requests</h2>
+          <button className="btn-create" onClick={() => setShowCreateModal(true)}>
+            + Create New AMC Request
+          </button>
+        </div>
+        <div className="amc-list">
+          {amcRequests.length === 0 ? (
+            <div className="empty-list">No AMC requests found.</div>
+          ) : (
+            <table className="amc-table">
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>Company</th>
+                  <th>Contact</th>
+                  <th>Services</th>
+                  <th>Budget</th>
+                  <th>Duration</th>
+                  <th>Frequency</th>
+                  <th>Preferred Days</th>
+                  <th>Preferred Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                {amcRequests.map((req, idx) => (
+                  <tr key={idx} style={{ background: '#fff' }}>
+                    <td style={{ color: getStatusColor(req.status), fontWeight: 700 }}>
+                      {getStatusIcon(req.status)} {req.status}
+                    </td>
+                    <td>{req.company_name}</td>
+                    <td>{req.contact_person} <br /> {req.contact_email} <br /> {req.contact_phone}</td>
+                    <td>{Array.isArray(req.service_types) ? req.service_types.join(', ') : req.service_types}</td>
+                    <td>{req.estimated_budget ? `₹${req.estimated_budget}` : '-'}</td>
+                    <td>{req.duration_months} months</td>
+                    <td>{req.frequency}</td>
+                    <td>{Array.isArray(req.preferred_days) ? req.preferred_days.join(', ') : req.preferred_days}</td>
+                    <td>{req.preferred_time}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+        </div>
+
+        {showCreateModal && (
+          <div className="modal-overlay">
+            <div className="modal-content">
+              <h3>Create AMC Request</h3>
+              <form onSubmit={handleSubmit} className="amc-form">
+                <label>
+                  Company Name
+                  <input type="text" name="company_name" value={formData.company_name} onChange={handleInputChange} required />
+                </label>
+                <label>
+                  Contact Person
+                  <input type="text" name="contact_person" value={formData.contact_person} onChange={handleInputChange} required />
+                </label>
+                <label>
+                  Contact Email
+                  <input type="email" name="contact_email" value={formData.contact_email} onChange={handleInputChange} required />
+                </label>
+                <label>
+                  Contact Phone
+                  <input type="tel" name="contact_phone" value={formData.contact_phone} onChange={handleInputChange} required />
+                </label>
+                <label>
+                  Address
+                  <input type="text" name="address" value={formData.address} onChange={handleInputChange} required />
+                </label>
+                <label>
+                  Service Types
+                  <div className="checkbox-group">
+                    {serviceTypes.map(st => (
+                      <label key={st.value} className="checkbox-label">
+                        <input
+                          type="checkbox"
+                          name="service_types"
+                          value={st.value}
+                          checked={formData.service_types.includes(st.value)}
+                          onChange={handleInputChange}
+                        />
+                        {st.label}
+                      </label>
+                    ))}
+                  </div>
+                </label>
+                <label>
+                  Description
+                  <textarea name="description" value={formData.description} onChange={handleInputChange} />
+                </label>
+                <label>
+                  Duration (months)
+                  <input type="number" name="duration_months" value={formData.duration_months} onChange={handleInputChange} min={1} max={60} />
+                </label>
+                <label>
+                  Frequency
+                  <select name="frequency" value={formData.frequency} onChange={handleInputChange}>
+                    {frequencyOptions.map(opt => (
+                      <option key={opt.value} value={opt.value}>{opt.label}</option>
+                    ))}
+                  </select>
+                </label>
+                <label>
+                  Preferred Days
+                  <div className="checkbox-group">
+                    {daysOfWeek.map(day => (
+                      <label key={day} className="checkbox-label">
+                        <input
+                          type="checkbox"
+                          name="preferred_days"
+                          value={day}
+                          checked={formData.preferred_days.includes(day)}
+                          onChange={handleInputChange}
+                        />
+                        {day}
+                      </label>
+                    ))}
+                  </div>
+                </label>
+                <label>
+                  Preferred Time
+                  <input type="text" name="preferred_time" value={formData.preferred_time} onChange={handleInputChange} placeholder="e.g. 10:00 AM - 12:00 PM" />
+                </label>
+                <label>
+                  Estimated Budget (₹)
+                  <input type="number" name="estimated_budget" value={formData.estimated_budget} onChange={handleInputChange} min={0} step={0.01} />
+                </label>
+                <div className="modal-actions">
+                  <button type="submit" className="btn-submit">Submit</button>
+                  <button type="button" className="btn-cancel" onClick={() => { setShowCreateModal(false); resetForm(); }}>Cancel</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
+      </div>
       <Footer />
     </>
   );
