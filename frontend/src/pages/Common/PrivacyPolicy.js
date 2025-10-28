@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../../components/Footer';
 import './PrivacyPolicy.css';
+import LoadingScreen from '../../components/LoadingScreen';
 
 export default function PrivacyPolicy() {
   const navigate = useNavigate();
@@ -13,7 +14,6 @@ export default function PrivacyPolicy() {
           <button className="btn-back" onClick={() => navigate(-1)}>
             ← Back
           </button>
-          {/* ...existing code... */}
           <section className="policy-section">
             <h2>11. Contact Us</h2>
             <p>
