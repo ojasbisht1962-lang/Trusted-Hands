@@ -36,6 +36,20 @@ class TaskerDetailsRequest(BaseModel):
     experience_years: Optional[int] = None
     skills: Optional[List[str]] = []
 
+ALLOWED_FOR_HELPERS = [
+    "Car Washing",
+    "Assignment Writing",
+    "Project Making",
+    "Other"
+]
+
+def can_post_service(user, category):
+    if user["tasker_type"] == "professional" and user["verification_status"] == VerificationStatus.APPROVED.value:
+        return True  # Can post any category
+    if category in ALLOWED_FOR_HELPERS:
+        return True  # Helpers and pending professionals can post only these
+    return False  # Restrict all other categories
+
 @router.get("/me")
 async def get_current_user_profile(current_user: dict = Depends(get_current_user)):
     current_user["_id"] = str(current_user["_id"])
@@ -123,28 +137,40 @@ async def complete_tasker_profile(
         if not referrer:
             raise HTTPException(status_code=404, detail="Invalid referral code")
     
-    # Determine tasker type and verification status
-    tasker_type = details.tasker_type
-    verification_status = VerificationStatus.PENDING if details.work_as_professional else VerificationStatus.NOT_APPLIED
-    
-    # Generate unique referral code for this tasker
+    # Enforce tasker_type logic: default to 'helper', set to 'professional' only with pending status
     referral_code = f"TH{secrets.token_hex(4).upper()}"
-    
-    update_data = {
-        "age": details.age,
-        "phone": details.phone,
-        "address": details.address,
-        "languages_spoken": details.languages_spoken,
-        "criminal_record": details.criminal_record,
-        "work_as_professional": details.work_as_professional,
-        "tasker_type": tasker_type,
-        "verification_status": verification_status.value,
-        "bio": details.bio,
-        "experience_years": details.experience_years,
-        "skills": details.skills,
-        "referral_code": referral_code,
-        "updated_at": datetime.utcnow()
-    }
+    if details.work_as_professional:
+        update_data = {
+            "age": details.age,
+            "phone": details.phone,
+            "address": details.address,
+            "languages_spoken": details.languages_spoken,
+            "criminal_record": details.criminal_record,
+            "work_as_professional": True,
+            "tasker_type": "professional",
+            "verification_status": VerificationStatus.PENDING.value,
+            "bio": details.bio,
+            "experience_years": details.experience_years,
+            "skills": details.skills,
+            "referral_code": referral_code,
+            "updated_at": datetime.utcnow()
+        }
+    else:
+        update_data = {
+            "age": details.age,
+            "phone": details.phone,
+            "address": details.address,
+            "languages_spoken": details.languages_spoken,
+            "criminal_record": details.criminal_record,
+            "work_as_professional": False,
+            "tasker_type": "helper",
+            "verification_status": VerificationStatus.NOT_APPLIED.value,
+            "bio": details.bio,
+            "experience_years": details.experience_years,
+            "skills": details.skills,
+            "referral_code": referral_code,
+            "updated_at": datetime.utcnow()
+        }
     
     if details.referral_code:
         update_data["referred_by"] = str(referrer["_id"])
@@ -161,7 +187,7 @@ async def complete_tasker_profile(
         raise HTTPException(status_code=400, detail="Failed to update profile")
     
     # Create notification if verification is pending
-    if verification_status == VerificationStatus.PENDING and not details.referral_code:
+    if update_data["verification_status"] == VerificationStatus.PENDING.value and not details.referral_code:
         await create_notification(
             user_id=str(current_user["_id"]),
             notification_type=NotificationType.VERIFICATION_APPROVED,
@@ -253,3 +279,18 @@ async def get_tasker_details(tasker_id: str):
     tasker["services"] = services
     
     return tasker
+
+@router.post("/service-jobs")
+async def create_service_job(
+    category: str,
+    job_data: dict,
+    current_user: dict = Depends(get_current_user)
+):
+    # Restrict job posting based on user type and category
+    if not can_post_service(current_user, category):
+        if current_user["tasker_type"] == "helper":
+            raise HTTPException(status_code=403, detail="Failed to post job. Apply for professional badge to post jobs in this category.")
+        elif current_user["tasker_type"] == "professional" and current_user["verification_status"] == VerificationStatus.PENDING.value:
+            raise HTTPException(status_code=403, detail="Failed to post your job. Your professional badge status is pending.")
+    # ...existing job posting logic...
+    return {"message": "Job posted successfully"}

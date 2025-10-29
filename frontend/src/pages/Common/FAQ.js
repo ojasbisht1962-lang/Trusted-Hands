@@ -60,6 +60,10 @@ export default function FAQ() {
         {
           question: "How do I receive bookings?",
           answer: "When a customer books your service, you'll receive a notification. You can accept or decline based on your availability."
+        },
+        {
+          question: "Are there restrictions on which jobs helpers and unverified professionals can post?",
+          answer: "Yes. Helpers and professionals with pending verification can only post jobs in the following categories: Car Washing, Assignment Writing, Project Making, and Other. To post jobs in other categories, you must apply for and receive a professional badge. Unverified professionals will see a message if they try to post jobs outside their allowed categories, and helpers are prompted to apply for professional status."
         }
       ]
     }
