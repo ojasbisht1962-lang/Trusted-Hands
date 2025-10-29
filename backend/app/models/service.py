@@ -71,6 +71,8 @@ class Service(BaseModel):
     is_active: bool = True
     created_at: datetime = Field(default_factory=datetime.utcnow)
     updated_at: datetime = Field(default_factory=datetime.utcnow)
+    customer_commission: Optional[float] = None  # % commission charged from customer
+    tasker_commission: Optional[float] = None    # % commission charged from tasker
     
     class Config:
         populate_by_name = True

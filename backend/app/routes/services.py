@@ -170,6 +170,14 @@ async def get_service(service_id: str):
         raise HTTPException(status_code=404, detail="Service not found")
     
     service["_id"] = str(service["_id"])
+        # Commission split
+        technical_categories = [
+            "electrician", "plumber", "carpenter", "ac_servicing", "ro_servicing", "appliance_repair", "painting", "pest_control"
+        ]
+        commission_rate = 15 if service["category"] in technical_categories else 10
+        split = 7.5 if commission_rate == 15 else 5
+        service["customer_commission"] = split
+        service["tasker_commission"] = split
     
     # Get tasker details
     users_collection = await get_collection("users")
