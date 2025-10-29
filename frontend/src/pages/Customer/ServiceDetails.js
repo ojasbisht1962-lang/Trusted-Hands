@@ -131,11 +131,20 @@ export default function ServiceDetails() {
               <section className="info-section">
                 <h2>🏦 Facilitation Commission</h2>
                 <div className="commission-display">
-                  {['electrician','plumber','carpenter','ac_servicing','ro_servicing','appliance_repair','painting','pest_control'].includes(service.category) ? (
-                    <span className="commission-rate">15% (Technical job category)</span>
-                  ) : (
-                    <span className="commission-rate">10% (Non-technical job category)</span>
-                  )}
+                  {(() => {
+                    const isTechnical = [
+                      'electrician','plumber','carpenter','ac_servicing','ro_servicing','appliance_repair','painting','pest_control'
+                    ].includes(service.category);
+                    const commissionRate = isTechnical ? 15 : 10;
+                    const split = commissionRate === 15 ? 7.5 : 5;
+                    return (
+                      <>
+                        <span className="commission-rate">{split}% (from you, Customer)</span>
+                        <span className="commission-rate">{split}% (from Tasker)</span>
+                        <span className="commission-note">Total: {commissionRate}% facilitation commission</span>
+                      </>
+                    );
+                  })()}
                 </div>
               </section>
 

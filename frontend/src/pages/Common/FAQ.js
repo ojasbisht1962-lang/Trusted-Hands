@@ -37,6 +37,10 @@ export default function FAQ() {
           answer: "AMC (Annual Maintenance Contract) allows you to schedule regular maintenance services at discounted rates, perfect for recurring needs."
         },
         {
+          question: "What commission does a customer pay?",
+          answer: "For technical job categories (e.g., Electrician, Plumber, AC Servicing, Appliance Repair, etc.), the customer pays a 7.5% facilitation commission. For non-technical job categories (e.g., Car Washing, Cleaning, Tutoring, Delivery, etc.), the customer pays a 5% facilitation commission."
+        },
+        {
           question: "How do payments work?",
           answer: "We accept all major payment methods. Payments are secure, encrypted, and processed through our platform for your safety."
         }
@@ -65,10 +69,7 @@ export default function FAQ() {
           question: "Are there restrictions on which jobs helpers and unverified professionals can post?",
           answer: "Yes. Helpers and professionals with pending verification can only post jobs in the following categories: Car Washing, Assignment Writing, Project Making, and Other. To post jobs in other categories, you must apply for and receive a professional badge. Unverified professionals will see a message if they try to post jobs outside their allowed categories, and helpers are prompted to apply for professional status."
         },
-        {
-          question: "What commission does a customer pay?",
-          answer: "For technical job categories (e.g., Electrician, Plumber, AC Servicing, Appliance Repair, etc.), the customer pays a 7.5% facilitation commission. For non-technical job categories (e.g., Car Washing, Cleaning, Tutoring, Delivery, etc.), the customer pays a 5% facilitation commission."
-        },
+        
         {
           question: "What commission does a tasker pay?",
           answer: "For technical job categories (e.g., Electrician, Plumber, AC Servicing, Appliance Repair, etc.), the tasker pays a 7.5% facilitation commission. For non-technical job categories (e.g., Car Washing, Cleaning, Tutoring, Delivery, etc.), the tasker pays a 5% facilitation commission."

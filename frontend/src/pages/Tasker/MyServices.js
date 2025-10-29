@@ -201,53 +201,66 @@ export default function MyServices() {
         </div>
       ) : (
         <div className="services-grid">
-          {services.map(service => (
-            <div key={service._id} className={`service-card ${!service.is_active ? 'inactive' : ''}`}>
-              <div className="service-header">
-                <div className="service-category-badge">{getCategoryLabel(service.category)}</div>
-                <div className={`status-badge ${service.is_active ? 'active' : 'inactive'}`}>
-                  {service.is_active ? '🟢 Active' : '🔴 Inactive'}
-                </div>
-              </div>
-              
-              <h3>{service.title}</h3>
-              <p className="service-description">{service.description}</p>
-              
-              <div className="service-details">
-                <div className="detail-item">
-                  <span className="detail-label">Price:</span>
-                  <span className="detail-value price">₹{service.price} {service.price_unit || 'per hour'}</span>
-                </div>
-                {service.location && (
-                  <div className="detail-item">
-                    <span className="detail-label">Location:</span>
-                    <span className="detail-value">📍 {service.location}</span>
+          {services.map(service => {
+            // Commission split logic
+            const isTechnical = [
+              'electrician','plumber','carpenter','ac_servicing','ro_servicing','appliance_repair','painting','pest_control'
+            ].includes(service.category);
+            const commissionRate = isTechnical ? 15 : 10;
+            const split = commissionRate === 15 ? 7.5 : 5;
+            return (
+              <div key={service._id} className={`service-card ${!service.is_active ? 'inactive' : ''}`}>
+                <div className="service-header">
+                  <div className="service-category-badge">{getCategoryLabel(service.category)}</div>
+                  <div className={`status-badge ${service.is_active ? 'active' : 'inactive'}`}>
+                    {service.is_active ? '🟢 Active' : '🔴 Inactive'}
                   </div>
-                )}
+                </div>
+                
+                <h3>{service.title}</h3>
+                <p className="service-description">{service.description}</p>
+                
+                <div className="service-details">
+                  <div className="detail-item">
+                    <span className="detail-label">Price:</span>
+                    <span className="detail-value price">₹{service.price} {service.price_unit || 'per hour'}</span>
+                  </div>
+                  {service.location && (
+                    <div className="detail-item">
+                      <span className="detail-label">Location:</span>
+                      <span className="detail-value">📍 {service.location}</span>
+                    </div>
+                  )}
+                  {/* Commission Split Display for Tasker */}
+                  <div className="detail-item">
+                    <span className="detail-label">Facilitation Commission:</span>
+                    <span className="detail-value commission">{split}% (from you, Tasker)</span>
+                  </div>
+                </div>
+                
+                <div className="service-actions">
+                  <button 
+                    className="btn-edit"
+                    onClick={() => handleEdit(service)}
+                  >
+                    ✏️ Edit
+                  </button>
+                  <button 
+                    className={`btn-toggle ${service.is_active ? 'deactivate' : 'activate'}`}
+                    onClick={() => toggleStatus(service._id, service.is_active)}
+                  >
+                    {service.is_active ? '⏸️ Deactivate' : '▶️ Activate'}
+                  </button>
+                  <button 
+                    className="btn-delete"
+                    onClick={() => handleDelete(service._id)}
+                  >
+                    🗑️ Delete
+                  </button>
+                </div>
               </div>
-              
-              <div className="service-actions">
-                <button 
-                  className="btn-edit"
-                  onClick={() => handleEdit(service)}
-                >
-                  ✏️ Edit
-                </button>
-                <button 
-                  className={`btn-toggle ${service.is_active ? 'deactivate' : 'activate'}`}
-                  onClick={() => toggleStatus(service._id, service.is_active)}
-                >
-                  {service.is_active ? '⏸️ Deactivate' : '▶️ Activate'}
-                </button>
-                <button 
-                  className="btn-delete"
-                  onClick={() => handleDelete(service._id)}
-                >
-                  🗑️ Delete
-                </button>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       )}
 
