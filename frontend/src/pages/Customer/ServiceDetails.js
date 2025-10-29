@@ -127,6 +127,18 @@ export default function ServiceDetails() {
                 </div>
               </section>
 
+              {/* Commission Rate Display */}
+              <section className="info-section">
+                <h2>🏦 Facilitation Commission</h2>
+                <div className="commission-display">
+                  {['electrician','plumber','carpenter','ac_servicing','ro_servicing','appliance_repair','painting','pest_control'].includes(service.category) ? (
+                    <span className="commission-rate">15% (Technical job category)</span>
+                  ) : (
+                    <span className="commission-rate">10% (Non-technical job category)</span>
+                  )}
+                </div>
+              </section>
+
               {service.location && (
                 <section className="info-section">
                   <h2>📍 Location</h2>

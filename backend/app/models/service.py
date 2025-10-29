@@ -5,6 +5,10 @@ from enum import Enum
 from bson import ObjectId
 
 class ServiceCategory(str, Enum):
+    # Commission rates:
+    #   Technical job categories: 15% commission
+    #   Non-Technical job categories: 10% commission
+    #
     # Technical Services
     ELECTRICIAN = "electrician"
     PLUMBER = "plumber"

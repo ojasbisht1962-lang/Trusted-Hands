@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { serviceService } from '../../services/apiService';
+import { serviceJobService } from '../../services/serviceJobService';
 import { toast } from 'react-toastify';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
@@ -42,6 +42,13 @@ export default function MyServices() {
     { label: 'Other', value: 'other' }
   ];
 
+  const ALLOWED_FOR_HELPERS = [
+    'car_washing',
+    'assignment_writing',
+    'project_making',
+    'other'
+  ];
+
   const getCategoryLabel = (categoryValue) => {
     const category = CATEGORIES.find(cat => cat.value === categoryValue);
     return category ? category.label : categoryValue;
@@ -54,7 +61,7 @@ export default function MyServices() {
   const fetchServices = async () => {
     try {
       setLoading(true);
-      const data = await serviceService.getMyServices();
+      const data = await serviceJobService.getMyServices();
       setServices(data);
     } catch (error) {
       toast.error('Failed to load services');
@@ -71,18 +78,31 @@ export default function MyServices() {
     }));
   };
 
+  const getCurrentUser = () => {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user) : null;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    const user = getCurrentUser();
+    // Restrict helpers and pending professionals from posting in restricted categories
+    if (user?.tasker_type === 'helper' && !ALLOWED_FOR_HELPERS.includes(formData.category)) {
+      toast.error('Failed to post job. Apply for professional badge to post jobs in this category.');
+      return;
+    }
+    if (user?.tasker_type === 'professional' && user?.verification_status === 'pending' && !ALLOWED_FOR_HELPERS.includes(formData.category)) {
+      toast.error('Failed to post your job. Your professional badge status is pending.');
+      return;
+    }
     try {
       if (editingService) {
-        await serviceService.updateService(editingService._id, formData);
+        await serviceJobService.createServiceJob(formData.category, formData);
         toast.success('Service updated successfully!');
       } else {
-        await serviceService.createService(formData);
+        await serviceJobService.createServiceJob(formData.category, formData);
         toast.success('Service created successfully!');
       }
-      
       setShowAddModal(false);
       setEditingService(null);
       resetForm();
@@ -110,7 +130,7 @@ export default function MyServices() {
     if (!window.confirm('Are you sure you want to delete this service?')) return;
     
     try {
-      await serviceService.deleteService(serviceId);
+      await serviceJobService.deleteService(serviceId);
       toast.success('Service deleted successfully!');
       fetchServices();
     } catch (error) {
@@ -120,7 +140,7 @@ export default function MyServices() {
 
   const toggleStatus = async (serviceId, currentStatus) => {
     try {
-      await serviceService.updateService(serviceId, { is_active: !currentStatus });
+      await serviceJobService.updateService(serviceId, { is_active: !currentStatus });
       toast.success(`Service ${!currentStatus ? 'activated' : 'deactivated'}`);
       fetchServices();
     } catch (error) {

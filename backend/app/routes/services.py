@@ -1,3 +1,8 @@
+"""
+Commission rates for service jobs:
+ - Technical job categories: 15% commission
+ - Non-Technical job categories: 10% commission
+"""
 from fastapi import APIRouter, HTTPException, Depends, Query
 from pydantic import BaseModel
 from typing import Optional, List
