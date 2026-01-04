@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+import api from '../../services/api';
 import './FavoriteButton.css';
 
 export default function FavoriteButton({ providerId, isFavorite: initialFavorite, onToggle }) {
@@ -9,32 +10,31 @@ export default function FavoriteButton({ providerId, isFavorite: initialFavorite
   const handleToggleFavorite = async () => {
     try {
       setIsLoading(true);
-      const token = localStorage.getItem('access_token');
+      
+      if (!providerId) {
+        toast.error('Provider ID is missing');
+        return;
+      }
+
       const endpoint = isFavorite 
-        ? 'http://localhost:8000/api/provider-selection/favorites/remove'
-        : 'http://localhost:8000/api/provider-selection/favorites/add';
+        ? '/provider-selection/favorites/remove'
+        : '/provider-selection/favorites/add';
 
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({ provider_id: providerId })
-      });
+      console.log('Toggling favorite:', { providerId, endpoint });
+      const response = await api.post(endpoint, { provider_id: providerId });
 
-      const data = await response.json();
-
-      if (data.success || response.ok) {
+      if (response.data.success || response.status === 200) {
         setIsFavorite(!isFavorite);
         toast.success(isFavorite ? '💔 Removed from favorites' : '⭐ Added to favorites!');
         if (onToggle) onToggle(!isFavorite);
       } else {
-        toast.error(data.message || 'Failed to update favorite');
+        toast.error(response.data.message || 'Failed to update favorite');
       }
     } catch (error) {
       console.error('Error toggling favorite:', error);
-      toast.error('Failed to update favorite');
+      console.error('Error details:', error.response?.data);
+      const errorMsg = error.response?.data?.detail?.[0]?.msg || error.response?.data?.detail || 'Failed to update favorite';
+      toast.error(errorMsg);
     } finally {
       setIsLoading(false);
     }

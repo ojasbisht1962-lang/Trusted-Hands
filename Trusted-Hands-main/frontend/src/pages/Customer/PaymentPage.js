@@ -27,6 +27,7 @@ export default function PaymentPage() {
     }
     fetchPaymentSettings();
     initiatePayment();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchPaymentSettings = async () => {

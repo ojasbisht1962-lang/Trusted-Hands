@@ -13,27 +13,28 @@ const HouseholdTypeSelector = ({
 
   useEffect(() => {
     // Temporarily disabled - backend route has database issues
-    // fetchHouseholdTypes();
+    // Using hardcoded values instead
   }, []);
 
-  const fetchHouseholdTypes = async () => {
-    try {
-      const response = await api.get('/gender-preference/enums');
-      setHouseholdTypes(response.data.household_types || []);
-    } catch (error) {
-      console.error('Failed to fetch household types:', error);
-      // Fallback to hardcoded values
-      setHouseholdTypes([
-        'single_woman',
-        'elderly_home',
-        'family_with_children',
-        'mixed',
-        'other'
-      ]);
-    } finally {
-      setLoading(false);
-    }
-  };
+  // Disabled function - using hardcoded values
+  // const fetchHouseholdTypes = async () => {
+  //   try {
+  //     const response = await api.get('/gender-preference/enums');
+  //     setHouseholdTypes(response.data.household_types || []);
+  //   } catch (error) {
+  //     console.error('Failed to fetch household types:', error);
+  //     // Fallback to hardcoded values
+  //     setHouseholdTypes([
+  //       'single_woman',
+  //       'elderly_home',
+  //       'family_with_children',
+  //       'mixed',
+  //       'other'
+  //     ]);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   const getHouseholdInfo = (type) => {
     const info = {

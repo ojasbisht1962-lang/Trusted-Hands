@@ -9,7 +9,6 @@ const GenderPreferenceSettings = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-  const [profile, setProfile] = useState(null);
   const [formData, setFormData] = useState({
     gender: null,
     gender_preference: 'no_preference',
@@ -28,7 +27,6 @@ const GenderPreferenceSettings = () => {
     try {
       const response = await api.get('/gender-preference/profile');
       if (response.data.profile) {
-        setProfile(response.data.profile);
         setFormData({
           gender: response.data.profile.gender || null,
           gender_preference: response.data.profile.gender_preference || 'no_preference',

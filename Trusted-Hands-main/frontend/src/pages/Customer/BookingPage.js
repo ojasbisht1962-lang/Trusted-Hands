@@ -5,8 +5,6 @@ import { toast } from 'react-toastify';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import LoadingScreen from '../../components/LoadingScreen';
-import GenderPreferenceSelector from '../../components/GenderPreference/GenderPreferenceSelector';
-import HouseholdTypeSelector from '../../components/GenderPreference/HouseholdTypeSelector';
 import './BookingPage.css';
 
 export default function BookingPage() {
@@ -37,20 +35,21 @@ export default function BookingPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [serviceId]);
 
-  const checkMandatoryGenderRequirement = async () => {
-    try {
-      const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:8000/api/gender-preference/matching-rules', {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      });
-      const data = await response.json();
-      setMandatoryServices(data.mandatory_services || []);
-    } catch (error) {
-      console.error('Failed to fetch gender matching rules:', error);
-    }
-  };
+  // Disabled function - gender preferences temporarily disabled
+  // const checkMandatoryGenderRequirement = async () => {
+  //   try {
+  //     const token = localStorage.getItem('token');
+  //     const response = await fetch('http://localhost:8000/api/gender-preference/matching-rules', {
+  //       headers: {
+  //         'Authorization': `Bearer ${token}`
+  //       }
+  //     });
+  //     const data = await response.json();
+  //     setMandatoryServices(data.mandatory_services || []);
+  //   } catch (error) {
+  //     console.error('Failed to fetch gender matching rules:', error);
+  //   }
+  // };
 
   const fetchService = async () => {
     try {

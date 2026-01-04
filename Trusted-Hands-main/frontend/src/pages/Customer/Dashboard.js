@@ -203,7 +203,7 @@ export default function Dashboard() {
                     </p>
                   </div>
                   <div className="booking-price">
-                    ₹{booking.total_price}
+                    ₹{typeof booking.total_price === 'number' ? booking.total_price.toLocaleString() : (booking.total_price || 0)}
                   </div>
                 </div>
               ))}
@@ -244,7 +244,7 @@ export default function Dashboard() {
                       By {service.tasker?.name || 'Tasker'}
                       {service.tasker?.professional_badge && ' ✓'}
                     </p>
-                    <p className="service-price">{service.price} <span>/ {service.price_unit}</span></p>
+                    <p className="service-price">₹{typeof service.price === 'number' ? service.price.toLocaleString() : service.price} <span>/ {service.price_unit}</span></p>
                   </div>
                 </div>
               ))}

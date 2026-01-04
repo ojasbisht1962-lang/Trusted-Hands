@@ -130,9 +130,9 @@ const Login = () => {
   };
 
   const redirectByRole = (role) => {
-    // Redirect based on role
+    // Redirect based on role to their respective dashboards
     if (role === 'customer') {
-      navigate('/');
+      navigate('/customer/dashboard');
     } else if (role === 'tasker') {
       navigate('/tasker/dashboard');
     } else if (role === 'superadmin') {

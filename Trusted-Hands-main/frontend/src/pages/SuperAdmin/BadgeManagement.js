@@ -15,6 +15,7 @@ export default function BadgeManagement() {
 
   useEffect(() => {
     fetchApplications();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 
   const fetchApplications = async () => {

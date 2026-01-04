@@ -16,6 +16,7 @@ export default function Badges() {
   useEffect(() => {
     fetchBadgeInfo();
     fetchMyApplications();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchBadgeInfo = async () => {

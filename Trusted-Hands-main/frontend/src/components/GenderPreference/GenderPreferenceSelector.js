@@ -14,21 +14,22 @@ const GenderPreferenceSelector = ({
 
   useEffect(() => {
     // Temporarily disabled - backend route has database issues
-    // fetchGenderPreferences();
+    // Using hardcoded values instead
   }, []);
 
-  const fetchGenderPreferences = async () => {
-    try {
-      const response = await api.get('/gender-preference/enums');
-      setGenderPreferences(response.data.gender_preferences || []);
-    } catch (error) {
-      console.error('Failed to fetch gender preferences:', error);
-      // Fallback to hardcoded values
-      setGenderPreferences(['male', 'female', 'any', 'no_preference']);
-    } finally {
-      setLoading(false);
-    }
-  };
+  // Disabled function - using hardcoded values
+  // const fetchGenderPreferences = async () => {
+  //   try {
+  //     const response = await api.get('/gender-preference/enums');
+  //     setGenderPreferences(response.data.gender_preferences || []);
+  //   } catch (error) {
+  //     console.error('Failed to fetch gender preferences:', error);
+  //     // Fallback to hardcoded values
+  //     setGenderPreferences(['male', 'female', 'any', 'no_preference']);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   const formatLabel = (preference) => {
     const labels = {

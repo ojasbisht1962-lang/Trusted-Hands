@@ -3,6 +3,8 @@ import './ProviderSelectionPage.css';
 import ProviderFilters from './ProviderFilters';
 import ProviderCard from './ProviderCard';
 import QuickRebookModal from './QuickRebookModal';
+import Navbar from '../Navbar';
+import Footer from '../Footer';
 import { toast } from 'react-toastify';
 import api from '../../services/api';
 
@@ -94,7 +96,7 @@ const ProviderSelectionPage = () => {
 
   const handleToggleFavorite = async (providerId) => {
     try {
-      const provider = providers.find(p => p._id === providerId);
+      const provider = providers.find(p => (p.id || p._id) === providerId);
       const isFavorite = provider?.is_favorite;
 
       if (isFavorite) {
@@ -108,7 +110,7 @@ const ProviderSelectionPage = () => {
       // Update local state
       setProviders(prev => 
         prev.map(p => 
-          p._id === providerId 
+          (p.id || p._id) === providerId 
             ? { ...p, is_favorite: !isFavorite }
             : p
         )
@@ -138,99 +140,103 @@ const ProviderSelectionPage = () => {
   };
 
   return (
-    <div className="provider-selection-page">
-      <div className="page-header">
-        <h1>Find Your Perfect Service Provider</h1>
-        <p className="subtitle">
-          Browse from {pagination.total} providers • Sort by rating, distance, availability & more
-        </p>
-      </div>
+    <>
+      <Navbar />
+      <div className="provider-selection-page">
+        <div className="page-header">
+          <h1>Find Your Perfect Service Provider</h1>
+          <p className="subtitle">
+            Browse from {pagination.total} providers • Sort by rating, distance, availability & more
+          </p>
+        </div>
 
-      <div className="page-content">
-        <aside className="filters-sidebar">
-          <ProviderFilters
-            filters={filters}
-            sortBy={sortBy}
-            onFilterChange={handleFilterChange}
-            onSortChange={handleSortChange}
-          />
-        </aside>
+        <div className="page-content">
+          <aside className="filters-sidebar">
+            <ProviderFilters
+              filters={filters}
+              sortBy={sortBy}
+              onFilterChange={handleFilterChange}
+              onSortChange={handleSortChange}
+            />
+          </aside>
 
-        <main className="providers-main">
-          {loading ? (
-            <div className="loading-container">
-              <div className="loading-spinner">⏳</div>
-              <p>Finding the best providers for you...</p>
-            </div>
-          ) : providers.length === 0 ? (
-            <div className="no-providers">
-              <div className="no-providers-icon">🔍</div>
-              <h2>No Providers Found</h2>
-              <p>Try adjusting your filters or search criteria</p>
-              <button 
-                className="reset-filters-btn"
-                onClick={() => handleFilterChange({
-                  rating_min: 0,
-                  rating_max: 5,
-                  max_distance: 50,
-                  availability_days: 30,
-                  previously_hired_only: false,
-                  favorites_only: false,
-                  verified_only: false
-                })}
-              >
-                Reset All Filters
-              </button>
-            </div>
-          ) : (
-            <>
-              <div className="providers-grid">
-                {providers.map(provider => (
-                  <ProviderCard
-                    key={provider._id}
-                    provider={provider}
-                    onQuickRebook={handleQuickRebook}
-                    onToggleFavorite={handleToggleFavorite}
-                  />
-                ))}
+          <main className="providers-main">
+            {loading ? (
+              <div className="loading-container">
+                <div className="loading-spinner">⏳</div>
+                <p>Finding the best providers for you...</p>
               </div>
-
-              {pagination.pages > 1 && (
-                <div className="pagination">
-                  <button
-                    className="pagination-btn"
-                    onClick={() => handlePageChange(pagination.page - 1)}
-                    disabled={pagination.page === 1}
-                  >
-                    ← Previous
-                  </button>
-                  
-                  <div className="pagination-info">
-                    Page {pagination.page} of {pagination.pages}
-                  </div>
-                  
-                  <button
-                    className="pagination-btn"
-                    onClick={() => handlePageChange(pagination.page + 1)}
-                    disabled={pagination.page === pagination.pages}
-                  >
-                    Next →
-                  </button>
+            ) : providers.length === 0 ? (
+              <div className="no-providers">
+                <div className="no-providers-icon">🔍</div>
+                <h2>No Providers Found</h2>
+                <p>Try adjusting your filters or search criteria</p>
+                <button 
+                  className="reset-filters-btn"
+                  onClick={() => handleFilterChange({
+                    rating_min: 0,
+                    rating_max: 5,
+                    max_distance: 50,
+                    availability_days: 30,
+                    previously_hired_only: false,
+                    favorites_only: false,
+                    verified_only: false
+                  })}
+                >
+                  Reset All Filters
+                </button>
+              </div>
+            ) : (
+              <>
+                <div className="providers-grid">
+                  {providers.map(provider => (
+                    <ProviderCard
+                      key={provider.id || provider._id}
+                      provider={provider}
+                      onQuickRebook={handleQuickRebook}
+                      onToggleFavorite={handleToggleFavorite}
+                    />
+                  ))}
                 </div>
-              )}
-            </>
-          )}
-        </main>
-      </div>
 
-      {showQuickRebook && selectedProvider && (
-        <QuickRebookModal
-          provider={selectedProvider}
-          onClose={() => setShowQuickRebook(false)}
-          onComplete={handleQuickRebookComplete}
-        />
-      )}
-    </div>
+                {pagination.pages > 1 && (
+                  <div className="pagination">
+                    <button
+                      className="pagination-btn"
+                      onClick={() => handlePageChange(pagination.page - 1)}
+                      disabled={pagination.page === 1}
+                    >
+                      ← Previous
+                    </button>
+                    
+                    <div className="pagination-info">
+                      Page {pagination.page} of {pagination.pages}
+                    </div>
+                    
+                    <button
+                      className="pagination-btn"
+                      onClick={() => handlePageChange(pagination.page + 1)}
+                      disabled={pagination.page === pagination.pages}
+                    >
+                      Next →
+                    </button>
+                  </div>
+                )}
+              </>
+            )}
+          </main>
+        </div>
+
+        {showQuickRebook && selectedProvider && (
+          <QuickRebookModal
+            provider={selectedProvider}
+            onClose={() => setShowQuickRebook(false)}
+            onComplete={handleQuickRebookComplete}
+          />
+        )}
+      </div>
+      <Footer />
+    </>
   );
 };
 

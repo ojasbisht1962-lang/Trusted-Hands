@@ -8,6 +8,7 @@
     "chart.js": "^4.5.1",
     "date-fns": "^2.30.0",
     "framer-motion": "^10.16.16",
+    "lucide-react": "^0.562.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.3.1",
     "react-dom": "^18.2.0",
@@ -41,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "baseline-browser-mapping": "^2.9.11"
   }
 }

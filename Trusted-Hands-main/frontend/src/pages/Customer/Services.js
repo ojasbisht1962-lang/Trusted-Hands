@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import BadgeDisplay from '../../components/BadgeDisplay';
+import AIPhotoSearch from '../../components/AIPhotoSearch';
 import './Services.css';
 
 export default function Services() {
@@ -104,6 +105,8 @@ export default function Services() {
       location: '',
       searchTerm: ''
     });
+    // Clear URL parameters and navigate to base services page
+    navigate('/customer/services', { replace: true });
   };
 
   const handleViewService = (serviceId) => {
@@ -143,6 +146,14 @@ export default function Services() {
     return icons[categoryValue] || '🏠';
   };
 
+  const handleAICategoryDetected = (category) => {
+    setFilters(prev => ({
+      ...prev,
+      category: category
+    }));
+    navigate(`/customer/services?category=${category}`, { replace: true });
+  };
+
   const filteredServices = services.filter(service => {
     if (!filters.searchTerm) return true;
     const searchLower = filters.searchTerm.toLowerCase();
@@ -160,6 +171,9 @@ export default function Services() {
         <div className="services-header">
           <h1>🔍 Browse Services</h1>
           <p>Find the perfect service for your needs</p>
+          <div style={{ marginTop: '20px' }}>
+            <AIPhotoSearch onCategoryDetected={handleAICategoryDetected} />
+          </div>
         </div>
 
       {/* Filters Section */}

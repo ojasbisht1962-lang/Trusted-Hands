@@ -24,6 +24,7 @@ export default function SupportTickets() {
   useEffect(() => {
     fetchStatistics();
     fetchTickets();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab]);
 
   const fetchStatistics = async () => {

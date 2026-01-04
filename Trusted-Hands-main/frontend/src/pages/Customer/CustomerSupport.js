@@ -7,7 +7,6 @@ import Footer from '../../components/Footer';
 import './CustomerSupport.css';
 
 export default function CustomerSupport() {
-  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('create'); // create, my-tickets, ticket-detail
   const [ticketMode, setTicketMode] = useState('ticket'); // 'ticket' or 'complaint'
   const [tickets, setTickets] = useState([]);
@@ -15,7 +14,6 @@ export default function CustomerSupport() {
   const [ticketMessages, setTicketMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [messageText, setMessageText] = useState('');
-  const [availableTaskers, setAvailableTaskers] = useState([]);
 
   // Create ticket form
   const [formData, setFormData] = useState({
