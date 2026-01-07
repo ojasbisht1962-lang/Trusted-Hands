@@ -191,6 +191,7 @@
 .divider {
   display: flex;
   align-items: center;
+  justify-content: center;
   text-align: center;
   margin: 30px 0;
   color: #666666;
@@ -201,10 +202,10 @@
   content: '';
   flex: 1;
   border-bottom: 1px solid #2a2a2a;
+  margin: 0 15px;
 }
 
 .divider span {
-  padding: 0 15px;
   font-size: 14px;
   font-weight: 600;
 }

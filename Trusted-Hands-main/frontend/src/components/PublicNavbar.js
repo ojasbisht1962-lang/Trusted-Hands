@@ -8,26 +8,10 @@ import './PublicNavbar.css';
 export default function PublicNavbar() {
   const navigate = useNavigate();
   const { isAuthenticated, user } = useAuth();
-  const [selectedCity, setSelectedCity] = useState('Chandigarh');
-  const [showLocationDropdown, setShowLocationDropdown] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [showSearchResults, setShowSearchResults] = useState(false);
   const searchRef = useRef(null);
-  const locationRef = useRef(null);
-
-  const cities = [
-    'Chandigarh',
-    'Delhi',
-    'Mumbai',
-    'Bangalore',
-    'Hyderabad',
-    'Chennai',
-    'Kolkata',
-    'Pune',
-    'Ahmedabad',
-    'Jaipur'
-  ];
 
   const getDashboardLink = () => {
     if (!isAuthenticated) return '/login';
@@ -81,9 +65,6 @@ export default function PublicNavbar() {
       if (searchRef.current && !searchRef.current.contains(event.target)) {
         setShowSearchResults(false);
       }
-      if (locationRef.current && !locationRef.current.contains(event.target)) {
-        setShowLocationDropdown(false);
-      }
     };
 
     document.addEventListener('mousedown', handleClickOutside);
@@ -101,39 +82,6 @@ export default function PublicNavbar() {
 
         {/* Right Side Controls */}
         <div className="public-nav-controls">
-          {/* Location Dropdown */}
-          <div className="location-dropdown" ref={locationRef}>
-            <button 
-              className="location-btn"
-              onClick={() => setShowLocationDropdown(!showLocationDropdown)}
-            >
-              <svg className="location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-              <span className="location-text">{selectedCity}</span>
-              <svg className="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            {showLocationDropdown && (
-              <div className="location-dropdown-menu">
-                {cities.map((city) => (
-                  <button
-                    key={city}
-                    className={`location-option ${selectedCity === city ? 'active' : ''}`}
-                    onClick={() => {
-                      setSelectedCity(city);
-                      setShowLocationDropdown(false);
-                    }}
-                  >
-                    {city}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-
           {/* Search Bar */}
           <div className="search-container" ref={searchRef}>
             <svg className="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -192,3 +140,4 @@ export default function PublicNavbar() {
     </nav>
   );
 }
+

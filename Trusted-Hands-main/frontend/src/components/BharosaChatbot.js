@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import config from '../config';
-const BACKEND_CHATBOT_URL = `${config.API_BASE_URL}/api/chatbot`;
+
 const initialPrompt = `You are TrustedHands AI Assistant, a friendly chatbot for TrustedHands (https://trusted-hands.vercel.app), a trusted marketplace for freelance and gig services. Your job is to help users understand every feature and section of the website, including: Customer, Tasker, and Admin roles; Service categories (Electrician, Plumber, Carpenter, AC Servicing, RO Servicing, Home Cleaning, Car Washing, Assignment Writing); Safety & Trust features (background verification, secure payments, rating/review system, 24/7 support, service quality guarantee); AMC Services (Annual Maintenance Contracts for businesses and societies); How to use the chat, booking, and payment features; How to sign up, login, and switch roles; Contact info: Punjab Engineering College, Sector-12, Chandigarh; caretrustedhands@gmail.com; +91 (555) 123-4567. 
 
 IMPORTANT: If a user mentions any of these keywords, IMMEDIATELY suggest they create a support ticket for human assistance:
@@ -15,9 +14,27 @@ Always answer in a helpful, clear, and friendly way. If asked about TrustedHands
 
 export default function BharosaChatbot() {
   const [open, setOpen] = useState(false);
-  const [messages, setMessages] = useState([{ role: "user", parts: [{ text: initialPrompt }] }]);
+  const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [puterReady, setPuterReady] = useState(false);
+
+  // Initialize puter.js
+  useEffect(() => {
+    if (window.puter) {
+      setPuterReady(true);
+    } else {
+      // Wait for puter.js to load
+      const checkPuter = setInterval(() => {
+        if (window.puter) {
+          setPuterReady(true);
+          clearInterval(checkPuter);
+        }
+      }, 100);
+      
+      return () => clearInterval(checkPuter);
+    }
+  }, []);
 
   const checkForEscalation = (userMessage) => {
     const escalationKeywords = [
@@ -31,36 +48,47 @@ export default function BharosaChatbot() {
   };
 
   const sendMessage = async (text) => {
+    if (!puterReady) {
+      setMessages([...messages, 
+        { role: "user", text },
+        { role: "assistant", text: "⚠️ AI service is initializing. Please wait a moment and try again." }
+      ]);
+      return;
+    }
+
     setLoading(true);
-    const newMessages = [...messages, { role: "user", parts: [{ text }] }];
-    setMessages(newMessages);
+    const userMessage = { role: "user", text };
+    setMessages(prev => [...prev, userMessage]);
     
     // Check if escalation is needed
     const needsEscalation = checkForEscalation(text);
     
     try {
-      const res = await fetch(BACKEND_CHATBOT_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ contents: newMessages })
-      });
-      if (!res.ok) {
-        let errorMsg = `Sorry, I couldn't connect to the backend chatbot API (${res.status}). Please check your backend deployment.`;
-        setMessages([...newMessages, { role: "model", parts: [{ text: errorMsg }] }]);
-        setLoading(false);
-        return;
-      }
-      const data = await res.json();
-      let reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't get a response.";
+      // Build conversation context for puter.js
+      const conversationHistory = messages.map(msg => ({
+        role: msg.role === "assistant" ? "assistant" : "user",
+        content: msg.text
+      }));
+      
+      // Add system prompt and current message
+      const prompt = `${initialPrompt}\n\nConversation history:\n${conversationHistory.map(m => `${m.role}: ${m.content}`).join('\n')}\n\nUser: ${text}\n\nAssistant:`;
+      
+      // Call puter.js AI
+      const response = await window.puter.ai.chat(prompt);
+      let reply = response || "Sorry, I couldn't get a response.";
       
       // Add escalation suggestion if needed
       if (needsEscalation) {
         reply += `\n\n🚨 **Important:** This seems like a critical issue that requires human attention. I strongly recommend creating a support ticket so our team can assist you properly.\n\n📋 **[Click here to create a support ticket](/customer/support)** - Our human agents will help you resolve this issue.`;
       }
       
-      setMessages([...newMessages, { role: "model", parts: [{ text: reply }] }]);
+      setMessages(prev => [...prev, { role: "assistant", text: reply }]);
     } catch (err) {
-      setMessages([...newMessages, { role: "model", parts: [{ text: "Sorry, I couldn't connect. Please check your internet connection and API key." }] }]);
+      console.error('Puter.js AI error:', err);
+      setMessages(prev => [...prev, { 
+        role: "assistant", 
+        text: "Sorry, I'm having trouble connecting to the AI service. Please try again in a moment. If the problem persists, please contact support at caretrustedhands@gmail.com" 
+      }]);
     }
     setLoading(false);
   };
@@ -129,7 +157,22 @@ export default function BharosaChatbot() {
             padding: 16,
             background: "#0a0a0a"
           }}>
-            {messages.slice(1).map((msg, i) => (
+            {messages.length === 0 && (
+              <div style={{
+                textAlign: "center",
+                padding: "40px 20px",
+                color: "#888"
+              }}>
+                <div style={{ fontSize: "48px", marginBottom: "16px" }}>🤖</div>
+                <p style={{ fontSize: "16px", fontWeight: "600", marginBottom: "8px", color: "#FDB913" }}>
+                  Welcome to TrustedHands AI Assistant!
+                </p>
+                <p style={{ fontSize: "14px", lineHeight: "1.6" }}>
+                  Ask me anything about our services, features, or how to use the platform.
+                </p>
+              </div>
+            )}
+            {messages.map((msg, i) => (
               <div key={i} style={{ 
                 marginBottom: 12, 
                 textAlign: msg.role === "user" ? "right" : "left" 
@@ -150,7 +193,7 @@ export default function BharosaChatbot() {
                   fontWeight: msg.role === "user" ? "600" : "400",
                   textAlign: "left"
                 }}>
-                  {msg.role === "model" ? (
+                  {msg.role === "assistant" ? (
                     <ReactMarkdown
                       components={{
                         p: ({ children }) => <p style={{ margin: "8px 0", lineHeight: "1.6" }}>{children}</p>,
@@ -167,10 +210,10 @@ export default function BharosaChatbot() {
                         blockquote: ({ children }) => <blockquote style={{ borderLeft: "4px solid #FDB913", paddingLeft: "12px", marginTop: "8px", marginBottom: "8px", fontStyle: "italic", color: "#ccc" }}>{children}</blockquote>
                       }}
                     >
-                      {msg.parts[0].text}
+                      {msg.text}
                     </ReactMarkdown>
                   ) : (
-                    msg.parts[0].text
+                    msg.text
                   )}
                 </div>
               </div>

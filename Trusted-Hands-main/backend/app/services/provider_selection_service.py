@@ -240,13 +240,21 @@ class ProviderSelectionService:
                 
                 # Calculate distance if coordinates provided
                 distance = None
+                provider_lat = None
+                provider_lng = None
+                
+                # Get provider coordinates from service_location
+                if provider.get("service_location") and provider["service_location"].get("coordinates"):
+                    provider_lat = provider["service_location"]["coordinates"].get("lat")
+                    provider_lng = provider["service_location"]["coordinates"].get("lng")
+                
                 if (search_request.latitude and search_request.longitude and
-                    provider.get("latitude") and provider.get("longitude")):
+                    provider_lat and provider_lng):
                     distance = self.calculate_distance(
                         search_request.latitude,
                         search_request.longitude,
-                        provider["latitude"],
-                        provider["longitude"]
+                        provider_lat,
+                        provider_lng
                     )
                     
                     # Apply distance filter
@@ -273,6 +281,7 @@ class ProviderSelectionService:
                     "professional_badge": provider.get("professional_badge", False),
                     "skills": provider.get("skills", []),
                     "location": provider.get("address"),
+                    "service_location": provider.get("service_location"),
                     "profile_picture": provider.get("profile_picture"),
                     "gender": provider.get("gender"),
                     "distance": distance,

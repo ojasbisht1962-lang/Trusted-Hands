@@ -6,12 +6,17 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import BadgeDisplay from '../../components/BadgeDisplay';
 import AIPhotoSearch from '../../components/AIPhotoSearch';
+import CustomerLocationSelector from '../../components/CustomerLocationSelector/CustomerLocationSelector';
+import EnhancedServicesMap from '../../components/ServicesMap/EnhancedServicesMap';
+import { useAuth } from '../../context/AuthContext';
 import './Services.css';
 
 export default function Services() {
+  const { user } = useAuth();
   const [searchParams] = useSearchParams();
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showMap, setShowMap] = useState(true);
   const [filters, setFilters] = useState({
     category: '',
     minPrice: '',
@@ -169,8 +174,15 @@ export default function Services() {
       <Navbar />
       <div className="services-browse-container">
         <div className="services-header">
-          <h1>🔍 Browse Services</h1>
-          <p>Find the perfect service for your needs</p>
+          <div className="header-content-services">
+            <div>
+              <h1>🔍 Browse Services</h1>
+              <p>Find the perfect service for your needs</p>
+            </div>
+            <div className="header-actions-services">
+              <CustomerLocationSelector compact={true} />
+            </div>
+          </div>
           <div style={{ marginTop: '20px' }}>
             <AIPhotoSearch onCategoryDetected={handleAICategoryDetected} />
           </div>
@@ -249,93 +261,111 @@ export default function Services() {
         </div>
       </div>
 
-      {/* Services Grid */}
-      {loading ? (
-        <div className="loading-state">
-          <div className="spinner"></div>
-          <p>Loading services...</p>
-        </div>
-      ) : filteredServices.length === 0 ? (
-        <div className="empty-state">
-          <div className="empty-icon">📦</div>
-          <h2>No Services Found</h2>
-          <p>Try adjusting your filters to see more results</p>
-          <button className="btn-primary" onClick={handleClearFilters}>
-            Clear All Filters
-          </button>
-        </div>
-      ) : (
-        <div className="services-grid">
-          {filteredServices.map(service => (
-            <div key={service._id} className="service-browse-card">
-              <div className="service-image-placeholder">
-                <div className="category-icon">
-                  {getCategoryIcon(service.category)}
-                </div>
+      {/* Services Content */}
+      <div className="services-content-split">
+        {loading ? (
+          <div className="loading-state">
+            <div className="spinner"></div>
+            <p>Loading services...</p>
+          </div>
+        ) : filteredServices.length === 0 ? (
+          <div className="empty-state">
+            <div className="empty-icon">📦</div>
+            <h2>No Services Found</h2>
+            <p>Try adjusting your filters to see more results</p>
+            <button className="btn-primary" onClick={handleClearFilters}>
+              Clear All Filters
+            </button>
+          </div>
+        ) : (
+          <>
+            <div className="services-grid-section">
+              <div className="section-header">
+                <h3>📋 Services List</h3>
               </div>
-
-              <div className="service-content">
-                <div className="service-badges">
-                  <span className="category-badge">{getCategoryLabel(service.category)}</span>
-                  {service.tasker?.professional_badge && (
-                    <BadgeDisplay badgeType={service.tasker.professional_badge} size="small" showName={false} />
-                  )}
-                </div>
-
-                <h3>{service.title}</h3>
-                <p className="service-desc">{service.description}</p>
-
-                {/* Tasker Info */}
-                <div className="tasker-info">
-                  <div className="tasker-avatar">
-                    {service.tasker?.profile_picture ? (
-                      <img src={service.tasker.profile_picture} alt={service.tasker?.name || 'Tasker'} />
-                    ) : (
-                      <div className="avatar-placeholder">
-                        {service.tasker?.name ? service.tasker.name.charAt(0).toUpperCase() : 'T'}
+              <div className="services-grid">
+                {filteredServices.map(service => (
+                  <div key={service._id} className="service-browse-card">
+                    <div className="service-image-placeholder">
+                      <div className="category-icon">
+                        {getCategoryIcon(service.category)}
                       </div>
-                    )}
-                  </div>
-                  <div className="tasker-details">
-                    <p className="tasker-name">{service.tasker?.name || 'Service Provider'}</p>
-                    <div className="tasker-stats">
-                      <span className="rating">⭐ {service.tasker?.rating?.toFixed(1) || '0.0'}</span>
-                      <span className="jobs">• {service.tasker?.total_jobs || 0} jobs</span>
+                    </div>
+
+                    <div className="service-content">
+                      <div className="service-badges">
+                        <span className="category-badge">{getCategoryLabel(service.category)}</span>
+                        {service.tasker?.professional_badge && (
+                          <BadgeDisplay badgeType={service.tasker.professional_badge} size="small" showName={false} />
+                        )}
+                      </div>
+
+                      <h3>{service.title}</h3>
+                      <p className="service-desc">{service.description}</p>
+
+                      {/* Tasker Info */}
+                      <div className="tasker-info">
+                        <div className="tasker-avatar">
+                          {service.tasker?.profile_picture ? (
+                            <img src={service.tasker.profile_picture} alt={service.tasker?.name || 'Tasker'} />
+                          ) : (
+                            <div className="avatar-placeholder">
+                              {service.tasker?.name ? service.tasker.name.charAt(0).toUpperCase() : 'T'}
+                            </div>
+                          )}
+                        </div>
+                        <div className="tasker-details">
+                          <p className="tasker-name">{service.tasker?.name || 'Service Provider'}</p>
+                          <div className="tasker-stats">
+                            <span className="rating">⭐ {service.tasker?.rating?.toFixed(1) || '0.0'}</span>
+                            <span className="jobs">• {service.tasker?.total_jobs || 0} jobs</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="service-meta">
+                        <div className="price-info">
+                          <span className="price">₹{service.price.toLocaleString()}</span>
+                          <span className="price-unit">{service.price_unit}</span>
+                        </div>
+                        {service.location && (
+                          <div className="location-info">
+                            📍 {service.location}
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="service-actions">
+                        <button 
+                          className="btn-view-details"
+                          onClick={() => handleViewService(service._id)}
+                        >
+                          View Details
+                        </button>
+                        <button 
+                          className="btn-book-now"
+                          onClick={() => handleBookNow(service._id)}
+                        >
+                          Book Now
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-
-                <div className="service-meta">
-                  <div className="price-info">
-                    <span className="price">₹{service.price.toLocaleString()}</span>
-                    <span className="price-unit">{service.price_unit}</span>
-                  </div>
-                  {service.location && (
-                    <div className="location-info">
-                      📍 {service.location}
-                    </div>
-                  )}
-                </div>
-
-                <div className="service-actions">
-                  <button 
-                    className="btn-view-details"
-                    onClick={() => handleViewService(service._id)}
-                  >
-                    View Details
-                  </button>
-                  <button 
-                    className="btn-book-now"
-                    onClick={() => handleBookNow(service._id)}
-                  >
-                    Book Now
-                  </button>
-                </div>
+                ))}
               </div>
             </div>
-          ))}
-        </div>
-      )}
+
+            <div className="services-map-section">
+              <div className="section-header">
+                <h3>🗺️ Map View</h3>
+              </div>
+              <div className="map-container-services">
+                <EnhancedServicesMap services={filteredServices} user={user} />
+              </div>
+            </div>
+          </>
+        )}
+      </div>
       </div>
       <Footer />
     </>

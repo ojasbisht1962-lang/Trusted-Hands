@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './GenderPreferenceSelector.css';
-import api from '../../services/api';
 
 const GenderPreferenceSelector = ({ 
   value, 
@@ -9,13 +8,9 @@ const GenderPreferenceSelector = ({
   showLabel = true,
   disabled = false 
 }) => {
-  const [genderPreferences, setGenderPreferences] = useState([]);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    // Temporarily disabled - backend route has database issues
-    // Using hardcoded values instead
-  }, []);
+  // Using hardcoded values (backend endpoint disabled)
+  const genderPreferences = ['male', 'female', 'any', 'no_preference'];
 
   // Disabled function - using hardcoded values
   // const fetchGenderPreferences = async () => {
@@ -50,10 +45,6 @@ const GenderPreferenceSelector = ({
     };
     return icons[preference] || '👤';
   };
-
-  if (loading) {
-    return <div className="gender-preference-loading">Loading...</div>;
-  }
 
   return (
     <div className="gender-preference-selector">

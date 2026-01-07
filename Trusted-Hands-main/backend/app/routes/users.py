@@ -22,6 +22,8 @@ class UpdateUserProfile(BaseModel):
     tasker_type: Optional[str] = None
     work_as_professional: Optional[bool] = None
     experience_years: Optional[int] = None
+    service_location: Optional[dict] = None
+    customer_location: Optional[dict] = None
 
 class TaskerDetailsRequest(BaseModel):
     age: int
@@ -35,6 +37,7 @@ class TaskerDetailsRequest(BaseModel):
     bio: Optional[str] = None
     experience_years: Optional[int] = None
     skills: Optional[List[str]] = []
+    service_location: Optional[dict] = None  # {"address": str, "coordinates": {"lat": float, "lng": float}}
 
 class ServiceJobRequest(BaseModel):
     category: str
@@ -344,6 +347,10 @@ async def create_service_job(
     # Create the service job
     services_collection = await get_collection("services")
     
+    # Use tasker's service location if available, otherwise use provided location
+    service_location = current_user.get("service_location", None)
+    location_address = service_location.get("address") if service_location else request.location
+    
     service_doc = {
         "tasker_id": str(current_user["_id"]),
         "tasker_name": current_user.get("name", "Unknown"),
@@ -352,7 +359,8 @@ async def create_service_job(
         "description": request.description,
         "price": request.price,
         "price_unit": request.price_unit,
-        "location": request.location,
+        "location": location_address,
+        "service_location": service_location,  # Include full location with coordinates
         "is_active": request.is_active,
         "created_at": datetime.utcnow(),
         "updated_at": datetime.utcnow()
@@ -411,3 +419,83 @@ async def delete_service_job(
     await services_collection.delete_one({"_id": ObjectId(service_id)})
     
     return {"message": "Service deleted successfully"}
+
+@router.put("/update-service-location")
+async def update_service_location(
+    location_data: dict,
+    current_user: dict = Depends(get_current_user)
+):
+    """Update tasker's service location and propagate to all their services"""
+    users_collection = await get_collection("users")
+    services_collection = await get_collection("services")
+    
+    # Validate location data
+    if not location_data.get("address") or not location_data.get("coordinates"):
+        raise HTTPException(status_code=400, detail="Invalid location data. Must include address and coordinates")
+    
+    # Update user's service location
+    result = await users_collection.update_one(
+        {"_id": ObjectId(current_user["_id"])},
+        {
+            "$set": {
+                "service_location": location_data,
+                "updated_at": datetime.utcnow()
+            }
+        }
+    )
+    
+    if result.modified_count == 0:
+        raise HTTPException(status_code=400, detail="Failed to update location")
+    
+    # Update all services with the new location
+    services_update_result = await services_collection.update_many(
+        {"tasker_id": str(current_user["_id"])},
+        {
+            "$set": {
+                "location": location_data.get("address"),
+                "service_location": location_data,
+                "updated_at": datetime.utcnow()
+            }
+        }
+    )
+    
+    return {
+        "message": "Service location updated successfully",
+        "services_updated": services_update_result.modified_count
+    }
+
+@router.put("/update-customer-location")
+async def update_customer_location(
+    location_data: dict,
+    current_user: dict = Depends(get_current_user)
+):
+    """Update customer's location (separate from tasker location)"""
+    users_collection = await get_collection("users")
+    
+    # Validate location data
+    if not location_data.get("address") or not location_data.get("coordinates"):
+        raise HTTPException(status_code=400, detail="Invalid location data. Must include address and coordinates")
+    
+    # Update user's customer location
+    result = await users_collection.update_one(
+        {"_id": ObjectId(current_user["_id"])},
+        {
+            "$set": {
+                "customer_location": location_data,
+                "updated_at": datetime.utcnow()
+            }
+        }
+    )
+    
+    if result.modified_count == 0:
+        raise HTTPException(status_code=400, detail="Failed to update location")
+    
+    # Get updated user
+    updated_user = await users_collection.find_one({"_id": ObjectId(current_user["_id"])})
+    updated_user["_id"] = str(updated_user["_id"])
+    
+    return {
+        "message": "Customer location updated successfully",
+        "user": updated_user
+    }
+

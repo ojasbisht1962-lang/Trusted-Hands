@@ -67,6 +67,7 @@ class Service(BaseModel):
     price_unit: str = "per hour"  # per hour, per job, per day
     images: Optional[List[str]] = []
     location: Optional[str] = None
+    service_location: Optional[dict] = None  # {"address": str, "coordinates": {"lat": float, "lng": float}}
     availability: Optional[List[str]] = []  # e.g., ["Monday", "Tuesday"]
     is_active: bool = True
     created_at: datetime = Field(default_factory=datetime.utcnow)

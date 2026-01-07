@@ -91,33 +91,34 @@ export default function PaymentPage() {
     }
   };
 
-  const handleManualVerify = async () => {
-    if (!transactionId.trim()) {
-      toast.error('Please enter UPI Transaction ID');
-      return;
-    }
+  // Keeping for potential future use
+  // const handleManualVerify = async () => {
+  //   if (!transactionId.trim()) {
+  //     toast.error('Please enter UPI Transaction ID');
+  //     return;
+  //   }
 
-    setVerifying(true);
-    try {
-      const response = await api.post('/payments/verify', {
-        payment_id: payment._id,
-        upi_transaction_id: transactionId,
-        upi_reference_number: referenceNumber
-      });
+  //   setVerifying(true);
+  //   try {
+  //     const response = await api.post('/payments/verify', {
+  //       payment_id: payment._id,
+  //       upi_transaction_id: transactionId,
+  //       upi_reference_number: referenceNumber
+  //     });
 
-      if (response.data.success) {
-        toast.success('✅ Payment verified successfully!');
-        setTimeout(() => {
-          navigate('/customer/bookings');
-        }, 2000);
-      }
-    } catch (error) {
-      console.error('Error verifying payment:', error);
-      toast.error(error.response?.data?.detail || 'Payment verification failed');
-    } finally {
-      setVerifying(false);
-    }
-  };
+  //     if (response.data.success) {
+  //       toast.success('✅ Payment verified successfully!');
+  //       setTimeout(() => {
+  //         navigate('/customer/bookings');
+  //       }, 2000);
+  //     }
+  //   } catch (error) {
+  //     console.error('Error verifying payment:', error);
+  //     toast.error(error.response?.data?.detail || 'Payment verification failed');
+  //   } finally {
+  //     setVerifying(false);
+  //   }
+  // };
 
   if (loading || !payment || !paymentSettings) {
     return (

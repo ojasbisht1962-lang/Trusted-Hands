@@ -79,6 +79,12 @@ class User(BaseModel):
     rating: Optional[float] = 0.0
     total_jobs: Optional[int] = 0
     
+    # Service location fields (for taskers)
+    service_location: Optional[dict] = None  # {"address": str, "coordinates": {"lat": float, "lng": float}}
+    
+    # Customer location fields (separate from tasker location)
+    customer_location: Optional[dict] = None  # {"address": str, "coordinates": {"lat": float, "lng": float}, "city": str}
+    
     class Config:
         populate_by_name = True
         arbitrary_types_allowed = True

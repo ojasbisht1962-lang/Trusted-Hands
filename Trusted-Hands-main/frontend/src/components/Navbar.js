@@ -2,12 +2,23 @@ import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import UserProfileMenu from './UserProfileMenu';
+import CustomerLocationSelector from './CustomerLocationSelector/CustomerLocationSelector';
 import './Navbar.css';
 
 export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
   const { user, isGuest } = useAuth();
+
+  // Add role-based data attribute to body
+  React.useEffect(() => {
+    if (user?.role) {
+      document.body.setAttribute('data-role', user.role);
+    }
+    return () => {
+      document.body.removeAttribute('data-role');
+    };
+  }, [user?.role]);
 
   // Don't render authenticated navbar if user is not logged in
   if (!user) {
@@ -86,6 +97,7 @@ export default function Navbar() {
 
         {/* User Profile Menu */}
         <div className="navbar-profile">
+          {user.role === 'customer' && <CustomerLocationSelector compact={true} />}
           <UserProfileMenu />
         </div>
       </div>

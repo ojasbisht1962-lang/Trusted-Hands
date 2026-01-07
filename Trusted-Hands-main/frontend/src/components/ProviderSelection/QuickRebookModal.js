@@ -15,6 +15,7 @@ const QuickRebookModal = ({ provider, onClose, onComplete }) => {
 
   useEffect(() => {
     fetchPreviousBooking();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [provider]);
 
   const fetchPreviousBooking = async () => {

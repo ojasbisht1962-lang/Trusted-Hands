@@ -691,6 +691,71 @@
   cursor: not-allowed;
 }
 
+/* Location Section Styles */
+.location-info-box {
+  background: rgba(255, 193, 7, 0.1);
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.location-info-box .info-text {
+  color: #fdb913;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.location-display {
+  margin-top: 16px;
+}
+
+.current-location {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background: rgba(249, 115, 22, 0.05);
+  border: 2px solid rgba(249, 115, 22, 0.2);
+  border-radius: 12px;
+}
+
+.location-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.location-details {
+  flex: 1;
+}
+
+.location-address {
+  font-size: 16px;
+  color: #FFFFFF;
+  margin: 0 0 8px 0;
+  line-height: 1.5;
+}
+
+.location-coords {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.no-location {
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(220, 38, 38, 0.05);
+  border: 2px dashed rgba(220, 38, 38, 0.3);
+  border-radius: 12px;
+}
+
+.no-location p {
+  color: #B0B0B0;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
 @media (max-width: 768px) {
   .upgrade-section {
     flex-direction: column;
@@ -714,6 +779,9 @@
   .modal-footer {
     flex-direction: column-reverse;
   }
+  
+  .current-location {
+    flex-direction: column;
+    text-align: center;
+  }
 }
-
-

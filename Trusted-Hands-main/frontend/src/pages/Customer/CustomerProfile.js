@@ -5,12 +5,14 @@ import { toast } from 'react-toastify';
 import config from '../../config';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import CustomerLocationSelector from '../../components/CustomerLocationSelector/CustomerLocationSelector';
 import './CustomerProfile.css';
 
 export default function CustomerProfile() {
   const { user, updateUser } = useAuth();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [showLocationModal, setShowLocationModal] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -173,6 +175,91 @@ export default function CustomerProfile() {
                 />
               </div>
 
+              <div className="form-group">
+                <label>📍 Saved Location</label>
+                <div className="location-info-card">
+                  {user?.customer_location ? (
+                    <>
+                      <div className="location-summary">
+                        <div className="location-header">
+                          <span className="location-icon">📍</span>
+                          <div className="location-main">
+                            <h4>{user.customer_location.city}</h4>
+                            {user.customer_location.fullAddress ? (
+                              <p className="full-address">{user.customer_location.fullAddress}</p>
+                            ) : (
+                              <p className="location-address">{user.customer_location.address}</p>
+                            )}
+                          </div>
+                        </div>
+                        
+                        {user.customer_location.addressDetails && (
+                          <div className="address-details-grid">
+                            {user.customer_location.addressDetails.houseNo && (
+                              <div className="detail-item">
+                                <span className="detail-label">🏠 House/Flat:</span>
+                                <span className="detail-value">{user.customer_location.addressDetails.houseNo}</span>
+                              </div>
+                            )}
+                            {user.customer_location.addressDetails.street && (
+                              <div className="detail-item">
+                                <span className="detail-label">🛣️ Street:</span>
+                                <span className="detail-value">{user.customer_location.addressDetails.street}</span>
+                              </div>
+                            )}
+                            {user.customer_location.addressDetails.landmark && (
+                              <div className="detail-item">
+                                <span className="detail-label">📌 Landmark:</span>
+                                <span className="detail-value">{user.customer_location.addressDetails.landmark}</span>
+                              </div>
+                            )}
+                            {user.customer_location.addressDetails.area && (
+                              <div className="detail-item">
+                                <span className="detail-label">🗺️ Area:</span>
+                                <span className="detail-value">{user.customer_location.addressDetails.area}</span>
+                              </div>
+                            )}
+                            {user.customer_location.addressDetails.pincode && (
+                              <div className="detail-item">
+                                <span className="detail-label">📮 PIN Code:</span>
+                                <span className="detail-value">{user.customer_location.addressDetails.pincode}</span>
+                              </div>
+                            )}
+                          </div>
+                        )}
+                        
+                        {user.customer_location.coordinates && (
+                          <div className="coordinates-info">
+                            <small>📍 Lat: {user.customer_location.coordinates.lat.toFixed(6)}, Lng: {user.customer_location.coordinates.lng.toFixed(6)}</small>
+                          </div>
+                        )}
+                      </div>
+                      
+                      <button 
+                        type="button"
+                        className="btn-change-location"
+                        onClick={() => setShowLocationModal(true)}
+                      >
+                        ✏️ Change Location
+                      </button>
+                    </>
+                  ) : (
+                    <div className="no-location-set">
+                      <span className="no-location-icon">📍</span>
+                      <p>No location saved yet</p>
+                      <button 
+                        type="button"
+                        className="btn-set-location"
+                        onClick={() => setShowLocationModal(true)}
+                      >
+                        📍 Set Location Now
+                      </button>
+                    </div>
+                  )}
+                </div>
+                <small className="form-hint">Your saved location helps us provide better service recommendations and accurate distance calculations</small>
+              </div>
+
               <button 
                 type="submit" 
                 className="save-btn"
@@ -257,6 +344,28 @@ export default function CustomerProfile() {
           </div>
         </div>
       </div>
+      
+      {/* Location Change Modal */}
+      {showLocationModal && (
+        <div className="location-modal-overlay" onClick={() => setShowLocationModal(false)}>
+          <div className="location-modal-wrapper" onClick={(e) => e.stopPropagation()}>
+            <div className="location-modal-header">
+              <h3>📍 Update Your Location</h3>
+              <button className="modal-close-btn" onClick={() => setShowLocationModal(false)}>×</button>
+            </div>
+            <div className="location-modal-body">
+              <CustomerLocationSelector 
+                compact={true} 
+                onLocationUpdate={() => {
+                  setShowLocationModal(false);
+                  toast.success('Location updated successfully!');
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
+      
       <Footer />
     </>
   );

@@ -138,7 +138,8 @@ async def get_services(
                 "tasker_type": tasker.get("tasker_type"),
                 "professional_badge": tasker.get("professional_badge", False),
                 "rating": tasker.get("rating", 0.0),
-                "total_jobs": tasker.get("total_jobs", 0)
+                "total_jobs": tasker.get("total_jobs", 0),
+                "service_location": tasker.get("service_location")
             }
     
     return services

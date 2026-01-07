@@ -145,7 +145,7 @@ export default function SupportTickets() {
     
     setLoading(true);
     try {
-      const response = await api.post(`/support/complaints/${selectedTicket._id}/ai-review`);
+      await api.post(`/support/complaints/${selectedTicket._id}/ai-review`);
       toast.success('AI review completed! Check the results below.');
       fetchTicketDetails(selectedTicket._id);
     } catch (error) {
@@ -175,7 +175,7 @@ export default function SupportTickets() {
         penalty_amount: penaltyAmount ? parseFloat(penaltyAmount) : null
       };
 
-      const response = await api.post(`/support/complaints/${selectedTicket._id}/admin-review`, payload);
+      await api.post(`/support/complaints/${selectedTicket._id}/admin-review`, payload);
       
       toast.success('✅ Complaint resolved! Escrow has been unfrozen.');
       setReviewNotes('');

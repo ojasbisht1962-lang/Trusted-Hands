@@ -5,6 +5,7 @@ import { userService } from '../../services/apiService';
 import { toast } from 'react-toastify';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import ServiceAreaLocationSelector from '../../components/ServiceAreaLocationSelector/ServiceAreaLocationSelector';
 import './Onboarding.css';
 
 const LANGUAGES = [
@@ -30,6 +31,9 @@ export default function Onboarding() {
     phone: '',
     address: '',
     bio: '',
+    
+    // Service Location (mandatory)
+    service_location: null,
     
     // Tasker Type
     tasker_type: 'helper', // helper or professional
@@ -95,6 +99,10 @@ export default function Onboarding() {
           toast.error('Please enter your complete address');
           return false;
         }
+        if (!formData.service_location || !formData.service_location.address) {
+          toast.error('Please set your service location');
+          return false;
+        }
         return true;
         
       case 2:
@@ -149,6 +157,7 @@ export default function Onboarding() {
         phone: formData.phone,
         address: formData.address,
         bio: formData.bio,
+        service_location: formData.service_location,
         tasker_type: formData.tasker_type,
         languages_spoken: formData.languages_spoken,
         criminal_record: formData.criminal_record,
@@ -235,6 +244,16 @@ export default function Onboarding() {
           maxLength="500"
         />
         <small>{formData.bio.length}/500 characters</small>
+      </div>
+
+      <div className="form-group">
+        <ServiceAreaLocationSelector
+          value={formData.service_location}
+          onChange={(location) => setFormData(prev => ({ ...prev, service_location: location }))}
+          required={true}
+          label="Service Area"
+        />
+        <small className="help-text">This location will be displayed on all your service offerings. Customers will use this to find services near them.</small>
       </div>
     </div>
   );

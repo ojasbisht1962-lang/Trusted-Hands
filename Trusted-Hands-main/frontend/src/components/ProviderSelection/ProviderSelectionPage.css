@@ -7,7 +7,66 @@
 .page-header {
   max-width: 1400px;
   margin: 0 auto 40px;
-  text-align: center;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.header-content > div:first-child {
+  flex: 1;
+  min-width: 300px;
+}
+
+.header-content h1 {
+  text-align: left;
+}
+
+.header-content .subtitle {
+  text-align: left;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.view-toggle {
+  display: flex;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px;
+  border-radius: 12px;
+  border: 1px solid rgba(253, 185, 19, 0.2);
+}
+
+.view-btn {
+  padding: 10px 20px;
+  background: transparent;
+  color: #CCCCCC;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.view-btn:hover {
+  background: rgba(253, 185, 19, 0.1);
+  color: #FDB913;
+}
+
+.view-btn.active {
+  background: linear-gradient(135deg, #FDB913 0%, #F5A623 100%);
+  color: #000000;
+  box-shadow: 0 4px 12px rgba(253, 185, 19, 0.3);
 }
 
 .page-header h1 {
@@ -59,6 +118,74 @@
 
 .providers-main {
   min-height: 500px;
+}
+
+/* Split view for map and grid side by side */
+.providers-main.split-view {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.grid-section,
+.map-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section-header {
+  background: rgba(253, 185, 19, 0.05);
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(253, 185, 19, 0.2);
+}
+
+.section-header h3 {
+  color: #FDB913;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.grid-section {
+  overflow-y: auto;
+  max-height: calc(100vh - 200px);
+}
+
+.grid-section::-webkit-scrollbar {
+  width: 8px;
+}
+
+.grid-section::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 4px;
+}
+
+.grid-section::-webkit-scrollbar-thumb {
+  background: #FDB913;
+  border-radius: 4px;
+}
+
+.map-section {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.map-section .map-container {
+  height: calc(100vh - 250px);
+  min-height: 600px;
+}
+
+.map-container {
+  width: 100%;
+  height: 700px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(253, 185, 19, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .loading-container {
@@ -191,6 +318,18 @@
   .filters-sidebar {
     position: static;
     max-height: none;
+  }
+
+  .providers-main.split-view {
+    grid-template-columns: 1fr;
+  }
+
+  .map-section {
+    position: static;
+  }
+
+  .map-section .map-container {
+    height: 500px;
   }
 
   .providers-grid {

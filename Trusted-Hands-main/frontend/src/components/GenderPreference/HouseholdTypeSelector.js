@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './HouseholdTypeSelector.css';
-import api from '../../services/api';
 
 const HouseholdTypeSelector = ({ 
   value, 
@@ -8,13 +7,15 @@ const HouseholdTypeSelector = ({
   showLabel = true,
   disabled = false 
 }) => {
-  const [householdTypes, setHouseholdTypes] = useState([]);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    // Temporarily disabled - backend route has database issues
-    // Using hardcoded values instead
-  }, []);
+  // Using hardcoded values (backend endpoint disabled)
+  const householdTypes = [
+    'single_woman',
+    'elderly_home',
+    'family_with_children',
+    'mixed',
+    'other'
+  ];
 
   // Disabled function - using hardcoded values
   // const fetchHouseholdTypes = async () => {
@@ -85,10 +86,6 @@ const HouseholdTypeSelector = ({
     };
     return badges[safetyLevel] || badges.low;
   };
-
-  if (loading) {
-    return <div className="household-type-loading">Loading...</div>;
-  }
 
   return (
     <div className="household-type-selector">

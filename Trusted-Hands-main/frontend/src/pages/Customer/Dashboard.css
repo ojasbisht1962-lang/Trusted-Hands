@@ -326,15 +326,16 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 18px;
-  background: linear-gradient(135deg, rgba(253, 185, 19, 0.15) 0%, rgba(245, 166, 35, 0.2) 100%);
-  border: 1.5px solid rgba(253, 185, 19, 0.3);
-  border-radius: 14px;
+  padding: 20px;
+  background: #1a1a1a !important;
+  border: 2px solid rgba(253, 185, 19, 0.4);
+  border-radius: 16px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 .service-item::before {
@@ -344,7 +345,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(253, 185, 19, 0.05) 0%, rgba(245, 166, 35, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(253, 185, 19, 0.1) 0%, rgba(245, 166, 35, 0.15) 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 0;
@@ -355,11 +356,11 @@
 }
 
 .service-item:hover {
-  border-color: rgba(253, 185, 19, 0.6);
+  border-color: rgba(253, 185, 19, 0.8);
   transform: translateX(6px) translateY(-2px);
   box-shadow: 
-    0 8px 24px rgba(253, 185, 19, 0.25),
-    0 0 40px rgba(253, 185, 19, 0.15);
+    0 12px 32px rgba(253, 185, 19, 0.3),
+    0 0 40px rgba(253, 185, 19, 0.2);
 }
 
 .service-icon {
@@ -391,24 +392,20 @@
 }
 
 .service-info h4 {
-  font-size: 17px;
+  font-size: 18px;
   color: #FFFFFF;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   font-weight: 700;
   letter-spacing: 0.3px;
-  text-shadow: 
-    0 2px 8px rgba(0, 0, 0, 0.6),
-    0 1px 3px rgba(0, 0, 0, 0.8);
-  line-height: 1.3;
+  line-height: 1.4;
 }
 
 .service-tasker {
-  color: #E0E0E0;
-  font-size: 13px;
-  margin-bottom: 6px;
+  color: #CCCCCC;
+  font-size: 14px;
+  margin-bottom: 8px;
   font-weight: 500;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .service-price {
@@ -416,8 +413,8 @@
   align-items: baseline;
   gap: 6px;
   color: #00E676 !important;
-  font-weight: 900 !important;
-  font-size: 16px !important;
+  font-weight: 800 !important;
+  font-size: 18px !important;
   line-height: 1;
   margin-top: 2px;
   text-shadow: 

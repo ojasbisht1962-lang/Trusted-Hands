@@ -5,12 +5,17 @@ import ProviderCard from './ProviderCard';
 import QuickRebookModal from './QuickRebookModal';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
+import CustomerLocationSelector from '../CustomerLocationSelector/CustomerLocationSelector';
+import EnhancedProvidersMap from '../ProvidersMap/EnhancedProvidersMap';
 import { toast } from 'react-toastify';
 import api from '../../services/api';
+import { useAuth } from '../../context/AuthContext';
 
 const ProviderSelectionPage = () => {
+  const { user } = useAuth();
   const [providers, setProviders] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [showMap, setShowMap] = useState(true);
   const [filters, setFilters] = useState({
     rating_min: 0,
     rating_max: 5,
@@ -54,6 +59,7 @@ const ProviderSelectionPage = () => {
     if (currentLocation) {
       fetchProviders();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters, sortBy, pagination.page, currentLocation]);
 
   const fetchProviders = async () => {
@@ -144,10 +150,17 @@ const ProviderSelectionPage = () => {
       <Navbar />
       <div className="provider-selection-page">
         <div className="page-header">
-          <h1>Find Your Perfect Service Provider</h1>
-          <p className="subtitle">
-            Browse from {pagination.total} providers • Sort by rating, distance, availability & more
-          </p>
+          <div className="header-content">
+            <div>
+              <h1>Find Your Perfect Service Provider</h1>
+              <p className="subtitle">
+                Browse from {pagination.total} providers • Sort by rating, distance, availability & more
+              </p>
+            </div>
+            <div className="header-actions">
+              <CustomerLocationSelector compact={true} />
+            </div>
+          </div>
         </div>
 
         <div className="page-content">
@@ -160,7 +173,7 @@ const ProviderSelectionPage = () => {
             />
           </aside>
 
-          <main className="providers-main">
+          <main className="providers-main split-view">
             {loading ? (
               <div className="loading-container">
                 <div className="loading-spinner">⏳</div>
@@ -188,40 +201,54 @@ const ProviderSelectionPage = () => {
               </div>
             ) : (
               <>
-                <div className="providers-grid">
-                  {providers.map(provider => (
-                    <ProviderCard
-                      key={provider.id || provider._id}
-                      provider={provider}
-                      onQuickRebook={handleQuickRebook}
-                      onToggleFavorite={handleToggleFavorite}
-                    />
-                  ))}
+                <div className="grid-section">
+                  <div className="section-header">
+                    <h3>📋 Providers List</h3>
+                  </div>
+                  <div className="providers-grid">
+                    {providers.map(provider => (
+                      <ProviderCard
+                        key={provider.id || provider._id}
+                        provider={provider}
+                        onQuickRebook={handleQuickRebook}
+                        onToggleFavorite={handleToggleFavorite}
+                      />
+                    ))}
+                  </div>
+
+                  {pagination.pages > 1 && (
+                    <div className="pagination">
+                      <button
+                        className="pagination-btn"
+                        onClick={() => handlePageChange(pagination.page - 1)}
+                        disabled={pagination.page === 1}
+                      >
+                        ← Previous
+                      </button>
+                      
+                      <div className="pagination-info">
+                        Page {pagination.page} of {pagination.pages}
+                      </div>
+                      
+                      <button
+                        className="pagination-btn"
+                        onClick={() => handlePageChange(pagination.page + 1)}
+                        disabled={pagination.page === pagination.pages}
+                      >
+                        Next →
+                      </button>
+                    </div>
+                  )}
                 </div>
 
-                {pagination.pages > 1 && (
-                  <div className="pagination">
-                    <button
-                      className="pagination-btn"
-                      onClick={() => handlePageChange(pagination.page - 1)}
-                      disabled={pagination.page === 1}
-                    >
-                      ← Previous
-                    </button>
-                    
-                    <div className="pagination-info">
-                      Page {pagination.page} of {pagination.pages}
-                    </div>
-                    
-                    <button
-                      className="pagination-btn"
-                      onClick={() => handlePageChange(pagination.page + 1)}
-                      disabled={pagination.page === pagination.pages}
-                    >
-                      Next →
-                    </button>
+                <div className="map-section">
+                  <div className="section-header">
+                    <h3>🗺️ Map View</h3>
                   </div>
-                )}
+                  <div className="map-container">
+                    <EnhancedProvidersMap providers={providers} user={user} />
+                  </div>
+                </div>
               </>
             )}
           </main>

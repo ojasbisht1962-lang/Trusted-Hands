@@ -38,6 +38,27 @@ A comprehensive marketplace platform connecting customers with professional task
 - **Gemini AI Chatbot**: Integrated support chatbot
 - **Responsive Design**: Apple-inspired smooth UI
 
+## 🆕 Recent Updates
+
+### Map Integration Overhaul
+- ✅ **Migrated from Google Maps to Leaflet/OpenStreetMap**: Complete replacement of Google Maps API with open-source Leaflet library
+- 📊 **Split View Interface**: Services and Providers pages now display map and grid side-by-side for better browsing
+- 🎯 **Smart Zoom Adjustment**: Automatic zoom level calculation based on search radius (1-10km)
+- 🗺️ **Enhanced Location Markers**: Custom icons for different service categories and user location
+
+### UI/UX Improvements
+- 🎨 **Distinct Role Themes**: 
+  - Customer interface: Golden/orange theme (#FDB913)
+  - Tasker interface: Blue/cyan professional theme (#00adb5, #00d4ff)
+- 🧭 **Unified Navigation**: Navbar now appears on all tasker pages including Profile
+- 📍 **Service Location Mapping**: Services now properly display on map with accurate coordinates
+
+### Features & Fixes
+- 🌆 **New Service City**: Added Chandigarh to available service locations
+- 🔧 **Fixed Navigation**: Corrected provider profile navigation from map popups
+- 💾 **Location Save Fix**: Resolved 400 Bad Request error when updating customer location
+- 🔍 **Radius Search Enhancement**: Improved search radius options (1km, 3km, 5km, 10km) with circular area visualization
+
 ## 🛠️ Technology Stack
 
 ### Backend (FastAPI/Python)
@@ -52,10 +73,11 @@ A comprehensive marketplace platform connecting customers with professional task
 - **React 18**: UI library
 - **React Router**: Navigation
 - **Axios**: API calls
+- **Leaflet 1.7.1 + react-leaflet**: Interactive maps with OpenStreetMap
 - **Google OAuth**: Authentication
 - **Framer Motion**: Animations
 - **React Toastify**: Notifications
-- **CSS3**: Apple-inspired styling
+- **CSS3**: Apple-inspired styling with role-based themes
 
 ## 📁 Project Structure
 
@@ -156,6 +178,8 @@ TrustedHands/
    ```powershell
    npm install
    ```
+   
+   *Key packages include: React 18, react-router-dom, axios, leaflet, react-leaflet, framer-motion, react-toastify*
 
 3. **Set up environment variables**
    - Create `.env` file in frontend directory:

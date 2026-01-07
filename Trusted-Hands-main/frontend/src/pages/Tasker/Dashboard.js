@@ -160,15 +160,21 @@ export default function Dashboard() {
       <div className="dashboard-header">
         <div className="header-content">
           <div className="welcome-section">
-            <h1>Welcome back, {user?.name?.split(' ')[0]}! 👋</h1>
-            <p>Here's what's happening with your services today</p>
+            <h1>💼 Tasker Dashboard</h1>
+            <p>Manage your services, bookings, and earnings</p>
           </div>
           <div className="header-actions">
             <button 
               className="btn-primary"
               onClick={() => navigate('/tasker/services')}
             >
-              + Add New Service
+              ➕ Add New Service
+            </button>
+            <button 
+              className="btn-secondary"
+              onClick={() => navigate('/tasker/profile')}
+            >
+              ⚙️ Settings
             </button>
           </div>
         </div>
@@ -197,7 +203,7 @@ export default function Dashboard() {
         <div className="stat-card pending-offers">
           <div className="stat-icon">📬</div>
           <div className="stat-details">
-            <h3>Pending Offers</h3>
+            <h3>New Requests</h3>
             <p className="stat-value">{stats.pendingOffers}</p>
             <small>Awaiting response</small>
           </div>
@@ -209,7 +215,7 @@ export default function Dashboard() {
             <h3>Your Rating</h3>
             <p className="stat-value">{stats.rating.toFixed(1)}</p>
             <small>
-              {user?.professional_badge && <span className="badge">Professional ✓</span>}
+              {user?.professional_badge && <span className="badge">✓ Professional</span>}
             </small>
           </div>
         </div>
@@ -220,7 +226,7 @@ export default function Dashboard() {
         {/* Pending Offers */}
         <div className="dashboard-section pending-section">
           <div className="section-header">
-            <h2>📬 Pending Booking Requests ({pendingBookings.length})</h2>
+            <h2>📬 New Booking Requests ({pendingBookings.length})</h2>
             <button onClick={() => navigate('/tasker/bookings')}>View All</button>
           </div>
           

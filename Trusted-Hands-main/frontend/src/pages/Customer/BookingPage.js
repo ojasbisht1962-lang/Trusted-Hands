@@ -24,7 +24,7 @@ export default function BookingPage() {
   });
 
   const [genderRequired, setGenderRequired] = useState(false);
-  const [mandatoryServices, setMandatoryServices] = useState([]);
+  const [mandatoryServices] = useState([]);
 
   useEffect(() => {
     if (serviceId) {

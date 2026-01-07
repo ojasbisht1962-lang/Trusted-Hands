@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { userService } from '../../services/apiService';
 import { toast } from 'react-toastify';
+import Navbar from '../../components/Navbar';
+import ServiceAreaLocationSelector from '../../components/ServiceAreaLocationSelector/ServiceAreaLocationSelector';
+import api from '../../services/api';
 import './Profile.css';
 
 const LANGUAGES = [
@@ -20,6 +23,7 @@ export default function Profile() {
   const [loading, setLoading] = useState(false);
   const [editing, setEditing] = useState(false);
   const [editingSkills, setEditingSkills] = useState(false);
+  const [editingLocation, setEditingLocation] = useState(false);
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
 // ...existing code...
   
@@ -30,7 +34,8 @@ export default function Profile() {
     bio: '',
     gender: '',
   });
-
+  
+  const [locationData, setLocationData] = useState(null);
   const [skillsData, setSkillsData] = useState({
     languages_spoken: [],
     skills: [],
@@ -50,6 +55,7 @@ export default function Profile() {
         bio: user.bio || '',
         gender: user.gender || '',
       });
+      setLocationData(user.service_location || null);
       setSkillsData({
         languages_spoken: user.languages_spoken || [],
         skills: user.skills || [],
@@ -139,6 +145,33 @@ export default function Profile() {
     }
   };
 
+  const handleLocationUpdate = async (newLocation) => {
+    try {
+      setLoading(true);
+      const response = await api.put('/users/update-service-location', newLocation);
+      
+      // Update local state
+      setLocationData(newLocation);
+      
+      // Update user in context
+      const updatedUser = { ...user, service_location: newLocation };
+      updateUser(updatedUser);
+      
+      toast.success(`Location updated! ${response.data.services_updated} services updated.`);
+      setEditingLocation(false);
+    } catch (error) {
+      console.error('Location update error:', error);
+      toast.error(error.response?.data?.detail || 'Failed to update service location');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleLocationCancel = () => {
+    setLocationData(user.service_location || null);
+    setEditingLocation(false);
+  };
+
   const handleUpgradeToProfessional = async () => {
     if (!upgradeData.experience_years || upgradeData.experience_years < 1) {
       toast.error('Please enter at least 1 year of experience');
@@ -175,11 +208,13 @@ export default function Profile() {
   };
 
   return (
-    <div className="profile-container">
-      <div className="profile-header">
-        <h1>⚙️ Profile Settings</h1>
-        <p>Manage your account information</p>
-      </div>
+    <>
+      <Navbar />
+      <div className="profile-container">
+        <div className="profile-header">
+          <h1>⚙️ Profile Settings</h1>
+          <p>Manage your account information</p>
+        </div>
 
       <div className="profile-content">
         {/* Profile Card */}
@@ -386,29 +421,57 @@ export default function Profile() {
           </form>
         </div>
 
-        {/* Skills & Languages */}
-        <div className="info-section">
+        {/* Service Location Section */}
+        <div className="profile-section">
           <div className="section-header">
-            <h3>Skills & Languages</h3>
-            {!editingSkills ? (
-              <button className="btn-edit" onClick={() => setEditingSkills(true)}>
-                ✏️ Edit Skills
-              </button>
-            ) : null}
+            <h2>📍 Service Area</h2>
           </div>
-          
+
+          <div className="location-info-box">
+            <p className="info-text">
+              ⚠️ This location will be shown on all your service listings. 
+              When you update it, all existing services will automatically update.
+            </p>
+          </div>
+
+          <ServiceAreaLocationSelector
+            value={locationData}
+            onChange={(newLocation) => {
+              setLocationData(newLocation);
+              handleLocationUpdate(newLocation);
+            }}
+            required={true}
+            label="Service Area"
+          />
+        </div>
+
+        {/* Existing Skills Section continues... */}
+        <div className="profile-section">
+          <div className="section-header">
+            <h2>🛠️ Skills & Languages</h2>
+            {!editingSkills && (
+              <button 
+                type="button" 
+                className="btn-edit" 
+                onClick={() => setEditingSkills(true)}
+              >
+                ✏️ Edit
+              </button>
+            )}
+          </div>
+
           <div className="form-group">
-            <label>Languages Spoken {editingSkills && <span className="required">*</span>}</label>
+            <label>Languages Spoken</label>
             {editingSkills ? (
-              <div className="languages-grid">
-                {LANGUAGES.map(language => (
+              <div className="skills-grid">
+                {LANGUAGES.map(lang => (
                   <button
-                    key={language}
+                    key={lang}
                     type="button"
-                    className={`language-chip ${skillsData.languages_spoken.includes(language) ? 'selected' : ''}`}
-                    onClick={() => handleLanguageToggle(language)}
+                    className={`skill-chip ${skillsData.languages_spoken.includes(lang) ? 'selected' : ''}`}
+                    onClick={() => handleLanguageToggle(lang)}
                   >
-                    {language}
+                    {lang}
                   </button>
                 ))}
               </div>
@@ -610,6 +673,7 @@ export default function Profile() {
           </div>
         </div>
       )}
-    </div>
+      </div>
+    </>
   );
 }
