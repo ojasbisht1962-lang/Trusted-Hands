@@ -98,7 +98,7 @@ export default function EnhancedProvidersMap({ providers, user }) {
       const initialZoom = getZoomFromRadius(selectedRadius);
       setMapZoom(initialZoom);
     }
-  }, [user]);
+  }, [user, selectedRadius]);
 
   // Filter providers within radius
   const providersInRadius = providers.filter(provider => {

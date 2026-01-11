@@ -110,7 +110,7 @@ export default function EnhancedServicesMap({ services, user }) {
       const initialZoom = getZoomFromRadius(selectedRadius);
       setMapZoom(initialZoom);
     }
-  }, [user]);
+  }, [user, selectedRadius]);
 
   // Filter services by radius
   useEffect(() => {

@@ -23,7 +23,6 @@ export default function Profile() {
   const [loading, setLoading] = useState(false);
   const [editing, setEditing] = useState(false);
   const [editingSkills, setEditingSkills] = useState(false);
-  const [editingLocation, setEditingLocation] = useState(false);
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
 // ...existing code...
   
@@ -165,11 +164,6 @@ export default function Profile() {
     } finally {
       setLoading(false);
     }
-  };
-
-  const handleLocationCancel = () => {
-    setLocationData(user.service_location || null);
-    setEditingLocation(false);
   };
 
   const handleUpgradeToProfessional = async () => {

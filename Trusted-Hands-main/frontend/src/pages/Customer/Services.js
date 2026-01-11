@@ -16,7 +16,6 @@ export default function Services() {
   const [searchParams] = useSearchParams();
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [showMap, setShowMap] = useState(true);
   const [filters, setFilters] = useState({
     category: '',
     minPrice: '',
